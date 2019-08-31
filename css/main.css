@@ -1786,6 +1786,7 @@ article:last-child .post-eof {
   height: 30px;
 }
 .post-copyright {
+  font-size: 0.93rem;
   background-color: #f9f9f9;
   border-left: 3px solid #ff1700;
   list-style: none;
@@ -1874,7 +1875,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fff;
+  background: #75e7ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2186,14 +2187,6 @@ article:last-child .post-eof {
   50%, 70% {
     transform: scale(1.1);
   }
-}
-.gt-header a,
-.gt-comments a,
-.gt-popup a {
-  border-bottom: none;
-}
-.gt-container .gt-popup .gt-action.is--active::before {
-  top: 0.7em;
 }
 .search-pop-overlay {
   background-color: rgba(0,0,0,0.3);
