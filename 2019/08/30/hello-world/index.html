@@ -772,15 +772,9 @@ NexT.utils.getScript('/js/Valine.min.js', () => {
     pageSize: '10' || 10,
     visitor: true,
     lang: '' || 'zh-cn',
-    avatar_cdn: 'https://www.gravatar.com/avatar/',
     path: location.pathname
   });
 }, window.Valine);
-  function ssl_avatar($avatar) {
-     $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
-     return $avatar;
-  }
-  add_filter('get_avatar', 'ssl_avatar');
 </script>
 
 </body>
