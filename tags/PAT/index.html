@@ -36,7 +36,6 @@
 
 
 
-
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
@@ -44,7 +43,7 @@
     scheme: 'Pisces',
     version: '7.3.0',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true},
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":true},
     copycode: {"enable":true,"show_result":true,"style":"falt"},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     bookmark: {"enable":true,"color":"#222","save":"auto"},
@@ -61,7 +60,7 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
       copy_success: '复制成功',
@@ -74,7 +73,7 @@
             if (prompt('请输入文章密码') !== '') {
                 alert('密码错误！');
                 if (history.length === 1) {
-                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                    location.replace("http://www.runaccpeted.com"); // 这里替换成你的首页
                 } else {
                     history.back();
                 }
@@ -82,14 +81,18 @@
         }
     })();
 </script>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="每天努力一点点">
+  <meta name="description" content="技术成长笔记">
+<meta name="keywords" content="IT">
+<meta property="og:type" content="website">
+<meta property="og:title" content="W.T.的博客">
 <meta property="og:url" content="https://www.runaccpeted.com/tags/PAT/index.html">
-<meta property="og:site_name" content="每天努力一点点">
+<meta property="og:site_name" content="W.T.的博客">
+<meta property="og:description" content="技术成长笔记">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每天努力一点点">
-  <link rel="alternate" href="/atom.xml" title="每天努力一点点" type="application/atom+xml">
+<meta name="twitter:title" content="W.T.的博客">
+<meta name="twitter:description" content="技术成长笔记">
+  <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccpeted.com/tags/PAT/">
 
 
@@ -104,7 +107,8 @@
   };
 </script>
 
-  <title>标签: PAT | 每天努力一点点</title>
+
+  <title>标签: PAT | W.T.的博客</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -151,7 +155,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
     <!-- github -->
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -161,7 +165,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">每天努力一点点</span>
+        <span class="site-title">W.T.的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -189,6 +193,8 @@
         <li class="menu-item menu-item-home">
       
     
+      
+    
 
     <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
@@ -198,6 +204,8 @@
       
         
         <li class="menu-item menu-item-about">
+      
+    
       
     
 
@@ -211,8 +219,10 @@
         <li class="menu-item menu-item-tags">
       
     
+      
+    
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">4</span></a>
 
   </li>
       
@@ -222,8 +232,10 @@
         <li class="menu-item menu-item-categories">
       
     
+      
+    
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">1</span></a>
 
   </li>
       
@@ -233,8 +245,10 @@
         <li class="menu-item menu-item-archives">
       
     
+      
+    
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">3</span></a>
 
   </li>
       
@@ -242,6 +256,8 @@
       
         
         <li class="menu-item menu-item-schedule">
+      
+    
       
     
 
@@ -255,6 +271,8 @@
         <li class="menu-item menu-item-sitemap">
       
     
+      
+    
 
     <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
 
@@ -264,6 +282,8 @@
       
         
         <li class="menu-item menu-item-commonweal">
+      
+    
       
     
 
@@ -438,10 +458,10 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
+      src="/images/a.jpg"
       alt="Wang Ting">
   <p class="site-author-name" itemprop="name">Wang Ting</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">技术成长笔记</div>
 </div>
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
@@ -567,21 +587,16 @@
       </span>
     
   </div>
-  <div class="cc-license motion-element" itemprop="license">
-    
-  
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
 
 
   <div class="links-of-blogroll motion-element">
     <div class="links-of-blogroll-title">
       <i class="fa fa-fw fa-link"></i>
-      Links
+      最近阅读
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="http://wf.uisdc.com/cn/" title="http://wf.uisdc.com/cn/" rel="noopener" target="_blank">google前端开发基础</a>
+          <a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" title="https://blog.csdn.net/sinat_37781304/article/details/82729029" rel="noopener" target="_blank">hexo史上最全搭建教程</a>
         </li>
       
     </ul>
@@ -604,8 +619,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -614,29 +628,42 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
+    <span>网站总字数&nbsp;<span>
     <span title="站点总字数">2k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+    <span>阅读总时长&nbsp;<span>
     <span title="站点阅读时长">3 分钟</span>
 </div>
-  <div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:&nbsp;<span id="busuanzi_value_site_uv"></span>
-</span>
-</div>
-<!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
- -->
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">博客全站共&nbsp;713&nbsp;字</span>
-</div>
+<!--  <span class="post-meta-divider">|</span> -->
 
         
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span>本站总访问量&nbsp;</span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span>本站访客数&nbsp;</span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
 
 
 
@@ -658,9 +685,7 @@
 
 
   <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/utils.js?v=7.3.0"></script>
 <script src="/js/schemes/pisces.js?v=7.3.0"></script>
 <script src="/js/next-boot.js?v=7.3.0"></script><script src="/js/bookmark.js?v=7.3.0"></script>
 
@@ -726,5 +751,10 @@ NexT.utils.getScript('/js/Valine.min.js', () => {
   }
 </script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js"></script>
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
 </html>
