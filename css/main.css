@@ -1166,6 +1166,12 @@ pre .javascript .function {
 }
 .header-inner {
   position: relative;
+  margin-left: 5%;
+}
+@media (max-width: 991px) {
+  .header-inner {
+    margin: 0 0 0 0;
+  }
 }
 .headband {
   background: #222;
@@ -1968,7 +1974,7 @@ pre {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #e8b4de;
+  background: #c3ff40;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
