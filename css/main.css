@@ -1166,12 +1166,6 @@ pre .javascript .function {
 }
 .header-inner {
   position: relative;
-  margin-left: 5%;
-}
-@media (max-width: 991px) {
-  .header-inner {
-    margin: 0 0 0 0;
-  }
 }
 .headband {
   background: #222;
@@ -1974,7 +1968,7 @@ pre {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c3ff40;
+  background: #37b120;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2671,11 +2665,6 @@ body {
 .main::after {
   clear: both;
 }
-.container .main-inner {
-  width: 85%;
-  opacity: 0.9;
-  padding: 0 10% 0 6%;
-}
 @media (max-width: 991px) {
   .container .main-inner {
     width: auto;
@@ -2690,7 +2679,7 @@ body {
   float: right;
   min-height: 700px;
   padding: 40px;
-  width: calc(100% - 260px);
+  width: calc(100% - 252px);
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .content-wrap {
@@ -2708,6 +2697,7 @@ body {
   }
 }
 .sidebar {
+  opacity: 0.9;
   background: #f5f7f9;
   box-shadow: none;
   float: left;
