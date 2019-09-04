@@ -79,19 +79,19 @@
         }
     })();
 </script>
-  <meta name="description" content="b">
-<meta name="keywords" content="PAT,A">
+  <meta name="description" content="BFS应用，计算L层内个数">
+<meta name="keywords" content="PAT,DFS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A1076">
+<meta property="og:title" content="A1076 Forwards on Weibo (30 point(s))">
 <meta property="og:url" content="https://www.runaccpeted.com/2019/09/03/A1076/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="BFS应用，计算L层内个数">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.runaccpeted.com/2019-09-03%2004:32:24/%22A1076%22/ac.png">
-<meta property="og:updated_time" content="2019-09-03T04:32:24.444Z">
+<meta property="og:updated_time" content="2019-09-04T14:51:11.674Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A1076">
-<meta name="twitter:description" content="b">
+<meta name="twitter:title" content="A1076 Forwards on Weibo (30 point(s))">
+<meta name="twitter:description" content="BFS应用，计算L层内个数">
 <meta name="twitter:image" content="https://www.runaccpeted.com/2019-09-03%2004:32:24/%22A1076%22/ac.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccpeted.com/2019/09/03/A1076/">
@@ -109,7 +109,7 @@
 </script>
 
 
-  <title>A1076 | W.T.的博客</title>
+  <title>A1076 Forwards on Weibo (30 point(s)) | W.T.的博客</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -223,7 +223,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">44</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">45</span></a>
 
   </li>
       
@@ -357,7 +357,7 @@
       <meta itemprop="name" content="W.T.的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">A1076
+        <h1 class="post-title" itemprop="name headline">A1076 Forwards on Weibo (30 point(s))
 
           
         </h1>
@@ -378,6 +378,18 @@
               <time title="创建时间：2019-09-03 12:32:24" itemprop="dateCreated datePublished" datetime="2019-09-03T12:32:24+08:00">2019-09-03</time>
             </span>
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-04 22:51:11" itemprop="dateModified" datetime="2019-09-04T22:51:11+08:00">2019-09-04</time>
+              </span>
+            
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -393,7 +405,7 @@
           
 
           
-            <span id="/2019/09/03/A1076/" class="post-meta-item leancloud_visitors" data-flag-title="A1076" title="热度">
+            <span id="/2019/09/03/A1076/" class="post-meta-item leancloud_visitors" data-flag-title="A1076 Forwards on Weibo (30 point(s))" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -435,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>84</span>
+              <span>1.5k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -445,7 +457,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
           
 
@@ -466,24 +478,32 @@
 
           </div>
         </div>
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">BFS应用，计算L层内个数</blockquote>
 
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p><strong>Input Specification:</strong></p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>Weibo is known as the Chinese version of Twitter. One user on Weibo may have many followers, and may follow many other users as well. Hence a social network is formed with followers relations. When a user makes a post on Weibo, all his/her followers can view and forward his/her post, which can then be forwarded again by their followers. Now given a social network, you are supposed to calculate the maximum potential amount of forwards for any specific user, assuming that only <em>L</em> levels of indirect followers are counted.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line contains 2 positive integers: <em>N</em> (≤1000), the number of users; and <em>L</em> (≤6), the number of levels of indirect followers that are counted. Hence it is assumed that all the users are numbered from 1 to <em>N</em>. Then <em>N</em> lines follow, each in the format:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">M[i] user_list[i]</span><br></pre></td></tr></table></figure>
+
+<p>where <code>M[i]</code> (≤100) is the total number of people that <code>user[i]</code> follows; and <code>user_list[i]</code> is a list of the <code>M[i]</code> users that followed by <code>user[i]</code>. It is guaranteed that no one can follow oneself. All the numbers are separated by a space.</p>
+<p>Then finally a positive <em>K</em> is given, followed by <em>K</em> <code>UserID</code>‘s for query.</p>
 <p><strong>output Specification:</strong></p>
+<p>For each <code>UserID</code>, you are supposed to print in one line the maximum potential amount of forwards this user can trigger, assuming that everyone who can view the initial post will forward it once, and that only <em>L</em> levels of indirect followers are counted.</p>
 <p> <strong>Sample Input:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">7 3</span><br><span class="line">3 2 3 4</span><br><span class="line">0</span><br><span class="line">2 5 6</span><br><span class="line">2 3 1</span><br><span class="line">2 3 4</span><br><span class="line">1 4</span><br><span class="line">1 5</span><br><span class="line">2 2 6</span><br></pre></td></tr></table></figure>
 
 <p> <strong>Sample output:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
 
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><p>i ： 1-&gt; N , 记录的是关注的人 v[a].push_back(i);</p>
+<p>层序，在l层内统计个数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (level&lt;=l)</span><br><span class="line">&#123;</span><br><span class="line">	cnt++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>ac：</p>
-<img src="/2019/09/03/A1076/ac.png" class="full-image">
+<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v[<span class="number">1010</span>];</span><br><span class="line"><span class="keyword">bool</span> visit[<span class="number">1010</span>]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> l;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> root)</span></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">	q.push(root);</span><br><span class="line">	<span class="keyword">int</span> level=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> lastnode=root;</span><br><span class="line">	<span class="keyword">int</span> nownode=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">	visit[root]=<span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		<span class="keyword">int</span> temp=q.front();</span><br><span class="line">		<span class="comment">//printf("%d %d\n", temp,level);</span></span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v[temp].size(); ++i)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (!visit[v[temp][i]])</span><br><span class="line">			&#123;</span><br><span class="line">				q.push(v[temp][i]);</span><br><span class="line">				visit[v[temp][i]]=<span class="literal">true</span>;</span><br><span class="line">				nownode=v[temp][i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (level&lt;=l)</span><br><span class="line">		&#123;</span><br><span class="line">			cnt++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (lastnode==temp)</span><br><span class="line">		&#123;</span><br><span class="line">			level++;</span><br><span class="line">			lastnode=nownode;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;l);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> m;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> a;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">			v[a].push_back(i);</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k);</span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">		fill(visit,visit+<span class="number">1010</span>,<span class="literal">false</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,bfs(a)<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="note warning"><p>使 </p></div>
+
     </div>
     
     <div>
@@ -502,16 +522,16 @@
 
 <div>
 <ul class="post-copyright">
-  <li><strong>本文标题：</strong><a href="/2019/09/03/A1076/">A1076</a></li>
+  <li><strong>本文标题：</strong><a href="/2019/09/03/A1076/">A1076 Forwards on Weibo (30 point(s))</a></li>
   <li class="post-copyright-author">
     <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccpeted.com/2019/09/03/A1076/" title="A1076">https://www.runaccpeted.com/2019/09/03/A1076/</a>
+    <a href="https://www.runaccpeted.com/2019/09/03/A1076/" title="A1076 Forwards on Weibo (30 point(s))">https://www.runaccpeted.com/2019/09/03/A1076/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月03日 - 12:32</li>
-  <li><strong>更新时间：</strong>2019年09月03日 - 12:32</li>
+  <li><strong>更新时间：</strong>2019年09月04日 - 22:51</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -527,7 +547,7 @@
             
               <a href="/tags/PAT/" rel="tag"><i class="fa fa-tag"></i> PAT</a>
             
-              <a href="/tags/A/" rel="tag"><i class="fa fa-tag"></i> A</a>
+              <a href="/tags/DFS/" rel="tag"><i class="fa fa-tag"></i> DFS</a>
             
           </div>
         
@@ -537,8 +557,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/03/A1077/" rel="next" title="A1077">
-                  <i class="fa fa-chevron-left"></i> A1077
+                <a href="/2019/09/03/A1077/" rel="next" title="A1077 Kuchiguse (20 point(s))">
+                  <i class="fa fa-chevron-left"></i> A1077 Kuchiguse (20 point(s))
                 </a>
               
             </div>
@@ -547,8 +567,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/03/A1075/" rel="prev" title="A1075">
-                  A1075 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/03/A1075/" rel="prev" title="A1075 PAT Judge (25 point(s))">
+                  A1075 PAT Judge (25 point(s)) <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -741,7 +761,9 @@
         
           
         
-        <span class="site-state-item-count">44</span>
+          
+        
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -862,13 +884,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">92k</span>
+    <span title="站点总字数">123k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">2:34</span>
+    <span title="站点阅读时长">3:25</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

@@ -79,20 +79,18 @@
         }
     })();
 </script>
-  <meta name="description" content="b">
-<meta name="keywords" content="PAT,A">
+  <meta name="description" content="排序后按名次选学校">
+<meta name="keywords" content="PAT,排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A1080">
+<meta property="og:title" content="A1080 Graduate Admission (30 point(s))">
 <meta property="og:url" content="https://www.runaccpeted.com/2019/09/03/A1080/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="排序后按名次选学校">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccpeted.com/2019-09-03%2004:32:08/%22A1080%22/ac.png">
-<meta property="og:updated_time" content="2019-09-03T04:32:08.548Z">
+<meta property="og:updated_time" content="2019-09-04T13:13:46.694Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A1080">
-<meta name="twitter:description" content="b">
-<meta name="twitter:image" content="https://www.runaccpeted.com/2019-09-03%2004:32:08/%22A1080%22/ac.png">
+<meta name="twitter:title" content="A1080 Graduate Admission (30 point(s))">
+<meta name="twitter:description" content="排序后按名次选学校">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccpeted.com/2019/09/03/A1080/">
 
@@ -109,7 +107,7 @@
 </script>
 
 
-  <title>A1080 | W.T.的博客</title>
+  <title>A1080 Graduate Admission (30 point(s)) | W.T.的博客</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -223,7 +221,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">44</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">45</span></a>
 
   </li>
       
@@ -357,7 +355,7 @@
       <meta itemprop="name" content="W.T.的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">A1080
+        <h1 class="post-title" itemprop="name headline">A1080 Graduate Admission (30 point(s))
 
           
         </h1>
@@ -378,6 +376,18 @@
               <time title="创建时间：2019-09-03 12:32:08" itemprop="dateCreated datePublished" datetime="2019-09-03T12:32:08+08:00">2019-09-03</time>
             </span>
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-04 21:13:46" itemprop="dateModified" datetime="2019-09-04T21:13:46+08:00">2019-09-04</time>
+              </span>
+            
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -393,7 +403,7 @@
           
 
           
-            <span id="/2019/09/03/A1080/" class="post-meta-item leancloud_visitors" data-flag-title="A1080" title="热度">
+            <span id="/2019/09/03/A1080/" class="post-meta-item leancloud_visitors" data-flag-title="A1080 Graduate Admission (30 point(s))" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -435,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>84</span>
+              <span>2.6k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -445,7 +455,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
           
 
@@ -458,32 +468,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-            <div class="post-gallery-row">
-              <img src="/2019-09-03 04:32:08/"A1080"/ac.png" itemprop="contentUrl">
-            
-          
-
-          </div>
-        </div>
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">排序后按名次选学校</blockquote>
 
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p><strong>Input Specification:</strong></p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>It is said that in 2011, there are about 100 graduate schools ready to proceed over 40,000 applications in Zhejiang Province. It would help a lot if you could write a program to automate the admission procedure.</p>
+<p>Each applicant will have to provide two grades: the national entrance exam grade <em>G**E</em>, and the interview grade <em>GI</em>. The final grade of an applicant is (<em>GE</em>+<em>GI</em>)/2. The admission rules are:</p>
+<ul>
+<li>The applicants are ranked according to their final grades, and will be admitted one by one from the top of the rank list.</li>
+<li>If there is a tied final grade, the applicants will be ranked according to their national entrance exam grade <em>GE</em>. If still tied, their ranks must be the same.</li>
+<li>Each applicant may have <em>K</em> choices and the admission will be done according to his/her choices: if according to the rank list, it is one’s turn to be admitted; and if the quota of one’s most preferred shcool is not exceeded, then one will be admitted to this school, or one’s other choices will be considered one by one in order. If one gets rejected by all of preferred schools, then this unfortunate applicant will be rejected.</li>
+<li>If there is a tied rank, and if the corresponding applicants are applying to the same school, then that school must admit all the applicants with the same rank, <strong>even if its quota will be exceeded</strong>.</li>
+</ul>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case.</p>
+<p>Each case starts with a line containing three positive integers: <em>N</em> (≤40,000), the total number of applicants; <em>M</em> (≤100), the total number of graduate schools; and <em>K</em> (≤5), the number of choices an applicant may have.</p>
+<p>In the next line, separated by a space, there are <em>M</em> positive integers. The <em>i</em>-th integer is the quota of the <em>i</em>-th graduate school respectively.</p>
+<p>Then <em>N</em> lines follow, each contains 2+<em>K</em> integers separated by a space. The first 2 integers are the applicant’s <em>GE</em> and <em>GI</em>, respectively. The next <em>K</em> integers represent the preferred schools. For the sake of simplicity, we assume that the schools are numbered from 0 to <em>M</em>−1, and the applicants are numbered from 0 to <em>N</em>−1.</p>
 <p><strong>output Specification:</strong></p>
+<p>For each test case you should output the admission results for all the graduate schools. The results of each school must occupy a line, which contains the applicants’ numbers that school admits. The numbers must be in increasing order and be separated by a space. There must be no extra space at the end of each line. If no applicant is admitted by a school, you must output an empty line correspondingly.</p>
 <p> <strong>Sample Input:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">11 6 3</span><br><span class="line">2 1 2 2 2 3</span><br><span class="line">100 100 0 1 2</span><br><span class="line">60 60 2 3 5</span><br><span class="line">100 90 0 3 4</span><br><span class="line">90 100 1 2 0</span><br><span class="line">90 90 5 1 3</span><br><span class="line">80 90 1 0 2</span><br><span class="line">80 80 0 1 2</span><br><span class="line">80 80 0 1 2</span><br><span class="line">80 70 1 3 2</span><br><span class="line">70 80 1 2 3</span><br><span class="line">100 100 0 2 4</span><br></pre></td></tr></table></figure>
 
 <p> <strong>Sample output:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0 10</span><br><span class="line">3</span><br><span class="line">5 6 7</span><br><span class="line">2 8</span><br><span class="line"></span><br><span class="line">1 4</span><br></pre></td></tr></table></figure>
 
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><p>结构体记录每个申请者的信息</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> id,exam,interview,final;</span><br><span class="line"><span class="keyword">int</span> chioce[<span class="number">7</span>];</span><br></pre></td></tr></table></figure>
 
-<p>ac：</p>
-<img src="/2019/09/03/A1080/ac.png" class="full-image">
+<p>根据final，exam排序</p>
+<p>根据排名选学校</p>
+<p>当申请者的final，exam都相同时，学校破格录取。</p>
+<p>cnt[] 学校实际招收人数</p>
+<p>quota[] 学校录取人数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (cnt[pos]&lt;quota[pos]||</span><br><span class="line">			(school[pos][lastnode].final==v[i].final&amp;&amp;</span><br><span class="line">				school[pos][lastnode].exam==v[i].exam))</span><br></pre></td></tr></table></figure>
 
-<div class="note warning"><p>使 </p></div>
+<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> id,exam,interview,final;</span><br><span class="line">	<span class="keyword">int</span> chioce[<span class="number">7</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;node&gt; v;</span><br><span class="line"><span class="keyword">int</span> quota[<span class="number">110</span>]=&#123;&#125;;</span><br><span class="line"><span class="keyword">int</span> cnt[<span class="number">110</span>]=&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (a.final!=b.final)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> a.final&gt;b.final;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a.exam&gt;b.exam;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;node&gt; school[<span class="number">110</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp2</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.id&lt;b.id;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,m,k;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;quota[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	node temp;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		temp.id=i;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;temp.exam,&amp;temp.interview);</span><br><span class="line">		temp.final=temp.exam+temp.interview;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp.chioce[j]);</span><br><span class="line">		&#125;</span><br><span class="line">		v.push_back(temp);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(v.begin(),v.end(),cmp);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> pos=v[i].chioce[j];</span><br><span class="line">			<span class="keyword">int</span> lastnode=cnt[pos]<span class="number">-1</span>;</span><br><span class="line">			<span class="keyword">if</span> (cnt[pos]&lt;quota[pos]||</span><br><span class="line">				(school[pos][lastnode].final==v[i].final&amp;&amp;</span><br><span class="line">					school[pos][lastnode].exam==v[i].exam))</span><br><span class="line">			&#123;</span><br><span class="line">				school[pos].push_back(v[i]);</span><br><span class="line">				cnt[pos]++;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		sort(school[i].begin(),school[i].end(),cmp2);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cnt[i]; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d"</span>,school[i][j].id);</span><br><span class="line">			<span class="keyword">if</span> (j&lt;cnt[i]<span class="number">-1</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
     
     <div>
@@ -502,16 +524,16 @@
 
 <div>
 <ul class="post-copyright">
-  <li><strong>本文标题：</strong><a href="/2019/09/03/A1080/">A1080</a></li>
+  <li><strong>本文标题：</strong><a href="/2019/09/03/A1080/">A1080 Graduate Admission (30 point(s))</a></li>
   <li class="post-copyright-author">
     <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccpeted.com/2019/09/03/A1080/" title="A1080">https://www.runaccpeted.com/2019/09/03/A1080/</a>
+    <a href="https://www.runaccpeted.com/2019/09/03/A1080/" title="A1080 Graduate Admission (30 point(s))">https://www.runaccpeted.com/2019/09/03/A1080/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月03日 - 12:32</li>
-  <li><strong>更新时间：</strong>2019年09月03日 - 12:32</li>
+  <li><strong>更新时间：</strong>2019年09月04日 - 21:13</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -527,7 +549,7 @@
             
               <a href="/tags/PAT/" rel="tag"><i class="fa fa-tag"></i> PAT</a>
             
-              <a href="/tags/A/" rel="tag"><i class="fa fa-tag"></i> A</a>
+              <a href="/tags/排序/" rel="tag"><i class="fa fa-tag"></i> 排序</a>
             
           </div>
         
@@ -537,8 +559,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/03/A1081/" rel="next" title="A1081">
-                  <i class="fa fa-chevron-left"></i> A1081
+                <a href="/2019/09/03/A1081/" rel="next" title="A1081 Rational Sum (20 point(s))">
+                  <i class="fa fa-chevron-left"></i> A1081 Rational Sum (20 point(s))
                 </a>
               
             </div>
@@ -547,8 +569,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/03/A1079/" rel="prev" title="A1079">
-                  A1079 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/03/A1079/" rel="prev" title="A1079 Total Sales of Supply Chain (25 point(s))">
+                  A1079 Total Sales of Supply Chain (25 point(s)) <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -741,7 +763,9 @@
         
           
         
-        <span class="site-state-item-count">44</span>
+          
+        
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -862,13 +886,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">92k</span>
+    <span title="站点总字数">123k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">2:34</span>
+    <span title="站点阅读时长">3:25</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

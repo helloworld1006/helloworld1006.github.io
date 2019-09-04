@@ -79,20 +79,18 @@
         }
     })();
 </script>
-  <meta name="description" content="b">
-<meta name="keywords" content="PAT,A">
+  <meta name="description" content="求M≤m×p最大长度M-m">
+<meta name="keywords" content="PAT,排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A1085">
+<meta property="og:title" content="A1085 Perfect Sequence (25 point(s))">
 <meta property="og:url" content="https://www.runaccpeted.com/2019/09/03/A1085/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="求M≤m×p最大长度M-m">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccpeted.com/2019-09-03%2004:31:53/%22A1085%22/ac.png">
-<meta property="og:updated_time" content="2019-09-03T04:31:53.077Z">
+<meta property="og:updated_time" content="2019-09-04T09:42:07.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A1085">
-<meta name="twitter:description" content="b">
-<meta name="twitter:image" content="https://www.runaccpeted.com/2019-09-03%2004:31:53/%22A1085%22/ac.png">
+<meta name="twitter:title" content="A1085 Perfect Sequence (25 point(s))">
+<meta name="twitter:description" content="求M≤m×p最大长度M-m">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccpeted.com/2019/09/03/A1085/">
 
@@ -109,7 +107,7 @@
 </script>
 
 
-  <title>A1085 | W.T.的博客</title>
+  <title>A1085 Perfect Sequence (25 point(s)) | W.T.的博客</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -223,7 +221,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">44</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">45</span></a>
 
   </li>
       
@@ -357,7 +355,7 @@
       <meta itemprop="name" content="W.T.的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">A1085
+        <h1 class="post-title" itemprop="name headline">A1085 Perfect Sequence (25 point(s))
 
           
         </h1>
@@ -378,6 +376,18 @@
               <time title="创建时间：2019-09-03 12:31:53" itemprop="dateCreated datePublished" datetime="2019-09-03T12:31:53+08:00">2019-09-03</time>
             </span>
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-04 17:42:07" itemprop="dateModified" datetime="2019-09-04T17:42:07+08:00">2019-09-04</time>
+              </span>
+            
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -393,7 +403,7 @@
           
 
           
-            <span id="/2019/09/03/A1085/" class="post-meta-item leancloud_visitors" data-flag-title="A1085" title="热度">
+            <span id="/2019/09/03/A1085/" class="post-meta-item leancloud_visitors" data-flag-title="A1085 Perfect Sequence (25 point(s))" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -435,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>84</span>
+              <span>897</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -458,32 +468,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-            <div class="post-gallery-row">
-              <img src="/2019-09-03 04:31:53/"A1085"/ac.png" itemprop="contentUrl">
-            
-          
-
-          </div>
-        </div>
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">求M≤m×p最大长度M-m</blockquote>
 
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p><strong>Input Specification:</strong></p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>Given a sequence of positive integers and another positive integer <em>p</em>. The sequence is said to be a <strong>perfect sequence</strong> if <em>M</em>≤<em>m</em>×<em>p</em> where <em>M</em> and <em>m</em> are the maximum and minimum numbers in the sequence, respectively.</p>
+<p>Now given a sequence and a parameter <em>p</em>, you are supposed to find from the sequence as many numbers as possible to form a perfect subsequence.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line contains two positive integers <em>N</em> and <em>p</em>, where <em>N</em> (≤105) is the number of integers in the sequence, and <em>p</em> (≤109) is the parameter. In the second line there are <em>N</em> positive integers, each is no greater than 109.</p>
 <p><strong>output Specification:</strong></p>
+<p>For each test case, print in one line the maximum number of integers that can be chosen to form a perfect subsequence.</p>
 <p> <strong>Sample Input:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10 8</span><br><span class="line">2 3 20 4 5 1 6 7 8 9</span><br></pre></td></tr></table></figure>
 
 <p> <strong>Sample output:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8</span><br></pre></td></tr></table></figure>
 
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><p>求M≤m×p M-m最大</p>
+<p>数组排序，对于每个当前i 查找满足num[i]*p&gt;=num[j]的最大j，j不回溯。记录最大j-i</p>
+<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> num[<span class="number">100010</span>]=&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> p;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%lld"</span>,&amp;n,&amp;p);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;num[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(num,num+n);</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (; j &lt; n; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (num[j]&gt;num[i]*p)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (j-i&gt;ans)</span><br><span class="line">		&#123;</span><br><span class="line">			ans=j-i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>ac：</p>
-<img src="/2019/09/03/A1085/ac.png" class="full-image">
 
-<div class="note warning"><p>使 </p></div>
     </div>
     
     <div>
@@ -502,16 +507,16 @@
 
 <div>
 <ul class="post-copyright">
-  <li><strong>本文标题：</strong><a href="/2019/09/03/A1085/">A1085</a></li>
+  <li><strong>本文标题：</strong><a href="/2019/09/03/A1085/">A1085 Perfect Sequence (25 point(s))</a></li>
   <li class="post-copyright-author">
     <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccpeted.com/2019/09/03/A1085/" title="A1085">https://www.runaccpeted.com/2019/09/03/A1085/</a>
+    <a href="https://www.runaccpeted.com/2019/09/03/A1085/" title="A1085 Perfect Sequence (25 point(s))">https://www.runaccpeted.com/2019/09/03/A1085/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月03日 - 12:31</li>
-  <li><strong>更新时间：</strong>2019年09月03日 - 12:31</li>
+  <li><strong>更新时间：</strong>2019年09月04日 - 17:42</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -527,7 +532,7 @@
             
               <a href="/tags/PAT/" rel="tag"><i class="fa fa-tag"></i> PAT</a>
             
-              <a href="/tags/A/" rel="tag"><i class="fa fa-tag"></i> A</a>
+              <a href="/tags/排序/" rel="tag"><i class="fa fa-tag"></i> 排序</a>
             
           </div>
         
@@ -537,8 +542,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/03/A1086/" rel="next" title="A1086">
-                  <i class="fa fa-chevron-left"></i> A1086
+                <a href="/2019/09/03/A1086/" rel="next" title="A1086 Tree Traversals Again (25 point(s))">
+                  <i class="fa fa-chevron-left"></i> A1086 Tree Traversals Again (25 point(s))
                 </a>
               
             </div>
@@ -547,8 +552,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/03/A1084/" rel="prev" title="A1084">
-                  A1084 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/03/A1084/" rel="prev" title="A1084 Broken Keyboard (20 point(s))">
+                  A1084 Broken Keyboard (20 point(s)) <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -741,7 +746,9 @@
         
           
         
-        <span class="site-state-item-count">44</span>
+          
+        
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -862,13 +869,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">92k</span>
+    <span title="站点总字数">123k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">2:34</span>
+    <span title="站点阅读时长">3:25</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
