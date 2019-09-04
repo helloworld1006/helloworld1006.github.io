@@ -1166,7 +1166,6 @@ pre .javascript .function {
 }
 .header-inner {
   position: relative;
-  margin-left: 44px;
 }
 .headband {
   background: #222;
@@ -1969,7 +1968,7 @@ pre {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff16cc;
+  background: #e8b4de;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
