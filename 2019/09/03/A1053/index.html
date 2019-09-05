@@ -79,20 +79,20 @@
         }
     })();
 </script>
-  <meta name="description" content="b">
-<meta name="keywords" content="PAT,A">
+  <meta name="description" content="DFS 取和为s的路径">
+<meta name="keywords" content="PAT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A1053">
+<meta property="og:title" content="A1053 Path of Equal Weight (30 point(s))">
 <meta property="og:url" content="https://www.runaccpeted.com/2019/09/03/A1053/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="DFS 取和为s的路径">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccpeted.com/2019-09-03%2004:33:46/%22A1053%22/ac.png">
-<meta property="og:updated_time" content="2019-09-03T04:33:46.782Z">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/03/A1053/212.png">
+<meta property="og:updated_time" content="2019-09-05T09:34:11.915Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A1053">
-<meta name="twitter:description" content="b">
-<meta name="twitter:image" content="https://www.runaccpeted.com/2019-09-03%2004:33:46/%22A1053%22/ac.png">
+<meta name="twitter:title" content="A1053 Path of Equal Weight (30 point(s))">
+<meta name="twitter:description" content="DFS 取和为s的路径">
+<meta name="twitter:image" content="https://www.runaccpeted.com/2019/09/03/A1053/212.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccpeted.com/2019/09/03/A1053/">
 
@@ -109,7 +109,7 @@
 </script>
 
 
-  <title>A1053 | W.T.的博客</title>
+  <title>A1053 Path of Equal Weight (30 point(s)) | W.T.的博客</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -357,7 +357,7 @@
       <meta itemprop="name" content="W.T.的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">A1053
+        <h1 class="post-title" itemprop="name headline">A1053 Path of Equal Weight (30 point(s))
 
           
         </h1>
@@ -378,6 +378,18 @@
               <time title="创建时间：2019-09-03 12:33:46" itemprop="dateCreated datePublished" datetime="2019-09-03T12:33:46+08:00">2019-09-03</time>
             </span>
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-05 17:34:11" itemprop="dateModified" datetime="2019-09-05T17:34:11+08:00">2019-09-05</time>
+              </span>
+            
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -393,7 +405,7 @@
           
 
           
-            <span id="/2019/09/03/A1053/" class="post-meta-item leancloud_visitors" data-flag-title="A1053" title="热度">
+            <span id="/2019/09/03/A1053/" class="post-meta-item leancloud_visitors" data-flag-title="A1053 Path of Equal Weight (30 point(s))" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -435,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>84</span>
+              <span>1.9k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -445,7 +457,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
           
 
@@ -458,32 +470,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-            <div class="post-gallery-row">
-              <img src="/2019-09-03 04:33:46/"A1053"/ac.png" itemprop="contentUrl">
-            
-          
-
-          </div>
-        </div>
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">DFS 取和为s的路径</blockquote>
 
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p><strong>Input Specification:</strong></p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>Given a non-empty tree with root <em>R</em>, and with weight <em>W**i</em> assigned to each tree node <em>T**i</em>. The <strong>weight of a path from R to L</strong> is defined to be the sum of the weights of all the nodes along the path from <em>R</em> to any leaf node <em>L</em>.</p>
+<p>Now given any weighted tree, you are supposed to find all the paths with their weights equal to a given number. For example, let’s consider the tree showed in the following figure: for each node, the upper number is the node ID which is a two-digit number, and the lower number is the weight of that node. Suppose that the given number is 24, then there exists 4 different paths which have the same given weight: {10 5 2 7}, {10 4 10}, {10 3 3 6 2} and {10 3 3 6 2}, which correspond to the red edges in the figure.</p>
+<p><img src="/2019/09/03/A1053/212.png" alt="img"></p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. Each case starts with a line containing 0&lt;<em>N</em>≤100, the number of nodes in a tree, <em>M</em> (&lt;<em>N</em>), the number of non-leaf nodes, and 0&lt;<em>S</em>&lt;230, the given weight number. The next line contains <em>N</em> positive numbers where <em>Wi</em> (&lt;1000) corresponds to the tree node <em>Ti</em>. Then <em>M</em> lines follow, each in the format:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ID K ID[1] ID[2] ... ID[K]</span><br></pre></td></tr></table></figure>
+
+<p>where <code>ID</code> is a two-digit number representing a given non-leaf node, <code>K</code> is the number of its children, followed by a sequence of two-digit <code>ID</code>‘s of its children. For the sake of simplicity, let us fix the root ID to be <code>00</code>.</p>
 <p><strong>output Specification:</strong></p>
+<p>For each test case, print all the paths with weight S in <strong>non-increasing</strong> order. Each path occupies a line with printed weights from the root to the leaf in order. All the numbers must be separated by a space with no extra space at the end of the line.</p>
+<p>Note: sequence {$A_1$,$A_2$,⋯,$A_n$} is said to be <strong>greater than</strong> sequence {$B_1$$B_2$,⋯,$B_m$} if there exists 1≤<em>k</em>&lt;min{n,m}such that $A_i$=$B_i$ for <em>i</em>=1,⋯,<em>k</em>, and $A_{k+1}$&gt;$B_{k+1}$.</p>
 <p> <strong>Sample Input:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">20 9 24</span><br><span class="line">10 2 4 3 5 10 2 18 9 7 2 2 1 3 12 1 8 6 2 2</span><br><span class="line">00 4 01 02 03 04</span><br><span class="line">02 1 05</span><br><span class="line">04 2 06 07</span><br><span class="line">03 3 11 12 13</span><br><span class="line">06 1 09</span><br><span class="line">07 2 08 10</span><br><span class="line">16 1 15</span><br><span class="line">13 3 14 16 17</span><br><span class="line">17 2 18 19</span><br></pre></td></tr></table></figure>
 
 <p> <strong>Sample output:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10 5 2 7</span><br><span class="line">10 4 10</span><br><span class="line">10 3 3 6 2</span><br><span class="line">10 3 3 6 2</span><br></pre></td></tr></table></figure>
 
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><p>按权重从高到低排序，return v[a].weight&gt;v[b].weight;</p>
+<p>和为s if (sum==s)</p>
+<p>记录路径 path[cnt]=idx;</p>
+<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> weight;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; children;</span><br><span class="line">&#125;v[<span class="number">110</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> v[a].weight&gt;v[b].weight;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> s;</span><br><span class="line"><span class="keyword">int</span> path[<span class="number">110</span>]=&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> root,<span class="keyword">int</span> sum,<span class="keyword">int</span> cnt)</span></span>&#123;</span><br><span class="line">	<span class="comment">//printf("%d %d\n",root,sum);</span></span><br><span class="line">	<span class="keyword">if</span> (sum&gt;s)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (sum==s)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (v[root].children.size()!=<span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cnt; ++i)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (i!=<span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d"</span>,v[path[i]].weight);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v[root].children.size(); ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> idx=v[root].children[i];</span><br><span class="line">        path[cnt]=idx;</span><br><span class="line">		dfs(idx,sum+v[idx].weight,cnt+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,m;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;s);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;v[i].weight);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> id,k,a;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;id,&amp;k);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">			v[id].children.push_back(a);</span><br><span class="line">		&#125;</span><br><span class="line">		sort(v[id].children.begin(),v[id].children.end(),cmp);</span><br><span class="line">	&#125;</span><br><span class="line">	path[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">	dfs(<span class="number">0</span>,v[<span class="number">0</span>].weight,<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>ac：</p>
-<img src="/2019/09/03/A1053/ac.png" class="full-image">
 
-<div class="note warning"><p>使 </p></div>
     </div>
     
     <div>
@@ -502,16 +515,16 @@
 
 <div>
 <ul class="post-copyright">
-  <li><strong>本文标题：</strong><a href="/2019/09/03/A1053/">A1053</a></li>
+  <li><strong>本文标题：</strong><a href="/2019/09/03/A1053/">A1053 Path of Equal Weight (30 point(s))</a></li>
   <li class="post-copyright-author">
     <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccpeted.com/2019/09/03/A1053/" title="A1053">https://www.runaccpeted.com/2019/09/03/A1053/</a>
+    <a href="https://www.runaccpeted.com/2019/09/03/A1053/" title="A1053 Path of Equal Weight (30 point(s))">https://www.runaccpeted.com/2019/09/03/A1053/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月03日 - 12:33</li>
-  <li><strong>更新时间：</strong>2019年09月03日 - 12:33</li>
+  <li><strong>更新时间：</strong>2019年09月05日 - 17:34</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -527,8 +540,6 @@
             
               <a href="/tags/PAT/" rel="tag"><i class="fa fa-tag"></i> PAT</a>
             
-              <a href="/tags/A/" rel="tag"><i class="fa fa-tag"></i> A</a>
-            
           </div>
         
 
@@ -537,8 +548,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/03/A1054/" rel="next" title="A1054">
-                  <i class="fa fa-chevron-left"></i> A1054
+                <a href="/2019/09/03/A1054/" rel="next" title="A1054 The Dominant Color (20 point(s))">
+                  <i class="fa fa-chevron-left"></i> A1054 The Dominant Color (20 point(s))
                 </a>
               
             </div>
@@ -547,8 +558,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/03/A1052/" rel="prev" title="A1052">
-                  A1052 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/03/A1052/" rel="prev" title="A1052 Linked List Sorting (25 point(s))">
+                  A1052 Linked List Sorting (25 point(s)) <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -864,13 +875,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">123k</span>
+    <span title="站点总字数">152k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">3:25</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
