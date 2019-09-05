@@ -79,20 +79,18 @@
         }
     })();
 </script>
-  <meta name="description" content="b">
-<meta name="keywords" content="PAT,A">
+  <meta name="description" content="进制转换">
+<meta name="keywords" content="PAT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A1010">
+<meta property="og:title" content="A1010 Radix (25 point(s))">
 <meta property="og:url" content="https://www.runaccpeted.com/2019/09/03/A1010/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="进制转换">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccpeted.com/2019-09-03%2004:36:12/%22A1010%22/ac.png">
-<meta property="og:updated_time" content="2019-09-03T04:36:12.615Z">
+<meta property="og:updated_time" content="2019-09-05T18:19:50.111Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A1010">
-<meta name="twitter:description" content="b">
-<meta name="twitter:image" content="https://www.runaccpeted.com/2019-09-03%2004:36:12/%22A1010%22/ac.png">
+<meta name="twitter:title" content="A1010 Radix (25 point(s))">
+<meta name="twitter:description" content="进制转换">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccpeted.com/2019/09/03/A1010/">
 
@@ -109,7 +107,7 @@
 </script>
 
 
-  <title>A1010 | W.T.的博客</title>
+  <title>A1010 Radix (25 point(s)) | W.T.的博客</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -249,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">157</span></a>
 
   </li>
       
@@ -357,7 +355,7 @@
       <meta itemprop="name" content="W.T.的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">A1010
+        <h1 class="post-title" itemprop="name headline">A1010 Radix (25 point(s))
 
           
         </h1>
@@ -378,6 +376,18 @@
               <time title="创建时间：2019-09-03 12:36:12" itemprop="dateCreated datePublished" datetime="2019-09-03T12:36:12+08:00">2019-09-03</time>
             </span>
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-06 02:19:50" itemprop="dateModified" datetime="2019-09-06T02:19:50+08:00">2019-09-06</time>
+              </span>
+            
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -393,7 +403,7 @@
           
 
           
-            <span id="/2019/09/03/A1010/" class="post-meta-item leancloud_visitors" data-flag-title="A1010" title="热度">
+            <span id="/2019/09/03/A1010/" class="post-meta-item leancloud_visitors" data-flag-title="A1010 Radix (25 point(s))" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -435,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>84</span>
+              <span>1k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -445,7 +455,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -458,32 +468,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-            <div class="post-gallery-row">
-              <img src="/2019-09-03 04:36:12/"A1010"/ac.png" itemprop="contentUrl">
-            
-          
-
-          </div>
-        </div>
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">进制转换</blockquote>
 
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p><strong>Input Specification:</strong></p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>Given a pair of positive integers, for example, 6 and 110, can this equation 6 = 110 be true? The answer is <code>yes</code>, if 6 is a decimal number and 110 is a binary number.</p>
+<p>Now for any pair of positive integers <em>N</em>1 and <em>N</em>2, your task is to find the radix of one number while that of the other is given.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. Each case occupies a line which contains 4 positive integers:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N1 N2 tag radix</span><br></pre></td></tr></table></figure>
+
+<p>Here <code>N1</code> and <code>N2</code> each has no more than 10 digits. A digit is less than its radix and is chosen from the set { 0-9, <code>a</code>-<code>z</code> } where 0-9 represent the decimal numbers 0-9, and <code>a</code>-<code>z</code> represent the decimal numbers 10-35. The last number <code>radix</code> is the radix of <code>N1</code> if <code>tag</code> is 1, or of <code>N2</code> if <code>tag</code> is 2.</p>
 <p><strong>output Specification:</strong></p>
-<p> <strong>Sample Input:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>For each test case, print in one line the radix of the other number so that the equation <code>N1</code> = <code>N2</code> is true. If the equation is impossible, print <code>Impossible</code>. If the solution is not unique, output the smallest possible radix.</p>
+<p> <strong>Sample Input 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6 110 1 10</span><br></pre></td></tr></table></figure>
 
-<p> <strong>Sample output:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> <strong>Sample output 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
 
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> <strong>Sample Input 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 ab 1 2</span><br></pre></td></tr></table></figure>
 
-<p>ac：</p>
-<img src="/2019/09/03/A1010/ac.png" class="full-image">
+<p> <strong>Sample output 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Impossible</span><br></pre></td></tr></table></figure>
 
-<div class="note warning"><p>使 </p></div>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> radix;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">getIndex</span><span class="params">(<span class="built_in">string</span> str,<span class="keyword">int</span> radix)</span></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> num=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> p=<span class="number">1l</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = str.length()<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (str[i]&gt;=<span class="string">'0'</span>&amp;&amp;str[i]&lt;=<span class="string">'9'</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			num+=(str[i]-<span class="string">'0'</span>)*p;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(str[i]&gt;=<span class="string">'a'</span>&amp;&amp;str[i]&lt;=<span class="string">'z'</span>)&#123;</span><br><span class="line">			num+=((str[i]-<span class="string">'a'</span>)+<span class="number">10</span>)*p;</span><br><span class="line">		&#125;</span><br><span class="line">		p=p*radix;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getMax</span><span class="params">(<span class="built_in">string</span> str)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> max=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (str[i]&gt;=<span class="string">'0'</span>&amp;&amp;str[i]&lt;=<span class="string">'9'</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> num=str[i]-<span class="string">'0'</span>;</span><br><span class="line">			<span class="keyword">if</span> (num&gt;max)</span><br><span class="line">			&#123;</span><br><span class="line">				max=num;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(str[i]&gt;=<span class="string">'a'</span>&amp;&amp;str[i]&lt;=<span class="string">'z'</span>)&#123;</span><br><span class="line">			<span class="keyword">int</span> num=(str[i]-<span class="string">'a'</span>)+<span class="number">10</span>;</span><br><span class="line">			<span class="keyword">if</span> (num&gt;max)</span><br><span class="line">			&#123;</span><br><span class="line">				max=num;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">answer</span><span class="params">(<span class="built_in">string</span> n1,<span class="built_in">string</span> n2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> left,right;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> a=getIndex(n1,radix);</span><br><span class="line">	<span class="keyword">int</span> max=getMax(n2);</span><br><span class="line">	left=max+<span class="number">1</span>;</span><br><span class="line">	right=a+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> flag=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">		<span class="keyword">long</span> <span class="keyword">long</span> mid=(left+right)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">long</span> <span class="keyword">long</span> ans=getIndex(n2,mid);</span><br><span class="line">		<span class="keyword">if</span> (ans==a)</span><br><span class="line">		&#123;</span><br><span class="line">			flag=<span class="number">1</span>;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt; mid&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (ans&gt;a||ans&lt;<span class="number">0</span>)&#123;</span><br><span class="line">			right=mid<span class="number">-1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			left=mid+<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (flag==<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"Impossible\n"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> n1,n2;</span><br><span class="line">    <span class="keyword">int</span> tag;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n1&gt;&gt;n2&gt;&gt;tag&gt;&gt;radix;</span><br><span class="line">	<span class="keyword">if</span> (tag==<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		answer(n1,n2);</span><br><span class="line"></span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(tag==<span class="number">2</span>)&#123;</span><br><span class="line">		answer(n2,n1);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"Impossible"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
     
     <div>
@@ -502,16 +514,16 @@
 
 <div>
 <ul class="post-copyright">
-  <li><strong>本文标题：</strong><a href="/2019/09/03/A1010/">A1010</a></li>
+  <li><strong>本文标题：</strong><a href="/2019/09/03/A1010/">A1010 Radix (25 point(s))</a></li>
   <li class="post-copyright-author">
     <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccpeted.com/2019/09/03/A1010/" title="A1010">https://www.runaccpeted.com/2019/09/03/A1010/</a>
+    <a href="https://www.runaccpeted.com/2019/09/03/A1010/" title="A1010 Radix (25 point(s))">https://www.runaccpeted.com/2019/09/03/A1010/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月03日 - 12:36</li>
-  <li><strong>更新时间：</strong>2019年09月03日 - 12:36</li>
+  <li><strong>更新时间：</strong>2019年09月06日 - 02:19</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -527,8 +539,6 @@
             
               <a href="/tags/PAT/" rel="tag"><i class="fa fa-tag"></i> PAT</a>
             
-              <a href="/tags/A/" rel="tag"><i class="fa fa-tag"></i> A</a>
-            
           </div>
         
 
@@ -537,8 +547,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/03/A1011/" rel="next" title="A1011">
-                  <i class="fa fa-chevron-left"></i> A1011
+                <a href="/2019/09/03/A1011/" rel="next" title="A1011 World Cup Betting (20 point(s))">
+                  <i class="fa fa-chevron-left"></i> A1011 World Cup Betting (20 point(s))
                 </a>
               
             </div>
@@ -547,8 +557,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/03/A1009/" rel="prev" title="A1009">
-                  A1009 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/03/A1009/" rel="prev" title="A1009 Product of Polynomials (25 point(s))">
+                  A1009 Product of Polynomials (25 point(s)) <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -619,7 +629,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">158</span>
+          <span class="site-state-item-count">157</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -864,13 +874,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">152k</span>
+    <span title="站点总字数">200k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">4:13</span>
+    <span title="站点阅读时长">5:34</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

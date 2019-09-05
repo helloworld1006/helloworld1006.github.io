@@ -79,20 +79,20 @@
         }
     })();
 </script>
-  <meta name="description" content="b">
-<meta name="keywords" content="PAT,A">
+  <meta name="description" content="Dijskstra">
+<meta name="keywords" content="PAT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A1018">
+<meta property="og:title" content="A1018 Public Bike Management (30 point(s))">
 <meta property="og:url" content="https://www.runaccpeted.com/2019/09/03/A1018/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="Dijskstra">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccpeted.com/2019-09-03%2004:35:44/%22A1018%22/ac.png">
-<meta property="og:updated_time" content="2019-09-03T04:35:44.476Z">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/03/A1018/213.png">
+<meta property="og:updated_time" content="2019-09-05T17:54:48.566Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A1018">
-<meta name="twitter:description" content="b">
-<meta name="twitter:image" content="https://www.runaccpeted.com/2019-09-03%2004:35:44/%22A1018%22/ac.png">
+<meta name="twitter:title" content="A1018 Public Bike Management (30 point(s))">
+<meta name="twitter:description" content="Dijskstra">
+<meta name="twitter:image" content="https://www.runaccpeted.com/2019/09/03/A1018/213.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccpeted.com/2019/09/03/A1018/">
 
@@ -109,7 +109,7 @@
 </script>
 
 
-  <title>A1018 | W.T.的博客</title>
+  <title>A1018 Public Bike Management (30 point(s)) | W.T.的博客</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -249,7 +249,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">157</span></a>
 
   </li>
       
@@ -357,7 +357,7 @@
       <meta itemprop="name" content="W.T.的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">A1018
+        <h1 class="post-title" itemprop="name headline">A1018 Public Bike Management (30 point(s))
 
           
         </h1>
@@ -378,6 +378,18 @@
               <time title="创建时间：2019-09-03 12:35:44" itemprop="dateCreated datePublished" datetime="2019-09-03T12:35:44+08:00">2019-09-03</time>
             </span>
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-06 01:54:48" itemprop="dateModified" datetime="2019-09-06T01:54:48+08:00">2019-09-06</time>
+              </span>
+            
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -393,7 +405,7 @@
           
 
           
-            <span id="/2019/09/03/A1018/" class="post-meta-item leancloud_visitors" data-flag-title="A1018" title="热度">
+            <span id="/2019/09/03/A1018/" class="post-meta-item leancloud_visitors" data-flag-title="A1018 Public Bike Management (30 point(s))" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -435,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>84</span>
+              <span>2.8k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -445,7 +457,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>5 分钟</span>
             </span>
           
 
@@ -458,32 +470,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-            <div class="post-gallery-row">
-              <img src="/2019-09-03 04:35:44/"A1018"/ac.png" itemprop="contentUrl">
-            
-          
-
-          </div>
-        </div>
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">Dijskstra</blockquote>
 
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p><strong>Input Specification:</strong></p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>There is a public bike service in Hangzhou City which provides great convenience to the tourists from all over the world. One may rent a bike at any station and return it to any other stations in the city.</p>
+<p>The Public Bike Management Center (PBMC) keeps monitoring the real-time capacity of all the stations. A station is said to be in <strong>perfect</strong> condition if it is exactly half-full. If a station is full or empty, PBMC will collect or send bikes to adjust the condition of that station to perfect. And more, all the stations on the way will be adjusted as well.</p>
+<p>When a problem station is reported, PBMC will always choose the shortest path to reach that station. If there are more than one shortest path, the one that requires the least number of bikes sent from PBMC will be chosen.</p>
+<p><img src="/2019/09/03/A1018/213.png" alt="img"></p>
+<p>The above figure illustrates an example. The stations are represented by vertices and the roads correspond to the edges. The number on an edge is the time taken to reach one end station from another. The number written inside a vertex <em>S</em> is the current number of bikes stored at <em>S</em>. Given that the maximum capacity of each station is 10. To solve the problem at <em>S</em>3, we have 2 different shortest paths:</p>
+<ol>
+<li>PBMC -&gt; <em>S</em>1 -&gt; <em>S</em>3. In this case, 4 bikes must be sent from PBMC, because we can collect 1 bike from <em>S</em>1 and then take 5 bikes to <em>S</em>3, so that both stations will be in perfect conditions.</li>
+<li>PBMC -&gt; <em>S</em>2 -&gt; <em>S</em>3. This path requires the same time as path 1, but only 3 bikes sent from PBMC and hence is the one that will be chosen.</li>
+</ol>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line contains 4 numbers: <em>Cmax</em> (≤100), always an even number, is the maximum capacity of each station; <em>N</em> (≤500), the total number of stations; Sp, the index of the problem station (the stations are numbered from 1 to <em>N</em>, and PBMC is represented by the vertex 0); and <em>M</em>, the number of roads. The second line contains <em>N</em>non-negative numbers $C_i$ (<em>i</em>=1,⋯,<em>N</em>) where each $C_i$ is the current number of bikes at $S_i$ respectively. Then <em>M</em> lines follow, each contains 3 numbers: $S_i$, $Sj$, and $T_{ij}$ which describe the time $T_{ij}$ taken to move betwen stations $S_i$ and $S_j$. All the numbers in a line are separated by a space.</p>
 <p><strong>output Specification:</strong></p>
+<p>For each test case, print your results in one line. First output the number of bikes that PBMC must send. Then after one space, output the path in the format: 0−&gt;<em>S</em>1−&gt;⋯−&gt;<em>Sp</em>. Finally after another space, output the number of bikes that we must take back to PBMC after the condition of <em>Sp</em> is adjusted to perfect.</p>
+<p>Note that if such a path is not unique, output the one that requires minimum number of bikes that we must take back to PBMC. The judge’s data guarantee that such a path is unique.</p>
 <p> <strong>Sample Input:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">10 3 3 5</span><br><span class="line">6 7 0</span><br><span class="line">0 1 1</span><br><span class="line">0 2 1</span><br><span class="line">0 3 3</span><br><span class="line">1 3 1</span><br><span class="line">2 3 1</span><br></pre></td></tr></table></figure>
 
 <p> <strong>Sample output:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 0-&gt;2-&gt;3 0</span><br></pre></td></tr></table></figure>
 
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">99999999</span>;</span><br><span class="line"><span class="keyword">int</span> cmax, n, sp, m;</span><br><span class="line"><span class="keyword">int</span> minNeed = inf, minBack = inf;</span><br><span class="line"><span class="keyword">int</span> e[<span class="number">510</span>][<span class="number">510</span>], dis[<span class="number">510</span>], weight[<span class="number">510</span>];</span><br><span class="line"><span class="keyword">bool</span> visit[<span class="number">510</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre[<span class="number">510</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; path, temppath;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    temppath.push_back(v);</span><br><span class="line">    <span class="keyword">if</span>(v == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> need = <span class="number">0</span>, back = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = temppath.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">int</span> id = temppath[i];</span><br><span class="line">            <span class="keyword">if</span>(weight[id] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                back += weight[id];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(back &gt; (<span class="number">0</span> - weight[id])) &#123;</span><br><span class="line">                    back += weight[id];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    need += ((<span class="number">0</span> - weight[id]) - back);</span><br><span class="line">                    back = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(need &lt; minNeed) &#123;</span><br><span class="line">            minNeed = need;</span><br><span class="line">            minBack = back;</span><br><span class="line">            path = temppath;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(need == minNeed &amp;&amp; back &lt; minBack) &#123;</span><br><span class="line">            minBack = back;</span><br><span class="line">            path = temppath;</span><br><span class="line">        &#125;</span><br><span class="line">        temppath.pop_back();</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pre[v].size(); i++)</span><br><span class="line">        dfs(pre[v][i]);</span><br><span class="line">    temppath.pop_back();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    fill(e[<span class="number">0</span>], e[<span class="number">0</span>] + <span class="number">510</span> * <span class="number">510</span>, inf);</span><br><span class="line">    fill(dis, dis + <span class="number">510</span>, inf);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;cmax, &amp;n, &amp;sp, &amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;weight[i]);</span><br><span class="line">        weight[i] = weight[i] - cmax / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a, &amp;b);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;e[a][b]);</span><br><span class="line">        e[b][a] = e[a][b];</span><br><span class="line">    &#125;</span><br><span class="line">    dis[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = <span class="number">-1</span>, minn = inf;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(visit[j] == <span class="literal">false</span> &amp;&amp; dis[j] &lt; minn) &#123;</span><br><span class="line">                u = j;</span><br><span class="line">                minn = dis[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(u == <span class="number">-1</span>) <span class="keyword">break</span>;</span><br><span class="line">        visit[u] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> v = <span class="number">0</span>; v &lt;= n; v++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(visit[v] == <span class="literal">false</span> &amp;&amp; e[u][v] != inf) &#123;</span><br><span class="line">                <span class="keyword">if</span>(dis[v] &gt; dis[u] + e[u][v]) &#123;</span><br><span class="line">                    dis[v] = dis[u] + e[u][v];</span><br><span class="line">                    pre[v].clear();</span><br><span class="line">                    pre[v].push_back(u);</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(dis[v] == dis[u] + e[u][v]) &#123;</span><br><span class="line">                    pre[v].push_back(u);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(sp);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d 0"</span>, minNeed);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = path.size() - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"-&gt;%d"</span>, path[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">" %d"</span>, minBack);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>ac：</p>
-<img src="/2019/09/03/A1018/ac.png" class="full-image">
 
-<div class="note warning"><p>使 </p></div>
     </div>
     
     <div>
@@ -502,16 +515,16 @@
 
 <div>
 <ul class="post-copyright">
-  <li><strong>本文标题：</strong><a href="/2019/09/03/A1018/">A1018</a></li>
+  <li><strong>本文标题：</strong><a href="/2019/09/03/A1018/">A1018 Public Bike Management (30 point(s))</a></li>
   <li class="post-copyright-author">
     <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccpeted.com/2019/09/03/A1018/" title="A1018">https://www.runaccpeted.com/2019/09/03/A1018/</a>
+    <a href="https://www.runaccpeted.com/2019/09/03/A1018/" title="A1018 Public Bike Management (30 point(s))">https://www.runaccpeted.com/2019/09/03/A1018/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月03日 - 12:35</li>
-  <li><strong>更新时间：</strong>2019年09月03日 - 12:35</li>
+  <li><strong>更新时间：</strong>2019年09月06日 - 01:54</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -527,8 +540,6 @@
             
               <a href="/tags/PAT/" rel="tag"><i class="fa fa-tag"></i> PAT</a>
             
-              <a href="/tags/A/" rel="tag"><i class="fa fa-tag"></i> A</a>
-            
           </div>
         
 
@@ -537,8 +548,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/03/A1019/" rel="next" title="A1019">
-                  <i class="fa fa-chevron-left"></i> A1019
+                <a href="/2019/09/03/A1019/" rel="next" title="A1019 General Palindromic Number (20 point(s))">
+                  <i class="fa fa-chevron-left"></i> A1019 General Palindromic Number (20 point(s))
                 </a>
               
             </div>
@@ -547,8 +558,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/03/A1017/" rel="prev" title="A1017">
-                  A1017 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/03/A1017/" rel="prev" title="A1017 Queueing at Bank (25 point(s))">
+                  A1017 Queueing at Bank (25 point(s)) <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -619,7 +630,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">158</span>
+          <span class="site-state-item-count">157</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -864,13 +875,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">152k</span>
+    <span title="站点总字数">200k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">4:13</span>
+    <span title="站点阅读时长">5:34</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

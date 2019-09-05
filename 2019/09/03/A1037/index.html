@@ -79,20 +79,18 @@
         }
     })();
 </script>
-  <meta name="description" content="b">
-<meta name="keywords" content="PAT,A">
+  <meta name="description" content="排序后取两数组相乘&amp;gt;0的值">
+<meta name="keywords" content="PAT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A1037">
+<meta property="og:title" content="A1037 Magic Coupon (25 point(s))">
 <meta property="og:url" content="https://www.runaccpeted.com/2019/09/03/A1037/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="排序后取两数组相乘&amp;gt;0的值">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccpeted.com/2019-09-03%2004:34:47/%22A1037%22/ac.png">
-<meta property="og:updated_time" content="2019-09-03T04:34:47.676Z">
+<meta property="og:updated_time" content="2019-09-05T15:06:37.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A1037">
-<meta name="twitter:description" content="b">
-<meta name="twitter:image" content="https://www.runaccpeted.com/2019-09-03%2004:34:47/%22A1037%22/ac.png">
+<meta name="twitter:title" content="A1037 Magic Coupon (25 point(s))">
+<meta name="twitter:description" content="排序后取两数组相乘&amp;gt;0的值">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccpeted.com/2019/09/03/A1037/">
 
@@ -109,7 +107,7 @@
 </script>
 
 
-  <title>A1037 | W.T.的博客</title>
+  <title>A1037 Magic Coupon (25 point(s)) | W.T.的博客</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -249,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">157</span></a>
 
   </li>
       
@@ -357,7 +355,7 @@
       <meta itemprop="name" content="W.T.的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">A1037
+        <h1 class="post-title" itemprop="name headline">A1037 Magic Coupon (25 point(s))
 
           
         </h1>
@@ -378,6 +376,18 @@
               <time title="创建时间：2019-09-03 12:34:47" itemprop="dateCreated datePublished" datetime="2019-09-03T12:34:47+08:00">2019-09-03</time>
             </span>
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-05 23:06:37" itemprop="dateModified" datetime="2019-09-05T23:06:37+08:00">2019-09-05</time>
+              </span>
+            
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -393,7 +403,7 @@
           
 
           
-            <span id="/2019/09/03/A1037/" class="post-meta-item leancloud_visitors" data-flag-title="A1037" title="热度">
+            <span id="/2019/09/03/A1037/" class="post-meta-item leancloud_visitors" data-flag-title="A1037 Magic Coupon (25 point(s))" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -435,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>84</span>
+              <span>1.5k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -445,7 +455,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
           
 
@@ -458,32 +468,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-            <div class="post-gallery-row">
-              <img src="/2019-09-03 04:34:47/"A1037"/ac.png" itemprop="contentUrl">
-            
-          
-
-          </div>
-        </div>
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">排序后取两数组相乘>0的值</blockquote>
 
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p><strong>Input Specification:</strong></p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>The magic shop in Mars is offering some magic coupons. Each coupon has an integer <em>N</em> printed on it, meaning that when you use this coupon with a product, you may get <em>N</em> times the value of that product back! What is more, the shop also offers some bonus product for free. However, if you apply a coupon with a positive <em>N</em> to this bonus product, you will have to pay the shop <em>N</em> times the value of the bonus product… but hey, magically, they have some coupons with negative <em>N</em>‘s!</p>
+<p>For example, given a set of coupons { 1 2 4 −1 }, and a set of product values { 7 6 −2 −3 } (in Mars dollars M 7) where a negative value corresponds to a bonus product. You can apply coupon 3 (with <em>N</em> being 4) to product 1 (with value M 7) to get M 28 back; coupon 2 to product 2 to get M​ 12 back; and coupon 4 to product 4 to get M​ 3 back. On the other hand, if you apply coupon 3 to product 4, you will have to pay M$12 to the shop.</p>
+<p>Each coupon and each product may be selected at most once. Your task is to get as much money back as possible.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line contains the number of coupons $N_C$, followed by a line with $N_C$ coupon integers. Then the next line contains the number of products $N_P$, followed by a line with $N_P$ product values. Here 1≤$N_C$,$N_P$≤$10^5$, and it is guaranteed that all the numbers will not exceed $2^{30}$.</p>
 <p><strong>output Specification:</strong></p>
+<p>For each test case, simply print in a line the maximum amount of money you can get back.</p>
 <p> <strong>Sample Input:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">1 2 4 -1</span><br><span class="line">4</span><br><span class="line">7 6 -2 -3</span><br></pre></td></tr></table></figure>
 
 <p> <strong>Sample output:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">43</span><br></pre></td></tr></table></figure>
 
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> coupon[<span class="number">100010</span>]=&#123;&#125;;</span><br><span class="line"><span class="keyword">int</span> product[<span class="number">100010</span>]=&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> nc;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;nc);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nc; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;coupon[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> np;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;np);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; np; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;product[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(coupon,coupon+nc);</span><br><span class="line">	sort(product,product+np);</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;nc&amp;&amp;j&lt;np&amp;&amp;coupon[i]&lt;<span class="number">0</span>&amp;&amp;product[j]&lt;<span class="number">0</span>)&#123;</span><br><span class="line">       ans+=coupon[i]*product[j];</span><br><span class="line">       i++;</span><br><span class="line">       j++;</span><br><span class="line">	&#125;</span><br><span class="line">    i=nc<span class="number">-1</span>; j=np<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">while</span>(i&gt;=<span class="number">0</span>&amp;&amp;j&gt;=<span class="number">0</span>&amp;&amp;coupon[i]&gt;<span class="number">0</span>&amp;&amp;product[j]&gt;<span class="number">0</span>)&#123;</span><br><span class="line">       ans+=coupon[i]*product[j];</span><br><span class="line">       i--;</span><br><span class="line">       j--;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>ac：</p>
-<img src="/2019/09/03/A1037/ac.png" class="full-image">
 
-<div class="note warning"><p>使 </p></div>
     </div>
     
     <div>
@@ -502,16 +506,16 @@
 
 <div>
 <ul class="post-copyright">
-  <li><strong>本文标题：</strong><a href="/2019/09/03/A1037/">A1037</a></li>
+  <li><strong>本文标题：</strong><a href="/2019/09/03/A1037/">A1037 Magic Coupon (25 point(s))</a></li>
   <li class="post-copyright-author">
     <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccpeted.com/2019/09/03/A1037/" title="A1037">https://www.runaccpeted.com/2019/09/03/A1037/</a>
+    <a href="https://www.runaccpeted.com/2019/09/03/A1037/" title="A1037 Magic Coupon (25 point(s))">https://www.runaccpeted.com/2019/09/03/A1037/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月03日 - 12:34</li>
-  <li><strong>更新时间：</strong>2019年09月03日 - 12:34</li>
+  <li><strong>更新时间：</strong>2019年09月05日 - 23:06</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -527,8 +531,6 @@
             
               <a href="/tags/PAT/" rel="tag"><i class="fa fa-tag"></i> PAT</a>
             
-              <a href="/tags/A/" rel="tag"><i class="fa fa-tag"></i> A</a>
-            
           </div>
         
 
@@ -537,8 +539,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/03/A1038/" rel="next" title="A1038">
-                  <i class="fa fa-chevron-left"></i> A1038
+                <a href="/2019/09/03/A1038/" rel="next" title="A1038 Recover the Smallest Number (30 point(s))">
+                  <i class="fa fa-chevron-left"></i> A1038 Recover the Smallest Number (30 point(s))
                 </a>
               
             </div>
@@ -547,8 +549,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/03/A1036/" rel="prev" title="A1036">
-                  A1036 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/03/A1036/" rel="prev" title="A1036 Boys vs Girls (25 point(s))">
+                  A1036 Boys vs Girls (25 point(s)) <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -619,7 +621,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">158</span>
+          <span class="site-state-item-count">157</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -864,13 +866,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">152k</span>
+    <span title="站点总字数">200k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">4:13</span>
+    <span title="站点阅读时长">5:34</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

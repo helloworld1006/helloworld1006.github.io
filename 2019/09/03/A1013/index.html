@@ -79,20 +79,18 @@
         }
     })();
 </script>
-  <meta name="description" content="b">
-<meta name="keywords" content="PAT,A">
+  <meta name="description" content="DFS求连通图">
+<meta name="keywords" content="PAT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A1013">
+<meta property="og:title" content="A1013 Battle Over Cities (25 point(s))">
 <meta property="og:url" content="https://www.runaccpeted.com/2019/09/03/A1013/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="DFS求连通图">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccpeted.com/2019-09-03%2004:35:58/%22A1013%22/ac.png">
-<meta property="og:updated_time" content="2019-09-03T04:35:58.290Z">
+<meta property="og:updated_time" content="2019-09-05T18:14:12.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A1013">
-<meta name="twitter:description" content="b">
-<meta name="twitter:image" content="https://www.runaccpeted.com/2019-09-03%2004:35:58/%22A1013%22/ac.png">
+<meta name="twitter:title" content="A1013 Battle Over Cities (25 point(s))">
+<meta name="twitter:description" content="DFS求连通图">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccpeted.com/2019/09/03/A1013/">
 
@@ -109,7 +107,7 @@
 </script>
 
 
-  <title>A1013 | W.T.的博客</title>
+  <title>A1013 Battle Over Cities (25 point(s)) | W.T.的博客</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -249,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">157</span></a>
 
   </li>
       
@@ -357,7 +355,7 @@
       <meta itemprop="name" content="W.T.的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">A1013
+        <h1 class="post-title" itemprop="name headline">A1013 Battle Over Cities (25 point(s))
 
           
         </h1>
@@ -378,6 +376,18 @@
               <time title="创建时间：2019-09-03 12:35:58" itemprop="dateCreated datePublished" datetime="2019-09-03T12:35:58+08:00">2019-09-03</time>
             </span>
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-06 02:14:12" itemprop="dateModified" datetime="2019-09-06T02:14:12+08:00">2019-09-06</time>
+              </span>
+            
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -393,7 +403,7 @@
           
 
           
-            <span id="/2019/09/03/A1013/" class="post-meta-item leancloud_visitors" data-flag-title="A1013" title="热度">
+            <span id="/2019/09/03/A1013/" class="post-meta-item leancloud_visitors" data-flag-title="A1013 Battle Over Cities (25 point(s))" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -435,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>84</span>
+              <span>1.3k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -445,7 +455,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -458,32 +468,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-            <div class="post-gallery-row">
-              <img src="/2019-09-03 04:35:58/"A1013"/ac.png" itemprop="contentUrl">
-            
-          
-
-          </div>
-        </div>
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">DFS求连通图</blockquote>
 
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p><strong>Input Specification:</strong></p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>It is vitally important to have all the cities connected by highways in a war. If a city is occupied by the enemy, all the highways from/toward that city are closed. We must know immediately if we need to repair any other highways to keep the rest of the cities connected. Given the map of cities which have all the remaining highways marked, you are supposed to tell the number of highways need to be repaired, quickly.</p>
+<p>For example, if we have 3 cities and 2 highways connecting $city_1$-$city_2$ and $city_1$-$city_3$. Then if $city_1$ is occupied by the enemy, we must have 1 highway repaired, that is the highway $city_2$-$city_3$.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. Each case starts with a line containing 3 numbers <em>N</em> (&lt;1000), <em>M</em> and <em>K</em>, which are the total number of cities, the number of remaining highways, and the number of cities to be checked, respectively. Then <em>M</em> lines follow, each describes a highway by 2 integers, which are the numbers of the cities the highway connects. The cities are numbered from 1 to <em>N</em>. Finally there is a line containing <em>K</em> numbers, which represent the cities we concern.</p>
 <p><strong>output Specification:</strong></p>
+<p>For each of the <em>K</em> cities, output in a line the number of highways need to be repaired if that city is lost.</p>
 <p> <strong>Sample Input:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 2 3</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">1 2 3</span><br></pre></td></tr></table></figure>
 
 <p> <strong>Sample output:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">0</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
 
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1010</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v[maxn];</span><br><span class="line"><span class="keyword">bool</span> visit[maxn]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	visit[root]=<span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v[root].size(); ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (visit[v[root][i]]==<span class="literal">false</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			dfs(v[root][i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,m,k;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">	<span class="keyword">int</span> a,b;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</span><br><span class="line">		v[a].push_back(b);</span><br><span class="line">		v[b].push_back(a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">		<span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">		fill(visit,visit+maxn,<span class="literal">false</span>);</span><br><span class="line">		visit[a]=<span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (visit[j]==<span class="literal">false</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				dfs(j);</span><br><span class="line">				cnt++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,cnt<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>ac：</p>
-<img src="/2019/09/03/A1013/ac.png" class="full-image">
 
-<div class="note warning"><p>使 </p></div>
     </div>
     
     <div>
@@ -502,16 +505,16 @@
 
 <div>
 <ul class="post-copyright">
-  <li><strong>本文标题：</strong><a href="/2019/09/03/A1013/">A1013</a></li>
+  <li><strong>本文标题：</strong><a href="/2019/09/03/A1013/">A1013 Battle Over Cities (25 point(s))</a></li>
   <li class="post-copyright-author">
     <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccpeted.com/2019/09/03/A1013/" title="A1013">https://www.runaccpeted.com/2019/09/03/A1013/</a>
+    <a href="https://www.runaccpeted.com/2019/09/03/A1013/" title="A1013 Battle Over Cities (25 point(s))">https://www.runaccpeted.com/2019/09/03/A1013/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月03日 - 12:35</li>
-  <li><strong>更新时间：</strong>2019年09月03日 - 12:35</li>
+  <li><strong>更新时间：</strong>2019年09月06日 - 02:14</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -527,8 +530,6 @@
             
               <a href="/tags/PAT/" rel="tag"><i class="fa fa-tag"></i> PAT</a>
             
-              <a href="/tags/A/" rel="tag"><i class="fa fa-tag"></i> A</a>
-            
           </div>
         
 
@@ -537,8 +538,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/03/A1014/" rel="next" title="A1014">
-                  <i class="fa fa-chevron-left"></i> A1014
+                <a href="/2019/09/03/A1014/" rel="next" title="A1014 Waiting in Line (30 point(s))">
+                  <i class="fa fa-chevron-left"></i> A1014 Waiting in Line (30 point(s))
                 </a>
               
             </div>
@@ -547,8 +548,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/03/A1012/" rel="prev" title="A1012">
-                  A1012 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/03/A1012/" rel="prev" title="A1012 The Best Rank (25 point(s))">
+                  A1012 The Best Rank (25 point(s)) <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -619,7 +620,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">158</span>
+          <span class="site-state-item-count">157</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -864,13 +865,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">152k</span>
+    <span title="站点总字数">200k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">4:13</span>
+    <span title="站点阅读时长">5:34</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
