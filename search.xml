@@ -4,23 +4,23 @@
   
     
     <entry>
-      <title>树莓派搭建服务器</title>
+      <title>树莓派搭建服务器&amp;&amp;实现内网穿透</title>
       <link href="/2019/09/06/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
       <url>/2019/09/06/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
       
-        <content type="html"><![CDATA[<blockquote class="blockquote-center">Tomcat mysql</blockquote><a id="more"></a><h1 id="tomcat安装"><a href="#tomcat安装" class="headerlink" title="tomcat安装"></a><font size="4px">tomcat安装</font></h1><p><a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a> 下载Tomcat X core:  XX.tar.gz</p><p>使用Transmit软件直接文件拷贝到树莓派文件夹中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf apache-tomcat-x.x.x.tar.gz</span><br><span class="line">ls</span><br><span class="line">cd apache-tomcat-x.x.x</span><br><span class="line">cd bin</span><br><span class="line">./startup.sh</span><br></pre></td></tr></table></figure><p>树莓派访问 localhost:8080</p><p>本机访问 ip:8080</p><h1 id="mysqlt安装"><a href="#mysqlt安装" class="headerlink" title="mysqlt安装"></a><font size="4px">mysqlt安装</font></h1>]]></content>
+        <content type="html"><![CDATA[<blockquote class="blockquote-center">tomcat mysql nginx php</blockquote><a id="more"></a><h1 id="tomcat安装"><a href="#tomcat安装" class="headerlink" title="tomcat安装"></a><font size="4px">tomcat安装</font></h1><p><a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a> 下载Tomcat X core:  XX.tar.gz</p><p>使用Transmit软件直接文件拷贝到树莓派文件夹中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf apache-tomcat-x.x.x.tar.gz</span><br><span class="line">ls</span><br><span class="line">cd apache-tomcat-x.x.x</span><br><span class="line">cd bin</span><br><span class="line">./startup.sh</span><br></pre></td></tr></table></figure><p>树莓派访问 localhost:8080</p><p>本机访问 ip:8080</p><h1 id="mysqlt安装"><a href="#mysqlt安装" class="headerlink" title="mysqlt安装"></a><font size="4px">mysqlt安装</font></h1><p>❌ </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">没有可用的软件包 mysql-server，但是它被其它的软件包引用了。</span><br><span class="line">这可能意味着这个缺失的软件包可能已被废弃，</span><br><span class="line">或者只能在其他发布源中找到</span><br><span class="line">然而下列软件包会取代它：</span><br><span class="line">  mariadb-server-10.0</span><br><span class="line"></span><br><span class="line">E: 软件包 mysql-server 没有可安装候选</span><br></pre></td></tr></table></figure><p>于是：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mariadb-server-10.0</span><br></pre></td></tr></table></figure><p>☑️ 树莓派换源</p><p><strong>软件：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure><p>第一行加入：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi</span><br></pre></td></tr></table></figure><p>注释掉其他的源</p><p><strong>系统</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list.d/raspi.list</span><br></pre></td></tr></table></figure><p>第一行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ stretch main ui</span><br></pre></td></tr></table></figure><p>同样注释掉其他的源</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure><p><strong>最终：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure><p>成功！</p><h2 id="配置密码"><a href="#配置密码" class="headerlink" title="配置密码"></a><font size="3px">配置密码</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql -u root</span><br></pre></td></tr></table></figure><p>直接回车</p><p>出现以下内容即为成功</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection id is 44</span><br><span class="line">Server version: 10.1.38-MariaDB-0+deb9u1 Raspbian 9.0</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt;</span><br></pre></td></tr></table></figure><p>设置root密码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">user mysql;</span><br><span class="line">UPDATE user SET password=password(&apos;密码&apos;) WHERE user=&apos;root&apos;; </span><br><span class="line">UPDATE user SET plugin=&apos;mysql_native_password&apos; WHERE user = &apos;root&apos;; </span><br><span class="line">flush privileges; </span><br><span class="line">exit;</span><br></pre></td></tr></table></figure><p>重启mysql</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/mysql restart</span><br></pre></td></tr></table></figure><h2 id="配置远程服务"><a href="#配置远程服务" class="headerlink" title="配置远程服务"></a><font size="3px">配置远程服务</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf</span><br></pre></td></tr></table></figure><p>将bind-address 127.0.0.1改为0.0.0.0</p><p>control+o</p><p>control+x</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/mysql restart</span><br></pre></td></tr></table></figure><p>设置账号远程登录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql -u root</span><br></pre></td></tr></table></figure><p>现在需要输入刚设置的密码了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">grant all privileges on *.* to &apos;root&apos;@&apos;%&apos; identified by &apos;123456&apos; with grant option;</span><br><span class="line">flush privileges; </span><br><span class="line">exit;</span><br></pre></td></tr></table></figure><h2 id="客户端登陆-Navicat"><a href="#客户端登陆-Navicat" class="headerlink" title="客户端登陆-Navicat"></a><font size="3px">客户端登陆-Navicat</font></h2><p><img src="/2019/09/06/树莓派搭建服务器/navicat.png" alt="image-20190909171228911"></p><h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a><font size="4px">nginx</font></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure><p>启动</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx.service</span><br><span class="line"></span><br><span class="line">启动“nginx.service”需要认证。</span><br><span class="line">Multiple identities can be used for authentication:</span><br><span class="line"> 1.  ,,, (pi)</span><br><span class="line"> 2.  root</span><br><span class="line">Choose identity to authenticate as (1-2): 2</span><br><span class="line">Password:  #树莓派密码</span><br></pre></td></tr></table></figure><p>浏览器访问 树莓派IP</p><p><img src="/2019/09/06/树莓派搭建服务器/nginx.png" alt="nginx">      </p><h2 id="自定义网页"><a href="#自定义网页" class="headerlink" title="自定义网页"></a><font size="3px">自定义网页</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /var/www/html</span><br></pre></td></tr></table></figure><p>新建文件夹test</p><p>新建文件 index.html</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">Hello World!</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><p>终端</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br><span class="line">systemctl start nginx.service</span><br></pre></td></tr></table></figure><p>浏览器访问 树莓派IP/test</p><p><img src="/2019/09/06/树莓派搭建服务器/hello.png" alt="hello"></p><h1 id="ngrok"><a href="#ngrok" class="headerlink" title="ngrok"></a><font size="4px"><a href="http://www.ngrok.cc/" target="_blank" rel="noopener">ngrok</a></font></h1><h2 id="开通隧道"><a href="#开通隧道" class="headerlink" title="开通隧道"></a><font size="3px">开通隧道</font></h2><p>隧道管理 -&gt; 开通隧道 -&gt; 选择一个服务器</p><p>隧道名称：自定义</p><p>域名类型：使用前置域名  |  使用自定义域名</p><p>前置域名：自定义</p><p>自定义域名：需要CNAME解析</p><p>http验证用户名：可以不设置</p><p>http验证密码：</p><p>本地端口：树莓派IP:80</p><h2 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a><font size="3px">下载软件</font></h2><p>隧道管理界面</p><p><img src="/2019/09/06/树莓派搭建服务器/software.png" alt="software"></p><p>下载解压后，得到sunny.app</p><p>终端cd到sunny.app所在文件夹备用</p><h1 id="Dnspod"><a href="#Dnspod" class="headerlink" title="Dnspod"></a><font size="4px">Dnspod</font></h1><p>添加一条CNAME记录 记录值 free.idcfengye.com.  主机记录自定–&gt; 需要跟ngrok中的自定义域名一致</p><h1 id="内网配置"><a href="#内网配置" class="headerlink" title="内网配置"></a><font size="4px">内网配置</font></h1><h2 id="访问192-168-0-1"><a href="#访问192-168-0-1" class="headerlink" title="访问192.168.0.1"></a><font size="3px">访问192.168.0.1</font></h2><p> 虚拟服务器 应用</p><p>添加映射 </p><table><thead><tr><th>常用服务器</th><th>外部端口</th><th>内部端口</th><th>IP地址</th><th>协议类型</th></tr></thead><tbody><tr><td>HTTP</td><td>80</td><td>80</td><td>树莓派IP</td><td>TCP</td></tr></tbody></table><h2 id="回到树莓派"><a href="#回到树莓派" class="headerlink" title="回到树莓派"></a><font size="3px">回到树莓派</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/nginx/sites-available</span><br><span class="line">sudo nano default</span><br></pre></td></tr></table></figure><p>配置监听</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        server_name xx.xx.com;</span><br><span class="line">        </span><br><span class="line">ctrl+o ctrl+x 保存退出</span><br></pre></td></tr></table></figure><p>终端</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br><span class="line">systemctl start nginx.service</span><br></pre></td></tr></table></figure><h2 id="sunny启动"><a href="#sunny启动" class="headerlink" title="sunny启动"></a><font size="3px">sunny启动</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./sunny clientid 隧道id  在隧道管理界面可得</span><br></pre></td></tr></table></figure><p><img src="/2019/09/06/树莓派搭建服务器/ngrok.png" alt="ngrok"></p><p>访问xx.xx.com </p><p><img src="/2019/09/06/树莓派搭建服务器/hello-8091852.png" alt="hello"></p>]]></content>
       
       
       <categories>
           
-          <category> PAT </category>
+          <category> 树莓派 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> PAT </tag>
+            <tag> 树莓派 </tag>
             
         </tags>
       
@@ -38,7 +38,7 @@
       
       <categories>
           
-          <category> PAT </category>
+          <category> 树莓派 </category>
           
       </categories>
       
@@ -2180,8 +2180,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 排序 </tag>
-            
         </tags>
       
     </entry>
@@ -2206,8 +2204,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 坏键问题 </tag>
             
         </tags>
       
@@ -2234,8 +2230,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 排序 </tag>
-            
         </tags>
       
     </entry>
@@ -2260,8 +2254,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 建树 </tag>
             
         </tags>
       
@@ -2288,8 +2280,6 @@
             
             <tag> PAT </tag>
             
-            <tag> Dijskstra </tag>
-            
         </tags>
       
     </entry>
@@ -2314,8 +2304,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 分数计算 </tag>
             
         </tags>
       
@@ -2342,8 +2330,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 排序 </tag>
-            
         </tags>
       
     </entry>
@@ -2368,8 +2354,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 供应链 </tag>
             
         </tags>
       
@@ -2396,8 +2380,6 @@
             
             <tag> PAT </tag>
             
-            <tag> BFS </tag>
-            
         </tags>
       
     </entry>
@@ -2422,8 +2404,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> map </tag>
             
         </tags>
       
@@ -2450,8 +2430,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 递推 </tag>
-            
         </tags>
       
     </entry>
@@ -2476,8 +2454,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> BFS </tag>
             
         </tags>
       
@@ -2504,8 +2480,6 @@
             
             <tag> PAT </tag>
             
-            <tag> map </tag>
-            
         </tags>
       
     </entry>
@@ -2531,8 +2505,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 连续因子 </tag>
-            
         </tags>
       
     </entry>
@@ -2557,8 +2529,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> LinkedList </tag>
             
         </tags>
       
@@ -2635,8 +2605,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 数学问题 </tag>
-            
         </tags>
       
     </entry>
@@ -2661,8 +2629,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 快排 </tag>
             
         </tags>
       
@@ -2689,8 +2655,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 建树 </tag>
-            
         </tags>
       
     </entry>
@@ -2715,8 +2679,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> Factor </tag>
             
         </tags>
       
@@ -2768,8 +2730,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 递归 </tag>
-            
         </tags>
       
     </entry>
@@ -2795,8 +2755,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 供应链 </tag>
-            
         </tags>
       
     </entry>
@@ -2821,8 +2779,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 并查集 </tag>
             
         </tags>
       
@@ -2874,8 +2830,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 递推 </tag>
-            
         </tags>
       
     </entry>
@@ -2900,8 +2854,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 建树 </tag>
             
         </tags>
       
@@ -2928,8 +2880,6 @@
             
             <tag> PAT </tag>
             
-            <tag> Dijskstra </tag>
-            
         </tags>
       
     </entry>
@@ -2954,10 +2904,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 坏键问题 </tag>
-            
-            <tag> string </tag>
             
         </tags>
       
@@ -2984,8 +2930,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 数学问题 </tag>
-            
         </tags>
       
     </entry>
@@ -3010,8 +2954,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 并查集 </tag>
             
         </tags>
       
@@ -3038,10 +2980,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 建树 </tag>
-            
-            <tag> 层序 </tag>
-            
         </tags>
       
     </entry>
@@ -3066,8 +3004,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> map </tag>
             
         </tags>
       
@@ -3094,8 +3030,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 排序 </tag>
-            
         </tags>
       
     </entry>
@@ -3120,8 +3054,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 并查集 </tag>
             
         </tags>
       
@@ -3148,8 +3080,6 @@
             
             <tag> PAT </tag>
             
-            <tag> tree </tag>
-            
         </tags>
       
     </entry>
@@ -3174,8 +3104,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> Set </tag>
             
         </tags>
       
@@ -3202,8 +3130,6 @@
             
             <tag> PAT </tag>
             
-            <tag> map </tag>
-            
         </tags>
       
     </entry>
@@ -3228,8 +3154,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> cycle </tag>
             
         </tags>
       
@@ -3256,8 +3180,6 @@
             
             <tag> PAT </tag>
             
-            <tag> AVL </tag>
-            
         </tags>
       
     </entry>
@@ -3282,8 +3204,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> map </tag>
             
         </tags>
       
@@ -3310,8 +3230,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 贪心 </tag>
-            
         </tags>
       
     </entry>
@@ -3336,8 +3254,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 图 </tag>
             
         </tags>
       
@@ -3391,8 +3307,6 @@
             
             <tag> PAT </tag>
             
-            <tag> N皇后 </tag>
-            
         </tags>
       
     </entry>
@@ -3417,8 +3331,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> Set </tag>
             
         </tags>
       
@@ -3445,10 +3357,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 树 </tag>
-            
-            <tag> 中序遍历 </tag>
-            
         </tags>
       
     </entry>
@@ -3473,10 +3381,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> DFS </tag>
-            
-            <tag> 图 </tag>
             
         </tags>
       
@@ -3530,8 +3434,6 @@
             
             <tag> PAT </tag>
             
-            <tag> list </tag>
-            
         </tags>
       
     </entry>
@@ -3556,8 +3458,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 图 </tag>
             
         </tags>
       
@@ -3610,8 +3510,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 大整数计算 </tag>
             
         </tags>
       
@@ -3692,8 +3590,6 @@
             
             <tag> PAT </tag>
             
-            <tag> 图 </tag>
-            
         </tags>
       
     </entry>
@@ -3718,8 +3614,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 递推 </tag>
             
         </tags>
       
@@ -3746,8 +3640,6 @@
             
             <tag> PAT </tag>
             
-            <tag> map </tag>
-            
         </tags>
       
     </entry>
@@ -3772,8 +3664,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> Maximal Clique </tag>
             
         </tags>
       
@@ -3800,8 +3690,6 @@
             
             <tag> PAT </tag>
             
-            <tag> LCA </tag>
-            
         </tags>
       
     </entry>
@@ -3826,8 +3714,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> SET </tag>
             
         </tags>
       
@@ -3854,8 +3740,6 @@
             
             <tag> PAT </tag>
             
-            <tag> Hash </tag>
-            
         </tags>
       
     </entry>
@@ -3880,8 +3764,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> 拓扑排序 </tag>
             
         </tags>
       
@@ -3984,8 +3866,6 @@
         <tags>
             
             <tag> PAT </tag>
-            
-            <tag> Simple Cycle </tag>
             
         </tags>
       
