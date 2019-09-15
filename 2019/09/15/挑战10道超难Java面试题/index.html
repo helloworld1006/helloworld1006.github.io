@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://www.runaccpeted.com/2019/09/15/挑战10道超难Java面试题/thread.png">
 <meta property="og:image" content="https://www.runaccpeted.com/2019/09/15/挑战10道超难Java面试题/serialization.png">
 <meta property="og:image" content="https://www.runaccpeted.com/2019/09/15/挑战10道超难Java面试题/wait:noftify.png">
-<meta property="og:updated_time" content="2019-09-15T05:36:45.842Z">
+<meta property="og:updated_time" content="2019-09-15T05:39:19.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="挑战10道超难Java面试题">
 <meta name="twitter:description" content="来自Java核心部分的10个最棘手的Java面试问题列表  原文">
@@ -378,7 +378,7 @@
                 
               
 
-              <time title="创建时间：2019-09-15 12:28:11 / 修改时间：13:36:45" itemprop="dateCreated datePublished" datetime="2019-09-15T12:28:11+08:00">2019-09-15</time>
+              <time title="创建时间：2019-09-15 12:28:11 / 修改时间：13:39:19" itemprop="dateCreated datePublished" datetime="2019-09-15T12:28:11+08:00">2019-09-15</time>
             </span>
           
             
@@ -576,7 +576,8 @@
 
 <p>现在没有任何死锁,因为两种方法都按相同的顺序访问 Integer 和 String 类文本上的锁。因此,如果线程 A 在 Integer 对象上获取锁, 则线程 B 不会继续, 直到线程 A 释放 Integer 锁, 即使线程 B 持有 String 锁, 线程 A 也不会被阻止, 因为现在线程 B 不会期望线程 A 释放 Integer 锁以继续。</p>
 <h1 id="如果你的Serializable类包含一个不可序列化的成员，会发生什么？你是如何解决的？"><a href="#如果你的Serializable类包含一个不可序列化的成员，会发生什么？你是如何解决的？" class="headerlink" title="如果你的Serializable类包含一个不可序列化的成员，会发生什么？你是如何解决的？"></a><font size="4px">如果你的Serializable类包含一个不可序列化的成员，会发生什么？你是如何解决的？</font></h1><p>任何序列化该类的尝试都会因NotSerializableException而失败，但这可以通过在 Java中 为 static 设置瞬态(trancient)变量来轻松解决。</p>
-<h4 id="Java-序列化相关的常见问题"><a href="#Java-序列化相关的常见问题" class="headerlink" title="Java 序列化相关的常见问题"></a><strong>Java 序列化相关的常见问题</strong></h4><p>Java 序列化是一个重要概念, 但它很少用作持久性解决方案, 开发人员大多忽略了 Java 序列化 API。根据我的经验, Java 序列化在任何 Java核心内容面试中都是一个相当重要的话题, 在几乎所有的网面试中, 我都遇到过一两个 Java 序列化问题, 我看过一次面试, 在问几个关于序列化的问题之后候选人开始感到不自在, 因为缺乏这方面的经验。</p>
+<p><strong>Java 序列化相关的常见问题</strong></p>
+<p>Java 序列化是一个重要概念, 但它很少用作持久性解决方案, 开发人员大多忽略了 Java 序列化 API。根据我的经验, Java 序列化在任何 Java核心内容面试中都是一个相当重要的话题, 在几乎所有的网面试中, 我都遇到过一两个 Java 序列化问题, 我看过一次面试, 在问几个关于序列化的问题之后候选人开始感到不自在, 因为缺乏这方面的经验。</p>
 <p>他们不知道如何在 Java 中序列化对象, 或者他们不熟悉任何 Java 示例来解释序列化, 忘记了诸如序列化在 Java 中如何工作, 什么是标记接口, 标记接口的目的是什么, 瞬态变量和可变变量之间的差异, 可序列化接口具有多少种方法, 在 Java 中,Serializable 和 Externalizable 有什么区别, 或者在引入注解之后, 为什么不用 @Serializable 注解或替换 Serializalbe 接口。</p>
 <p><img src="/2019/09/15/挑战10道超难Java面试题/serialization.png" alt></p>
 <p> <strong>关于Java序列化的10个面试问题</strong></p>
@@ -671,7 +672,7 @@
     <a href="https://www.runaccpeted.com/2019/09/15/挑战10道超难Java面试题/" title="挑战10道超难Java面试题">https://www.runaccpeted.com/2019/09/15/挑战10道超难Java面试题/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月15日 - 12:28</li>
-  <li><strong>更新时间：</strong>2019年09月15日 - 13:36</li>
+  <li><strong>更新时间：</strong>2019年09月15日 - 13:39</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -755,7 +756,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么-wait，notify-和-notifyAll-是在-Object-类中定义的而不是在-Thread-类中定义？"><span class="nav-number">1.</span> <span class="nav-text"> 为什么 wait，notify 和 notifyAll 是在 Object 类中定义的而不是在 Thread 类中定义？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么Java中不支持多重继承？"><span class="nav-number">2.</span> <span class="nav-text">为什么Java中不支持多重继承？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么Java不支持运算符重载？"><span class="nav-number">3.</span> <span class="nav-text">为什么Java不支持运算符重载？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么-String-在-Java-中是不可变的？"><span class="nav-number">4.</span> <span class="nav-text">为什么 String 在 Java 中是不可变的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么-char-数组比-Java-中的-String-更适合存储密码？"><span class="nav-number">5.</span> <span class="nav-text">为什么 char 数组比 Java 中的 String 更适合存储密码？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何使用双重检查锁定在-Java-中创建线程安全的单例？"><span class="nav-number">6.</span> <span class="nav-text">如何使用双重检查锁定在 Java 中创建线程安全的单例？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编写-Java-程序时-如何在-Java-中创建死锁并修复它？"><span class="nav-number">7.</span> <span class="nav-text">编写 Java 程序时, 如何在 Java 中创建死锁并修复它？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如果你的Serializable类包含一个不可序列化的成员，会发生什么？你是如何解决的？"><span class="nav-number">8.</span> <span class="nav-text">如果你的Serializable类包含一个不可序列化的成员，会发生什么？你是如何解决的？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-序列化相关的常见问题"><span class="nav-number">8.0.0.1.</span> <span class="nav-text">Java 序列化相关的常见问题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么Java中-wait-方法需要在-synchronized-的方法中调用"><span class="nav-number">9.</span> <span class="nav-text">为什么Java中 wait 方法需要在 synchronized 的方法中调用?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编写-Java-程序时-如何在-Java-中创建死锁并修复它？-1"><span class="nav-number">10.</span> <span class="nav-text">编写 Java 程序时, 如何在 Java 中创建死锁并修复它？</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么-wait，notify-和-notifyAll-是在-Object-类中定义的而不是在-Thread-类中定义？"><span class="nav-number">1.</span> <span class="nav-text"> 为什么 wait，notify 和 notifyAll 是在 Object 类中定义的而不是在 Thread 类中定义？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么Java中不支持多重继承？"><span class="nav-number">2.</span> <span class="nav-text">为什么Java中不支持多重继承？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么Java不支持运算符重载？"><span class="nav-number">3.</span> <span class="nav-text">为什么Java不支持运算符重载？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么-String-在-Java-中是不可变的？"><span class="nav-number">4.</span> <span class="nav-text">为什么 String 在 Java 中是不可变的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么-char-数组比-Java-中的-String-更适合存储密码？"><span class="nav-number">5.</span> <span class="nav-text">为什么 char 数组比 Java 中的 String 更适合存储密码？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何使用双重检查锁定在-Java-中创建线程安全的单例？"><span class="nav-number">6.</span> <span class="nav-text">如何使用双重检查锁定在 Java 中创建线程安全的单例？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编写-Java-程序时-如何在-Java-中创建死锁并修复它？"><span class="nav-number">7.</span> <span class="nav-text">编写 Java 程序时, 如何在 Java 中创建死锁并修复它？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如果你的Serializable类包含一个不可序列化的成员，会发生什么？你是如何解决的？"><span class="nav-number">8.</span> <span class="nav-text">如果你的Serializable类包含一个不可序列化的成员，会发生什么？你是如何解决的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么Java中-wait-方法需要在-synchronized-的方法中调用"><span class="nav-number">9.</span> <span class="nav-text">为什么Java中 wait 方法需要在 synchronized 的方法中调用?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编写-Java-程序时-如何在-Java-中创建死锁并修复它？-1"><span class="nav-number">10.</span> <span class="nav-text">编写 Java 程序时, 如何在 Java 中创建死锁并修复它？</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
