@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="Collection HashMap">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T12:23:30.938Z">
+<meta property="og:updated_time" content="2019-09-15T17:09:38.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-集合">
 <meta name="twitter:description" content="Collection HashMap">
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">165</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">167</span></a>
 
   </li>
       
@@ -384,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-15 20:23:30" itemprop="dateModified" datetime="2019-09-15T20:23:30+08:00">2019-09-15</time>
+                <time title="修改时间：2019-09-16 01:09:38" itemprop="dateModified" datetime="2019-09-16T01:09:38+08:00">2019-09-16</time>
               </span>
             
           
@@ -445,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>3.2k</span>
+              <span>3.6k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -455,7 +455,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
           
 
@@ -471,13 +471,16 @@
         <blockquote class="blockquote-center">Collection HashMap</blockquote>
 <a id="more"></a>
 
-<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a><font size="4px">Collection</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="comment">//并 other元素添加到集合中</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;E&gt; other)</span></span>;</span><br><span class="line"><span class="comment">//交 删除与other中匹配的所有元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection other)</span></span>;</span><br><span class="line"><span class="comment">//差 删除与other不同的元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection other)</span></span>;</span><br></pre></td></tr></table></figure>
+<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a><font size="4px">Collection</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="comment">//并 other元素添加到集合中</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;E&gt; other)</span></span>;</span><br><span class="line"><span class="comment">//交 删除与other中匹配的所有元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection other)</span></span>;</span><br><span class="line"><span class="comment">//差 删除与other不同的元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection other)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//批量删除符合filter条件的所有元素 Predicate对象</span></span><br><span class="line">Collection.removeIf(ele-&gt;(String)ele.length()&lt;<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="固定长度的List"><a href="#固定长度的List" class="headerlink" title="固定长度的List"></a><font size="4px">固定长度的List</font></h1><p>Arrays.ArrayList是Arrays的内部类ArrayList的实例，不可增加，删除元素。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = Arrays.asList(Object... obj);</span><br></pre></td></tr></table></figure>
 
 <h1 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a><font size="4px">LinkedList</font></h1><p>双向链表实现，只能顺序访问，故get方法效率低，可以快速插入和删除元素。</p>
 <p>结点 prev|element|next</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">        E item;</span><br><span class="line">        Node&lt;E&gt; next;</span><br><span class="line">        Node&lt;E&gt; prev;</span><br><span class="line"></span><br><span class="line">        Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</span><br><span class="line">            <span class="keyword">this</span>.item = element;</span><br><span class="line">            <span class="keyword">this</span>.next = next;</span><br><span class="line">            <span class="keyword">this</span>.prev = prev;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>类 </p>
+<p>类 继承AbstractSequentialList，实现List接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
 
 <p>add() 采用尾插法</p>
@@ -642,7 +645,10 @@
 <p>内部维护了一个双向链表，用来维护插入顺序。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; head;</span><br><span class="line"><span class="keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; tail;</span><br><span class="line"></span><br><span class="line">Entry(<span class="keyword">int</span> hash, K key, V value, Node&lt;K,V&gt; next) &#123;</span><br><span class="line">   <span class="keyword">super</span>(hash, key, value, next);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="EnumMap"><a href="#EnumMap" class="headerlink" title="EnumMap"></a><font size="4px">EnumMap</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumMap</span>&lt;<span class="title">K</span> <span class="keyword">extends</span> <span class="title">Enum</span>&lt;<span class="title">K</span>&gt;, <span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="EnumMap"><a href="#EnumMap" class="headerlink" title="EnumMap"></a><font size="4px">EnumMap</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumMap</span> &lt;<span class="title">K</span> <span class="keyword">extends</span> <span class="title">Enum</span>&lt;<span class="title">K</span>&gt;, <span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>key根据enum枚举类中的顺序排序，不允许使用key为null，允许value的null。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EnumMap e = <span class="keyword">new</span> EnumMap(Season.class);</span><br><span class="line">e.put(Season.SUMMER,<span class="string">"夏天"</span>);</span><br><span class="line">e.put(Season.WINTER,<span class="string">"冬天"</span>);</span><br></pre></td></tr></table></figure>
 
 <h1 id="WeakHashMap"><a href="#WeakHashMap" class="headerlink" title="WeakHashMap"></a><font size="4px">WeakHashMap</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeakHashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;<span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -656,7 +662,29 @@
 <li>当调用 get() 方法时，会先从 eden 区获取，如果没有找到的话再到 longterm 获取，当从 longterm 获取到就把对象放入 eden 中，从而保证经常被访问的节点不容易被回收。</li>
 <li>当调用 put() 方法时，如果 eden 的大小超过了 size，那么就将 eden 中的所有对象都放入 longterm 中，利用虚拟机回收掉一部分不经常使用的对象。</li>
 </ul>
-<h1 id="IdentityHashMap"><a href="#IdentityHashMap" class="headerlink" title="IdentityHashMap"></a><font size="4px">IdentityHashMap</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdentityHashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="IdentityHashMap"><a href="#IdentityHashMap" class="headerlink" title="IdentityHashMap"></a><font size="4px">IdentityHashMap</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdentityHashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>允许使用null作为key和value，IdentityHashMap并不保证键值对的顺序。IdentityHashMap要求两个key严格相等才替换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IdentityHashMap&lt;Object,<span class="keyword">int</span>&gt; id = <span class="keyword">new</span> IdentityHashMap&lt;&gt;();</span><br><span class="line">id.put(<span class="keyword">new</span> String(a),<span class="number">1</span>);</span><br><span class="line">id.put(<span class="keyword">new</span> String(a),<span class="number">2</span>); <span class="comment">//通过==判断不相等，则为2个key</span></span><br><span class="line">id.put(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">id.put(<span class="number">1</span>,<span class="number">2</span>); <span class="comment">//直接量相等则为同一个key</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="工具类Collections"><a href="#工具类Collections" class="headerlink" title="工具类Collections"></a><font size="4px">工具类Collections</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//反转</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(List list)</span></span>;</span><br><span class="line"><span class="comment">//随机洗牌</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shuffle</span><span class="params">(List list)</span></span>;</span><br><span class="line"><span class="comment">//排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List list)</span></span>;</span><br><span class="line"><span class="comment">//交换i位和j位</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(List list，<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//同步</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">synchronizedCollection</span><span class="params">(List list)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Enumeration"><a href="#Enumeration" class="headerlink" title="Enumeration"></a><font size="4px">Enumeration</font></h1><p>Iterator的old版本,存在于vector，Hashtable中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vector v = <span class="keyword">new</span> Vector();</span><br><span class="line">Enumeration em = v.elements();</span><br><span class="line"><span class="keyword">while</span>(em.hasMoreElements())&#123;</span><br><span class="line">  em.nextElement();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a><font size="4px">泛型</font></h1><p>参数化类型，在创建对象时指定集合元素类型。不需要再对集合元素取值进行强制类型转换，泛型会动态指定类型实参。</p>
+<p>实际上，系统并没有创建带泛型的class文件，在编译时，不管泛型参数是什么，运行的是同样的类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; list1 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">ArrayList&lt;Integer&gt; list2 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">System.out.println(list1.getClass()==list2.getClass()); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>在泛型中，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(List&lt;Object&gt; c)</span></span>&#123; &#125;</span><br><span class="line">ArrayList&lt;Integer&gt; list1 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">method(list1); <span class="comment">//error 无法应用</span></span><br></pre></td></tr></table></figure>
+
+<p>通配符</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;?&gt; list;</span><br><span class="line"><span class="comment">//上限</span></span><br><span class="line">List&lt;? extends Father&gt; list;</span><br><span class="line"><span class="comment">//下限</span></span><br><span class="line">List&lt;? Super Son&gt; list;</span><br></pre></td></tr></table></figure>
+
+<p>泛型数组</p>
+<p>java允许创建无上限的通配符泛型数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;?&gt;[] array = <span class="keyword">new</span> ArrayList&lt;&gt;[<span class="number">10</span>];</span><br><span class="line">Object temp = array.get(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(temp instanceOf String)&#123;</span><br><span class="line">  Strign s = (String) temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -686,7 +714,7 @@
     <a href="https://www.runaccpeted.com/2019/09/13/Java基础知识-集合/" title="Java基础知识-集合">https://www.runaccpeted.com/2019/09/13/Java基础知识-集合/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月13日 - 22:12</li>
-  <li><strong>更新时间：</strong>2019年09月15日 - 20:23</li>
+  <li><strong>更新时间：</strong>2019年09月16日 - 01:09</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -774,7 +802,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection"><span class="nav-number">1.</span> <span class="nav-text">Collection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedList"><span class="nav-number">2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-number">3.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vector"><span class="nav-number">4.</span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashSet"><span class="nav-number">5.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeSet"><span class="nav-number">6.</span> <span class="nav-text">TreeSet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap"><span class="nav-number">7.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作原理"><span class="nav-number">7.1.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历方式"><span class="nav-number">7.2.</span> <span class="nav-text">遍历方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hashtable"><span class="nav-number">8.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap-vs-Hashtable"><span class="nav-number">9.</span> <span class="nav-text">HashMap vs. Hashtable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CurrentHashMap"><span class="nav-number">10.</span> <span class="nav-text">CurrentHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeMap"><span class="nav-number">11.</span> <span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">12.</span> <span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EnumMap"><span class="nav-number">13.</span> <span class="nav-text">EnumMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WeakHashMap"><span class="nav-number">14.</span> <span class="nav-text">WeakHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IdentityHashMap"><span class="nav-number">15.</span> <span class="nav-text">IdentityHashMap</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection"><span class="nav-number">1.</span> <span class="nav-text">Collection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#固定长度的List"><span class="nav-number">2.</span> <span class="nav-text">固定长度的List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedList"><span class="nav-number">3.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-number">4.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vector"><span class="nav-number">5.</span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashSet"><span class="nav-number">6.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeSet"><span class="nav-number">7.</span> <span class="nav-text">TreeSet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap"><span class="nav-number">8.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作原理"><span class="nav-number">8.1.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历方式"><span class="nav-number">8.2.</span> <span class="nav-text">遍历方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hashtable"><span class="nav-number">9.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap-vs-Hashtable"><span class="nav-number">10.</span> <span class="nav-text">HashMap vs. Hashtable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CurrentHashMap"><span class="nav-number">11.</span> <span class="nav-text">CurrentHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeMap"><span class="nav-number">12.</span> <span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">13.</span> <span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EnumMap"><span class="nav-number">14.</span> <span class="nav-text">EnumMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WeakHashMap"><span class="nav-number">15.</span> <span class="nav-text">WeakHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IdentityHashMap"><span class="nav-number">16.</span> <span class="nav-text">IdentityHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工具类Collections"><span class="nav-number">17.</span> <span class="nav-text">工具类Collections</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Enumeration"><span class="nav-number">18.</span> <span class="nav-text">Enumeration</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型"><span class="nav-number">19.</span> <span class="nav-text">泛型</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -792,7 +820,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">165</span>
+          <span class="site-state-item-count">167</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -963,13 +991,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">228k</span>
+    <span title="站点总字数">230k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">6:21</span>
+    <span title="站点阅读时长">6:23</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
