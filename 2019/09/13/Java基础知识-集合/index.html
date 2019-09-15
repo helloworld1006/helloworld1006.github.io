@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="Collection HashMap">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-14T17:31:28.439Z">
+<meta property="og:updated_time" content="2019-09-15T12:23:30.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-集合">
 <meta name="twitter:description" content="Collection HashMap">
@@ -384,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-15 01:31:28" itemprop="dateModified" datetime="2019-09-15T01:31:28+08:00">2019-09-15</time>
+                <time title="修改时间：2019-09-15 20:23:30" itemprop="dateModified" datetime="2019-09-15T20:23:30+08:00">2019-09-15</time>
               </span>
             
           
@@ -445,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.5k</span>
+              <span>3.2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -455,7 +455,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>2 分钟</span>
+              <span>5 分钟</span>
             </span>
           
 
@@ -520,9 +520,10 @@
 <li>HashMap 可以插入键为 null 的 Entry。</li>
 <li>HashMap 不能保证随着时间的推移 Map 中的元素次序是不变的。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">//<span class="title">table</span> 的容量大小，默认为 16。需要注意的是 <span class="title">capacity</span> 必须保证为 2 的 <span class="title">n</span> 次方</span></span><br><span class="line"><span class="class"><span class="title">static</span> <span class="title">final</span> <span class="title">int</span> <span class="title">DEFAULT_INITIAL_CAPACITY</span> </span>= <span class="number">1</span> &lt;&lt; <span class="number">4</span>;</span><br><span class="line"><span class="comment">//装载因子，table 能够使用的比例，threshold = (int)(newCapacity * loadFactor)</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> DEFAULT_LOAD_FACTOR = <span class="number">0.75f</span>;</span><br><span class="line"><span class="comment">//size 的临界值，当 size 大于等于 threshold 就必须进行扩容操作</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TREEIFY_THRESHOLD = <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">transient</span> Node&lt;K,V&gt;[] table;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">//<span class="title">table</span> 的容量大小，默认为 16。需要注意的是 <span class="title">capacity</span> 必须保证为 2 的 <span class="title">n</span> 次方</span></span><br><span class="line"><span class="class"><span class="title">static</span> <span class="title">final</span> <span class="title">int</span> <span class="title">DEFAULT_INITIAL_CAPACITY</span> </span>= <span class="number">1</span> &lt;&lt; <span class="number">4</span>;</span><br><span class="line"><span class="comment">//装载因子，用来确认table 数组是否需要动态扩展，threshold = (int)(newCapacity * loadFactor)</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> DEFAULT_LOAD_FACTOR = <span class="number">0.75f</span>;</span><br><span class="line"><span class="comment">//size 的临界值，当 size 大于等于 threshold 就必须进行扩容操作，当链表长度超过 8 时，链表转换为红黑树</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TREEIFY_THRESHOLD = <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">transient</span> Node&lt;K,V&gt;[] table;</span><br></pre></td></tr></table></figure>
 
 <p>映射</p>
+<p>hashCode() 的<strong>高 16 位异或低 16 位</strong>实现的：(h = k.hashCode()) ^ (h &gt;&gt;&gt; 16)，主要是从速度，功效和质量来考虑的，<strong>减少系统的开销</strong>，也不会造成<strong>因为高位没有参与</strong>下标的计算，从而引起的<strong>碰撞</strong>。保证了对象的 hashCode 的 32 位值只要有一位发生改变，整个 hash() 返回值就会改变。尽可能的减少碰撞。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h;</span><br><span class="line">    <span class="keyword">return</span> (key == <span class="keyword">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>结点</p>
@@ -535,15 +536,79 @@
 
 <ul>
 <li>插入 &lt;K1,V1&gt; 键值对，先计算 K1 的 hashCode 为 1，使用除留余数法得到所在的下标 1%16=1。</li>
-<li>插入 &lt;K2,V2&gt; 键值对，先计算 K2 的 hashCode 为 1，使用除留余数法得到所在的桶下标 1%16=1,插在 &lt;K1,V1&gt; 前面。</li>
+<li>插入 &lt;K2,V2&gt; 键值对，先计算 K2 的 hashCode 为 1，使用除留余数法得到所在的桶下标 1%16=1,插在 &lt;K1,V1&gt; 后面。</li>
 </ul>
-<p>HashMap采用的是头插法。</p>
-<h1 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a><font size="4px">Hashtable</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hashtable</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">Dictionary</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>HashMap采用的是尾插法。</p>
+<p>HashMap底层采用hash数组和单向链表实现。初始数组长度为16，每个数组元素为一个Node。</p>
+<p><strong>存储</strong>：put中传入K，V值。</p>
+<p>1）调用hash(k)计算K的hash值，结合数组长度得到数组下标。</p>
+<p>2)   调整数组大小当容器中的元素个数大于 capacity * loadfactor 时，容器会进行扩容resize 为 2n）；</p>
+<p>3)   如果K的hash值在HashMap中不存在，则插入；已存在，比较两者equals，false则采用拉链法尾插到数组中，equals为true，更新V值。</p>
+<p><strong>获取</strong>：</p>
+<p>1)   调用 hash(K) 方法（<strong>计算 K 的 hash 值</strong>）从而<strong>获取该键值所在链表的数组下标</strong>；</p>
+<p>2）顺序遍历链表，equals()方法查找<strong>相同 Node 链表中 K 值</strong>对应的 V 值。</p>
+<h2 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a><font size="3px">遍历方式</font></h2><ul>
+<li><p><strong>for-each map.keySet()</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String key : map.keySet()) &#123;</span><br><span class="line">    map.get(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>for-each map.entrySet()</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : map.entrySet()) &#123;</span><br><span class="line">    entry.getKey();</span><br><span class="line">    entry.getValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>for-each map.entrySet()</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;Map.Entry&lt;String, String&gt;&gt; entrySet = map.entrySet();</span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : entrySet) &#123;</span><br><span class="line">        entry.getKey();</span><br><span class="line">        entry.getValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>for-each map.entrySet().iterator()</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;Map.Entry&lt;String, String&gt;&gt; iterator = map.entrySet().iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">        Map.Entry&lt;String, String&gt; entry = iterator.next();</span><br><span class="line">        entry.getKey();</span><br><span class="line">        entry.getValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a><font size="4px">Hashtable</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hashtable</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;<span class="keyword">extends</span> <span class="title">Dictionary</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">   </span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">Hashtable</span>(<span class="title">int</span> <span class="title">initialCapacity</span>, <span class="title">float</span> <span class="title">loadFactor</span>) </span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">Hashtable</span>() </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(<span class="number">11</span>, <span class="number">0.75f</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>键值对都不允许为null,线程安全</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">put</span><span class="params">(K key, V value)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">remove</span><span class="params">(Object key)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">put</span><span class="params">(K key, V value)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">remove</span><span class="params">(Object key)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> hash </span>= key.hashCode();</span><br><span class="line"><span class="keyword">int</span> newCapacity = (oldCapacity &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 
-<h1 id="CurrentHashMap"><a href="#CurrentHashMap" class="headerlink" title="CurrentHashMap"></a><font size="4px">CurrentHashMap</font></h1><p>ConcurrentHashMap 采用了分段锁（Segment），每个分段锁维护着几个HashEntry，多个线程可以同时访问不同分段锁上的桶，从而使其并发度更高（并发度就是 Segment 的个数）。</p>
+<h1 id="HashMap-vs-Hashtable"><a href="#HashMap-vs-Hashtable" class="headerlink" title="HashMap vs. Hashtable"></a><font size="4px">HashMap vs. Hashtable</font></h1><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">HashMap</th>
+<th align="center">Hashtable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">父类</td>
+<td align="center">AbstractMap</td>
+<td align="center">Dictionary</td>
+</tr>
+<tr>
+<td align="center">安全性</td>
+<td align="center">线程不安全</td>
+<td align="center">线程安全</td>
+</tr>
+<tr>
+<td align="center">键值</td>
+<td align="center">允许一条记录键值为null，允许多条记录的值为null</td>
+<td align="center">键值都不允许为null</td>
+</tr>
+<tr>
+<td align="center">初始化数组</td>
+<td align="center">16</td>
+<td align="center">11</td>
+</tr>
+<tr>
+<td align="center">扩容</td>
+<td align="center">扩大2倍</td>
+<td align="center">扩大2倍+1</td>
+</tr>
+<tr>
+<td align="center">hash值</td>
+<td align="center">采用高低16位异或计算</td>
+<td align="center">直接使用hashCode</td>
+</tr>
+</tbody></table>
+<h1 id="CurrentHashMap"><a href="#CurrentHashMap" class="headerlink" title="CurrentHashMap"></a><font size="4px">CurrentHashMap</font></h1><p>ConcurrentHashMap是 Java并发包 java.util.concurrent 中提供的一个<strong>线程安全且高效</strong>的 HashMap 实现。</p>
+<p><strong>HashTable</strong> 使用<strong>一把锁（锁住整个链表结构）</strong>处理并发问题，多个线程竞争一把锁，容易<strong>阻塞</strong>；</p>
+<p><strong>ConcurrentHashMap</strong><br><strong>JDK 1.7</strong> 中使用<strong>分段锁（ReentrantLock + Segment + HashEntry）</strong>，相当于把一个 HashMap 分成多个段，每段分配一把锁，这样支持多线程访问。锁粒度：<strong>基于 Segment</strong>，包含多个 HashEntry。<br><strong>JDK 1.8</strong> 中使用 <strong>CAS + synchronized + Node + 红黑树</strong>。锁粒度：<strong>Node（首结点）</strong>（实现 Map.Entry&lt;K,V&gt;）。锁粒度降低了。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcurrentHashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">ConcurrentMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;    </span></span><br><span class="line"><span class="class">  </span></span><br><span class="line"><span class="class"><span class="title">private</span> <span class="title">static</span> <span class="title">final</span> <span class="title">int</span> <span class="title">DEFAULT_CAPACITY</span> </span>= <span class="number">16</span>;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">transient</span> <span class="keyword">volatile</span> Node&lt;K,V&gt;[] table;</span><br></pre></td></tr></table></figure>
 
 <p>结点</p>
@@ -554,6 +619,20 @@
 <p>插入结点 </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span> (f) &#123; &#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>jdk1.7</strong></p>
+<p>采用<strong>分段锁</strong>的机制，实现并发的更新操作，底层采用<strong>数组+链表</strong>的存储结构，包括两个核心静态内部类 <strong>Segment 和 HashEntry</strong>。<br>①、<strong>Segment</strong> 继承 <strong>ReentrantLock（重入锁）</strong> 用来充当锁的角色，每个 Segment 对象守护每个散列映射表的若干个桶；<br>②、HashEntry 用来封装映射表的键-值对；<br>③、每个桶是由若干个 HashEntry 对象链接起来的链表。</p>
+<p><strong>jdk 1.8</strong> </p>
+<p>采用Node + CAS + Synchronized来保证并发安全。<strong>取消类 Segment</strong>，直接用 <strong>table 数组</strong>存储键值对；当 HashEntry 对象组成的链表长度超过 TREEIFY_THRESHOLD 时，<strong>链表转换为红黑树</strong>，提升性能。底层变更为<strong>数组 + 链表 + 红黑树</strong>。</p>
+<p><a href="https://www.w3resource.com/java-tutorial/java-collections.php" target="_blank" rel="noopener">Java Collection Framework</a></p>
+<p><a href="https://openhome.cc/Gossip/DesignPattern/IteratorPattern.htm" target="_blank" rel="noopener">Iterator 模式</a></p>
+<p><a href="https://tech.meituan.com/java_hashmap.html" target="_blank" rel="noopener">Java 8 系列之重新认识 HashMap</a></p>
+<p><a href="http://javarevisited.blogspot.hk/2010/10/difference-between-hashmap-and.html" target="_blank" rel="noopener">What is difference between HashMap and Hashtable in Java?</a></p>
+<p><a href="http://www.zhangchangle.com/2018/02/07/Java集合之HashMap/" target="_blank" rel="noopener">Java 集合之 HashMap</a></p>
+<p><a href="http://www.programering.com/a/MDO3QDNwATM.html" target="_blank" rel="noopener">The principle of ConcurrentHashMap analysis</a></p>
+<p><a href="https://www.ibm.com/developerworks/cn/java/java-lo-concurrenthashmap/" target="_blank" rel="noopener">探索 ConcurrentHashMap 高并发性的实现机制</a></p>
+<p><a href="https://www.jianshu.com/p/75adf47958a7" target="_blank" rel="noopener">HashMap 相关面试题及其解答</a></p>
+<p><a href="http://wiki.jikexueyuan.com/project/java-enhancement/java-thirtysix.html" target="_blank" rel="noopener">Java 集合细节（二）：asList 的缺陷</a></p>
+<p><a href="http://javaconceptoftheday.com/java-collection-framework-linkedlist-class/" target="_blank" rel="noopener">Java Collection Framework – The LinkedList Class</a></p>
 <h1 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a><font size="4px">TreeMap</font></h1><p>用于比较</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">NavigableMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    </span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">TreeMap</span>(<span class="title">Comparator</span>&lt;? <span class="title">super</span> <span class="title">K</span>&gt; <span class="title">comparator</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.comparator = comparator;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -607,7 +686,7 @@
     <a href="https://www.runaccpeted.com/2019/09/13/Java基础知识-集合/" title="Java基础知识-集合">https://www.runaccpeted.com/2019/09/13/Java基础知识-集合/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月13日 - 22:12</li>
-  <li><strong>更新时间：</strong>2019年09月15日 - 01:31</li>
+  <li><strong>更新时间：</strong>2019年09月15日 - 20:23</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -695,7 +774,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection"><span class="nav-number">1.</span> <span class="nav-text">Collection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedList"><span class="nav-number">2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-number">3.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vector"><span class="nav-number">4.</span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashSet"><span class="nav-number">5.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeSet"><span class="nav-number">6.</span> <span class="nav-text">TreeSet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap"><span class="nav-number">7.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作原理"><span class="nav-number">7.1.</span> <span class="nav-text">工作原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hashtable"><span class="nav-number">8.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CurrentHashMap"><span class="nav-number">9.</span> <span class="nav-text">CurrentHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeMap"><span class="nav-number">10.</span> <span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">11.</span> <span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EnumMap"><span class="nav-number">12.</span> <span class="nav-text">EnumMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WeakHashMap"><span class="nav-number">13.</span> <span class="nav-text">WeakHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IdentityHashMap"><span class="nav-number">14.</span> <span class="nav-text">IdentityHashMap</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection"><span class="nav-number">1.</span> <span class="nav-text">Collection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedList"><span class="nav-number">2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-number">3.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vector"><span class="nav-number">4.</span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashSet"><span class="nav-number">5.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeSet"><span class="nav-number">6.</span> <span class="nav-text">TreeSet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap"><span class="nav-number">7.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作原理"><span class="nav-number">7.1.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历方式"><span class="nav-number">7.2.</span> <span class="nav-text">遍历方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hashtable"><span class="nav-number">8.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap-vs-Hashtable"><span class="nav-number">9.</span> <span class="nav-text">HashMap vs. Hashtable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CurrentHashMap"><span class="nav-number">10.</span> <span class="nav-text">CurrentHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeMap"><span class="nav-number">11.</span> <span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">12.</span> <span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EnumMap"><span class="nav-number">13.</span> <span class="nav-text">EnumMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WeakHashMap"><span class="nav-number">14.</span> <span class="nav-text">WeakHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IdentityHashMap"><span class="nav-number">15.</span> <span class="nav-text">IdentityHashMap</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -884,13 +963,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">226k</span>
+    <span title="站点总字数">228k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">6:16</span>
+    <span title="站点阅读时长">6:21</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
