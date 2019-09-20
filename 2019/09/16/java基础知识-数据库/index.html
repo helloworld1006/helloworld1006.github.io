@@ -79,20 +79,20 @@
         }
     })();
 </script>
-  <meta name="description" content="b">
-<meta name="keywords" content="PAT">
+  <meta name="description" content="数据库配置">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java基础知识-数据库">
 <meta property="og:url" content="https://www.runaccpeted.com/2019/09/16/java基础知识-数据库/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="数据库配置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccpeted.com/2019/09/16/java基础知识-数据库/ac.png">
-<meta property="og:updated_time" content="2019-09-15T17:15:09.564Z">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/16/java基础知识-数据库/a.png">
+<meta property="og:updated_time" content="2019-09-18T17:09:34.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础知识-数据库">
-<meta name="twitter:description" content="b">
-<meta name="twitter:image" content="https://www.runaccpeted.com/2019/09/16/java基础知识-数据库/ac.png">
+<meta name="twitter:description" content="数据库配置">
+<meta name="twitter:image" content="https://www.runaccpeted.com/2019/09/16/java基础知识-数据库/a.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccpeted.com/2019/09/16/java基础知识-数据库/">
 
@@ -249,7 +249,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">167</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">171</span></a>
 
   </li>
       
@@ -378,13 +378,25 @@
               <time title="创建时间：2019-09-16 01:15:09" itemprop="dateCreated datePublished" datetime="2019-09-16T01:15:09+08:00">2019-09-16</time>
             </span>
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-19 01:09:34" itemprop="dateModified" datetime="2019-09-19T01:09:34+08:00">2019-09-19</time>
+              </span>
+            
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
 
                 
                 
@@ -435,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>19</span>
+              <span>808</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -458,16 +470,248 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">数据库配置</blockquote>
+
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p> <strong>Sample Input:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="mysql数据库配置"><a href="#mysql数据库配置" class="headerlink" title="mysql数据库配置"></a><font size="4px">mysql数据库配置</font></h1><p>数据库<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">下载</a> </p>
+<p>下载解压 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd Downloads</span><br><span class="line">tar -xzvf mysql-xxx.tar.gz</span><br></pre></td></tr></table></figure>
 
-<img src="/2019/09/16/java基础知识-数据库/ac.png" class="full-image">
+<p>复制到/usr/local/目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /Downloads/mysql-xxx /usr/local/mysql</span><br></pre></td></tr></table></figure>
 
-<div class="note warning"><p>使 </p></div>
+<p>配置环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">open -e .bash_profile</span><br><span class="line"></span><br><span class="line">#添加环境变量</span><br><span class="line">export MYSQL_HOME=/usr/local/mysql</span><br><span class="line">export PATH=$MYSQL_HOME/bin:$MYSQL_HOME/support-files:$PATH</span><br><span class="line"></span><br><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
 
+<p>进入到local</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line">ls -l</span><br></pre></td></tr></table></figure>
+
+<p>看到mysql所属用户及用户组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lrwxr-xr-x   1 root      wheel    30  9  9 11:44 mysql -&gt; mysql-8.0.17-macos10.14-x86_64</span><br></pre></td></tr></table></figure>
+
+<p>执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R root:admin mysql</span><br></pre></td></tr></table></figure>
+
+<p>重新查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lrwxr-xr-x   1 root      admin    30  9  9 11:44 mysql -&gt; mysql-8.0.17-macos10.14-x86_64</span><br></pre></td></tr></table></figure>
+
+<p>现在可以通过mysql进入数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line"></span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 20</span><br><span class="line">Server version: 8.0.17 MySQL Community Server - GPL</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+
+<p>更新密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; flush privileges;</span><br><span class="line"></span><br><span class="line">mysql&gt; alter user &apos;root&apos;@&apos;localhost&apos; identified by &apos;mysql123//&apos;;</span><br><span class="line"></span><br><span class="line">mysql&gt; exit;</span><br></pre></td></tr></table></figure>
+
+<p>重启数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql.server restart</span><br></pre></td></tr></table></figure>
+
+<p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+
+<p>Enter password: </p>
+<p>输入密码即可登入</p>
+<h1 id="连接到navicat"><a href="#连接到navicat" class="headerlink" title="连接到navicat"></a><font size="4px">连接到navicat</font></h1><p><img src="/2019/09/16/java基础知识-数据库/a.png" alt></p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a><font size="4px">常用命令</font></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br><span class="line">create database if not exists test;</span><br><span class="line">drop database test;</span><br><span class="line">use test;</span><br><span class="line">show tables;</span><br></pre></td></tr></table></figure>
+
+<h2 id="DDL-create-alter-drop-truncate"><a href="#DDL-create-alter-drop-truncate" class="headerlink" title="DDL create/alter/drop/truncate"></a><font size="3px">DDL create/alter/drop/truncate</font></h2><blockquote>
+<p><strong>数据库对象</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">对象名称</th>
+<th align="center">关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">表</td>
+<td align="center">table</td>
+</tr>
+<tr>
+<td align="center">视图</td>
+<td align="center">view</td>
+</tr>
+<tr>
+<td align="center">索引</td>
+<td align="center">index</td>
+</tr>
+<tr>
+<td align="center">函数</td>
+<td align="center">function</td>
+</tr>
+<tr>
+<td align="center">存储过程</td>
+<td align="center">procedure</td>
+</tr>
+<tr>
+<td align="center">触发器</td>
+<td align="center">trigger</td>
+</tr>
+<tr>
+<td align="center">约束</td>
+<td align="center">constraint</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>列类型</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">列类型</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">tinyint/int/mediunint/int/bigint</td>
+<td align="left">整数</td>
+</tr>
+<tr>
+<td align="left">float/double</td>
+<td align="left">浮点数，存在精度丢失</td>
+</tr>
+<tr>
+<td align="left">decimal</td>
+<td align="left">不存在精度丢失</td>
+</tr>
+<tr>
+<td align="left">date</td>
+<td align="left">对应java.util.Date</td>
+</tr>
+<tr>
+<td align="left">time</td>
+<td align="left">对应java.util.Date</td>
+</tr>
+<tr>
+<td align="left">timestamp</td>
+<td align="left">时间戳</td>
+</tr>
+<tr>
+<td align="left">char</td>
+<td align="left">定长字符</td>
+</tr>
+<tr>
+<td align="left">varchar</td>
+<td align="left">可变字符</td>
+</tr>
+<tr>
+<td align="left">blob</td>
+<td align="left">二进制大对象，存储图片等</td>
+</tr>
+<tr>
+<td align="left">text</td>
+<td align="left">文本</td>
+</tr>
+<tr>
+<td align="left">enum(‘’,’’,….)</td>
+<td align="left">枚举中的一个</td>
+</tr>
+<tr>
+<td align="left">set(‘’,’’,…..)</td>
+<td align="left">集合中的几个</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>create table [表名] </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table test(</span><br><span class="line"> id int primary key auto_increment,</span><br><span class="line"> name varchar(20) not null</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 表约束 constraint 约束名 属性(列名);</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">constraint id_con unique(id);</span><br><span class="line"></span><br><span class="line">constraint fk foreign key(teacherid) references teacher(id);</span><br><span class="line"></span><br><span class="line">drop foreign key fk;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>索引 create index 索引名 on 表名(列名);</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create index idIndex on test(id);</span><br><span class="line"></span><br><span class="line">drop inIndx on test;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>视图 create view 视图名 as select语句;</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create view testview as select * from test;</span><br><span class="line">drop view testview；</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>alter table [expression] </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">alter table modify name char;</span><br><span class="line"></span><br><span class="line">alter table add age int;</span><br><span class="line"></span><br><span class="line">alter table drop name;</span><br><span class="line"></span><br><span class="line">alter table rename to Test;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>drop</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop table test;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>truncate 表名  一次性删除整个表</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truncate test;</span><br></pre></td></tr></table></figure>
+
+<h2 id="DDL-insert-update-delete-select"><a href="#DDL-insert-update-delete-select" class="headerlink" title="DDL insert/update/delete/select"></a><font size="3px">DDL insert/update/delete/select</font></h2><blockquote>
+<p>insert</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into test (name) values(&apos;A&apos;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>update</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update test set name=&apos;B&apos; where id=1;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>delete</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from test where id=1;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>select</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from test where id=1;</span><br></pre></td></tr></table></figure>
+
+<p>别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select name as &quot;姓名&quot; from test where id=1;</span><br><span class="line"></span><br><span class="line">select name 姓名 from test where id=1;</span><br></pre></td></tr></table></figure>
+
+<p>去重</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select distinct(name) from test where id=1;</span><br></pre></td></tr></table></figure>
+
+<p>排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select name from test order by id desc; 降序</span><br><span class="line">select name from test order by id; 升序</span><br></pre></td></tr></table></figure>
+
+<p>模糊查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from test where name like &apos;王%&apos;; %多个字符，_单个字符</span><br></pre></td></tr></table></figure>
+
+<p>区间查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select name from test where id between 1 and 3  [1,3]</span><br><span class="line">select name from test where id in(1,3)  1 or 3</span><br><span class="line"></span><br><span class="line">select count(*) from test group by id having count(*)&gt;2</span><br></pre></td></tr></table></figure>
+
+<h1 id="JDBC用法"><a href="#JDBC用法" class="headerlink" title="JDBC用法"></a><font size="4px">JDBC用法</font></h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a><font size="3px">初始化</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  Properties prop = <span class="keyword">new</span> Properties();</span><br><span class="line">  prop.load(<span class="keyword">new</span> FIleInputStream(db.properties));</span><br><span class="line">  driver=prop.getProperty(<span class="string">"driver"</span>);</span><br><span class="line">  url=prop.getProperty(<span class="string">"url"</span>);</span><br><span class="line">  user=prop.getProperty(<span class="string">"user"</span>);</span><br><span class="line">  pass=prop.getProperty(<span class="string">"pass"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注册驱动"><a href="#注册驱动" class="headerlink" title="注册驱动"></a><font size="3px">注册驱动</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a><font size="3px">建立连接</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection conn=DriverManager.getConnection(url,user,pass);</span><br></pre></td></tr></table></figure>
+
+<h2 id="执行语句"><a href="#执行语句" class="headerlink" title="执行语句"></a><font size="3px">执行语句</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Statement</span></span><br><span class="line">Statement ment = conn.createStatement();</span><br><span class="line"><span class="comment">//PrepareStatement 使用通配符</span></span><br><span class="line">PrepareStatement ment = conn.prepareStatement(<span class="string">"insert into test(name) values (?)"</span>);</span><br><span class="line">ment.setString(<span class="number">1</span>,<span class="string">'a'</span>);</span><br><span class="line">ment.executeUpdate();</span><br><span class="line"><span class="comment">//CallableStatement</span></span><br><span class="line"><span class="comment">/*存储过程</span></span><br><span class="line"><span class="comment">create procedure add_pro(a int,b int,out sum int)</span></span><br><span class="line"><span class="comment">  begin</span></span><br><span class="line"><span class="comment">  set sum=a+b;</span></span><br><span class="line"><span class="comment">  end</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">CallableStatement ment=conn.perpareCall(<span class="string">"&#123;call add_pro(?,?,?)&#125;"</span>);</span><br><span class="line">ment.setInt(<span class="number">1</span>,<span class="number">4</span>);</span><br><span class="line">ment.setInt(<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">ment.registerOutParameter(<span class="number">3</span>,Types.INTEGER);</span><br><span class="line">ment.execute();</span><br><span class="line">ment.getInt(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a><font size="3px">返回结果</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs = ment.executeQuery(sql);</span><br><span class="line"><span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">  re.getString(<span class="number">1</span>); <span class="comment">//第1列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="关闭连接"><a href="#关闭连接" class="headerlink" title="关闭连接"></a><font size="3px">关闭连接</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rs.close();</span><br><span class="line">ment.close();</span><br><span class="line">conn.close();</span><br></pre></td></tr></table></figure>
+
+<h2 id="存储图片"><a href="#存储图片" class="headerlink" title="存储图片"></a><font size="3px">存储图片</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(path);</span><br><span class="line">PrepareStatement ment = <span class="keyword">new</span> PrepareStatement(<span class="string">"insert into test(img) values(?)"</span>);</span><br><span class="line">ment.setBinaryStream(<span class="number">1</span>,<span class="keyword">new</span> FileInputStream(file),(<span class="keyword">int</span>)file.length());</span><br></pre></td></tr></table></figure>
+
+<h2 id="取图片"><a href="#取图片" class="headerlink" title="取图片"></a><font size="3px">取图片</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Blob blob = rs.getBlob(<span class="number">1</span>);</span><br><span class="line">ImageIcon icon = <span class="keyword">new</span> ImageIcon(blob.getBytes(<span class="number">1L</span>,(<span class="keyword">int</span>)blob.length()));</span><br></pre></td></tr></table></figure>
+
+<h2 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a><font size="3px">表结构</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs = ment.executeQuery();</span><br><span class="line">ResultSetMetaData data= rs.getMetaData();</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> column = data.getColumnCount(); <span class="comment">//列数量</span></span><br><span class="line">String name = data.getColumnName(<span class="number">1</span>); <span class="comment">//索引列名</span></span><br><span class="line">Object obj= data.getColumnType(<span class="number">1</span>); <span class="comment">//索引列类型</span></span><br><span class="line"></span><br><span class="line">DatabaseMetaData data= conn.getMetaData();</span><br><span class="line">ResultSet rs = data.getTableTypes(); <span class="comment">//表类型</span></span><br><span class="line"><span class="comment">//全部数据表</span></span><br><span class="line">rs = data.getTables(<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="string">"%"</span>,<span class="keyword">new</span> String[]&#123;<span class="string">"TABLE"</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//test表的主键</span></span><br><span class="line">rs = data.getPrimaryKeys(<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="string">"test"</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="事务处理"><a href="#事务处理" class="headerlink" title="事务处理"></a><font size="4px">事务处理</font></h1><ul>
+<li>原子性 ：最小逻辑执行体</li>
+<li>一致性： 从一个一致性状态到另一个一致性状态</li>
+<li>隔离性： 各个事务执行互不干扰</li>
+<li>持续性：改变永久存储 </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">conn.setAutoCommit(<span class="keyword">false</span>);</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">执行语句</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(Expection e)&#123;</span><br><span class="line">  conn.rollback();</span><br><span class="line">&#125;</span><br><span class="line">conn.commit();</span><br></pre></td></tr></table></figure>
+
+<p>批量处理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Statement st = conn.createStatement();</span><br><span class="line">conn.setAutoCommit(<span class="keyword">false</span>);</span><br><span class="line"><span class="comment">//收集语句</span></span><br><span class="line">st.addBatch(sql);</span><br><span class="line"><span class="comment">//....</span></span><br><span class="line"></span><br><span class="line">st.executeBatch();</span><br><span class="line">conn.commit();</span><br></pre></td></tr></table></figure>
+
+<h1 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a><font size="4px">连接池</font></h1><p>DBCP数据源</p>
+<p>C3PO数据源</p>
 
     </div>
     
@@ -496,7 +740,7 @@
     <a href="https://www.runaccpeted.com/2019/09/16/java基础知识-数据库/" title="java基础知识-数据库">https://www.runaccpeted.com/2019/09/16/java基础知识-数据库/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月16日 - 01:15</li>
-  <li><strong>更新时间：</strong>2019年09月16日 - 01:15</li>
+  <li><strong>更新时间：</strong>2019年09月19日 - 01:09</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -510,7 +754,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/PAT/" rel="tag"><i class="fa fa-tag"></i> PAT</a>
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
             
           </div>
         
@@ -529,6 +773,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/19/Java基础知识-注解/" rel="prev" title="Java基础知识-注解">
+                  Java基础知识-注解 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -580,7 +828,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原文"><span class="nav-number">1.</span> <span class="nav-text">原文</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql数据库配置"><span class="nav-number">1.</span> <span class="nav-text">mysql数据库配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连接到navicat"><span class="nav-number">2.</span> <span class="nav-text">连接到navicat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">3.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DDL-create-alter-drop-truncate"><span class="nav-number">3.1.</span> <span class="nav-text">DDL create/alter/drop/truncate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DDL-insert-update-delete-select"><span class="nav-number">3.2.</span> <span class="nav-text">DDL insert/update/delete/select</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDBC用法"><span class="nav-number">4.</span> <span class="nav-text">JDBC用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">4.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册驱动"><span class="nav-number">4.2.</span> <span class="nav-text">注册驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立连接"><span class="nav-number">4.3.</span> <span class="nav-text">建立连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行语句"><span class="nav-number">4.4.</span> <span class="nav-text">执行语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回结果"><span class="nav-number">4.5.</span> <span class="nav-text">返回结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭连接"><span class="nav-number">4.6.</span> <span class="nav-text">关闭连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储图片"><span class="nav-number">4.7.</span> <span class="nav-text">存储图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取图片"><span class="nav-number">4.8.</span> <span class="nav-text">取图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表结构"><span class="nav-number">4.9.</span> <span class="nav-text">表结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事务处理"><span class="nav-number">5.</span> <span class="nav-text">事务处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连接池"><span class="nav-number">6.</span> <span class="nav-text">连接池</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -598,7 +846,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">167</span>
+          <span class="site-state-item-count">171</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -769,13 +1017,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">230k</span>
+    <span title="站点总字数">235k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">6:23</span>
+    <span title="站点阅读时长">6:32</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
