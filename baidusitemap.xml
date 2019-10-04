@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.runaccpeted.com/2019/09/21/Spring%E5%AE%9E%E6%88%98-%E8%A3%85%E9%85%8DBean/</loc>
-    <lastmod>2019-09-28</lastmod>
+    <loc>https://www.runaccpeted.com/2019/09/06/PAT%E7%94%B2%E7%BA%A7%E9%A2%98%E5%9E%8B%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2019-10-04</lastmod>
+  </url>  <url>
+    <loc>https://www.runaccpeted.com/2019/09/20/Servlet%E4%B8%8EJSP/</loc>
+    <lastmod>2019-10-04</lastmod>
   </url>  <url>
     <loc>https://www.runaccpeted.com/2019/09/21/Spring%E5%AE%9E%E6%88%98-overview/</loc>
+    <lastmod>2019-09-28</lastmod>
+  </url>  <url>
+    <loc>https://www.runaccpeted.com/2019/09/21/Spring%E5%AE%9E%E6%88%98-%E8%A3%85%E9%85%8DBean/</loc>
     <lastmod>2019-09-28</lastmod>
   </url>  <url>
     <loc>https://www.runaccpeted.com/2019/09/21/Spring%E5%AE%9E%E6%88%98-SpringWeb/</loc>
@@ -12,9 +18,6 @@
   </url>  <url>
     <loc>https://www.runaccpeted.com/2019/09/21/Spring%E5%AE%9E%E6%88%98-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%9A%84Spring/</loc>
     <lastmod>2019-09-27</lastmod>
-  </url>  <url>
-    <loc>https://www.runaccpeted.com/2019/09/20/Servlet%E4%B8%8EJSP/</loc>
-    <lastmod>2019-09-24</lastmod>
   </url>  <url>
     <loc>https://www.runaccpeted.com/2019/09/15/%E6%8C%91%E6%88%9810%E9%81%93%E8%B6%85%E9%9A%BEJava%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2019-09-20</lastmod>
@@ -255,9 +258,6 @@
   </url>  <url>
     <loc>https://www.runaccpeted.com/2019/09/06/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://www.runaccpeted.com/2019/09/06/PAT%E7%94%B2%E7%BA%A7%E9%A2%98%E5%9E%8B%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2019-09-06</lastmod>
   </url>  <url>
     <loc>https://www.runaccpeted.com/2019/07/02/hello-world/</loc>
     <lastmod>2019-09-06</lastmod>
