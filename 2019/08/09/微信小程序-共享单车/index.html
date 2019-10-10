@@ -1,0 +1,1430 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "4767878b"
+    });
+  daovoice('update');
+  </script>
+
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"falt"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+  (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://www.runaccpeted.com"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+  <meta name="description" content="共享单车程序开发及数据采集">
+<meta name="keywords" content="小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序-共享单车">
+<meta property="og:url" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/index.html">
+<meta property="og:site_name" content="W.T.的博客">
+<meta property="og:description" content="共享单车程序开发及数据采集">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/guanwang.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/tool.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/location.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/back.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/duanxin.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/rediscuowu.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/code.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/redis-result.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/redis2.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/result.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/wallet.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/nearresult.png">
+<meta property="og:updated_time" content="2019-10-10T12:07:00.112Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序-共享单车">
+<meta name="twitter:description" content="共享单车程序开发及数据采集">
+<meta name="twitter:image" content="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/guanwang.png">
+  <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
+  <link rel="canonical" href="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+
+  <title>微信小程序-共享单车 | W.T.的博客</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?59cd4bc54e9d484dff9357727e454c80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container">
+    <div class="headband"></div>
+    <!-- github -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">W.T.的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Every day to be a little better</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">12</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">12</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">187</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-schedule">
+      
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-commonweal">
+      
+    
+      
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Ting">
+      <meta itemprop="description" content="技术成长笔记">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W.T.的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">微信小程序-共享单车
+
+          
+        </h1>
+
+        <div class="post-meta">
+
+           
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-09 07:56:08" itemprop="dateCreated datePublished" datetime="2019-08-09T07:56:08+08:00">2019-08-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-10 20:07:00" itemprop="dateModified" datetime="2019-10-10T20:07:00+08:00">2019-10-10</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/小程序/" itemprop="url" rel="index"><span itemprop="name">小程序</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2019/08/09/微信小程序-共享单车/" class="post-meta-item leancloud_visitors" data-flag-title="微信小程序-共享单车" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+          
+           
+           <!--
+            <span class="post-meta-item" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          -->
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">评论：</span>
+    
+    <a title="valine" href="/2019/08/09/微信小程序-共享单车/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/08/09/微信小程序-共享单车/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>3.7k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>6 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center">共享单车程序开发及数据采集</blockquote>
+<a id="more"></a>
+
+<h1 id="注册微信小程序"><a href="#注册微信小程序" class="headerlink" title="注册微信小程序"></a><font size="4px">注册微信小程序</font></h1><p><a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener">https://mp.weixin.qq.com/</a></p>
+<p><img src="/2019/08/09/微信小程序-共享单车/guanwang.png" alt></p>
+<p>最重要的是知道AppID(小程序ID)</p>
+<h1 id="开发者工具下载"><a href="#开发者工具下载" class="headerlink" title="开发者工具下载"></a><font size="4px">开发者工具下载</font></h1><p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html</a></p>
+<p><img src="/2019/08/09/微信小程序-共享单车/tool.png" alt></p>
+<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a><font size="4px">项目结构</font></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">├── app.js             </span><br><span class="line">├── app.json       </span><br><span class="line">├── app.wxss           </span><br><span class="line">├── pages</span><br><span class="line">│   │── index</span><br><span class="line">│   │   ├── index.wxml  html</span><br><span class="line">│   │   ├── index.js    js</span><br><span class="line">│   │   ├── index.json</span><br><span class="line">│   │   └── index.wxss  css</span><br><span class="line">│   └── logs</span><br><span class="line">│       ├── logs.wxml</span><br><span class="line">│       └── logs.js</span><br><span class="line">└── utils</span><br></pre></td></tr></table></figure>
+
+<h1 id="显示地图"><a href="#显示地图" class="headerlink" title="显示地图"></a><font size="4px">显示地图</font></h1><p><a href="https://developers.weixin.qq.com/miniprogram/dev/component/map.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/component/map.html</a></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>map主键标识</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>中心经度</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>中心纬度</td>
+</tr>
+<tr>
+<td>controls</td>
+<td>页面控件，扫码登录等图标位置</td>
+</tr>
+<tr>
+<td>show-location</td>
+<td>显示带有方向的当前定位点</td>
+</tr>
+<tr>
+<td>bindcontroltap</td>
+<td>点击控件时触发</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>缩放级别，取值范围为3-20</td>
+</tr>
+<tr>
+<td>markers</td>
+<td>标记点，显示附近车辆</td>
+</tr>
+<tr>
+<td>bindregionchange</td>
+<td>视野发生变化时触发</td>
+</tr>
+<tr>
+<td>style</td>
+<td>整个map大小</td>
+</tr>
+</tbody></table>
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a><font size="4px">生命周期</font></h1><p>onload 监听页面加载</p>
+<p>onReady 监听页面初次渲染完成</p>
+<h1 id="获取设备定位"><a href="#获取设备定位" class="headerlink" title="获取设备定位"></a><font size="4px">获取设备定位</font></h1><p>允许设备取值</p>
+<p>在app.json</p>
+<p>“page”下 添加</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">"pages": [</span><br><span class="line"> ], </span><br><span class="line">"permission":&#123;</span><br><span class="line">    "scope.userLocation": &#123;</span><br><span class="line">      "desc": "您的位置将用于车辆查询"</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>index.wxml</p>
+<p>longitude，longitude的值从js内获取</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">map</span> </span></span><br><span class="line"><span class="tag"><span class="attr">id</span>=<span class="string">"mymap"</span></span></span><br><span class="line"><span class="tag"><span class="attr">longitude</span>=<span class="string">'&#123;&#123;longitude&#125;&#125;'</span></span></span><br><span class="line"><span class="tag"><span class="attr">latitude</span>=<span class="string">'&#123;&#123;longitude&#125;&#125;'</span></span></span><br><span class="line"><span class="tag"><span class="attr">show-location</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag"><span class="attr">scale</span>=<span class="string">"17"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">'width:100%;height:100%'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>index.js</p>
+<p>获取当前设备信息</p>
+<p>wx.getLocation()</p>
+<p>获取成功后调用，res中存储了定位信息</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将值设置为页面全局变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">that.setData(&#123;</span><br><span class="line">     longitude:long,</span><br><span class="line">     latitude:lat</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>整合代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">   data: &#123;</span><br><span class="line">    longitude: <span class="number">0</span>,</span><br><span class="line">    latitude: <span class="number">0</span>,</span><br><span class="line"> 	&#125;,</span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 监听页面函数 -- 监听页面加载</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> onLoad: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"> 	<span class="comment">//存储当前页面</span></span><br><span class="line"> 	 <span class="keyword">var</span> that =<span class="keyword">this</span>;    </span><br><span class="line">  	<span class="comment">//模拟器位置</span></span><br><span class="line">  	 wx.getLocation(&#123;</span><br><span class="line">    	 success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">     	  <span class="comment">//console.log(res);</span></span><br><span class="line">     	  <span class="keyword">var</span> long=res.longitude;</span><br><span class="line">       	<span class="keyword">var</span> lat = res.latitude;</span><br><span class="line">      		that.setData(&#123;</span><br><span class="line">        	 longitude:long,</span><br><span class="line">          latitude:lat</span><br><span class="line">      	 &#125;)</span><br><span class="line">     	&#125;,</span><br><span class="line">   	&#125;)</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>模拟器无法定位，模拟定位</p>
+<p>在线查找经纬度 <a href="http://www.gpsspg.com/maps.htm" target="_blank" rel="noopener">http://www.gpsspg.com/maps.htm</a></p>
+<p><img src="/2019/08/09/微信小程序-共享单车/location.png" alt></p>
+<h1 id="添加事件"><a href="#添加事件" class="headerlink" title="添加事件"></a><font size="4px">添加事件</font></h1><h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a><font size="3px">添加图片</font></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">map</span> <span class="attr">controls</span>=<span class="string">'&#123;&#123;controls&#125;&#125;'</span>&gt;</span><span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>wx.getSystemInfo 获取设备信息，成功返回res数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wx.getSystemInfo(&#123;</span><br><span class="line">      success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">      &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>通过屏幕宽和高相对摆放组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">that.setData(&#123;</span><br><span class="line">   controls: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">//扫码开锁</span></span><br><span class="line">        <span class="comment">//组件标识</span></span><br><span class="line">        id: <span class="number">1</span>,</span><br><span class="line">        <span class="comment">//图片路径</span></span><br><span class="line">        iconPath: <span class="string">'/images/lock.png'</span>,</span><br><span class="line">        <span class="comment">//图片位置</span></span><br><span class="line">        position: &#123;</span><br><span class="line">           width: <span class="number">100</span>,</span><br><span class="line">           height: <span class="number">50</span>,</span><br><span class="line">           left: width/<span class="number">2</span><span class="number">-50</span>,</span><br><span class="line">           top: height<span class="number">-60</span></span><br><span class="line">         &#125;,</span><br><span class="line">        <span class="comment">//可点击</span></span><br><span class="line">         clickable:<span class="literal">true</span>      </span><br><span class="line">      &#125;,</span><br><span class="line">     	&#123;</span><br><span class="line">        <span class="comment">//钱包</span></span><br><span class="line">       	id: <span class="number">2</span>,</span><br><span class="line">        iconPath: <span class="string">'/images/pay.png'</span>,</span><br><span class="line">        position: &#123;</span><br><span class="line">          width: <span class="number">35</span>,</span><br><span class="line">          height: <span class="number">35</span>,</span><br><span class="line">          left: width - <span class="number">40</span>,</span><br><span class="line">          top: height - <span class="number">100</span></span><br><span class="line">         &#125;,</span><br><span class="line">         clickable: <span class="literal">true</span></span><br><span class="line">     	&#125;</span><br><span class="line">   ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>整合代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    longitude: <span class="number">0</span>,</span><br><span class="line">    latitude: <span class="number">0</span>,</span><br><span class="line">    controls:[],</span><br><span class="line">  &#125;,</span><br><span class="line">	<span class="comment">//设备信息</span></span><br><span class="line">	onLoad: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//存储当前页面</span></span><br><span class="line">  	 <span class="keyword">var</span> that =<span class="keyword">this</span>;    </span><br><span class="line">   	<span class="comment">//模拟器位置</span></span><br><span class="line">   	 wx.getLocation(&#123;</span><br><span class="line">     	 success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">      	  <span class="comment">//console.log(res);</span></span><br><span class="line">      	  <span class="keyword">var</span> long=res.longitude;</span><br><span class="line">        	<span class="keyword">var</span> lat = res.latitude;</span><br><span class="line">       		that.setData(&#123;</span><br><span class="line">         	 longitude:long,</span><br><span class="line">           latitude:lat</span><br><span class="line">       	 &#125;)</span><br><span class="line">      	&#125;,</span><br><span class="line">    	&#125;)</span><br><span class="line">    wx.getSystemInfo(&#123;</span><br><span class="line">      success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//屏幕宽</span></span><br><span class="line">        <span class="keyword">var</span> width=res.windowWidth;</span><br><span class="line">        <span class="comment">//屏幕高</span></span><br><span class="line">        <span class="keyword">var</span> height=res.windowHeight;</span><br><span class="line">        that.setData(&#123;</span><br><span class="line">          controls: [</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="comment">//扫码开锁</span></span><br><span class="line">              id: <span class="number">1</span>,</span><br><span class="line">              iconPath: <span class="string">'/images/lock.png'</span>,</span><br><span class="line">              position: &#123;</span><br><span class="line">                width: <span class="number">100</span>,</span><br><span class="line">                height: <span class="number">50</span>,</span><br><span class="line">                left: width/<span class="number">2</span><span class="number">-50</span>,</span><br><span class="line">                top: height<span class="number">-60</span></span><br><span class="line">              &#125;,</span><br><span class="line">              clickable:<span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="comment">//钱包</span></span><br><span class="line">              id: <span class="number">2</span>,</span><br><span class="line">              iconPath: <span class="string">'/images/pay.png'</span>,</span><br><span class="line">              position: &#123;</span><br><span class="line">                width: <span class="number">35</span>,</span><br><span class="line">                height: <span class="number">35</span>,</span><br><span class="line">                left: width - <span class="number">40</span>,</span><br><span class="line">                top: height - <span class="number">100</span></span><br><span class="line">              &#125;,</span><br><span class="line">              clickable: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="comment">//报警</span></span><br><span class="line">              id: <span class="number">3</span>,</span><br><span class="line">              iconPath: <span class="string">'/images/warn.png'</span>,</span><br><span class="line">              position: &#123;</span><br><span class="line">                width: <span class="number">35</span>,</span><br><span class="line">                height: <span class="number">35</span>,</span><br><span class="line">                left: width - <span class="number">40</span>,</span><br><span class="line">                top: height - <span class="number">60</span></span><br><span class="line">              &#125;,</span><br><span class="line">              clickable: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="comment">//定位点</span></span><br><span class="line">              id: <span class="number">4</span>,</span><br><span class="line">              iconPath: <span class="string">'/images/locate.png'</span>,</span><br><span class="line">              position: &#123;</span><br><span class="line">                width: <span class="number">35</span>,</span><br><span class="line">                height: <span class="number">35</span>,</span><br><span class="line">                left: width/<span class="number">30</span>,</span><br><span class="line">                top: height - <span class="number">60</span></span><br><span class="line">              &#125;,</span><br><span class="line">              clickable: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="comment">//图标中心点</span></span><br><span class="line">              id: <span class="number">5</span>,</span><br><span class="line">              iconPath: <span class="string">'/images/cur.png'</span>,</span><br><span class="line">              position: &#123;</span><br><span class="line">                width: <span class="number">23</span>,</span><br><span class="line">                height: <span class="number">40</span>,</span><br><span class="line">                left: width / <span class="number">2</span> <span class="number">-12</span>,</span><br><span class="line">                top: height /<span class="number">2</span> - <span class="number">40</span></span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="comment">//添加车辆</span></span><br><span class="line">              id: <span class="number">6</span>,</span><br><span class="line">              iconPath: <span class="string">'/images/add.png'</span>,</span><br><span class="line">              position: &#123;</span><br><span class="line">                width: <span class="number">35</span>,</span><br><span class="line">                height: <span class="number">35</span>,</span><br><span class="line">                left: width / <span class="number">30</span>,</span><br><span class="line">                top: height / <span class="number">30</span></span><br><span class="line">              &#125;,</span><br><span class="line">              clickable: <span class="literal">true</span></span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>整体显示</p>
+<p><img src="/2019/08/09/微信小程序-共享单车/back.png" alt></p>
+<h2 id="绑定事件"><a href="#绑定事件" class="headerlink" title="绑定事件"></a><font size="4px">绑定事件</font></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">map</span> <span class="attr">bindcontroltap</span>=<span class="string">"controltap"</span>&gt;</span><span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>controltap定义为一个函数</p>
+<p>e 返回点击事件数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">page(&#123;</span><br><span class="line">  onload:funtion()&#123;</span><br><span class="line">    <span class="comment">//创建一个map上下文，用于调用地图相关方法</span></span><br><span class="line">    <span class="keyword">this</span>.mapCtx=wx.createMapContext(<span class="string">"mymap"</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 控件点击事件</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  controltap: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//console.log(e);</span></span><br><span class="line">    <span class="comment">//包装page页面</span></span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">var</span> id = e.controlId;</span><br><span class="line">    <span class="keyword">switch</span>(id)&#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>:&#123;</span><br><span class="line">        <span class="comment">//扫码开锁</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">4</span>:&#123;</span><br><span class="line">        <span class="comment">//返回到定位点</span></span><br><span class="line">        <span class="keyword">this</span>.mapCtx.moveToLocation();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">//添加车辆</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="点击事件实现"><a href="#点击事件实现" class="headerlink" title="点击事件实现"></a><font size="3px">点击事件实现</font></h2><p>wx.navigateTo({  })</p>
+<p>当点击扫码开锁时扫码</p>
+<p>在线制作二维码<a href="https://www.liantu.com/" target="_blank" rel="noopener">https://www.liantu.com/</a></p>
+<p>事件 wx.scanCode({})</p>
+<p>成功时返回二维码内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">success:<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(e.result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">controltap: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//console.log(e);</span></span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">var</span> id = e.controlId;</span><br><span class="line">    <span class="keyword">switch</span>(id)&#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>:&#123;</span><br><span class="line">        <span class="comment">//扫码开锁按钮</span></span><br><span class="line">        wx.scanCode(&#123;</span><br><span class="line">          success:<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(e.result);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">4</span>:&#123;</span><br><span class="line">        <span class="comment">//locate定位</span></span><br><span class="line">        <span class="keyword">this</span>.mapCtx.moveToLocation()</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a><font size="4px">SpringBoot</font></h1><p><a href="https://start.spring.io/" target="_blank" rel="noopener">https://start.spring.io/</a></p>
+<h1 id="设置全局数值"><a href="#设置全局数值" class="headerlink" title="设置全局数值"></a><font size="4px">设置全局数值</font></h1><p>app.js中的方法，值是所有页面共享的</p>
+<p>设置status，用于定位用户状态</p>
+<p>status：0-未注册，1-未支付，2-未实名 ，3-开始用车</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">App(&#123;</span><br><span class="line">  onLaunch: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//页面共享数据</span></span><br><span class="line">  globalData: &#123;</span><br><span class="line">    userInfo: <span class="literal">null</span>,</span><br><span class="line">    status:<span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>页面获取全局数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> status=<span class="keyword">this</span>.getApp().globalData.status;</span><br></pre></td></tr></table></figure>
+
+<h1 id="注册页面"><a href="#注册页面" class="headerlink" title="注册页面"></a><font size="4px">注册页面</font></h1><h2 id="添加注册页面"><a href="#添加注册页面" class="headerlink" title="添加注册页面"></a><font size="4px">添加注册页面</font></h2><p>不需要手动添加</p>
+<p>app.json中添加register页面，保存，自动生成</p>
+<p>这里的顺序即为页面调用顺序</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">"pages": [</span><br><span class="line">    "pages/index/index",</span><br><span class="line">    "pages/register/register",</span><br><span class="line">    <span class="string">"pages/logs/logs"</span></span><br><span class="line">  ],</span><br></pre></td></tr></table></figure>
+
+<p>当status=0跳转到注册页面</p>
+<p>wx.navigateTo()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(status==<span class="number">0</span>)&#123;</span><br><span class="line">    wx.navigateTo(&#123;</span><br><span class="line">       url: <span class="string">'../register/register'</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现手机绑定"><a href="#实现手机绑定" class="headerlink" title="实现手机绑定"></a><font size="3px">实现手机绑定</font></h2><p>手机国际区号选择</p>
+<p> picker</p>
+<p>bindchange=”bindCountryCodeChange” </p>
+<p>value=”“ </p>
+<p>range=”</p>
+<p>显示</p>
+
+
+<p>后台数据</p>
+<p>data: {</p>
+<p>​    countryCodes: [“86”, “80”, “84”, “87”],</p>
+<p>​    countryCodeIndex: 0，</p>
+<p>  },</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">picker</span> <span class="attr">bindchange</span>=<span class="string">"bindCountryCodeChange"</span> <span class="attr">value</span>=<span class="string">"&#123;&#123;countryCodeIndex&#125;&#125;"</span> <span class="attr">range</span>=<span class="string">"&#123;&#123;countryCodes&#125;&#125;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"weui-select"</span>&gt;</span>&#123;&#123;countryCodes[countryCodeIndex]&#125;&#125;	<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picker</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>点击事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bindCountryCodeChange: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//console.log('picker country code 发生选择改变，携带值为', e.detail.value);</span></span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      countryCodeIndex: e.detail.value</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>填写手机号</p>
+<p>绑定输入事件，获取输入内容</p>
+<p>bindinput</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"weui-input"</span> <span class="attr">name</span>=<span class="string">"phoneNum"</span> <span class="attr">placeholder</span>=<span class="string">"请输入手机号码"</span> <span class="attr">bindinput</span>=<span class="string">"inputPhoneNum"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>获取</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    phoneNum: <span class="string">""</span></span><br><span class="line">  &#125;,</span><br><span class="line">inputPhoneNum: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//console.log(e)</span></span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      phoneNum: e.detail.value</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>获取验证码点击事件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"weui-vcode-btn"</span> <span class="attr">bindtap</span>=<span class="string">"genVerifyCode"</span>&gt;</span>获取验证码<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="连接服务器"><a href="#连接服务器" class="headerlink" title="连接服务器"></a><font size="3px">连接服务器</font></h3><p>wx.request({})</p>
+<p>url  请求地址</p>
+<p>data 请求参数</p>
+<p>method 请求方式</p>
+<p>sunccess 响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">genVerifyCode: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> index = <span class="keyword">this</span>.data.countryCodeIndex;</span><br><span class="line">    <span class="keyword">var</span> countryCode = <span class="keyword">this</span>.data.countryCodes[index];</span><br><span class="line">    <span class="keyword">var</span> phoneNum = <span class="keyword">this</span>.data.phoneNum;</span><br><span class="line">    <span class="comment">// console.log(countryCode,phoneNum)</span></span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      <span class="comment">//小程序访问的网络请求协议必须是https，url里面不能有端口号</span></span><br><span class="line">      url: <span class="string">"http://localhost:8080/user/genCode"</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        countryCode: countryCode,</span><br><span class="line">        phoneNum: phoneNum</span><br><span class="line">      &#125;,</span><br><span class="line">      method: <span class="string">'GET'</span>,</span><br><span class="line">      success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">        wx.showToast(&#123;</span><br><span class="line">          title: <span class="string">'已发送，请查收!'</span>,</span><br><span class="line">          duration: <span class="number">2000</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>点击获取验证码，</p>
+<p>查看Console 虽然错误但得到一个请求URL<a href="http://localhost:8080/user/genCode?countryCode=86&amp;phoneNum=123" target="_blank" rel="noopener">http://localhost:8080/user/genCode?countryCode=86&amp;phoneNum=123</a></p>
+<h3 id="SpringBoot–redis"><a href="#SpringBoot–redis" class="headerlink" title="SpringBoot–redis"></a><font size="3px">SpringBoot–redis</font></h3><p>采用redis存储数据，实现只存在3分钟</p>
+<p>创建UserController.java 接收区号和手机号，使其返回json类型的数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.runaccpeted.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.runaccpeted.service.UserService;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Resource</span></span><br><span class="line">	UserService service;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/genCode"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">genCode</span><span class="params">(String countryCode,String phoneNum)</span></span>&#123;</span><br><span class="line">		String code=service.register(countryCode,phoneNum);	</span><br><span class="line">		<span class="comment">//System.out.println(code);</span></span><br><span class="line">		<span class="keyword">return</span> code;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对应创建UserService接口 进行操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.runaccpeted.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function">String <span class="title">register</span><span class="params">(String countryCode, String phoneNum)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建具体实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.runaccpeted.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.runaccpeted.dao.UserDao;</span><br><span class="line"><span class="keyword">import</span> com.runaccpeted.service.UserService;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Resource</span></span><br><span class="line">	UserDao dao;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">register</span><span class="params">(String countryCode, String phoneNum)</span> </span>&#123;	</span><br><span class="line">		<span class="keyword">return</span> dao.register(countryCode,phoneNum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对应数据库dao层，对接数据库</p>
+<p>需要添加redis依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- redis --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>配置redis</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#配置redis</span><br><span class="line">spring.redis.host=192.168.0.101 #本地IP</span><br><span class="line"></span><br><span class="line">spring.redis.port=6379</span><br><span class="line"></span><br><span class="line">spring.redis.pool.max-active=20</span><br><span class="line"></span><br><span class="line">spring-redis.pool.max-idle=10</span><br><span class="line"></span><br><span class="line">spring-redis.pool.min-idle=10</span><br><span class="line"></span><br><span class="line">spring-redis.pool.max-wait=-1</span><br></pre></td></tr></table></figure>
+
+<h3 id="腾讯云短信服务"><a href="#腾讯云短信服务" class="headerlink" title="腾讯云短信服务"></a><font size="3px">腾讯云短信服务</font></h3><p><a href="https://console.cloud.tencent.com/smsv2" target="_blank" rel="noopener">https://console.cloud.tencent.com/smsv2</a></p>
+<p>需要实名认证！ 没上线怎么认证，又不是企业</p>
+<p>记录SpringBoot操作流程</p>
+<p><a href="https://cloud.tencent.com/document/product/382/13613" target="_blank" rel="noopener">https://cloud.tencent.com/document/product/382/13613</a></p>
+<p>添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">&lt;!-- 短信云服务 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.qcloudsms<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>qcloudsms<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<p>将appid，appkey永久存入redis中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.runaccpeted.dao;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.json.JSONException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.core.StringRedisTemplate;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.github.qcloudsms.SmsSingleSender;</span><br><span class="line"><span class="keyword">import</span> com.github.qcloudsms.SmsSingleSenderResult;</span><br><span class="line"><span class="keyword">import</span> com.github.qcloudsms.httpclient.HTTPException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> StringRedisTemplate redisTemplate;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">register</span><span class="params">(String countryCode, String phoneNum)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> appid = Integer.parseInt(redisTemplate.opsForValue().get(<span class="string">"appid"</span>)); </span><br><span class="line">		String appkey = redisTemplate.opsForValue().get(<span class="string">"appkey"</span>);			</span><br><span class="line">		<span class="keyword">boolean</span> flag=<span class="keyword">true</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//生成4位验证码</span></span><br><span class="line">		String code=<span class="string">""</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">			code+=(<span class="keyword">int</span>)(Math.random()*<span class="number">10</span>)+<span class="string">""</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//手机号，验证码保存到redis中 300s</span></span><br><span class="line">		redisTemplate.opsForValue().set(phoneNum, code, <span class="number">300</span>,TimeUnit.SECONDS);	</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//腾讯云短信业务</span></span><br><span class="line">		SmsSingleSender ssender = <span class="keyword">new</span> SmsSingleSender(appid, appkey);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//send(单发, 国际区号, 手机号, 短信模板, "", "");  </span></span><br><span class="line">      <span class="comment">//短信模板与配置中一致</span></span><br><span class="line">			SmsSingleSenderResult result = ssender.send(<span class="number">0</span>, countryCode, phoneNum, <span class="string">"您的登陆验证码为"</span>+code, <span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line">		</span><br><span class="line">			<span class="comment">//手机号，验证码保存到redis中 300s</span></span><br><span class="line">			redisTemplate.opsForValue().set(phoneNum, code, <span class="number">300</span>,TimeUnit.SECONDS);	</span><br><span class="line">		&#125; <span class="keyword">catch</span> (HTTPException | JSONException | IOException e) &#123;</span><br><span class="line">			flag=<span class="keyword">false</span>;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> flag;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>。。。没认证手机是收不到的。。。</p>
+<p><img src="/2019/08/09/微信小程序-共享单车/duanxin.png" alt></p>
+<h3 id="不调用腾讯云短信服务"><a href="#不调用腾讯云短信服务" class="headerlink" title="不调用腾讯云短信服务"></a><font size="3px">不调用腾讯云短信服务</font></h3><p>随机生成四位数字，充当验证码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.runaccpeted.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.json.JSONException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.core.StringRedisTemplate;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.github.qcloudsms.SmsSingleSender;</span><br><span class="line"><span class="keyword">import</span> com.github.qcloudsms.SmsSingleSenderResult;</span><br><span class="line"><span class="keyword">import</span> com.github.qcloudsms.httpclient.HTTPException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> StringRedisTemplate redisTemplate;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">register</span><span class="params">(String countryCode, String phoneNum)</span> </span>&#123;</span><br><span class="line">   <span class="comment">//生成4位验证码</span></span><br><span class="line">		String code=<span class="string">""</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">			code+=(<span class="keyword">int</span>)(Math.random()*<span class="number">10</span>)+<span class="string">""</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//手机号，验证码保存到redis中 300s</span></span><br><span class="line">		redisTemplate.opsForValue().set(phoneNum, code, <span class="number">300</span>,TimeUnit.SECONDS);	</span><br><span class="line">		<span class="keyword">return</span> code;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>微信直接接收验证码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.showModal(&#123;</span><br><span class="line">   content:<span class="string">'您的注册验证码为'</span>+res.data</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>❌</p>
+<p><img src="/2019/08/09/微信小程序-共享单车/rediscuowu.png" alt></p>
+<p>需要修改redis保护模式</p>
+<p>vi /usr/local/Cellar/redis/5.0.5/bin/redis.conf</p>
+<p>protected-mode no</p>
+<p>重启 redis-server</p>
+<p>微信小程序点击获取验证码</p>
+<p><img src="/2019/08/09/微信小程序-共享单车/code.png" alt></p>
+<p>redis</p>
+<p><img src="/2019/08/09/微信小程序-共享单车/redis-result.png" alt></p>
+<p>5分钟后</p>
+<p><img src="/2019/08/09/微信小程序-共享单车/redis2.png" alt></p>
+<h3 id="验证用户输入"><a href="#验证用户输入" class="headerlink" title="验证用户输入"></a><font size="3px">验证用户输入</font></h3><p>取用户输入的手机号和验证码与redis中进行匹配</p>
+<p>整个注册页面的两个input框包在form中</p>
+<p>bindsubmit  绑定提交事件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">bindsubmit</span>=<span class="string">"formSubmit"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"weui-input"</span> <span class="attr">name</span>=<span class="string">"phoneNum"</span> <span class="attr">placeholder</span>=<span class="string">"请输入手机号码"</span> <span class="attr">bindinput</span>=<span class="string">"inputPhoneNum"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"weui-input"</span> <span class="attr">name</span>=<span class="string">"verifyCode"</span> <span class="attr">placeholder</span>=<span class="string">"请输入验证码"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"weui-btn"</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">formType</span>=<span class="string">"submit"</span>&gt;</span>确定<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>提交事件 返回true/false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">formSubmit: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> phoneNum = e.detail.value.phoneNum;</span><br><span class="line">   <span class="keyword">var</span> verifyCode = e.detail.value.verifyCode;</span><br><span class="line">   wx.request(&#123;</span><br><span class="line">    url: <span class="string">'http://localhost:8080/user/verify'</span>,</span><br><span class="line">    method:<span class="string">"POST"</span>,</span><br><span class="line">    header:&#123;</span><br><span class="line">      <span class="string">'content-type'</span>: <span class="string">"application/x-www-form-urlencoded"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    data:&#123;</span><br><span class="line">     phoneNum:phoneNum,</span><br><span class="line">     verifyCode:verifyCode</span><br><span class="line">   &#125;,</span><br><span class="line">   success:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(res);</span><br><span class="line">   &#125;</span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>取redis中的手机号对应验证码</p>
+<p>Controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/verify"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">verify</span><span class="params">(String phoneNum,String verifyCode, HttpServletRequest request)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> service.verify(phoneNum,verifyCode);		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>service</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">verify</span><span class="params">(String phoneNum, String verifyCode)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> dao.verify(phoneNum,verifyCode);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>UserDao.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">verify</span><span class="params">(String phoneNum, String verifyCode)</span> </span>&#123;</span><br><span class="line">	String code = redisTemplate.opsForValue().get(phoneNum);</span><br><span class="line">	<span class="comment">//System.out.println("redis "+code);</span></span><br><span class="line">	<span class="keyword">if</span>(verifyCode.equals(code))&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="注册用户到MongoDB"><a href="#注册用户到MongoDB" class="headerlink" title="注册用户到MongoDB"></a><font size="4px">注册用户到MongoDB</font></h1><p>当/user/verify 返回true时，应该传入手机号和注册时间，注册到mongodb中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">success:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(res);</span><br><span class="line">      <span class="keyword">if</span>(res.data)&#123;</span><br><span class="line">          wx.request(&#123;</span><br><span class="line">            url: <span class="string">'http://localhost:8080/user/register'</span>,</span><br><span class="line">            method:<span class="string">"POST"</span>,</span><br><span class="line">            <span class="comment">//保存到mongodb中</span></span><br><span class="line">            data:&#123;</span><br><span class="line">              phoneNum:phoneNum,</span><br><span class="line">              regDate:<span class="keyword">new</span> <span class="built_in">Date</span>(),</span><br><span class="line">            &#125;,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">              <span class="built_in">console</span>.log(res)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">      &#125;           </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将整个json数据映射到一个User类</p>
+<p>@Document(collection=”user”) 注解标识为映射mongodb中的user表</p>
+<p>@Id id为主键 自动对应_id</p>
+<p>@Indexed 为其创建索引</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.runaccpeted.pojo;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.data.annotation.Id;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.mongodb.core.index.Indexed;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.mongodb.core.mapping.Document;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Document</span>(collection=<span class="string">"user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="meta">@Indexed</span></span><br><span class="line">	<span class="keyword">private</span> String phoneNum;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> Date regDate;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String nickName;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String uname;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> money;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getMoney</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> money;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMoney</span><span class="params">(<span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.money = money;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getPhoneNum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> phoneNum;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPhoneNum</span><span class="params">(String phoneNum)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.phoneNum = phoneNum;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Date <span class="title">getRegDate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> regDate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRegDate</span><span class="params">(Date regDate)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.regDate = regDate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getNickName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> nickName;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNickName</span><span class="params">(String nickName)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.nickName = nickName;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUname</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> uname;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUname</span><span class="params">(String uname)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.uname = uname;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"User [id="</span> + id + <span class="string">", phoneNum="</span> + phoneNum + <span class="string">", regDate="</span> + regDate + <span class="string">", nickName="</span> + nickName</span><br><span class="line">				+ <span class="string">", uname="</span> + uname + <span class="string">", money="</span> + money + <span class="string">"]"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>传入的数据通过@RequestBody 会自动通过set/get注入到User类中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"register"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">register</span><span class="params">(@RequestBody User user)</span></span>&#123;</span><br><span class="line">	<span class="comment">//System.out.println(user);</span></span><br><span class="line">	<span class="keyword">return</span> service.register(user);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>service层</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">register</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> dao.register(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Dao层</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">register</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">	User u=mongoTemplate.insert(user);</span><br><span class="line">	System.out.println(user);</span><br><span class="line">	<span class="keyword">if</span>(u!=<span class="keyword">null</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>查看moogdb</p>
+<p>use bike</p>
+<p>db.user.find()</p>
+<p>❌注册多个手机号</p>
+<p>duplicate key error collection</p>
+<h2 id="id-并不会自增"><a href="#id-并不会自增" class="headerlink" title="_id 并不会自增"></a><font size="3px">_id 并不会自增</font></h2><p>创建一个集合counters存入id，value</p>
+<p>db.counters.insert({_id:”aid”,value:0})</p>
+<p>每增加一条记录，令value自增+1，更新counters，取value值作为_id</p>
+<p>counters中始终只有一条记录，故_id不会重复</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">register</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//从1开始自增，实现唯一</span></span><br><span class="line">		user.setId(getIncrement(<span class="string">"aid"</span>));</span><br><span class="line">		User u=mongoTemplate.insert(user);</span><br><span class="line">		System.out.println(user);</span><br><span class="line">		<span class="keyword">if</span>(u!=<span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getIncrement</span><span class="params">(String id)</span></span>&#123;</span><br><span class="line">		Query query = <span class="keyword">new</span> Query(Criteria.where(<span class="string">"_id"</span>).is(id));</span><br><span class="line">		Update update = <span class="keyword">new</span> Update();</span><br><span class="line">    <span class="comment">//value自增</span></span><br><span class="line">		update.inc(<span class="string">"value"</span>,<span class="number">1</span>);</span><br><span class="line">		mongoTemplate.updateFirst(query, update, Counters.class);</span><br><span class="line">    <span class="comment">//重新查找counters</span></span><br><span class="line">		Counters counters=mongoTemplate.findOne(query, Counters.class);</span><br><span class="line">    <span class="comment">//取value值</span></span><br><span class="line">		<span class="keyword">return</span> counters.getValue();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实现</p>
+<p><img src="/2019/08/09/微信小程序-共享单车/result.png" alt></p>
+<h2 id="跳转页面-amp-存数据"><a href="#跳转页面-amp-存数据" class="headerlink" title="跳转页面&amp;存数据"></a><font size="3px">跳转页面&amp;存数据</font></h2><p>当/user/register返回true时，跳转到充值页面</p>
+<p>注册充值页面</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">"pages": [</span><br><span class="line">    "pages/index/index",</span><br><span class="line">    "pages/register/register",</span><br><span class="line">    "pages/deposite/deposite",</span><br><span class="line">    <span class="string">"pages/logs/logs"</span></span><br><span class="line">  ],</span><br></pre></td></tr></table></figure>
+
+<p>register.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(res.data)&#123;</span><br><span class="line">   wx.navigateTo(&#123;</span><br><span class="line">   url: <span class="string">'../deposite/deposite'</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>此时已完成注册手机号，应当保存用户状态，将状态设为全局变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//更新内存中的数据</span></span><br><span class="line">getApp().globalData.status = <span class="number">1</span> </span><br><span class="line">getApp().globalData.phoneNum = phoneNum</span><br></pre></td></tr></table></figure>
+
+<p>并同时保存到手机内存中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wx.setStorageSync(<span class="string">"status"</span>,<span class="number">1</span>)</span><br><span class="line">wx.setStorageSync(<span class="string">"phoneNum"</span>,phoneNum)</span><br></pre></td></tr></table></figure>
+
+<p>index页可以根据status状态在用户退出程序时保存用户状态，在扫码开锁的点击事件中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">1</span>:&#123;</span><br><span class="line">    <span class="comment">//扫码开锁按钮</span></span><br><span class="line">    <span class="comment">//数据来源于磁盘</span></span><br><span class="line">        <span class="keyword">var</span> status=getApp().globalData[<span class="string">"status"</span>];</span><br><span class="line">        <span class="keyword">if</span>(status==<span class="number">0</span>)&#123;</span><br><span class="line">          wx.navigateTo(&#123;</span><br><span class="line">            url: <span class="string">'../register/register'</span>,</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(status==<span class="number">1</span>)&#123;</span><br><span class="line">          wx.navigateTo(&#123;</span><br><span class="line">            url: <span class="string">'../deposite/deposite'</span>,</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (status == <span class="number">2</span>) &#123;</span><br><span class="line">          wx.navigateTo(&#123;</span><br><span class="line">            url: <span class="string">'../identify/identify'</span>,</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其实数据可以来自内存，也可以是全局变量，新建myUtil.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查找的DATA</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">   <span class="comment">//内存</span></span><br><span class="line">    <span class="keyword">var</span> status = wx.getStorageSync(key);</span><br><span class="line">    <span class="comment">//如果没有就在当前操作周期的全局找</span></span><br><span class="line">    <span class="keyword">if</span> (!status) &#123;</span><br><span class="line">       <span class="comment">//全局变量</span></span><br><span class="line">        status = getApp().globalData[key];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> status;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>index.js导入包</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myUtils=<span class="built_in">require</span>(<span class="string">"../../utils/myUtil.js"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> status=myUtils.get(<span class="string">"status"</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="充值页面"><a href="#充值页面" class="headerlink" title="充值页面"></a><font size="4px">充值页面</font></h1><p>并不能实现个人账号支付，用loading模拟支付时长</p>
+<p>点击按钮事件绑定 bindtap</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">'primary'</span> <span class="attr">bindtap</span>=<span class="string">'deposit'</span>&gt;</span>去充值<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>事件</p>
+<p>wx.showModal({})  提示框，res.confirm点确定事件，按取消，页面不动</p>
+<p>wx.showLoading({}) mask启动一个面罩，整个页面不能点击</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">deposit:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="comment">//获取用户的手机号</span></span><br><span class="line">    <span class="keyword">var</span> phoneNum = myUtils.get(<span class="string">"phoneNum"</span>)</span><br><span class="line">    wx.showModal(&#123;</span><br><span class="line">      title:<span class="string">"提示"</span>,</span><br><span class="line">      content:<span class="string">"是否进行充值"</span>,</span><br><span class="line">      success:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(res.confirm)&#123;</span><br><span class="line">          wx.showLoading(&#123;</span><br><span class="line">            title: <span class="string">'正在充值'</span>,</span><br><span class="line">            mask:<span class="literal">true</span> </span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>页面</p>
+<p><img src="/2019/08/09/微信小程序-共享单车/wallet.png" alt></p>
+<p>请求充值，存入手机号和金额，成功后进入实名认证页面</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">wx.request(&#123;</span><br><span class="line">   url: <span class="string">'http://localhost:8080/user/deposite'</span>,</span><br><span class="line">   method:<span class="string">"POST"</span>,</span><br><span class="line"><span class="comment">//   header:&#123;</span></span><br><span class="line"><span class="comment">//       'content-type': "application/x-www-form-urlencoded"</span></span><br><span class="line"><span class="comment">//  &#125;,</span></span><br><span class="line">   data:&#123;</span><br><span class="line">        phoneNum:phoneNum,</span><br><span class="line">        deposit:<span class="number">299</span>,</span><br><span class="line">   &#125;,</span><br><span class="line">  <span class="comment">//成功说明请求成功，及时关闭遮罩</span></span><br><span class="line">   success:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">       <span class="comment">//console.log(res);</span></span><br><span class="line">        <span class="comment">// 关闭充值中的加载对话框</span></span><br><span class="line">        wx.hideLoading()</span><br><span class="line">        <span class="keyword">if</span>(data.error)&#123;</span><br><span class="line">            wx.navigateTo(&#123;</span><br><span class="line">                url: <span class="string">'../identify/identify'</span>,</span><br><span class="line">            &#125;)</span><br><span class="line">          <span class="comment">//更新用户状态</span></span><br><span class="line">            getApp().globalData.status = <span class="number">2</span> </span><br><span class="line">            wx.setStorageSync(<span class="string">"status"</span>,<span class="number">2</span>)</span><br><span class="line">         &#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="实名认证页面"><a href="#实名认证页面" class="headerlink" title="实名认证页面"></a><font size="4px">实名认证页面</font></h1><p>mongodb中存入用户名和身份证id，更新phoneNum相同的数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">formSubmit: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//获取全局变量</span></span><br><span class="line">  <span class="keyword">var</span> phoneNum = myUtils.get(<span class="string">"phoneNum"</span>);</span><br><span class="line">  <span class="comment">//获取输入的姓名和身份证号</span></span><br><span class="line">  <span class="keyword">var</span> name = e.detail.value.name;</span><br><span class="line">  <span class="keyword">var</span> idNum = e.detail.value.idNum;</span><br><span class="line">  <span class="comment">//编辑遮罩</span></span><br><span class="line">  wx.showLoading(&#123;</span><br><span class="line">    title: <span class="string">'正在实名认证'</span>,</span><br><span class="line">    mask: <span class="literal">true</span>,</span><br><span class="line">  &#125;)  </span><br><span class="line">  wx.request(&#123;</span><br><span class="line">    url: <span class="string">'http://localhost:8080/user/identify'</span>,</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">      <span class="comment">//传入参数</span></span><br><span class="line">      phoneNum: phoneNum,</span><br><span class="line">      uname: name,</span><br><span class="line">      idNum: idNum,</span><br><span class="line">    &#125;,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(res.data)&#123;</span><br><span class="line">        wx.hideLoading();</span><br><span class="line">        getApp().globalData.status = <span class="number">3</span></span><br><span class="line">        wx.setStorageSync(<span class="string">'status'</span>, <span class="number">3</span>)</span><br><span class="line">        wx.navigateTo(&#123;</span><br><span class="line">          url: <span class="string">'../index/index'</span>,</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//响应404，400，500等</span></span><br><span class="line">    fail:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      wx.hideLoading()</span><br><span class="line">      wx.showModal(&#123;</span><br><span class="line">        title: <span class="string">'提示'</span>,</span><br><span class="line">        content: <span class="string">'服务器繁忙，请销后再试'</span>,</span><br><span class="line">        showCancel: <span class="literal">false</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同样使用RequestBody接收数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@RequestMapping</span>(<span class="string">"/identify"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">identify</span><span class="params">(@RequestBody User user)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> service.identify(user);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>mongodb更新语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">identify</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">		Query query = <span class="keyword">new</span> Query(Criteria.where(<span class="string">"phoneNum"</span>).is(user.getPhoneNum()));</span><br><span class="line">  	Update update = <span class="keyword">new</span> Update();</span><br><span class="line">		update.set(<span class="string">"idNum"</span>, user.getIdNum());</span><br><span class="line">		update.set(<span class="string">"uname"</span>, user.getUname());</span><br><span class="line">		UpdateResult result= mongoTemplate.updateFirst(query, update, User.class);</span><br><span class="line">		<span class="keyword">if</span>(result.getModifiedCount()!=<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="附近车辆"><a href="#附近车辆" class="headerlink" title="附近车辆"></a><font size="4px">附近车辆</font></h1><h2 id="添加车辆-临时数据"><a href="#添加车辆-临时数据" class="headerlink" title="添加车辆 - 临时数据"></a><font size="3px">添加车辆 - 临时数据</font></h2><p>添加车辆图标</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">that.setData(&#123;	</span><br><span class="line">  controls:[</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="comment">//添加车辆</span></span><br><span class="line">        id: <span class="number">6</span>,</span><br><span class="line">        iconPath: <span class="string">'/images/add.png'</span>,</span><br><span class="line">        position: &#123;</span><br><span class="line">    				width: <span class="number">35</span>,</span><br><span class="line">            height: <span class="number">35</span>,</span><br><span class="line">            left: width / <span class="number">30</span>,</span><br><span class="line">            top: height / <span class="number">30</span></span><br><span class="line">        &#125;,</span><br><span class="line">        clickable: <span class="literal">true</span></span><br><span class="line">     &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>添加点击事件</p>
+<p>这里传入的是location:[log,lat] [经度，纬度]</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">controltap:function(e)&#123;</span><br><span class="line">  <span class="keyword">var</span> id = e.controlId;</span><br><span class="line">    <span class="keyword">switch</span>(id)&#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        <span class="comment">//添加车辆</span></span><br><span class="line">        <span class="keyword">var</span> bikes=that.data.markers;</span><br><span class="line">        <span class="comment">//移动后获取中心点</span></span><br><span class="line">        <span class="keyword">this</span>.mapCtx.getCenterLocation(&#123;</span><br><span class="line">          success: function (res) &#123;</span><br><span class="line">            <span class="comment">//console.log(res);</span></span><br><span class="line">              <span class="keyword">var</span> log=res.longitude;</span><br><span class="line">              <span class="keyword">var</span> lat =res.latitude;</span><br><span class="line">       				<span class="keyword">var</span> bikeno=myUtils.get(<span class="string">"bikeno"</span>);</span><br><span class="line">            <span class="comment">//将数据发送到后台</span></span><br><span class="line">              wx.request(&#123;</span><br><span class="line">                url: <span class="string">'http://localhost:8080/bike/add'</span>,</span><br><span class="line">                data: &#123;</span><br><span class="line">                  bikeno:bikeno,</span><br><span class="line">                  location:[log,lat],</span><br><span class="line">                  status:<span class="number">0</span></span><br><span class="line">                &#125;,</span><br><span class="line">                method:<span class="string">'POST'</span>,</span><br><span class="line">                success: function(res)&#123;</span><br><span class="line">                  bikeno=bikeno+<span class="number">1</span>;</span><br><span class="line">                  getApp().globalData.bikeno=bikeno;</span><br><span class="line">                  <span class="comment">//console.log(getApp().globalData.bikeno);</span></span><br><span class="line">                  <span class="comment">//保存到手机存储卡中</span></span><br><span class="line">                  wx.setStorageSync(<span class="string">"bikeno"</span>, bikeno)</span><br><span class="line">                  <span class="comment">//findBikes(log,lat,that);</span></span><br><span class="line">                &#125;</span><br><span class="line">              &#125;)</span><br><span class="line">           &#125;</span><br><span class="line">         &#125;)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注册车辆到mongodb"><a href="#注册车辆到mongodb" class="headerlink" title="注册车辆到mongodb"></a><font size="3px">注册车辆到mongodb</font></h2><p>新建bikecounters用于bikes集合主键自增</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.bikecounters.insert(&#123;_id:&quot;aid&quot;,value:0&#125;)</span><br><span class="line">db.bikecounters.find()</span><br></pre></td></tr></table></figure>
+
+<p>对应新建pojo-BikeCounters</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.runaccpeted.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.data.annotation.Id;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.mongodb.core.index.Indexed;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.mongodb.core.mapping.Document;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Document</span>(collection=<span class="string">"bikecounters"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BikeCounters</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	   <span class="meta">@Id</span></span><br><span class="line">		<span class="keyword">private</span> String id;</span><br><span class="line">		<span class="meta">@Indexed</span></span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">int</span> value;</span><br><span class="line">		</span><br><span class="line">		<span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> id;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.id = id;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> value;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.value = value;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">"BikeCounters [id="</span> + id + <span class="string">", value="</span> + value + <span class="string">"]"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>存储bikes，[id主键，bikeno车编号，location经纬度，status车辆状态]</p>
+<p>@GeoSpatialIndexed 标记为其创建索引</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.runaccpeted.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.data.annotation.Id;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.mongodb.core.index.GeoSpatialIndexType;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.mongodb.core.index.GeoSpatialIndexed;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.mongodb.core.index.Indexed;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.mongodb.core.mapping.Document;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Document</span>(collection=<span class="string">"bikes"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bike</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Indexed</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> bikeno;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@GeoSpatialIndexed</span>(type=GeoSpatialIndexType.GEO_2DSPHERE)</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span>[] location;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span>[] getLocation() &#123;</span><br><span class="line">		<span class="keyword">return</span> location;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLocation</span><span class="params">(<span class="keyword">double</span>[] location)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.location = location;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> status;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getBikeno</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> bikeno;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBikeno</span><span class="params">(<span class="keyword">int</span> bikeno)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.bikeno = bikeno;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getStatus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> status;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStatus</span><span class="params">(<span class="keyword">int</span> status)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.status = status;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"Bike [id="</span> + id + <span class="string">", bikeno="</span> + bikeno + <span class="string">", location="</span> + Arrays.toString(location) + <span class="string">", status="</span></span><br><span class="line">				+ status + <span class="string">"]"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>添加车辆</p>
+<p>注入车编号使用的是手机内存中存入全局变量bikeno:100000</p>
+<p>每次调用bike/add bikeno+1 ,所以会存在bikeno不会相同，而经纬度相同。</p>
+<p>当经纬度相同时，用更新，不同时，用插入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(Bike bike)</span></span>&#123;</span><br><span class="line">		Query query = <span class="keyword">new</span> Query(Criteria.where(<span class="string">"location"</span>).is(bike.getLocation()));</span><br><span class="line">		<span class="keyword">if</span> (mongoTemplate.findOne(query, Bike.class)!=<span class="keyword">null</span>) &#123;</span><br><span class="line">			Update update = <span class="keyword">new</span> Update();</span><br><span class="line">			update.set(<span class="string">"bikeno"</span>, bike.getBikeno());</span><br><span class="line">			update.set(<span class="string">"status"</span>, bike.getStatus());</span><br><span class="line">			UpdateResult result= mongoTemplate.updateFirst(query, update, Bike.class);</span><br><span class="line">			<span class="keyword">if</span> (result.getModifiedCount()!=<span class="number">0</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			bike.setId(getIncrement(<span class="string">"aid"</span>));</span><br><span class="line">			Bike b = mongoTemplate.insert(bike);</span><br><span class="line">			<span class="keyword">if</span> (b!=<span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">				</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示附近车辆"><a href="#显示附近车辆" class="headerlink" title="显示附近车辆"></a><font size="3px">显示附近车辆</font></h2><p>findBikes(log,lat,that);</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">findBikes</span><span class="params">(longitude,latitude,that)</span></span>&#123;</span><br><span class="line">  wx.request(&#123;</span><br><span class="line">    url: <span class="string">"http://localhost:8080/bike/findNear"</span>,</span><br><span class="line">    method: <span class="string">"POST"</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">      location: [longitude,latitude]</span><br><span class="line">    &#125;,</span><br><span class="line">    success: function (res) &#123;</span><br><span class="line">      console.log(res)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>从mongodb中读取附近车辆信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;GeoResult&lt;Bike&gt;&gt; findNear(Bike bike) &#123;</span><br><span class="line">   <span class="comment">//中心位置</span></span><br><span class="line">		Point location = <span class="keyword">new</span> Point(bike.getLocation()[<span class="number">0</span>], bike.getLocation()[<span class="number">1</span>]);</span><br><span class="line">  <span class="comment">//获取车辆附近信息</span></span><br><span class="line">		NearQuery query = NearQuery.near(location);</span><br><span class="line">  <span class="comment">//附近200m</span></span><br><span class="line">		query.maxDistance(<span class="number">0.2</span>,Metrics.KILOMETERS);</span><br><span class="line">  <span class="comment">//车辆状态为0 未使用 ，取20辆</span></span><br><span class="line">		query.query(<span class="keyword">new</span> Query(Criteria.where(<span class="string">"status"</span>).is(<span class="number">0</span>)).limit(<span class="number">20</span>));</span><br><span class="line">  </span><br><span class="line">		GeoResults&lt;Bike&gt; bikes=mongoTemplate.geoNear(query, Bike.class);</span><br><span class="line">		<span class="keyword">return</span> bikes.getContent();	</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取响应数据    </p>
+<p>❌</p>
+<p>“errmsg” : “no such command: ‘geoNear’”</p>
+<p>？？ mongodb没安装好，重装还是一样问题？？版本问题，低版本下载？</p>
+<p>安装mongodb-osx-ssl-x86_64-4.0.12.tgz 运行正确</p>
+<p>返回数据</p>
+<p><img src="/2019/08/09/微信小程序-共享单车/nearresult.png" alt></p>
+<p>获取到经纬度，用map的markers属性，注入图标</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bikes = res.data.map(<span class="function">(<span class="params">geoResult</span>) =&gt;</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> &#123;</span><br><span class="line">         longitude: geoResult.content.location[<span class="number">0</span>],</span><br><span class="line">         latitude: geoResult.content.location[<span class="number">1</span>],</span><br><span class="line">         width: <span class="number">30</span>,</span><br><span class="line">         height: <span class="number">35</span>,</span><br><span class="line">         iconPath: <span class="string">'/images/bike.png'</span></span><br><span class="line">       &#125;</span><br><span class="line">      &#125;</span><br><span class="line">     )</span><br><span class="line">     that.setData(&#123;</span><br><span class="line">       markers: bikes</span><br><span class="line">     &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>实现效果</p>
+<video width="420" height="520" controls autoplay loop>
+        <source src="/bike.mp4" type="video/mp4">    
+ </video>
+# <font size="4px">所用mongo命令</font>
+
+<p>use bike</p>
+<p>db.createUser({user:”bike”,pwd:”123456”,roles:[“readWrite”]})</p>
+<p>db.auth(“bike”,”123456”)</p>
+<p>db.usercounters.insert({_id:”aid”,value:0})</p>
+<p>db.user.find()</p>
+<p>db.usercounters.find()</p>
+<p>db.usercounters.remove({})</p>
+<p>db.user.drop()</p>
+<p>db.bikecounters.insert({_id:”aid”,value:0})</p>
+<p>db.bikes.find()</p>
+<p>db.bikecounters.find()</p>
+<p>db.bikecounters.remove({})</p>
+<h1 id="扫码页面"><a href="#扫码页面" class="headerlink" title="扫码页面"></a><font size="4px">扫码页面</font></h1>
+    </div>
+    
+    <div>
+    
+        <div style="margin-top:30px;padding-top:20px;border-top: 1px dashed #b3a9a7;text-align:center;color: #ccc;font-size:20px;">
+        本文结束&nbsp;<i class="fa fa-smile-o"></i>&nbsp;感谢您的阅读</div>
+    
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li><strong>本文标题：</strong><a href="/2019/08/09/微信小程序-共享单车/">微信小程序-共享单车</a></li>
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/" title="微信小程序-共享单车">https://www.runaccpeted.com/2019/08/09/微信小程序-共享单车/</a>
+  </li>
+  <li><strong>发布时间：</strong>2019年08月09日 - 07:56</li>
+  <li><strong>更新时间：</strong>2019年10月10日 - 20:07</li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/小程序/" rel="tag"><i class="fa fa-tag"></i> 小程序</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/07/02/hello-world/" rel="next" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/08/09/Linux学习/" rel="prev" title="Linux学习">
+                  Linux学习 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注册微信小程序"><span class="nav-number">1.</span> <span class="nav-text">注册微信小程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发者工具下载"><span class="nav-number">2.</span> <span class="nav-text">开发者工具下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目结构"><span class="nav-number">3.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#显示地图"><span class="nav-number">4.</span> <span class="nav-text">显示地图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生命周期"><span class="nav-number">5.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取设备定位"><span class="nav-number">6.</span> <span class="nav-text">获取设备定位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加事件"><span class="nav-number">7.</span> <span class="nav-text">添加事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加图片"><span class="nav-number">7.1.</span> <span class="nav-text">添加图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定事件"><span class="nav-number">7.2.</span> <span class="nav-text">绑定事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击事件实现"><span class="nav-number">7.3.</span> <span class="nav-text">点击事件实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot"><span class="nav-number">8.</span> <span class="nav-text">SpringBoot</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置全局数值"><span class="nav-number">9.</span> <span class="nav-text">设置全局数值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注册页面"><span class="nav-number">10.</span> <span class="nav-text">注册页面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加注册页面"><span class="nav-number">10.1.</span> <span class="nav-text">添加注册页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现手机绑定"><span class="nav-number">10.2.</span> <span class="nav-text">实现手机绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接服务器"><span class="nav-number">10.2.1.</span> <span class="nav-text">连接服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringBoot–redis"><span class="nav-number">10.2.2.</span> <span class="nav-text">SpringBoot–redis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#腾讯云短信服务"><span class="nav-number">10.2.3.</span> <span class="nav-text">腾讯云短信服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不调用腾讯云短信服务"><span class="nav-number">10.2.4.</span> <span class="nav-text">不调用腾讯云短信服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证用户输入"><span class="nav-number">10.2.5.</span> <span class="nav-text">验证用户输入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注册用户到MongoDB"><span class="nav-number">11.</span> <span class="nav-text">注册用户到MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#id-并不会自增"><span class="nav-number">11.1.</span> <span class="nav-text">_id 并不会自增</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳转页面-amp-存数据"><span class="nav-number">11.2.</span> <span class="nav-text">跳转页面&amp;存数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#充值页面"><span class="nav-number">12.</span> <span class="nav-text">充值页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实名认证页面"><span class="nav-number">13.</span> <span class="nav-text">实名认证页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附近车辆"><span class="nav-number">14.</span> <span class="nav-text">附近车辆</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加车辆-临时数据"><span class="nav-number">14.1.</span> <span class="nav-text">添加车辆 - 临时数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册车辆到mongodb"><span class="nav-number">14.2.</span> <span class="nav-text">注册车辆到mongodb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示附近车辆"><span class="nav-number">14.3.</span> <span class="nav-text">显示附近车辆</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扫码页面"><span class="nav-number">15.</span> <span class="nav-text">扫码页面</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/a.jpg"
+      alt="Wang Ting">
+  <p class="site-author-name" itemprop="name">Wang Ting</p>
+  <div class="site-description" itemprop="description">技术成长笔记</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.zhihu.com/people/fen-dou-zhe-5/activities" title="ZhiHu &rarr; https://www.zhihu.com/people/fen-dou-zhe-5/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-commenting"></i>ZhiHu</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://" title="WeChat &rarr; https://" rel="noopener" target="_blank"><i class="fa fa-fw fa-wechat"></i>WeChat</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/helloworld1006" title="GitHub &rarr; https://github.com/helloworld1006" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:1543315941@qq.com" title="E-Mail &rarr; mailto:1543315941@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" title="Weibo &rarr; https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/sinat_32676193" title="CDSN &rarr; https://blog.csdn.net/sinat_32676193" rel="noopener" target="_blank"><i class="fa fa-fw fa-codiepie"></i>CDSN</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      最近阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" title="https://blog.csdn.net/sinat_37781304/article/details/82729029" rel="noopener" target="_blank">hexo史上最全搭建教程</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://how2j.cn" title="http://how2j.cn" rel="noopener" target="_blank">How2J</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span>网站总字数&nbsp;<span>
+    <span title="站点总字数">269k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span>阅读总时长&nbsp;<span>
+    <span title="站点阅读时长">7:29</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+  <span class="post-meta-divider">|</span> -->
+  <span id="sitetime"></span>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+  siteTime();
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span>本站总访问量&nbsp;</span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span>本站访客数&nbsp;</span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='96,96,96' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+<script src="/js/utils.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script><script src="/js/bookmark.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('/js/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'XYcjlUMI3JT5ggb51F8oIkwy-gzGzoHsz',
+    appKey: 'OHyypRDYnlmDqCN7vrH85KrL',
+    placeholder: '撰写评论',
+    avatar: 'mm# Gravatar style',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn',
+    avatar_cdn: 'https://www.gravatar.com/avatar/',
+    path: location.pathname
+  });
+}, window.Valine);
+  function ssl_avatar($avatar) {
+     $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
+     return $avatar;
+  }
+</script>
+
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":125,"height":290},"mobile":{"show":false},"react":{"opacity":0.7},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
+</html>
