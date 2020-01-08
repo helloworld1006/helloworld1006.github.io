@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="Collection HashMap">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T17:09:38.061Z">
+<meta property="og:updated_time" content="2020-01-07T19:16:34.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-集合">
 <meta name="twitter:description" content="Collection HashMap">
@@ -384,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-16 01:09:38" itemprop="dateModified" datetime="2019-09-16T01:09:38+08:00">2019-09-16</time>
+                <time title="修改时间：2020-01-08 03:16:34" itemprop="dateModified" datetime="2020-01-08T03:16:34+08:00">2020-01-08</time>
               </span>
             
           
@@ -471,7 +471,7 @@
         <blockquote class="blockquote-center">Collection HashMap</blockquote>
 <a id="more"></a>
 
-<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a><font size="4px">Collection</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="comment">//并 other元素添加到集合中</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;E&gt; other)</span></span>;</span><br><span class="line"><span class="comment">//交 删除与other中匹配的所有元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection other)</span></span>;</span><br><span class="line"><span class="comment">//差 删除与other不同的元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection other)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//批量删除符合filter条件的所有元素 Predicate对象</span></span><br><span class="line">Collection.removeIf(ele-&gt;(String)ele.length()&lt;<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a><font size="4px">Collection</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"></span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="comment">//并 other元素添加到集合中</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;E&gt; other)</span></span>;</span><br><span class="line"><span class="comment">//交 删除与other中匹配的所有元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection other)</span></span>;</span><br><span class="line"><span class="comment">//差 删除与other不同的元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection other)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//批量删除符合filter条件的所有元素 Predicate对象</span></span><br><span class="line">Collection.removeIf(ele-&gt;(String)ele.length()&lt;<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
 
 <h1 id="固定长度的List"><a href="#固定长度的List" class="headerlink" title="固定长度的List"></a><font size="4px">固定长度的List</font></h1><p>Arrays.ArrayList是Arrays的内部类ArrayList的实例，不可增加，删除元素。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = Arrays.asList(Object... obj);</span><br></pre></td></tr></table></figure>
@@ -714,7 +714,7 @@
     <a href="https://www.runaccpeted.com/2019/09/13/Java基础知识-集合/" title="Java基础知识-集合">https://www.runaccpeted.com/2019/09/13/Java基础知识-集合/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月13日 - 22:12</li>
-  <li><strong>更新时间：</strong>2019年09月16日 - 01:09</li>
+  <li><strong>更新时间：</strong>2020年01月08日 - 03:16</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
