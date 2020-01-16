@@ -88,7 +88,7 @@
 <meta property="og:description" content="多线程">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.runaccpeted.com/2019/09/14/Java基础知识-线程/a.jpeg">
-<meta property="og:updated_time" content="2019-09-19T11:15:57.040Z">
+<meta property="og:updated_time" content="2020-01-09T04:14:43.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-线程">
 <meta name="twitter:description" content="多线程">
@@ -223,7 +223,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
 
   </li>
       
@@ -236,7 +236,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">16</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
 
   </li>
       
@@ -249,7 +249,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">198</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">200</span></a>
 
   </li>
       
@@ -386,7 +386,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-19 19:15:57" itemprop="dateModified" datetime="2019-09-19T19:15:57+08:00">2019-09-19</time>
+                <time title="修改时间：2020-01-09 12:14:43" itemprop="dateModified" datetime="2020-01-09T12:14:43+08:00">2020-01-09</time>
               </span>
             
           
@@ -447,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>693</span>
+              <span>891</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -476,13 +476,14 @@
 <h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a><font size="4px">进程</font></h1><p>处于运行过程中的程序。拥有独立性，动态性，并发性</p>
 <p>并发指多个进程指令被快速轮换宏观上实现并发</p>
 <p>并行指同一时刻，多条指令在多个处理器上同时执行</p>
-<h1 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a><font size="4px">创建线程</font></h1><h1 id="extends-Thread"><a href="#extends-Thread" class="headerlink" title="extends Thread"></a><font size="3px">extends Thread</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    test t = <span class="keyword">new</span> test;</span><br><span class="line">    t.start();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a><font size="4px">创建线程</font></h1><p>调用的是start方法，使其创建一个执行run方法的新线程</p>
+<h2 id="extends-Thread"><a href="#extends-Thread" class="headerlink" title="extends Thread"></a><font size="3px">extends Thread</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    test t = <span class="keyword">new</span> test;</span><br><span class="line">    t.start();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>通过new Thread()方式，创造了新的实例变量，线程之间不存在资源共享</p>
-<h1 id="implements-Runnable"><a href="#implements-Runnable" class="headerlink" title="implements Runnable"></a><font size="3px">implements Runnable</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> <span class="keyword">implements</span> <span class="title">Runable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123; &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    test t = <span class="keyword">new</span> test;</span><br><span class="line">    <span class="keyword">new</span> Thread(t,<span class="string">"Test"</span>).start();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="implements-Runnable"><a href="#implements-Runnable" class="headerlink" title="implements Runnable"></a><font size="3px">implements Runnable</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> <span class="keyword">implements</span> <span class="title">Runable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123; &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    test t = <span class="keyword">new</span> test;</span><br><span class="line">    <span class="keyword">new</span> Thread(t,<span class="string">"Test"</span>).start();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>线程之间资源共享</p>
-<h1 id="implements-Callable"><a href="#implements-Callable" class="headerlink" title="implements Callable"></a><font size="3px">implements Callable</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Integer</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    FutureTask&lt;Integer&gt; task = <span class="keyword">new</span> FutureTask&lt;Integer&gt;(<span class="keyword">new</span> test());</span><br><span class="line">    <span class="keyword">new</span> Thread(task,<span class="string">""</span>).start();</span><br><span class="line">    Integer ans=task.get();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="implements-Callable"><a href="#implements-Callable" class="headerlink" title="implements Callable"></a><font size="3px">implements Callable</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Integer</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    FutureTask&lt;Integer&gt; task = <span class="keyword">new</span> FutureTask&lt;Integer&gt;(<span class="keyword">new</span> test());</span><br><span class="line">    <span class="keyword">new</span> Thread(task,<span class="string">""</span>).start();</span><br><span class="line">    Integer ans=task.get();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a><font size="4px">线程状态</font></h1><p><img src="/2019/09/14/Java基础知识-线程/a.jpeg" alt></p>
 <ul>
@@ -491,7 +492,8 @@
 <p>调用.start() 线程进入就绪状态，等待cpu的调度</p>
 </li>
 <li><p>Runnable</p>
-<p>获得cpu，执行run()内的代码，执行时长为时间片长</p>
+<p>争取cpu，执行run()内的代码，执行时长为时间片长</p>
+<p>是否运行取决于cpu</p>
 </li>
 <li><p>Blocked</p>
 <blockquote>
@@ -522,18 +524,30 @@
 <li><p>Terminated</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread.currentThread().getState();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread.State state = Thread.currentThread().getState();</span><br></pre></td></tr></table></figure>
 
-<h1 id="控制线程"><a href="#控制线程" class="headerlink" title="控制线程"></a><font size="4px">控制线程</font></h1><h1 id="join"><a href="#join" class="headerlink" title="join()"></a><font size="3px">join()</font></h1><p>new Thread().join() 等待该线程执行完才执行其他线程</p>
-<h1 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a><font size="3px">守护线程</font></h1><p>new Thread().setDeamon(true)</p>
+<h1 id="控制线程"><a href="#控制线程" class="headerlink" title="控制线程"></a><font size="4px">控制线程</font></h1><h2 id="interrupt"><a href="#interrupt" class="headerlink" title="interrupt()"></a><font size="3px">interrupt()</font></h2><p>请求终止线程，线程的中断状态将被置位</p>
+<p>isInterrupted() 判断中断状态，不改变中断状态</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> flag = Thread.currentThread().isInterrupted();</span><br></pre></td></tr></table></figure>
+
+<p>如果线程被阻塞，无法检测中断状态</p>
+<h2 id="join"><a href="#join" class="headerlink" title="join()"></a><font size="3px">join()</font></h2><p>new Thread().join() 等待该线程执行完才执行其他线程</p>
+<h2 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a><font size="3px">守护线程</font></h2><p>为其他线程提供服务</p>
+<p>new Thread().setDeamon(true)</p>
 <p>jvm不会等待该线程运行结束。当整个虚拟机中只有这种线程时，虚拟机选择退出</p>
-<h1 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a><font size="3px">sleep()</font></h1><p>暂停当前线程进入阻塞状态，不释放资源</p>
-<h1 id="yield"><a href="#yield" class="headerlink" title="yield()"></a><font size="3px">yield()</font></h1><p>new Thread().yield() 该线程主动让出时间片进入就绪状态</p>
-<h1 id="改变线程优先级"><a href="#改变线程优先级" class="headerlink" title="改变线程优先级"></a><font size="3px">改变线程优先级</font></h1><p>优先级也不能保证线程执行的先后顺序</p>
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a><font size="3px">sleep()</font></h2><p>暂停当前线程进入阻塞状态，不释放资源</p>
+<h2 id="yield"><a href="#yield" class="headerlink" title="yield()"></a><font size="3px">yield()</font></h2><p>new Thread().yield() 该线程主动让出时间片进入就绪状态</p>
+<h2 id="改变线程优先级"><a href="#改变线程优先级" class="headerlink" title="改变线程优先级"></a><font size="3px">改变线程优先级</font></h2><p>优先级也不能保证线程执行的先后顺序</p>
 <p>new Thread().setPriority(Priority.MIN_PRORITY) 1</p>
 <p>Priority.MAX_PRORITY 10</p>
 <p>Priority.NORM_PRORITY 5</p>
+<h1 id="竞争"><a href="#竞争" class="headerlink" title="竞争"></a><font size="4px">竞争</font></h1><h2 id="ReentrantLock-锁"><a href="#ReentrantLock-锁" class="headerlink" title="ReentrantLock 锁"></a><font size="3px">ReentrantLock 锁</font></h2><p>一旦线程进入就封锁锁对象，其他线程无法通过lock语句，被阻塞</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.locks.ReentrantLock;</span><br><span class="line"></span><br><span class="line">ReentrantLock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line">lock.lock();</span><br><span class="line">...</span><br><span class="line">lock.unlock();</span><br></pre></td></tr></table></figure>
 
+<h2 id="synchronized-同步"><a href="#synchronized-同步" class="headerlink" title="synchronized 同步"></a><font size="3px">synchronized 同步</font></h2><p>可以是同步块，同步方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(obj)&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="，"><a href="#，" class="headerlink" title="，"></a><font size="4px">，</font></h2>
     </div>
     
     <div>
@@ -561,7 +575,7 @@
     <a href="https://www.runaccpeted.com/2019/09/14/Java基础知识-线程/" title="Java基础知识-线程">https://www.runaccpeted.com/2019/09/14/Java基础知识-线程/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月14日 - 00:11</li>
-  <li><strong>更新时间：</strong>2019年09月19日 - 19:15</li>
+  <li><strong>更新时间：</strong>2020年01月09日 - 12:14</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -649,7 +663,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进程"><span class="nav-number">1.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建线程"><span class="nav-number">2.</span> <span class="nav-text">创建线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#extends-Thread"><span class="nav-number">3.</span> <span class="nav-text">extends Thread</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#implements-Runnable"><span class="nav-number">4.</span> <span class="nav-text">implements Runnable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#implements-Callable"><span class="nav-number">5.</span> <span class="nav-text">implements Callable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程状态"><span class="nav-number">6.</span> <span class="nav-text">线程状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制线程"><span class="nav-number">7.</span> <span class="nav-text">控制线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#join"><span class="nav-number">8.</span> <span class="nav-text">join()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#守护线程"><span class="nav-number">9.</span> <span class="nav-text">守护线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sleep"><span class="nav-number">10.</span> <span class="nav-text">sleep()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#yield"><span class="nav-number">11.</span> <span class="nav-text">yield()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#改变线程优先级"><span class="nav-number">12.</span> <span class="nav-text">改变线程优先级</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进程"><span class="nav-number">1.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建线程"><span class="nav-number">2.</span> <span class="nav-text">创建线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#extends-Thread"><span class="nav-number">2.1.</span> <span class="nav-text">extends Thread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implements-Runnable"><span class="nav-number">2.2.</span> <span class="nav-text">implements Runnable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implements-Callable"><span class="nav-number">2.3.</span> <span class="nav-text">implements Callable</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程状态"><span class="nav-number">3.</span> <span class="nav-text">线程状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制线程"><span class="nav-number">4.</span> <span class="nav-text">控制线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#interrupt"><span class="nav-number">4.1.</span> <span class="nav-text">interrupt()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#join"><span class="nav-number">4.2.</span> <span class="nav-text">join()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#守护线程"><span class="nav-number">4.3.</span> <span class="nav-text">守护线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sleep"><span class="nav-number">4.4.</span> <span class="nav-text">sleep()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yield"><span class="nav-number">4.5.</span> <span class="nav-text">yield()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改变线程优先级"><span class="nav-number">4.6.</span> <span class="nav-text">改变线程优先级</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#竞争"><span class="nav-number">5.</span> <span class="nav-text">竞争</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ReentrantLock-锁"><span class="nav-number">5.1.</span> <span class="nav-text">ReentrantLock 锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#synchronized-同步"><span class="nav-number">5.2.</span> <span class="nav-text">synchronized 同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#，"><span class="nav-number">5.3.</span> <span class="nav-text">，</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -667,7 +681,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -714,7 +728,11 @@
         
           
         
-        <span class="site-state-item-count">16</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -763,7 +781,11 @@
         
           
         
-        <span class="site-state-item-count">17</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -851,11 +873,15 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" title="https://blog.csdn.net/sinat_37781304/article/details/82729029" rel="noopener" target="_blank">hexo史上最全搭建教程</a>
+          <a href="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" title="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" rel="noopener" target="_blank">数学大观</a>
         </li>
       
         <li class="links-of-blogroll-item">
-          <a href="http://how2j.cn" title="http://how2j.cn" rel="noopener" target="_blank">How2J</a>
+          <a href="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" title="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" rel="noopener" target="_blank">王道训练营 C语言视频最新教程</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av77638697/?p=3&t=14" title="https://www.bilibili.com/video/av77638697/?p=3&t=14" rel="noopener" target="_blank">浙江大学-研究生机器学习课程</a>
         </li>
       
     </ul>
@@ -888,13 +914,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">314k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">8:37</span>
+    <span title="站点阅读时长">8:43</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
