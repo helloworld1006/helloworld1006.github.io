@@ -82,14 +82,14 @@
   <meta name="description" content="实现自定义类加载器，动态创建java对象">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础知识-类加载机制与反射">
+<meta property="og:title" content="Java基础知识-类加载机制与程序执行内存分析">
 <meta property="og:url" content="https://www.runaccpeted.com/2019/09/19/Java基础知识-类加载机制与反射/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="实现自定义类加载器，动态创建java对象">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-20T10:59:05.270Z">
+<meta property="og:updated_time" content="2020-02-07T08:34:43.244Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java基础知识-类加载机制与反射">
+<meta name="twitter:title" content="Java基础知识-类加载机制与程序执行内存分析">
 <meta name="twitter:description" content="实现自定义类加载器，动态创建java对象">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccpeted.com/2019/09/19/Java基础知识-类加载机制与反射/">
@@ -107,7 +107,7 @@
 </script>
 
 
-  <title>Java基础知识-类加载机制与反射 | W.T.的博客</title>
+  <title>Java基础知识-类加载机制与程序执行内存分析 | W.T.的博客</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -221,7 +221,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">20</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">22</span></a>
 
   </li>
       
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">247</span></a>
 
   </li>
       
@@ -355,7 +355,7 @@
       <meta itemprop="name" content="W.T.的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Java基础知识-类加载机制与反射
+        <h1 class="post-title" itemprop="name headline">Java基础知识-类加载机制与程序执行内存分析
 
           
         </h1>
@@ -384,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-20 18:59:05" itemprop="dateModified" datetime="2019-09-20T18:59:05+08:00">2019-09-20</time>
+                <time title="修改时间：2020-02-07 16:34:43" itemprop="dateModified" datetime="2020-02-07T16:34:43+08:00">2020-02-07</time>
               </span>
             
           
@@ -403,7 +403,7 @@
           
 
           
-            <span id="/2019/09/19/Java基础知识-类加载机制与反射/" class="post-meta-item leancloud_visitors" data-flag-title="Java基础知识-类加载机制与反射" title="热度">
+            <span id="/2019/09/19/Java基础知识-类加载机制与反射/" class="post-meta-item leancloud_visitors" data-flag-title="Java基础知识-类加载机制与程序执行内存分析" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -445,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.1k</span>
+              <span>1.3k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -472,6 +472,8 @@
 
 <a id="more"></a>
 
+<h1 id="动态编译"><a href="#动态编译" class="headerlink" title="动态编译"></a><font size="4px">动态编译</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();</span><br><span class="line"><span class="comment">//int javax.tools.Tool.run(InputStream in, OutputStream out, OutputStream err, String... arguments)		</span></span><br><span class="line"><span class="keyword">int</span> result=compiler.run(<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="string">"/A.java"</span>);</span><br></pre></td></tr></table></figure>
+
 <h1 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a><font size="4px">类加载过程</font></h1><h2 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a><font size="3px">类加载</font></h2><p>将类的class文件读入内存，并为之创建一个java.lang.Class对象</p>
 <p>类加载由类加载器来完成，类加载器由jvm提供</p>
 <p>可以通过<strong>extends ClassLoader</strong>实现自定义类加载器</p>
@@ -493,32 +495,47 @@
 <p>声明类变量时指定初始值</p>
 <p>使用静态初始化块为类变量指定初始值</p>
 </blockquote>
-<p><font color="#f00">初始化时机</font></p>
-<blockquote>
-<p>创建类实例</p>
-<p>调用类方法</p>
-<p>访问类变量</p>
-<p>调用反射，系统未初始化类</p>
-<p>初始化子类，jvm会先初始化父类</p>
-<p>调用java XX</p>
+<h3 id="类主动引用-一定发生类初始化"><a href="#类主动引用-一定发生类初始化" class="headerlink" title="类主动引用-一定发生类初始化"></a><font size="3px" color="#f00">类主动引用-一定发生类初始化</font></h3><blockquote>
+<p>创建类实例 new</p>
+<p>调用类的静态成员(除了final常量)和静态方法</p>
+<p>使用java.lang.reflect包的方法对类进行反射调用</p>
+<p>虚拟机启动，java Hello，一定会初始化Hello类，启动main方法所在的类</p>
+<p>初始化类先初始化父类</p>
 </blockquote>
-<h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a><font size="3px">类加载器</font></h2><p>类用 【包名+类名+类加载器】 作为唯一标识</p>
-<p> Bootstrap ClassLoader 根类加载器</p>
-<blockquote>
+<h3 id="类被动引用-不会发生类初始化"><a href="#类被动引用-不会发生类初始化" class="headerlink" title="类被动引用-不会发生类初始化"></a><font size="3px" color="#f00">类被动引用-不会发生类初始化</font></h3><blockquote>
+<p>访问静态域时，只有真正声明这个域的类才会被初始化</p>
+<p>子类引用父类的静态变量，不会导致子类的初始化</p>
+<p>通过数组定义类引用，不会触发类的初始化</p>
+<p>引用常量不会触发此类的初始化，常量在编译阶段就存入调用类的常量池中</p>
+</blockquote>
+<h1 id="Java初始化顺序"><a href="#Java初始化顺序" class="headerlink" title="Java初始化顺序"></a><font size="4px">Java初始化顺序</font></h1><ol>
+<li>父类静态变量，只初始化一次</li>
+<li>父类静态代码块</li>
+<li>子类静态变量</li>
+<li>子类静态代码块</li>
+<li>父类非静态变量</li>
+<li>父类非静态代码块</li>
+<li>父类构造函数 </li>
+<li>子类非静态变量</li>
+<li>子类非静态代码块</li>
+<li>子类构造函数</li>
+</ol>
+<h1 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a><font size="3px">类加载器</font></h1><p>类用 【包名+类名+类加载器】 作为唯一标识</p>
+<h2 id="Bootstrap-ClassLoader-根类加载器"><a href="#Bootstrap-ClassLoader-根类加载器" class="headerlink" title=" Bootstrap ClassLoader 根类加载器"></a><font size="3px"> Bootstrap ClassLoader 根类加载器</font></h2><blockquote>
 <p>加载java核心类。由jvm自身实现。String ，System这些核心类库在/jre/lib/rt.jar中</p>
+<p>并不继承java.lang.ClassLoader</p>
+<p>用原生代码C++实现</p>
+<p>加载扩展类和应用程序类加载器，并指定他们的父类加载器</p>
 </blockquote>
-<p>Extension ClassLoader 扩展类加载器</p>
-<blockquote>
+<h2 id="Extension-ClassLoader-扩展类加载器"><a href="#Extension-ClassLoader-扩展类加载器" class="headerlink" title="Extension ClassLoader 扩展类加载器"></a><font size="3px">Extension ClassLoader 扩展类加载器</font></h2><blockquote>
 <p>ClassLoader extension=system.getParent(); //ExtClassLoader</p>
 <p>加载JRE扩展目录中jar包类 /jre/lib/ext</p>
 </blockquote>
-<p>System ClassLoader 系统类加载器</p>
-<blockquote>
+<h2 id="System-ClassLoader-系统类加载器"><a href="#System-ClassLoader-系统类加载器" class="headerlink" title="System ClassLoader 系统类加载器"></a><font size="3px">System ClassLoader 系统类加载器</font></h2><blockquote>
 <p>ClassLoader system=ClassLoader.getSystemClassLoader();  //AppClassLoader</p>
 <p>加载环境变量所指定的类路径。</p>
 </blockquote>
-<p>URLClassLoader类</p>
-<blockquote>
+<h2 id="URLClassLoader类"><a href="#URLClassLoader类" class="headerlink" title="URLClassLoader类"></a><font size="3px">URLClassLoader类</font></h2><blockquote>
 <p>作为SystemClassLoader,ExtensionClassLoader的父类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; URL[] urls = &#123;<span class="keyword">new</span> URL(<span class="string">"file:mysql-connector-java-bin.jar"</span>)&#125;;</span><br><span class="line">&gt; URLClassLoader loader = <span class="keyword">new</span> URLClassLoader(urls);</span><br><span class="line">&gt; Driver driver = (Driver)loader.loadClass(<span class="string">"com.mysql.jdbc.Driver"</span>).newInstamce();</span><br><span class="line">&gt; </span><br><span class="line">&gt; Properties p = <span class="keyword">new</span> Properties();</span><br><span class="line">&gt; p.setProperty(<span class="string">"user"</span>,user);</span><br><span class="line">&gt; p.setProperty(<span class="string">"pwd"</span>,pwd);</span><br><span class="line">&gt; Connection con = driver.connect(url,p);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
@@ -537,18 +554,21 @@
 <p>编译java文件方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">compile</span><span class="params">(String javaFile)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">  Process p = Runtime.getRuntime().exec(<span class="string">"javac "</span>+javaFile);</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    p.waitFor();</span><br><span class="line">  &#125;<span class="keyword">catch</span>(InterruptedException e)&#123;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> ret = p.exitValue();</span><br><span class="line">  <span class="keyword">return</span> ret==<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a><font size="4px">反射</font></h1><h2 id="获得class对象"><a href="#获得class对象" class="headerlink" title="获得class对象"></a><font size="3px">获得class对象</font></h2><ul>
-<li>Class.forName(“”)</li>
-<li>Person.class</li>
-<li>Person.getClass()</li>
-</ul>
-<h2 id="获取信息"><a href="#获取信息" class="headerlink" title="获取信息"></a><font size="3px">获取信息</font></h2><p>所有public构造器  getConstructors() </p>
-<p>不论权限的构造器 getDeclaredConstructors() </p>
-<p>带参数的方法 getMethod(“test”,String.class) 方法名，形参</p>
-<p>所有方法 getMethods()</p>
-<p>不论权限的所有方法 getDeclaredMethods()</p>
-<p>成员变量 getFields()</p>
-<p>不论权限的所有成员变量 getDeclaredFields()</p>
+<h1 id="程序执行内存分析"><a href="#程序执行内存分析" class="headerlink" title="程序执行内存分析"></a><font size="4px">程序执行内存分析</font></h1><p>main是程序执行的入口</p>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a><font size="3px">栈</font></h2><p>方法执行的内存模型，方法被调用时会为方法开辟栈帧</p>
+<p>存放局部变量</p>
+<p>由系统自动分配，拥有连续的内存空间</p>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a><font size="3px">堆</font></h2><p>存储对象</p>
+<p>被所有线程共享</p>
+<p>拥有不连续的空间，分配灵活</p>
+<h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a><font size="3px">方法区</font></h2><p>从属于堆</p>
+<p>存放类相关信息：</p>
+<ol>
+<li>代码</li>
+<li>静态变量</li>
+<li>静态方法</li>
+<li>字符串常量</li>
+</ol>
 
     </div>
     
@@ -568,16 +588,16 @@
 
 <div>
 <ul class="post-copyright">
-  <li><strong>本文标题：</strong><a href="/2019/09/19/Java基础知识-类加载机制与反射/">Java基础知识-类加载机制与反射</a></li>
+  <li><strong>本文标题：</strong><a href="/2019/09/19/Java基础知识-类加载机制与反射/">Java基础知识-类加载机制与程序执行内存分析</a></li>
   <li class="post-copyright-author">
     <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccpeted.com/2019/09/19/Java基础知识-类加载机制与反射/" title="Java基础知识-类加载机制与反射">https://www.runaccpeted.com/2019/09/19/Java基础知识-类加载机制与反射/</a>
+    <a href="https://www.runaccpeted.com/2019/09/19/Java基础知识-类加载机制与反射/" title="Java基础知识-类加载机制与程序执行内存分析">https://www.runaccpeted.com/2019/09/19/Java基础知识-类加载机制与反射/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月19日 - 22:38</li>
-  <li><strong>更新时间：</strong>2019年09月20日 - 18:59</li>
+  <li><strong>更新时间：</strong>2020年02月07日 - 16:34</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -665,7 +685,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#类加载过程"><span class="nav-number">1.</span> <span class="nav-text">类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载"><span class="nav-number">1.1.</span> <span class="nav-text">类加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-number">1.2.</span> <span class="nav-text">连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">1.3.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载器"><span class="nav-number">1.4.</span> <span class="nav-text">类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载机制"><span class="nav-number">1.5.</span> <span class="nav-text">类加载机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义类加载"><span class="nav-number">1.6.</span> <span class="nav-text">自定义类加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反射"><span class="nav-number">2.</span> <span class="nav-text">反射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获得class对象"><span class="nav-number">2.1.</span> <span class="nav-text">获得class对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取信息"><span class="nav-number">2.2.</span> <span class="nav-text">获取信息</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动态编译"><span class="nav-number">1.</span> <span class="nav-text">动态编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类加载过程"><span class="nav-number">2.</span> <span class="nav-text">类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载"><span class="nav-number">2.1.</span> <span class="nav-text">类加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-number">2.2.</span> <span class="nav-text">连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">2.3.</span> <span class="nav-text">初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类主动引用-一定发生类初始化"><span class="nav-number">2.3.1.</span> <span class="nav-text">类主动引用-一定发生类初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类被动引用-不会发生类初始化"><span class="nav-number">2.3.2.</span> <span class="nav-text">类被动引用-不会发生类初始化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java初始化顺序"><span class="nav-number">3.</span> <span class="nav-text">Java初始化顺序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类加载器"><span class="nav-number">4.</span> <span class="nav-text">类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bootstrap-ClassLoader-根类加载器"><span class="nav-number">4.1.</span> <span class="nav-text"> Bootstrap ClassLoader 根类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extension-ClassLoader-扩展类加载器"><span class="nav-number">4.2.</span> <span class="nav-text">Extension ClassLoader 扩展类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-ClassLoader-系统类加载器"><span class="nav-number">4.3.</span> <span class="nav-text">System ClassLoader 系统类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URLClassLoader类"><span class="nav-number">4.4.</span> <span class="nav-text">URLClassLoader类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载机制"><span class="nav-number">4.5.</span> <span class="nav-text">类加载机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义类加载"><span class="nav-number">4.6.</span> <span class="nav-text">自定义类加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序执行内存分析"><span class="nav-number">5.</span> <span class="nav-text">程序执行内存分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#栈"><span class="nav-number">5.1.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-number">5.2.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法区"><span class="nav-number">5.3.</span> <span class="nav-text">方法区</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -683,7 +703,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">247</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -791,7 +811,11 @@
         
           
         
-        <span class="site-state-item-count">20</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -898,13 +922,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">325k</span>
+    <span title="站点总字数">333k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">9:02</span>
+    <span title="站点阅读时长">9:15</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
