@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="计算机网络知识及网络通信实现">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-06T12:27:16.021Z">
+<meta property="og:updated_time" content="2020-02-13T15:23:51.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-网络编程">
 <meta name="twitter:description" content="计算机网络知识及网络通信实现">
@@ -234,7 +234,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">19</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
 
   </li>
       
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">247</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">249</span></a>
 
   </li>
       
@@ -384,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-06 20:27:16" itemprop="dateModified" datetime="2020-02-06T20:27:16+08:00">2020-02-06</time>
+                <time title="修改时间：2020-02-13 23:23:51" itemprop="dateModified" datetime="2020-02-13T23:23:51+08:00">2020-02-13</time>
               </span>
             
           
@@ -541,7 +541,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ServerSocket server = <span class="keyword">new</span> ServerSocket(<span class="number">8080</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">  Socket client = server.accpet();</span><br><span class="line">  PrintStream ps = <span class="keyword">new</span> PrintStream(client.getOutputStream());</span><br><span class="line">  ps.println(<span class="string">"Hello"</span>);</span><br><span class="line">  ps.close();</span><br><span class="line">  client.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>客户端：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Socket client = <span class="keyword">new</span> Socket(<span class="string">"localhost"</span>,<span class="number">8080</span>);</span><br><span class="line"></span><br><span class="line">BufferReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(client.getInputStream()));</span><br><span class="line"></span><br><span class="line">String str = reader.readLine(); <span class="comment">//Hello</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//指定主机和端口号</span></span><br><span class="line">Socket client = <span class="keyword">new</span> Socket(<span class="string">"localhost"</span>,<span class="number">8080</span>);</span><br><span class="line"></span><br><span class="line">BufferReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(client.getInputStream()));</span><br><span class="line"></span><br><span class="line">String str = reader.readLine(); <span class="comment">//Hello</span></span><br></pre></td></tr></table></figure>
 
 <p>可以建立超时</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.setSoTimeout(<span class="number">1000</span>); <span class="comment">//1s</span></span><br></pre></td></tr></table></figure>
@@ -599,7 +599,7 @@
     <a href="https://www.runaccpeted.com/2019/09/19/Java基础知识-网络编程/" title="Java基础知识-网络编程">https://www.runaccpeted.com/2019/09/19/Java基础知识-网络编程/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月19日 - 19:17</li>
-  <li><strong>更新时间：</strong>2020年02月06日 - 20:27</li>
+  <li><strong>更新时间：</strong>2020年02月13日 - 23:23</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -705,7 +705,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">247</span>
+          <span class="site-state-item-count">249</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -756,9 +756,7 @@
         
           
         
-          
-        
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -924,13 +922,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">333k</span>
+    <span title="站点总字数">335k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">9:15</span>
+    <span title="站点阅读时长">9:19</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
@@ -1160,5 +1158,5 @@ NexT.utils.getScript('/js/Valine.min.js', () => {
 
   
   
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":125,"height":290},"mobile":{"show":false},"react":{"opacity":0.7},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":125,"height":290},"mobile":{"show":true},"react":{"opacity":0.7},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
 </html>
