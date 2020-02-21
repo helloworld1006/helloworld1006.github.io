@@ -1968,7 +1968,7 @@ pre {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #30ac1a;
+  background: #ffffb1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
