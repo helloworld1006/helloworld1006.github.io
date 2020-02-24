@@ -844,7 +844,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -891,7 +891,7 @@
     minutes - 0-59之间的整数，做为date对象的分钟数
     seconds - 0-59之间的整数，做为date对象的秒数
     microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-    var t1 = Date.UTC(2018,02,13,15,00,00); //北京时间2018-2-13 00:00:00
+    var t1 = Date.UTC(2018,12,23,00,00,00); //北京时间2018-12-23 00:00:00
     var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
     var diff = t2-t1;
     var diffYears = Math.floor(diff/years);
@@ -899,7 +899,7 @@
     var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
     var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
     var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-    document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+    document.getElementById("sitetime").innerHTML=" 已运行 "+ diffYears+" 年 "+ diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
   }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
   siteTime();
 </script>
