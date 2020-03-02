@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="mac下 MongoDB学习">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T12:54:51.746Z">
+<meta property="og:updated_time" content="2020-02-29T16:35:48.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下MongoDB安装及使用">
 <meta name="twitter:description" content="mac下 MongoDB学习">
@@ -221,7 +221,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">22</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">23</span></a>
 
   </li>
       
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">252</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">260</span></a>
 
   </li>
       
@@ -384,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-11 20:54:51" itemprop="dateModified" datetime="2019-10-11T20:54:51+08:00">2019-10-11</time>
+                <time title="修改时间：2020-03-01 00:35:48" itemprop="dateModified" datetime="2020-03-01T00:35:48+08:00">2020-03-01</time>
               </span>
             
           
@@ -445,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>940</span>
+              <span>949</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -482,12 +482,12 @@
 <p>查看MongoDB 版本</p>
 <p>mongod -version</p>
 <p>创建数据存放文件</p>
-<p>sudo mkdir -p mongodata/db</p>
+<p>sudo mkdir -p /data/db</p>
 <p>添加修改权限</p>
-<p>chmod 777 /mongodata/db</p>
-<h1 id="设置"><a href="#设置" class="headerlink" title="设置"></a><font size="4px">设置</font></h1><p>mongod –config /data/etc/mongodb.conf</p>
+<p>chmod 777 /data/db</p>
+<h1 id="设置"><a href="#设置" class="headerlink" title="设置"></a><font size="4px">设置</font></h1><p>mongod –config /usr/local/mongodb/data/etc/mongodb.conf</p>
 <p>在mongodb.conf中设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># Where to store the data.</span><br><span class="line">dbpath=/data/db</span><br><span class="line"></span><br><span class="line">#where to log</span><br><span class="line">logpath=/data/logs/mongodb.log</span><br><span class="line"></span><br><span class="line">logappend=true</span><br><span class="line"></span><br><span class="line">#bind_ip = 127.0.0.1</span><br><span class="line">#port = 27017</span><br><span class="line"></span><br><span class="line"># Enable journaling, http://www.mongodb.org/display/DOCS/Journaling</span><br><span class="line">journal=true</span><br><span class="line"></span><br><span class="line"># Enables periodic logging of CPU utilization and I/O wait</span><br><span class="line">#cpu = true</span><br><span class="line"></span><br><span class="line"># Turn on/off security.  Off is currently the default</span><br><span class="line">#noauth = true</span><br><span class="line">#auth = true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># Where to store the data.</span><br><span class="line">dbpath=/usr/local/mongodb/data/db</span><br><span class="line"></span><br><span class="line">#where to log</span><br><span class="line">logpath=/usr/local/mongodb/data/logs/mongodb.log</span><br><span class="line"></span><br><span class="line">logappend=true</span><br><span class="line"></span><br><span class="line">#bind_ip = 127.0.0.1</span><br><span class="line">#port = 27017</span><br><span class="line"></span><br><span class="line"># Enable journaling, http://www.mongodb.org/display/DOCS/Journaling</span><br><span class="line">journal=true</span><br><span class="line"></span><br><span class="line"># Enables periodic logging of CPU utilization and I/O wait</span><br><span class="line">#cpu = true</span><br><span class="line"></span><br><span class="line"># Turn on/off security.  Off is currently the default</span><br><span class="line">#noauth = true</span><br><span class="line">#auth = true</span><br></pre></td></tr></table></figure>
 
 <p>新窗口</p>
 <p>mongo</p>
@@ -542,7 +542,7 @@
     <a href="https://www.runaccpeted.com/2019/09/05/Mac下MongoDB安装及使用/" title="Mac下MongoDB安装及使用">https://www.runaccpeted.com/2019/09/05/Mac下MongoDB安装及使用/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月05日 - 22:43</li>
-  <li><strong>更新时间：</strong>2019年10月11日 - 20:54</li>
+  <li><strong>更新时间：</strong>2020年03月01日 - 00:35</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -648,7 +648,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">252</span>
+          <span class="site-state-item-count">260</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -758,7 +758,9 @@
         
           
         
-        <span class="site-state-item-count">22</span>
+          
+        
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -865,13 +867,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">336k</span>
+    <span title="站点总字数">346k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">9:21</span>
+    <span title="站点阅读时长">9:36</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

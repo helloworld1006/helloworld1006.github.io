@@ -1,0 +1,1231 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "4767878b"
+    });
+  daovoice('update');
+  </script>
+
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"falt"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+  (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://www.runaccpeted.com"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+  <meta name="description" content="讲师前端搭建 - Vue框架，element-ui效果实现">
+<meta name="keywords" content="SpringBoot,项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在线教育网站搭建三讲师模块前端搭建">
+<meta property="og:url" content="https://www.runaccpeted.com/2019/09/24/在线教育网站搭建三讲师模块前端搭建/index.html">
+<meta property="og:site_name" content="W.T.的博客">
+<meta property="og:description" content="讲师前端搭建 - Vue框架，element-ui效果实现">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/24/在线教育网站搭建三讲师模块前端搭建/consolelist.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/24/在线教育网站搭建三讲师模块前端搭建/teacherlist.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/24/在线教育网站搭建三讲师模块前端搭建/listend.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/24/在线教育网站搭建三讲师模块前端搭建/page.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/24/在线教育网站搭建三讲师模块前端搭建/endlist.png">
+<meta property="og:updated_time" content="2020-03-02T09:03:16.224Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在线教育网站搭建三讲师模块前端搭建">
+<meta name="twitter:description" content="讲师前端搭建 - Vue框架，element-ui效果实现">
+<meta name="twitter:image" content="https://www.runaccpeted.com/2019/09/24/在线教育网站搭建三讲师模块前端搭建/consolelist.png">
+  <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
+  <link rel="canonical" href="https://www.runaccpeted.com/2019/09/24/在线教育网站搭建三讲师模块前端搭建/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+
+  <title>在线教育网站搭建三讲师模块前端搭建 | W.T.的博客</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?59cd4bc54e9d484dff9357727e454c80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container">
+    <div class="headband"></div>
+    <!-- github -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">W.T.的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Every day to be a little better</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">23</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">260</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-schedule">
+      
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-commonweal">
+      
+    
+      
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+  <a href="https://github.com/helloworld1006" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://www.runaccpeted.com/2019/09/24/在线教育网站搭建三讲师模块前端搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Ting">
+      <meta itemprop="description" content="技术成长笔记">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W.T.的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">在线教育网站搭建三讲师模块前端搭建
+
+          
+        </h1>
+
+        <div class="post-meta">
+
+           
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-24 07:08:43" itemprop="dateCreated datePublished" datetime="2019-09-24T07:08:43+08:00">2019-09-24</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-02 17:03:16" itemprop="dateModified" datetime="2020-03-02T17:03:16+08:00">2020-03-02</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2019/09/24/在线教育网站搭建三讲师模块前端搭建/" class="post-meta-item leancloud_visitors" data-flag-title="在线教育网站搭建三讲师模块前端搭建" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+          
+           
+           <!--
+            <span class="post-meta-item" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          -->
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">评论：</span>
+    
+    <a title="valine" href="/2019/09/24/在线教育网站搭建三讲师模块前端搭建/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/09/24/在线教育网站搭建三讲师模块前端搭建/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>4 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center">讲师前端搭建 - Vue框架，element-ui效果实现</blockquote>
+
+<a id="more"></a>
+
+<h1 id="模块下载"><a href="#模块下载" class="headerlink" title="模块下载"></a><font size="4px">模块下载</font></h1><p><a href="https://github.com/PanJiaChen/vue-admin-template" target="_blank" rel="noopener">https://github.com/PanJiaChen/vue-admin-template</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/PanJiaChen/vue-admin-template.git</span><br></pre></td></tr></table></figure>
+
+<p>导入到Visual Studio Code中</p>
+<p>项目配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd vue-admin-template</span><br><span class="line">npm install</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+
+<p>访问<a href="http://localhost:9528/" target="_blank" rel="noopener">http://localhost:9528/</a></p>
+<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a><font size="4px">项目结构</font></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├── build // 构建脚本</span><br><span class="line">├── mock // easy-mock模拟数据 </span><br><span class="line">├── node_modules // 项目依赖模块</span><br><span class="line">├── public // 静态资源</span><br><span class="line">├── src //项目源代码</span><br><span class="line">├── tests </span><br><span class="line">└── package.json // 项目信息和依赖配置</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">src </span><br><span class="line">├── api // 各种接口 </span><br><span class="line">├── assets // 图片等资源 </span><br><span class="line">├── components // 各种公共组件，非公共组件在各自view下维护 </span><br><span class="line">├── icons //svg icon </span><br><span class="line">├── router // 路由表 </span><br><span class="line">├── store // 存储 </span><br><span class="line">├── styles // 各种样式 </span><br><span class="line">├── utils // 公共工具，非公共工具，在各自view下维护 </span><br><span class="line">├── views // 各种layout</span><br><span class="line">├── App.vue //***项目顶层组件*** </span><br><span class="line">├── main.js //***项目入口文件***</span><br><span class="line">├── permission.js //认证入口</span><br><span class="line">└── setting.js //网页公共信息配置</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a><font size="4px">修改配置</font></h1><p>package.json</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"name": "",</span><br><span class="line">"description": "",</span><br><span class="line">"author": "",</span><br></pre></td></tr></table></figure>
+
+<p>登录页</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 5-7行 --&gt;</span><br><span class="line">&lt;div class=&quot;title-container&quot;&gt;</span><br><span class="line">  &lt;h3 class=&quot;title&quot;&gt;在线教育后台管理系统&lt;/h3&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 44行 --&gt;</span><br><span class="line">&lt;el-button :loading=&quot;loading&quot; type=&quot;primary&quot; style=&quot;width:100%;margin-bottom:30px;&quot; @click.native.prevent=&quot;handleLogin&quot;&gt;登录&lt;/el-button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>中文</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//7行</span></span><br><span class="line"><span class="keyword">import</span> locale <span class="keyword">from</span> <span class="string">'element-ui/lib/locale/lang/zh-CN'</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="添加路由"><a href="#添加路由" class="headerlink" title="添加路由"></a><font size="4px">添加路由</font></h1><h2 id="修改路由-src-router-index-js"><a href="#修改路由-src-router-index-js" class="headerlink" title="修改路由-src/router/index.js"></a><font size="3px">修改路由-src/router/index.js</font></h2><p>src/main.js 中注册了路由</p>
+<p>路由在src/router/index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> constantRoutes = [</span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="string">'/teacher'</span>,</span><br><span class="line">    component: Layout,</span><br><span class="line">    redirect: <span class="string">'/teacher/list'</span>,</span><br><span class="line">    name: <span class="string">'讲师管理'</span>,</span><br><span class="line">    meta: &#123; <span class="attr">title</span>: <span class="string">'讲师管理'</span>, <span class="attr">icon</span>: <span class="string">'example'</span> &#125;,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        path: <span class="string">'list'</span>,</span><br><span class="line">        name: <span class="string">'讲师列表'</span>,</span><br><span class="line">        component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/edu/teacher/index'</span>), <span class="comment">//默认为index.vue</span></span><br><span class="line">        meta: &#123; <span class="attr">title</span>: <span class="string">'讲师列表'</span>, <span class="attr">icon</span>: <span class="string">'table'</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        path: <span class="string">'insert'</span>,</span><br><span class="line">        name: <span class="string">'添加讲师'</span>,</span><br><span class="line">        component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/tree/index'</span>),</span><br><span class="line">        meta: &#123; <span class="attr">title</span>: <span class="string">'添加讲师'</span>, <span class="attr">icon</span>: <span class="string">'tree'</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建src-views-edu-teacher-index-vue"><a href="#新建src-views-edu-teacher-index-vue" class="headerlink" title="新建src/views/edu/teacher/index.vue"></a><font size="3px">新建src/views/edu/teacher/index.vue</font></h2><p>src/views/ 新建edu/teacher/index.vue，用于对应router/index.js中讲师列表的@/views/edu/teacher/index</p>
+<h2 id="请求定义-api-teacher-js"><a href="#请求定义-api-teacher-js" class="headerlink" title="请求定义-api/teacher.js"></a><font size="3px">请求定义-api/teacher.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">'@/utils/request'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    <span class="comment">//条件分页查询</span></span><br><span class="line">    getTeacherPageList(current,size,searchObj)&#123;</span><br><span class="line">        <span class="keyword">return</span> request(&#123;</span><br><span class="line">            <span class="comment">//controller请求方式</span></span><br><span class="line">            url:<span class="string">'/eduservice/edu-teacher/moreCondtionPageList/'</span>+current+<span class="string">'/'</span>+size,</span><br><span class="line">            method:<span class="string">'post'</span>,</span><br><span class="line">            <span class="comment">//传递的是json用data:searchObj , 参数的话使用params:searchObj</span></span><br><span class="line">            data:searchObj</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据显示-src-views-edu-teacher-index-vue"><a href="#数据显示-src-views-edu-teacher-index-vue" class="headerlink" title="数据显示-src/views/edu/teacher/index.vue"></a><font size="3px">数据显示-src/views/edu/teacher/index.vue</font></h2><p>从api/teacher 导入方法</p>
+<p>显示表格数据样式参考 <a href="https://element.eleme.cn/#/zh-CN/component/table" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/table</a></p>
+<p>el-table的:data对应的是整个记录数组list，每个el-table-column的prop对应数组中key值</p>
+<p><img src="/2019/09/24/在线教育网站搭建三讲师模块前端搭建/consolelist.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;app-container&quot;&gt;</span><br><span class="line">        &lt;el-table :data=list&gt; </span><br><span class="line">            &lt;el-table-column prop=&quot;id&quot; label=&quot;id&quot;/&gt;</span><br><span class="line">            &lt;el-table-column prop=&quot;name&quot; label=&quot;讲师姓名&quot;/&gt;</span><br><span class="line">        &lt;/el-table&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import teacher from &apos;@/api/teacher&apos;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">    //定义初值</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            list:null, //每页数据集合</span><br><span class="line">            current: 1, //当前页</span><br><span class="line">            size: 10, //页内记录数</span><br><span class="line">            searchObj: &#123;&#125;, //条件</span><br><span class="line">            total :0  //总记录数</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    //页面渲染前，调用方法</span><br><span class="line">    created()&#123;</span><br><span class="line">        this.getTeacherList()</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    //方法定义</span><br><span class="line">    methods:&#123;</span><br><span class="line">        getTeacherList()&#123;</span><br><span class="line">            teacher.getTeacherPageList(this.current,this.size,this.searchObj)</span><br><span class="line">            //当状态码为20000时，才能执行then操作</span><br><span class="line">            .then(reponse=&gt;&#123;</span><br><span class="line">                //console.log(reponse)</span><br><span class="line">                this.list = reponse.data.items</span><br><span class="line">                this.total = reponse.data.items.length</span><br><span class="line">                console.log(this.list)</span><br><span class="line">                console.log(this.total)</span><br><span class="line"></span><br><span class="line">            &#125;)</span><br><span class="line">            //请求失败调用</span><br><span class="line">            .catch()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改根url-util-request-js"><a href="#修改根url-util-request-js" class="headerlink" title="修改根url-util/request.js"></a><font size="3px">修改根url-util/request.js</font></h2><p>在util/request.js中定义的创建axios实例，修改baseURL</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// create an axios instance</span></span><br><span class="line"><span class="keyword">const</span> service = axios.create(&#123;</span><br><span class="line">  baseURL: <span class="string">'http://localhost:8080'</span>,<span class="comment">//process.env.VUE_APP_BASE_API, // url = base url + request url</span></span><br><span class="line">  <span class="comment">// withCredentials: true, // send cookies when cross-domain requests</span></span><br><span class="line">  timeout: <span class="number">5000</span>, <span class="comment">// request timeout</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="首页不能登录"><a href="#首页不能登录" class="headerlink" title="首页不能登录"></a><font size="3px">首页不能登录</font></h2><p>更换了baseURL后，登录页的登录数据就不交给easy-mock了，需要模拟登录，返回响应数据。</p>
+<p>查看原登录响应的数据</p>
+<p>login返回</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"code"</span>:<span class="number">20000</span>,<span class="attr">"data"</span>:&#123;<span class="attr">"token"</span>:<span class="string">"admin-token"</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>info?token=admin-token返回</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"code"</span>:<span class="number">20000</span>,<span class="attr">"data"</span>:&#123;<span class="attr">"roles"</span>:[<span class="string">"admin"</span>],<span class="attr">"introduction"</span>:<span class="string">"I am a super administrator"</span>,<span class="attr">"avatar"</span>:<span class="string">"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif"</span>,<span class="attr">"name"</span>:<span class="string">"Super Admin"</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="模拟返回json数据-controller"><a href="#模拟返回json数据-controller" class="headerlink" title="模拟返回json数据-controller"></a><font size="3px">模拟返回json数据-controller</font></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#123;"code":20000,"data":&#123;"token":"admin-token"&#125;&#125;</span></span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/login"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> R <span class="title">login</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> R.ok().data(<span class="string">"token"</span>,<span class="string">"admin-token"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//&#123;"code":20000,"data":&#123;"roles":["admin"],"introduction":"I am a super administrator","avatar":"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif","name":"Super Admin"&#125;&#125;</span></span><br><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/info"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> R <span class="title">Info</span><span class="params">(String token)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> R.ok().data(<span class="string">"roles"</span>,<span class="string">"[admin]"</span>).data(<span class="string">"introduction"</span>,<span class="string">"I am a super administrator"</span>)</span><br><span class="line">            .data(<span class="string">"avatar"</span>,<span class="string">"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif"</span>)</span><br><span class="line">            .data(<span class="string">"name"</span>,<span class="string">"Super Admin"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="跨源问题"><a href="#跨源问题" class="headerlink" title="跨源问题"></a><font size="3px">跨源问题</font></h3><p>控制器添加注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CrossOrigin</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改登录页请求路径-api-user-js"><a href="#修改登录页请求路径-api-user-js" class="headerlink" title="修改登录页请求路径-api/user.js"></a><font size="3px">修改登录页请求路径-api/user.js</font></h3><p>修改请求的url，查看请求方式，修改GetMapping，PostMapping</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">'@/utils/request'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">login</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> request(&#123;</span><br><span class="line">    url: <span class="string">'/eduservice/edu-teacher/login'</span>,</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    data</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">getInfo</span>(<span class="params">token</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> request(&#123;</span><br><span class="line">    url: <span class="string">'/eduservice/edu-teacher/info'</span>,</span><br><span class="line">    method: <span class="string">'get'</span>,</span><br><span class="line">    params: &#123; token &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">logout</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> request(&#123;</span><br><span class="line">    url: <span class="string">'/eduservice/edu-teacher/logout'</span>,</span><br><span class="line">    method: <span class="string">'post'</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="最终显示数据"><a href="#最终显示数据" class="headerlink" title="最终显示数据"></a><font size="3px">最终显示数据</font></h2><p><img src="/2019/09/24/在线教育网站搭建三讲师模块前端搭建/teacherlist.png" alt></p>
+<h1 id="讲师列表list-views-edu-teacher-index-vue"><a href="#讲师列表list-views-edu-teacher-index-vue" class="headerlink" title="讲师列表list-views/edu/teacher/index.vue"></a><font size="4px">讲师列表list-views/edu/teacher/index.vue</font></h1><h2 id="显示列表数据"><a href="#显示列表数据" class="headerlink" title="显示列表数据"></a><font size="3px">显示列表数据</font></h2><p><a href="https://element.eleme.cn/#/zh-CN/component/table" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/table</a></p>
+<p>整体样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table :data=&quot;list&quot;&gt;</span><br><span class="line">  &lt;el-table-column prop=&quot;id&quot; label=&quot;名称&quot; width=&quot;&quot;/&gt;</span><br><span class="line">  &lt;el-table-column prop=&quot;name&quot; label=&quot;名称&quot; width=&quot;&quot;/&gt;</span><br><span class="line">  &lt;el-table-column prop=&quot;intro&quot; label=&quot;资历&quot; width=&quot;&quot;/&gt;</span><br><span class="line">&lt;/el-table&gt;</span><br></pre></td></tr></table></figure>
+
+<p>v-loading 用于在数据请求时，显示加载中的样式</p>
+<p>listLoading是自定义的变量 data中初始化，methods中请求时加载，响应成功时关闭</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import teacher from &apos;@/api/teacher&apos;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">    //定义初值</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            list:null, //每页数据集合</span><br><span class="line">            current: 1, //当前页</span><br><span class="line">            size: 10, //页内记录数</span><br><span class="line">            searchObj: &#123;&#125;, //条件</span><br><span class="line">            total :0,  //总记录数</span><br><span class="line">            listLoading: true //加载标志</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    //页面渲染前，调用方法</span><br><span class="line">    created()&#123;</span><br><span class="line">        this.getTeacherList() </span><br><span class="line">    &#125;,</span><br><span class="line">    //方法定义</span><br><span class="line">    methods:&#123;</span><br><span class="line">        getTeacherList(current=1)&#123;</span><br><span class="line">            this.current=current</span><br><span class="line">            this.listLoading=true</span><br><span class="line">            teacher.getTeacherPageList(this.current,this.size,this.searchObj)</span><br><span class="line">            //当状态码为20000时，才能执行then操作</span><br><span class="line">            .then(reponse=&gt;&#123;</span><br><span class="line">                //console.log(reponse)</span><br><span class="line">                this.list = reponse.data.items</span><br><span class="line">                this.total = reponse.data.items.length</span><br><span class="line">                //console.log(this.list)</span><br><span class="line">                //console.log(this.total)</span><br><span class="line">                this.listLoading=false</span><br><span class="line"></span><br><span class="line">            &#125;)</span><br><span class="line">            //请求失败调用</span><br><span class="line">            .catch()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>template 中slot-scope=”scope”得到的scpoe是当前列表对象</p>
+<p>可用于得到id和做一些三目运算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">   &lt;div class=&quot;app-container&quot;&gt; </span><br><span class="line">      &lt;!-- 表格 --&gt;</span><br><span class="line">      &lt;el-table v-loading=&quot;listLoading&quot;  </span><br><span class="line">          :data=&quot;list&quot;</span><br><span class="line">          element-loading-text=&quot;数据加载中&quot;</span><br><span class="line">          border</span><br><span class="line">          fit</span><br><span class="line">          highlight-current-row&gt;</span><br><span class="line"></span><br><span class="line">          &lt;el-table-column label=&quot;序号&quot; width=&quot;70&quot; align=&quot;center&quot;&gt;</span><br><span class="line">              &lt;template slot-scope=&quot;scope&quot;&gt;</span><br><span class="line">                  &#123;&#123; (current - 1) * size + scope.$index + 1 &#125;&#125;</span><br><span class="line">              &lt;/template&gt;</span><br><span class="line">          &lt;/el-table-column&gt;</span><br><span class="line">          &lt;el-table-column prop=&quot;name&quot; label=&quot;名称&quot; width=&quot;80&quot; /&gt;</span><br><span class="line">          &lt;el-table-column label=&quot;头衔&quot; width=&quot;80&quot;&gt; </span><br><span class="line">              &lt;template slot-scope=&quot;scope&quot;&gt;</span><br><span class="line">                  &#123;&#123; scope.row.level===1?&apos;高级讲师&apos;:&apos;首席讲师&apos; &#125;&#125;</span><br><span class="line">              &lt;/template&gt;</span><br><span class="line">          &lt;/el-table-column&gt;</span><br><span class="line">          &lt;el-table-column prop=&quot;intro&quot; label=&quot;资历&quot; /&gt;</span><br><span class="line">          &lt;el-table-column prop=&quot;gmtCreate&quot; label=&quot;添加时间&quot; width=&quot;160&quot;/&gt;</span><br><span class="line">          &lt;el-table-column prop=&quot;sort&quot; label=&quot;排序&quot; width=&quot;60&quot; /&gt;</span><br><span class="line">          &lt;el-table-column label=&quot;操作&quot; width=&quot;200&quot; align=&quot;center&quot;&gt;</span><br><span class="line">              &lt;template slot-scope=&quot;scope&quot;&gt;</span><br><span class="line">                  &lt;router-link :to=&quot;&apos;/teacher/update/&apos;+scope.row.id&quot;&gt;</span><br><span class="line">                      &lt;el-button type=&quot;primary&quot; size=&quot;mini&quot; icon=&quot;el-icon-edit&quot;&gt;修改&lt;/el-button&gt;</span><br><span class="line">                  &lt;/router-link&gt;</span><br><span class="line">                  &lt;el-button type=&quot;danger&quot; size=&quot;mini&quot; icon=&quot;el-icon-delete&quot; @click=&quot;removeDataById(scope.row.id)&quot;&gt;删除&lt;/el-button&gt;</span><br><span class="line">              &lt;/template&gt;</span><br><span class="line">          &lt;/el-table-column&gt;</span><br><span class="line">      &lt;/el-table&gt; </span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/24/在线教育网站搭建三讲师模块前端搭建/listend.png" alt></p>
+<h2 id="添加分页"><a href="#添加分页" class="headerlink" title="添加分页"></a><font size="3px">添加分页</font></h2><p>el-pagination标签 </p>
+<p>传入参数</p>
+<p> :current-page=定义的当前页变量</p>
+<p>:page-size=定义的页记录数</p>
+<p>@current-change=定义的多条件分页查询方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">   &lt;div class=&quot;app-container&quot;&gt; </span><br><span class="line">     &lt;!-- 表格 ---&gt;</span><br><span class="line">     &lt;el-table&gt;...&lt;/el-table&gt;</span><br><span class="line">		 &lt;!-- 分页 --&gt;</span><br><span class="line">    	&lt;el-pagination</span><br><span class="line">        :current-page=&quot;current&quot;</span><br><span class="line">        :page-size=&quot;size&quot;</span><br><span class="line">        :total=&quot;total&quot;</span><br><span class="line">        style=&quot;padding: 30px 0; text-align: center;&quot;</span><br><span class="line">        layout=&quot;total, prev, pager, next, jumper&quot;</span><br><span class="line">        @current-change=&quot;getTeacherList&quot;/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/24/在线教育网站搭建三讲师模块前端搭建/page.png" alt></p>
+<h3 id="仅有第一页，并不能跳转"><a href="#仅有第一页，并不能跳转" class="headerlink" title="仅有第一页，并不能跳转"></a><font color="#f00" size="3px">仅有第一页，并不能跳转</font></h3><p>后台传入总记录数，当初取的是list的数组长度，不对！</p>
+<p>.data(“total”,pageTeacher.getTotal());</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//多条件查询</span></span><br><span class="line"><span class="meta">@ApiOperation</span>(<span class="string">"多条件查询讲师信息"</span>)</span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/moreCondtionPageList/&#123;current&#125;/&#123;size&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> R <span class="title">MoreCondtionPageList</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        @ApiParam(value = <span class="string">"当前页"</span>)</span> @PathVariable Long current,</span></span><br><span class="line"><span class="function">        @<span class="title">ApiParam</span><span class="params">(value = <span class="string">"页内记录数"</span>)</span> @PathVariable Long size,</span></span><br><span class="line"><span class="function">        @<span class="title">ApiParam</span><span class="params">(value = <span class="string">"查询信息"</span>)</span> @<span class="title">RequestBody</span><span class="params">(required = <span class="keyword">false</span>)</span> QueryTeacher queryTeacher)</span>&#123;</span><br><span class="line">    Page&lt;EduTeacher&gt; pageTeacher = <span class="keyword">new</span> Page&lt;&gt;(current,size);</span><br><span class="line">    eduTeacherService.pageListCondition(pageTeacher,queryTeacher);</span><br><span class="line">    List&lt;EduTeacher&gt; teachers = pageTeacher.getRecords();</span><br><span class="line">    <span class="keyword">return</span> R.ok().data(<span class="string">"items"</span>,teachers).data(<span class="string">"total"</span>,pageTeacher.getTotal());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>前台获取数据 views/edu/teacher/index.vue的methos方法</p>
+<p>this.total = reponse.data.total</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">getTeacherList(current=1)&#123;</span><br><span class="line">      this.current=current</span><br><span class="line">      this.listLoading=true</span><br><span class="line">      teacher.getTeacherPageList(this.current,this.size,this.searchObj)</span><br><span class="line">      .then(reponse=&gt;&#123;</span><br><span class="line">          console.log(reponse)</span><br><span class="line">          this.list = reponse.data.items</span><br><span class="line">          this.total = reponse.data.total</span><br><span class="line">       &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入查询"><a href="#输入查询" class="headerlink" title="输入查询"></a><font size="3px">输入查询</font></h2><p>form表单，格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form&gt;</span><br><span class="line">  &lt;el-form-item&gt;&lt;/el-form-item&gt;</span><br><span class="line">  &lt;el-form-item&gt;&lt;/el-form-item&gt;</span><br><span class="line">  &lt;el-form-item&gt;&lt;/el-form-item&gt;</span><br><span class="line">  &lt;el-button&gt;&lt;/el-button&gt;</span><br><span class="line">  &lt;el-button&gt;&lt;/el-button&gt;</span><br><span class="line">&lt;/el-form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>el-x相当于html中的x标签</p>
+<p>el-input =input 其中v-model=定义的查询对象成员变量</p>
+<p>el-button中的@click=”getTeacherList()”就是调用定义的查询方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">   &lt;div class=&quot;app-container&quot;&gt; </span><br><span class="line">    &lt;!--查询表单--&gt;</span><br><span class="line">    &lt;el-form :inline=&quot;true&quot; class=&quot;demo-form-inline&quot;&gt;</span><br><span class="line">        &lt;el-form-item&gt;</span><br><span class="line">            &lt;el-input v-model=&quot;searchObj.name&quot; placeholder=&quot;讲师名&quot;/&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item&gt;</span><br><span class="line">            &lt;el-select v-model=&quot;searchObj.level&quot; clearable placeholder=&quot;讲师头衔&quot;&gt;</span><br><span class="line">                &lt;el-option :value=&quot;1&quot; label=&quot;高级讲师&quot;/&gt;</span><br><span class="line">                &lt;el-option :value=&quot;2&quot; label=&quot;首席讲师&quot;/&gt;</span><br><span class="line">            &lt;/el-select&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;添加时间&quot;&gt;</span><br><span class="line">            &lt;el-date-picker</span><br><span class="line">                v-model=&quot;searchObj.begin&quot;</span><br><span class="line">                type=&quot;datetime&quot;</span><br><span class="line">                placeholder=&quot;选择开始时间&quot;</span><br><span class="line">                value-format=&quot;yyyy-MM-dd HH:mm:ss&quot;</span><br><span class="line">                default-time=&quot;00:00:00&quot; /&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">         &lt;el-form-item&gt;</span><br><span class="line">             &lt;el-date-picker</span><br><span class="line">                v-model=&quot;searchObj.end&quot;</span><br><span class="line">                type=&quot;datetime&quot;</span><br><span class="line">                placeholder=&quot;选择截止时间&quot;</span><br><span class="line">                value-format=&quot;yyyy-MM-dd HH:mm:ss&quot;</span><br><span class="line">                default-time=&quot;00:00:00&quot;/&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-button type=&quot;primary&quot; icon=&quot;el-icon-search&quot; @click=&quot;getTeacherList()&quot;&gt;查询&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button type=&quot;default&quot; @click=&quot;resetData()&quot;&gt;清空&lt;/el-button&gt;</span><br><span class="line">    &lt;/el-form&gt; </span><br><span class="line">     &lt;!-- 表格 ---&gt;</span><br><span class="line">     &lt;el-table&gt;..&lt;/el-table&gt;</span><br><span class="line">		 &lt;!-- 分页 --&gt;</span><br><span class="line">    	&lt;el-pagination/&gt;  </span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="清空功能"><a href="#清空功能" class="headerlink" title="清空功能"></a><font size="3px">清空功能</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import teacher from &apos;@/api/teacher&apos;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created()&#123;</span><br><span class="line">      //调用方法</span><br><span class="line">      this.resetData()</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        getTeacherList()&#123;&#125;,</span><br><span class="line">        resetData()&#123;</span><br><span class="line">            //清空数据</span><br><span class="line">            this.searchObj=&#123;&#125;,</span><br><span class="line">            this.getTeacherList()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="最终讲师列表"><a href="#最终讲师列表" class="headerlink" title="最终讲师列表"></a><font size="3px">最终讲师列表</font></h2><p><img src="/2019/09/24/在线教育网站搭建三讲师模块前端搭建/endlist.png" alt></p>
+<h2 id="后台数据处理"><a href="#后台数据处理" class="headerlink" title="后台数据处理"></a><font size="3px">后台数据处理</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">==&gt;  Preparing: SELECT id,name,intro,career,level,avatar,sort,is_deleted,gmt_create,gmt_modified FROM edu_teacher WHERE is_deleted=0 AND (level = ? AND gmt_create &gt;= ?) LIMIT ?,? </span><br><span class="line">==&gt; Parameters: 2(String), 2019-09-05 00:00:00(String), 0(Long), 10(Long)</span><br></pre></td></tr></table></figure>
+
+<h1 id="删除讲师-ById"><a href="#删除讲师-ById" class="headerlink" title="删除讲师-ById"></a><font size="4px">删除讲师-ById</font></h1><h2 id="api-teacher-js"><a href="#api-teacher-js" class="headerlink" title="api/teacher.js"></a><font size="3px">api/teacher.js</font></h2><p>export default中添加removeDataById方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">  removeDataById(id)&#123;</span><br><span class="line">      <span class="keyword">return</span> request(&#123;</span><br><span class="line">          url:<span class="string">'/eduservice/edu-teacher/deleteTeacher/'</span>+id,</span><br><span class="line">          method:<span class="string">'delete'</span></span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="调用removeDataById"><a href="#调用removeDataById" class="headerlink" title="调用removeDataById"></a><font size="3px">调用removeDataById</font></h2><p>删除按钮链接该方法 @click=”removeDataById(scope.row.id)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">  removeDataById(id)&#123;</span><br><span class="line">     teacher.removeDataById(id)</span><br><span class="line">		 .then().catch()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加提示框"><a href="#添加提示框" class="headerlink" title="添加提示框"></a><font size="3px">添加提示框</font></h2><p><a href="https://element.eleme.cn/#/zh-CN/component/message-box" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/message-box</a> 确认消息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">removeDataById(id)&#123;</span><br><span class="line">    this.$confirm(&apos;此操作将永久删除该讲师信息, 是否继续?&apos;, &apos;提示&apos;, &#123;</span><br><span class="line">        confirmButtonText: &apos;确定&apos;,</span><br><span class="line">        cancelButtonText: &apos;取消&apos;,</span><br><span class="line">        type: &apos;warning&apos;</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(() =&gt; &#123;</span><br><span class="line">        //return 后then方法才会执行</span><br><span class="line">        return teacher.removeDataById(id)</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(()=&gt; &#123;</span><br><span class="line">        //重新查看所有讲师</span><br><span class="line">        this.getTeacherList()</span><br><span class="line">        this.$message(&#123;</span><br><span class="line">            type: &apos;success&apos;,</span><br><span class="line">            message: &apos;删除成功!&apos;</span><br><span class="line">         &#125;)</span><br><span class="line">    &#125;).catch(response =&gt; &#123;</span><br><span class="line">        //判断错误操作类别</span><br><span class="line">        //console.log(response)</span><br><span class="line">        if(response === &apos;cancel&apos;)&#123;</span><br><span class="line">            this.$message(&#123;</span><br><span class="line">                type: &apos;info&apos;,</span><br><span class="line">                message: &apos;已取消删除&apos;</span><br><span class="line">            &#125;) </span><br><span class="line">        &#125; else&#123;</span><br><span class="line">            this.$message(&#123;</span><br><span class="line">                type: &apos;error&apos;,</span><br><span class="line">                message: &apos;删除失败&apos;</span><br><span class="line">            &#125;) </span><br><span class="line">        &#125;       </span><br><span class="line">     &#125;)</span><br><span class="line">&#125;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="效果演示"><a href="#效果演示" class="headerlink" title="效果演示"></a><font size="3px">效果演示</font></h2><video width="800" height="400" controls autoplay loop>
+        <source src="/2019/09/24/在线教育网站搭建三讲师模块前端搭建/delete.mp4" type="video/mp4">    
+ </video>
+
+<h1 id="添加讲师-insert"><a href="#添加讲师-insert" class="headerlink" title="添加讲师-insert"></a><font size="4px">添加讲师-insert</font></h1><h2 id="router-index-js"><a href="#router-index-js" class="headerlink" title="router/index.js"></a><font size="3px">router/index.js</font></h2><p>添加在讲师管理模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'insert'</span>,</span><br><span class="line">  name: <span class="string">'添加讲师'</span>,</span><br><span class="line">  component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/edu/teacher/form'</span>),</span><br><span class="line">  meta: &#123; <span class="attr">title</span>: <span class="string">'添加讲师'</span>, <span class="attr">icon</span>: <span class="string">'form'</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="api-teacher-js-1"><a href="#api-teacher-js-1" class="headerlink" title="api/teacher.js"></a><font size="3px">api/teacher.js</font></h2><p>添加讲师</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">insertTeacher(teacherObj)&#123;</span><br><span class="line">    <span class="keyword">return</span> request(&#123;</span><br><span class="line">        url:<span class="string">'/eduservice/edu-teacher/insertTeacher'</span>,</span><br><span class="line">        method:<span class="string">'post'</span>,</span><br><span class="line">        data:teacherObj</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="views-edu-teacher-form-vue"><a href="#views-edu-teacher-form-vue" class="headerlink" title="views/edu/teacher/form.vue"></a><font size="3px">views/edu/teacher/form.vue</font></h2><p>直接从form/index.vue复制，修改显示</p>
+<p>v-model 双方绑定，:model的对象定义在script的data方法中</p>
+<p>路由跳转实现   this.$router.push({path:’/teacher’ })</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;app-container&quot;&gt;</span><br><span class="line">    &lt;el-form ref=&quot;form&quot; :model=&quot;teacherObj&quot; label-width=&quot;120px&quot;&gt;</span><br><span class="line">      &lt;el-form-item label=&quot;讲师头像&quot;&gt;</span><br><span class="line">        &lt;el-input v-model=&quot;teacherObj.avator&quot; /&gt;</span><br><span class="line">      &lt;/el-form-item&gt;</span><br><span class="line">      &lt;el-form-item label=&quot;讲师姓名&quot;&gt;</span><br><span class="line">        &lt;el-input v-model=&quot;teacherObj.name&quot; /&gt;</span><br><span class="line">      &lt;/el-form-item&gt;</span><br><span class="line">      &lt;el-form-item label=&quot;讲师排序&quot;&gt;</span><br><span class="line">        &lt;el-input-number v-model=&quot;teacherObj.sort&quot; controls-position=&quot;right&quot; min=&quot;0&quot;/&gt;</span><br><span class="line">      &lt;/el-form-item&gt;</span><br><span class="line">      &lt;el-form-item label=&quot;讲师头衔&quot;&gt;</span><br><span class="line">        &lt;el-select v-model=&quot;teacherObj.level&quot; clearable placeholder=&quot;请选择&quot;&gt;</span><br><span class="line">          &lt;el-option label=&quot;高级讲师&quot; :value=&quot;1&quot; /&gt;</span><br><span class="line">          &lt;el-option label=&quot;首席讲师&quot; :value=&quot;2&quot; /&gt;</span><br><span class="line">        &lt;/el-select&gt;</span><br><span class="line">      &lt;/el-form-item&gt;</span><br><span class="line">      &lt;el-form-item label=&quot;讲师资历&quot;&gt;</span><br><span class="line">        &lt;el-input v-model=&quot;teacherObj.career&quot; placeholder=&quot;请输入讲师资历&quot;/&gt;</span><br><span class="line">      &lt;/el-form-item&gt;</span><br><span class="line">      &lt;el-form-item label=&quot;讲师简介&quot;&gt;</span><br><span class="line">        &lt;el-input v-model=&quot;teacherObj.intro&quot; type=&quot;textarea&quot; :rows=&quot;10&quot;/&gt;</span><br><span class="line">      &lt;/el-form-item&gt;</span><br><span class="line">      &lt;el-form-item&gt;</span><br><span class="line">        &lt;el-button type=&quot;primary&quot; @click=&quot;saveOrUpadte()&quot;&gt;创建&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button @click=&quot;onCancel&quot;&gt;重置&lt;/el-button&gt;</span><br><span class="line">      &lt;/el-form-item&gt;</span><br><span class="line">    &lt;/el-form&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import teacher from &apos;@/api/teacher&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      teacherObj: &#123;</span><br><span class="line">        name: &apos;&apos;,</span><br><span class="line">        sort: 0,</span><br><span class="line">        level: &apos;&apos;,</span><br><span class="line">        career: &apos;&apos;,</span><br><span class="line">        intro: &apos;&apos;,</span><br><span class="line">        avator: &apos;&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created()&#123;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    //修改和添加使用同一个表单</span><br><span class="line">    saveOrUpadte()&#123;</span><br><span class="line">      this.insertTeacher()</span><br><span class="line">    &#125;,</span><br><span class="line">    insertTeacher()&#123;</span><br><span class="line">      teacher.insertTeacher(this.teacherObj)</span><br><span class="line">      .then(()=&gt;&#123;</span><br><span class="line">        return this.$message(&#123;</span><br><span class="line">          message:&apos;添加成功&apos;,</span><br><span class="line">          type:&apos;success&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;).then(()=&gt;&#123;</span><br><span class="line">        //返回到讲师列表，路由方式</span><br><span class="line">        this.$router.push(&#123;</span><br><span class="line">          path:&apos;/teacher&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;).catch(()=&gt;&#123;</span><br><span class="line">        this.$message(&#123;</span><br><span class="line">          message:&apos;添加失败&apos;,</span><br><span class="line">          type:&apos;error&apos;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    onCancel() &#123;</span><br><span class="line">      this.teacherObj = &#123;&#125;</span><br><span class="line">      this.$message(&#123;</span><br><span class="line">        message: &apos;数据已清空&apos;,</span><br><span class="line">        type: &apos;warning&apos;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.line&#123;</span><br><span class="line">  text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="更新讲师-update"><a href="#更新讲师-update" class="headerlink" title="更新讲师-update"></a><font size="4px">更新讲师-update</font></h1><h2 id="update-id-–-router-index-js"><a href="#update-id-–-router-index-js" class="headerlink" title="/update/:id – router/index.js"></a><font size="3px">/update/:id – router/index.js</font></h2><p>在views/edu/teacher/index.vue中定义了修改的路由链接 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link :to=&quot;&apos;/teacher/update/&apos;+scope.row.id&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在讲师管理模块下添加更新讲师模块 - path根据该路由定义</p>
+<p>/:id 表示传递的参数，hidden表示更新讲师模块并不像添加，列表一样显示在页面上，但注册了这个路由</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: <span class="string">'update/:id'</span>,</span><br><span class="line">    name: <span class="string">'更新讲师'</span>,</span><br><span class="line">    component: <span class="function"><span class="params">()</span>=&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/edu/teacher/form'</span>),</span><br><span class="line">    meta: &#123;<span class="attr">title</span>:<span class="string">'更新讲师'</span>, <span class="attr">icon</span>: <span class="string">'form'</span>&#125;,</span><br><span class="line">    hidden: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="api-teacher-js-2"><a href="#api-teacher-js-2" class="headerlink" title="api/teacher.js"></a><font size="3px">api/teacher.js</font></h2><p>定义根据id查询记录方法和更新方法</p>
+<p>传递的是json格式是要注意定义data:对象，也必须使用post，使后端控制器可以调用RequestBody注解</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">getTeacherById(id)&#123;</span><br><span class="line">        <span class="keyword">return</span> request(&#123;</span><br><span class="line">        url:<span class="string">'/eduservice/edu-teacher/selectTeacher/'</span>+id,</span><br><span class="line">        method: <span class="string">'get'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">updateTeacherById(id,teacherObj)&#123;</span><br><span class="line">    <span class="keyword">return</span> request(&#123;</span><br><span class="line">        url: <span class="string">'/eduservice/edu-teacher/updateTeacher/'</span>+id,</span><br><span class="line">        method:<span class="string">'post'</span>,</span><br><span class="line">        data: teacherObj</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="views-edu-teacher-form-vue-1"><a href="#views-edu-teacher-form-vue-1" class="headerlink" title="views/edu/teacher/form.vue"></a><font size="3px">views/edu/teacher/form.vue</font></h2><h3 id="判断是否存在id参数"><a href="#判断是否存在id参数" class="headerlink" title="判断是否存在id参数"></a><font size="3px">判断是否存在id参数</font></h3><p>在原有添加功能的代码上，判断是否传入参数id来判断是添加还是更新操作</p>
+<ul>
+<li><code>this.$route.params &amp;&amp; this.$route.params.id</code>判断路由中是否有参数，参数中是否存在参数id</li>
+<li>在created方法中执行是因为该方法是在页面渲染之前执行的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  created()&#123;</span><br><span class="line">    if(this.$route.params&amp;&amp;this.$route.params.id)&#123;</span><br><span class="line">      const id = this.$route.params.id</span><br><span class="line">      this.getTeacherById(id)</span><br><span class="line">      this.isShow = false</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="定义查询方法-getTeacherById"><a href="#定义查询方法-getTeacherById" class="headerlink" title="定义查询方法-getTeacherById"></a><font size="3px">定义查询方法-getTeacherById</font></h3><p>通过id查询对应记录，将查询到的数据赋值给teacherObj，数据就能显示在页面中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  methods:&#123;</span><br><span class="line">    //根据id查询</span><br><span class="line">    getTeacherById(id)&#123;</span><br><span class="line">      teacher.getTeacherById(id)</span><br><span class="line">      .then(response=&gt;&#123;</span><br><span class="line">        //console.log(response)</span><br><span class="line">        this.teacherObj=response.data.items</span><br><span class="line">        //console.log(teacherObj)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="定义修改方法-updateTeaher"><a href="#定义修改方法-updateTeaher" class="headerlink" title="定义修改方法-updateTeaher"></a><font size="3px">定义修改方法-updateTeaher</font></h3><p>修改数据，修改后跳转到列表页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  //更新讲师</span><br><span class="line">    updateTeaher()&#123;</span><br><span class="line">      teacher.updateTeacherById(this.teacherObj.id,this.teacherObj)</span><br><span class="line">      .then(()=&gt;&#123;</span><br><span class="line">        return this.$message(&#123;</span><br><span class="line">          message: &apos;修改成功&apos;,</span><br><span class="line">          type:&apos;success&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;).then(()=&gt;&#123;</span><br><span class="line">        this.$router.push(&#123;path:&apos;/teacher&apos;&#125;)</span><br><span class="line">      &#125;).catch(()=&gt;&#123;</span><br><span class="line">        this.$message(&#123;</span><br><span class="line">          message:&apos;修改失败&apos;,</span><br><span class="line">          type:&apos;error&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="操作判断"><a href="#操作判断" class="headerlink" title="操作判断"></a><font size="3px">操作判断</font></h3><p>操作判断，创建按钮的点击事件判断</p>
+<p>更新操作的话，teacherObj中存在id值，以此判断操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  //修改和添加使用同一个表单</span><br><span class="line">    saveOrUpadte()&#123;</span><br><span class="line">      //console.log(this.teacherObj.id)</span><br><span class="line">      if(!this.teacherObj.id)&#123;</span><br><span class="line">        this.insertTeacher()</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        this.updateTeaher()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="根据不同操作修改按钮样式"><a href="#根据不同操作修改按钮样式" class="headerlink" title="根据不同操作修改按钮样式"></a><font size="3px">根据不同操作修改按钮样式</font></h3><p>当更新操作时：</p>
+<p>创建按钮文字为更新，定义op参数，当更新操作时，赋值</p>
+<p>隐藏重置按钮，定义isShow参数，当更新操作时，设值为false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-button type=&quot;primary&quot; @click=&quot;saveOrUpadte()&quot; v-text=&quot;op&quot;&gt;&lt;/el-button&gt;</span><br><span class="line">&lt;el-button @click=&quot;onCancel&quot; v-show=&quot;isShow&quot;&gt;重置&lt;/el-button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  data()&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">      op: &apos;创建&apos;,</span><br><span class="line">      isShow:true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;，</span><br><span class="line">  created()&#123;</span><br><span class="line">    if(this.$route.params&amp;&amp;this.$route.params.id)&#123;</span><br><span class="line">      this.isShow = false</span><br><span class="line">      this.op = &apos;更新&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改项目"><a href="#修改项目" class="headerlink" title="修改项目"></a><font size="3px">修改项目</font></h2><h2 id="优化请求路径-api-teacher-js"><a href="#优化请求路径-api-teacher-js" class="headerlink" title="优化请求路径-api/teacher.js"></a><font size="3px">优化请求路径-api/teacher.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//提取公共url</span></span><br><span class="line"><span class="keyword">const</span> base = <span class="string">'/eduservice/edu-teacher'</span></span><br><span class="line"><span class="comment">//方法中使用,注意是反斜冒号</span></span><br><span class="line"> url:<span class="string">`<span class="subst">$&#123;base&#125;</span>/deleteTeacher/`</span>+id</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除方法"><a href="#删除方法" class="headerlink" title="删除方法"></a><font size="3px">删除方法</font></h2><p>目前定义的删除是调用service的方法，修改调用baseMapper的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//EduController</span></span><br><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"根据讲师ID删除讲师"</span>)</span><br><span class="line"><span class="meta">@DeleteMapping</span>(<span class="string">"/deleteTeacher/&#123;id&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> R <span class="title">deletebyId</span><span class="params">(@ApiParam(value = <span class="string">"讲师ID"</span>)</span> @PathVariable String id)</span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> flag = eduTeacherService.deleteTeacherById(id);</span><br><span class="line">    <span class="keyword">if</span> (flag)&#123;</span><br><span class="line">        <span class="keyword">return</span> R.ok();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> R.error();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//EduTeacherServiceImpl</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">deleteTeacherById</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = baseMapper.deleteById(id);</span><br><span class="line">    <span class="keyword">return</span> i&gt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a><font size="3px">1</font></h2>
+    </div>
+    
+    <div>
+    
+        <div style="margin-top:30px;padding-top:20px;border-top: 1px dashed #b3a9a7;text-align:center;color: #ccc;font-size:20px;">
+        本文结束&nbsp;<i class="fa fa-smile-o"></i>&nbsp;感谢您的阅读</div>
+    
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li><strong>本文标题：</strong><a href="/2019/09/24/在线教育网站搭建三讲师模块前端搭建/">在线教育网站搭建三讲师模块前端搭建</a></li>
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.runaccpeted.com/2019/09/24/在线教育网站搭建三讲师模块前端搭建/" title="在线教育网站搭建三讲师模块前端搭建">https://www.runaccpeted.com/2019/09/24/在线教育网站搭建三讲师模块前端搭建/</a>
+  </li>
+  <li><strong>发布时间：</strong>2019年09月24日 - 07:08</li>
+  <li><strong>更新时间：</strong>2020年03月02日 - 17:03</li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
+            
+              <a href="/tags/项目/" rel="tag"><i class="fa fa-tag"></i> 项目</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/23/跨域名请求/" rel="next" title="跨域名请求">
+                  <i class="fa fa-chevron-left"></i> 跨域名请求
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/24/开通阿里云OSS/" rel="prev" title="开通阿里云OSS">
+                  开通阿里云OSS <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模块下载"><span class="nav-number">1.</span> <span class="nav-text">模块下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目结构"><span class="nav-number">2.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改配置"><span class="nav-number">3.</span> <span class="nav-text">修改配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加路由"><span class="nav-number">4.</span> <span class="nav-text">添加路由</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改路由-src-router-index-js"><span class="nav-number">4.1.</span> <span class="nav-text">修改路由-src/router/index.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建src-views-edu-teacher-index-vue"><span class="nav-number">4.2.</span> <span class="nav-text">新建src/views/edu/teacher/index.vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求定义-api-teacher-js"><span class="nav-number">4.3.</span> <span class="nav-text">请求定义-api/teacher.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据显示-src-views-edu-teacher-index-vue"><span class="nav-number">4.4.</span> <span class="nav-text">数据显示-src/views/edu/teacher/index.vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改根url-util-request-js"><span class="nav-number">4.5.</span> <span class="nav-text">修改根url-util/request.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页不能登录"><span class="nav-number">4.6.</span> <span class="nav-text">首页不能登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟返回json数据-controller"><span class="nav-number">4.6.1.</span> <span class="nav-text">模拟返回json数据-controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨源问题"><span class="nav-number">4.6.2.</span> <span class="nav-text">跨源问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改登录页请求路径-api-user-js"><span class="nav-number">4.6.3.</span> <span class="nav-text">修改登录页请求路径-api/user.js</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最终显示数据"><span class="nav-number">4.7.</span> <span class="nav-text">最终显示数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#讲师列表list-views-edu-teacher-index-vue"><span class="nav-number">5.</span> <span class="nav-text">讲师列表list-views/edu/teacher/index.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#显示列表数据"><span class="nav-number">5.1.</span> <span class="nav-text">显示列表数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加分页"><span class="nav-number">5.2.</span> <span class="nav-text">添加分页</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#仅有第一页，并不能跳转"><span class="nav-number">5.2.1.</span> <span class="nav-text">仅有第一页，并不能跳转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入查询"><span class="nav-number">5.3.</span> <span class="nav-text">输入查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清空功能"><span class="nav-number">5.4.</span> <span class="nav-text">清空功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最终讲师列表"><span class="nav-number">5.5.</span> <span class="nav-text">最终讲师列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后台数据处理"><span class="nav-number">5.6.</span> <span class="nav-text">后台数据处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除讲师-ById"><span class="nav-number">6.</span> <span class="nav-text">删除讲师-ById</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#api-teacher-js"><span class="nav-number">6.1.</span> <span class="nav-text">api/teacher.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用removeDataById"><span class="nav-number">6.2.</span> <span class="nav-text">调用removeDataById</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加提示框"><span class="nav-number">6.3.</span> <span class="nav-text">添加提示框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果演示"><span class="nav-number">6.4.</span> <span class="nav-text">效果演示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加讲师-insert"><span class="nav-number">7.</span> <span class="nav-text">添加讲师-insert</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#router-index-js"><span class="nav-number">7.1.</span> <span class="nav-text">router/index.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#api-teacher-js-1"><span class="nav-number">7.2.</span> <span class="nav-text">api/teacher.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#views-edu-teacher-form-vue"><span class="nav-number">7.3.</span> <span class="nav-text">views/edu/teacher/form.vue</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新讲师-update"><span class="nav-number">8.</span> <span class="nav-text">更新讲师-update</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#update-id-–-router-index-js"><span class="nav-number">8.1.</span> <span class="nav-text">/update/:id – router/index.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#api-teacher-js-2"><span class="nav-number">8.2.</span> <span class="nav-text">api/teacher.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#views-edu-teacher-form-vue-1"><span class="nav-number">8.3.</span> <span class="nav-text">views/edu/teacher/form.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断是否存在id参数"><span class="nav-number">8.3.1.</span> <span class="nav-text">判断是否存在id参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义查询方法-getTeacherById"><span class="nav-number">8.3.2.</span> <span class="nav-text">定义查询方法-getTeacherById</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义修改方法-updateTeaher"><span class="nav-number">8.3.3.</span> <span class="nav-text">定义修改方法-updateTeaher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作判断"><span class="nav-number">8.3.4.</span> <span class="nav-text">操作判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据不同操作修改按钮样式"><span class="nav-number">8.3.5.</span> <span class="nav-text">根据不同操作修改按钮样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改项目"><span class="nav-number">8.4.</span> <span class="nav-text">修改项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化请求路径-api-teacher-js"><span class="nav-number">8.5.</span> <span class="nav-text">优化请求路径-api/teacher.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除方法"><span class="nav-number">8.6.</span> <span class="nav-text">删除方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">8.7.</span> <span class="nav-text">1</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/a.jpg"
+      alt="Wang Ting">
+  <p class="site-author-name" itemprop="name">Wang Ting</p>
+  <div class="site-description" itemprop="description">技术成长笔记</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">260</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/helloworld1006" title="GitHub &rarr; https://github.com/helloworld1006" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:wangtn01@163.com" title="E-Mail &rarr; mailto:wangtn01@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" title="Weibo &rarr; https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/sinat_32676193" title="CDSN &rarr; https://blog.csdn.net/sinat_32676193" rel="noopener" target="_blank"><i class="fa fa-fw fa-codiepie"></i>CDSN</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      最近阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" title="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" rel="noopener" target="_blank">数学大观</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" title="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" rel="noopener" target="_blank">王道训练营 C语言视频最新教程</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av77638697/?p=3&t=14" title="https://www.bilibili.com/video/av77638697/?p=3&t=14" rel="noopener" target="_blank">浙江大学-研究生机器学习课程</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span>网站总字数&nbsp;<span>
+    <span title="站点总字数">346k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span>阅读总时长&nbsp;<span>
+    <span title="站点阅读时长">9:36</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+  <span class="post-meta-divider">|</span> -->
+  <span id="sitetime"></span>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2018,12,23,00,00,00); //北京时间2018-12-23 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML=" 已运行 "+ diffYears+" 年 "+ diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+  siteTime();
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span>本站总访问量&nbsp;</span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span>本站访客数&nbsp;</span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='96,96,96' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+<script src="/js/utils.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script><script src="/js/bookmark.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('/js/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'XYcjlUMI3JT5ggb51F8oIkwy-gzGzoHsz',
+    appKey: 'OHyypRDYnlmDqCN7vrH85KrL',
+    placeholder: '撰写评论',
+    avatar: 'mm# Gravatar style',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn',
+    avatar_cdn: 'https://www.gravatar.com/avatar/',
+    path: location.pathname
+  });
+}, window.Valine);
+  function ssl_avatar($avatar) {
+     $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
+     return $avatar;
+  }
+</script>
+
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":125,"height":290},"mobile":{"show":true},"react":{"opacity":0.7},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
+</html>
