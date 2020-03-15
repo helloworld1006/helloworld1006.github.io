@@ -23,6 +23,7 @@ create table edu_teacher(
 
 select * from edu_teacher order by sort desc;
 
+
 insert  into edu_teacher(id,name,intro,career,level,avatar,sort,is_deleted,gmt_create,gmt_modified) values ('1','刘德华9','毕业于师范大学数学系，热爱教育事业，执教数学思维6年有余','具备深厚的数学思维功底、丰富的小学教育经验，授课风格生动活泼，擅长用形象生动的比喻帮助理解、简单易懂的语言讲解难题，深受学生喜欢',2,'',10,0,'2018-03-30 17:15:57','2019-02-23 05:48:45');
 insert  into edu_teacher(id,name,intro,career,level,avatar,sort,is_deleted,gmt_create,gmt_modified) values ('10','唐嫣','北京师范大学法学院副教授','北京师范大学法学院副教授、清华大学法学博士。自2004年至今已有9年的司法考试培训经验。长期从事司法考试辅导，深知命题规律，了解解题技巧。内容把握准确，授课重点明确，层次分明，调理清晰，将法条法理与案例有机融合，强调综合，深入浅出。',1,'',20,0,'2018-04-03 14:32:19','2019-02-22 02:01:26');
 insert  into edu_teacher(id,name,intro,career,level,avatar,sort,is_deleted,gmt_create,gmt_modified) values ('11','刘德华1','string intro','string career',2,'',10,0,'2019-02-22 23:37:44','2019-02-22 23:38:30');
@@ -33,11 +34,11 @@ insert  into edu_teacher(id,name,intro,career,level,avatar,sort,is_deleted,gmt_c
 insert  into edu_teacher(id,name,intro,career,level,avatar,sort,is_deleted,gmt_create,gmt_modified) values ('9','谢娜','资深课程设计专家，专注10年AACTP美国培训协会认证导师','十年课程研发和培训咨询经验，曾任国企人力资源经理、大型外企培训经理，负责企业大学和培训体系搭建；曾任专业培训机构高级顾问、研发部总监，为包括广东移动、东莞移动、深圳移动、南方电网、工商银行、农业银行、民生银行、邮储银行、TCL集团、清华大学继续教育学院、中天路桥、广西扬翔股份等超过200家企业提供过培训与咨询服务，并担任近50个大型项目的总负责人。',1,'',10,0,'2018-04-03 14:23:33','2019-02-22 02:01:32');
 
 
-drop table if exits edu_subject;
+drop table if exists edu_subject;
 
 create table edu_subject(
   id char(19) not null comment '课程类别ID',
-  title varchar(10) not null comment '类别名称',
+  title varchar(50) not null comment '类别名称',
   parent_id char(19) not null default '0' comment '父课程ID',
   sort int(10) unsigned not null default '0' comment '排序字段',
   gmt_create datetime not null comment '创建时间',
@@ -46,7 +47,7 @@ create table edu_subject(
   key idx_parent_id (parent_id)
 )
 
-select * from edu_subject
+select * from edu_subject where id='1234965930556063746'
 
 insert  into edu_subject values ('1','云计算','0',0,'2018-06-26 09:41:21','2019-02-20 23:25:58');
 insert  into edu_subject values ('10','系统/运维','0',0,'2019-02-20 23:29:59','2019-02-20 23:29:59');
@@ -69,17 +70,17 @@ insert  into edu_subject values ('9','研发/架构','0',0,'2019-02-20 23:29:48'
 
 DROP TABLE IF EXISTS edu_course;
 
-create table edu_course (
+create table edu_course(
   id char(19) not null comment '课程ID',
   teacher_id char(19) not null comment '课程讲师ID',
   subject_id char(19) not null comment '课程专业ID',
   title varchar(50) not null comment '课程标题',
-  price decimal(10,4) unsigned not null default '0.0000' comment '课程销售价格，设置为0则可免费观看',
+  price decimal(10,2) unsigned not null default '0.00' comment '课程销售价格，设置为0则可免费观看',
   lesson_num int(10) unsigned not null default '0' comment '总课时',
-  cover varchar(255) CHARACTER SET utf8 not null comment '课程封面图片路径',
+  cover varchar(255) CHARACTER SET utf8 null comment '课程封面图片路径',
   buy_count bigint(10) unsigned not null default'0' COMMENT '销售数量',
   view_count bigint(10) unsigned not null default '0' COMMENT '浏览数量',
-  version bigint(20) unsigned not null default '1' COMMENT '乐观锁',
+  version int(20) not null default '1' COMMENT '乐观锁',
   status varchar(10) not null default 'Draft' comment '视频状态 Draft未发布  Normal已发布',
   gmt_create datetime not null comment '创建时间',
   gmt_modified datetime not null comment '更新时间',
@@ -87,7 +88,7 @@ create table edu_course (
   key idx_title (title),
   key idx_subject_id (subject_id),
   key idx_teacher_id (teacher_id)
-)
+)comment '课程表'
 
 select * from edu_course
 
@@ -105,14 +106,16 @@ insert  into edu_course values ('26','4','5','CAD4零基础教学','0.0000',0,''
 
 drop table if exists edu_course_description;
 
-create table edu_course_description (
+create table edu_course_description(
   id char(19) not null comment '课程ID',
   description text comment '课程简介',
   gmt_create datetime not null comment '创建时间',
   gmt_modified datetime not null comment '更新时间',
   primary key (id)
-) 
+) comment '课程描述表'
 select * from edu_course_description;
+
+select c.id,c.title,d.description,c.cover,c.version from edu_course c left join edu_course_description d on c.id=d.id
 
 drop table if exists edu_chapter
 
@@ -126,7 +129,7 @@ create table edu_chapter (
   primary key (id),
   key idx_course_id (course_id)
 )
-select * from edu_chapter;
+select * from edu_chapter ORDER BY sort desc;
 
 insert  into edu_chapter values ('1','14','第一章：HTML',1,'2019-01-01 12:27:40','2019-01-01 12:55:30');
 insert  into edu_chapter values ('15','18','第一章：Java入门',1,'2019-01-01 12:27:40','2019-01-01 12:27:40');
@@ -152,6 +155,7 @@ create table edu_video (
   video_source_id varchar(100) default null comment '视频资源',
   duration float not null default '0' comment '视频时长（秒）',
   status varchar(20) not null default '' comment '视频状态:见阿里云文档',
+	video_original_name varchar(50) default null comment '视频名称'
   size bigint(20) unsigned not null default '0' comment '视频源文件大小（字节）',
   version bigint(20) unsigned not null default '1' comment '乐观锁',
   gmt_create datetime not null comment '创建时间',
@@ -160,10 +164,101 @@ create table edu_video (
   KEY idx_course_id (course_id),
   KEY idx_chapter_id (chapter_id)
 ) 
+
+alter table edu_video add column video_original_name varchar(50) default null comment '视频名称'
+
+alter table edu_video modify duration double(10,3) unsigned not null default '0.000'
+
 select * from edu_video
+
+select * from edu_course c left outer join edu_video v on c.id =v.course_id where v.vie='6a510c0c31264392874913d636dbe38a'
+
+delete from edu_video where id ='1237658295855034369'
 
 insert  into edu_video values ('17','18','15','第一节：Java简介',1,1000,1,'',100,'Draft',0,1,'2019-01-01 13:08:57','2019-02-21 20:46:08');
 insert  into edu_video values ('18','18','15','第二节：表达式和赋值语句',2,999,1,'',100,'Draft',0,1,'2019-01-01 13:09:02','2019-02-21 20:46:09');
 insert  into edu_video values ('19','18','15','第三节：String类',3,888,0,'',100,'Draft',0,1,'2019-01-01 13:09:05','2019-02-21 20:46:10');
 insert  into edu_video values ('20','18','15','第四节：程序风格',4,666,0,'',100,'Draft',0,1,'2019-01-01 13:09:05','2019-02-21 20:46:10');
+
+select c.id id,c.title title, c.lesson_num lessonNum,c.price price, c.cover cover,cd.description description, t.name teacherName,es.title subjectName
+		from edu_course c
+				left outer join edu_course_description cd on c.id = cd.id
+				left outer join edu_teacher t on c.teacher_id=t.id
+				left outer join edu_subject es on c.subject_id=es.id
+		where c.id='1235822849831206914';
+		
+		
+select c.id,c.title,c.price,c.cover,c.view_count,c.lesson_num,c.buy_count,
+			 cd.description,
+			 et.id teacherId,et.name teacherName,et.avatar,et.intro,
+			 es.id subjecId
+from edu_course c
+left outer join edu_course_description cd on c.id=cd.id
+left outer join edu_teacher et on c.teacher_id=et.id
+left outer join edu_subject es on c.subject_id = es.id
+where c.id = '1235822849831206914';
+				
+				
+drop table if exists statistics_daily;
+
+create table statistics_daily (
+  id char(19) not null comment '主键',
+  date_calculate varchar(20) not null comment '统计日期',
+  register_num int(11) not null default '0' comment '注册人数',
+  login_num int(11) not null default '0' comment '登录人数',
+  video_view_num int(11) not null default '0' comment '每日播放视频数',
+  course_num int(11) not null default '0' comment '每日新增课程数',
+  gmt_create datetime not null comment '创建时间',
+  gmt_modified datetime not null comment '更新时间',
+  primary key (id),
+  key statistics_day (date_calculate)
+)comment='网站统计日数据';
+
+select * from statistics_daily;
+
+SELECT * FROM statistics_daily order by date_calculate
+
+drop table if exists ucenter_member;
+
+create table ucenter_member (
+  id char(19) not null comment '会员id',
+  openid varchar(128) default null comment '微信openid',
+  mobile varchar(20) default null comment '手机号',
+  password varchar(255) default null comment '密码',
+  nickname varchar(50) default null comment '昵称',
+  sex tinyint(2) unsigned default null comment '性别 1 女，2 男',
+  age tinyint(3) unsigned default null comment '年龄',
+  avatar varchar(255) default null comment '用户头像',
+  sign varchar(100) default null comment '用户签名',
+  is_disabled tinyint(1) not null default  '0' comment '是否禁用 1（true）已禁用，  0（false）未禁用',
+  is_deleted tinyint(1) not null default  '0' comment '逻辑删除 1（true）已删除， 0（false）未删除',
+  gmt_create datetime not null comment '创建时间',
+  gmt_modified datetime not null comment '更新时间',
+  primary key (id)
+) comment'会员表';
+
+select count(*) from ucenter_member u where Date(u.gmt_create)='2019-01-19'
+
+insert  into ucenter_member values ('1080736474191646722',NULL,'13700000000','96e79218965eb72c92a549dd5a330112','用户nVexScJJoi',1,20,NULL,NULL,0,0,'2019-01-01 12:11:33','2019-01-12 11:00:22');
+insert  into ucenter_member values ('1080736474267144193',NULL,'13700000001','96e79218965eb72c92a549dd5a330112','用户XJtDfaYeKk',1,19,NULL,NULL,0,0,'2019-01-02 12:12:45','2019-01-02 12:12:56');
+insert  into ucenter_member values ('1080736474355224577',NULL,'13700000002','96e79218965eb72c92a549dd5a330112','用户wUrNkzAPrc',1,27,NULL,NULL,0,0,'2019-01-02 12:13:56','2019-01-02 12:14:07');
+insert  into ucenter_member values ('1086387099449442306',NULL,'13520191388','96e79218965eb72c92a549dd5a330112','用户XTMUeHDAoj',2,20,NULL,NULL,0,0,'2019-01-19 06:17:23','2019-01-19 06:17:23');
+insert  into ucenter_member values ('1086387099520745473',NULL,'13520191389','96e79218965eb72c92a549dd5a330112','用户vSdKeDlimn',1,21,NULL,NULL,0,0,'2019-01-19 06:17:23','2019-01-19 06:17:23');
+insert  into ucenter_member values ('1086387099608825858',NULL,'13520191381','96e79218965eb72c92a549dd5a330112','用户EoyWUVXQoP',1,18,NULL,NULL,0,0,'2019-01-19 06:17:23','2019-01-19 06:17:23');
+insert  into ucenter_member values ('1086387099701100545',NULL,'13520191382','96e79218965eb72c92a549dd5a330112','用户LcAYbxLNdN',2,24,NULL,NULL,0,0,'2019-01-19 06:17:23','2019-01-19 06:17:23');
+insert  into ucenter_member values ('1086387099776598018',NULL,'13520191383','96e79218965eb72c92a549dd5a330112','用户dZdjcgltnk',2,25,NULL,NULL,0,0,'2019-01-19 06:17:23','2019-01-19 06:17:23');
+insert  into ucenter_member values ('1086387099852095490',NULL,'13520191384','96e79218965eb72c92a549dd5a330112','用户wNHGHlxUwX',2,23,NULL,NULL,0,0,'2019-01-19 06:17:23','2019-01-19 06:17:23');
+insert  into ucenter_member values ('1106746895272849410','o1R-t5u2TfEVeVjO9CPGdHPNw-to',NULL,NULL,'檀梵\'',NULL,NULL,'http://thirdwx.qlogo.cn/mmopen/vi_32/zZfLXcetf2Rpsibq6HbPUWKgWSJHtha9y1XBeaqluPUs6BYicW1FJaVqj7U3ozHd3iaodGKJOvY2PvqYTuCKwpyfQ/132',NULL,0,0,'2019-03-16 10:39:57','2019-03-16 10:39:57');
+insert  into ucenter_member values ('1106822699956654081',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,'2019-03-16 15:41:10','2019-03-16 15:41:10'),('1106823035660357634','o1R-t5i4gENwHYRb5lVFy98Z0bdk',NULL,NULL,'GaoSir',NULL,NULL,'http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJI53RcCuc1no02os6ZrattWGiazlPnicoZQ59zkS7phNdLEWUPDk8fzoxibAnXV1Sbx0trqXEsGhXPw/132',NULL,0,0,'2019-03-16 15:42:30','2019-03-16 15:42:30');
+insert  into ucenter_member values ('1106823041599492098',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,'2019-03-16 15:42:32','2019-03-16 15:42:32'),('1106823115788341250','o1R-t5l_3rnbZbn4jWwFdy6Gk6cg',NULL,NULL,'换个网名哇、',NULL,NULL,'http://thirdwx.qlogo.cn/mmopen/vi_32/jJHyeM0EN2jhB70LntI3k8fEKe7W6CwykrKMgDJM4VZqCpcxibVibX397p0vmbKURGkLS4jxjGB0GpZfxCicgt07w/132',NULL,0,0,'2019-03-16 15:42:49','2019-03-16 15:42:49');
+insert  into ucenter_member values ('1106826046730227714','o1R-t5gyxumyBqt0CWcnh0S6Ya1g',NULL,NULL,'我是Helen',NULL,NULL,'http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKDRfib8wy7A2ltERKh4VygxdjVC1x5OaOb1t9hot4JNt5agwaVLdJLcD9vJCNcxkvQnlvLYIPfrZw/132',NULL,0,0,'2019-03-16 15:54:28','2019-03-16 15:54:28'),('1106828185829490690','o1R-t5nNlou5lRwBVgGNJFm4rbc4',NULL,NULL,' 虎头',NULL,NULL,'http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKxCqRzuYWQmpwiaqQEjNxbC7WicebicXQusU306jgmfoOzUcFg1qaDq5BStiblwBjw5dUOblQ2gUicQOQ/132',NULL,0,0,'2019-03-16 16:02:58','2019-03-16 16:02:58');
+insert  into ucenter_member values ('1106830599651442689','o1R-t5hZHQB1cbX7HZJsiM727_SA',NULL,NULL,'是吴啊',NULL,NULL,'http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ9CsqApybcs7f3Dyib9IxIh0sBqJb7LicbjU4WticJFF0PVwFvHgtbFdBwfmk3H2t3NyqmEmVx17tRA/132',NULL,0,0,'2019-03-16 16:12:34','2019-03-16 16:12:34'),('1106830976199278593','o1R-t5meKOoyEJ3-IhWRCBKFcvzU',NULL,NULL,'我才是Helen',NULL,NULL,'http://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83epMicP9UT6mVjYWdno0OJZkOXiajG0sllJTbGJ9DYiceej2XvbDSGCK8LCF7jv1PuG2uoYlePWic9XO8A/132',NULL,0,0,'2019-03-16 16:14:03','2019-03-16 16:14:03');
+insert  into ucenter_member values ('1106831936900415490','o1R-t5jXYSWakGtnUBnKbfVT5Iok',NULL,NULL,'文若姬',NULL,NULL,'http://thirdwx.qlogo.cn/mmopen/vi_32/3HEmJwpSzguqqAyzmBwqT6aicIanswZibEOicQInQJI3ZY1qmu59icJC6N7SahKqWYv24GvX5KH2fibwt0mPWcTJ3fg/132',NULL,0,0,'2019-03-16 16:17:52','2019-03-16 16:17:52'),('1106832491064442882','o1R-t5sud081Qsa2Vb2xSKgGnf_g',NULL,NULL,'Peanut',NULL,NULL,'http://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoj0hHXhgJNOTSOFsS4uZs8x1ConecaVOB8eIl115xmJZcT4oCicvia7wMEufibKtTLqiaJeanU2Lpg3w/132',NULL,0,0,'2019-03-16 16:20:04','2019-03-16 16:20:04');
+insert  into ucenter_member values ('1106833021442510849','o1R-t5lsGc3I8P5bDpHj7m_AIRvQ',NULL,NULL,'食物链终结者',NULL,NULL,'http://thirdwx.qlogo.cn/mmopen/vi_32/MQ7qUmCprK9am16M1Ia1Cs3RK0qiarRrl9y8gsssBjIZeS2GwKSrnq7ZYhmrzuzDwBxSMMAofrXeLic9IBlW4M3Q/132',NULL,0,0,'2019-03-16 16:22:11','2019-03-16 16:22:11');
+
+
+select * from ucenter_member where nickname='小王';
+
+
+
 

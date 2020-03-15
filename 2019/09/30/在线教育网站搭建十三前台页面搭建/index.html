@@ -1,0 +1,1228 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "4767878b"
+    });
+  daovoice('update');
+  </script>
+
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"falt"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+  (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://www.runaccpeted.com"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+  <meta name="description" content="NUXT">
+<meta name="keywords" content="SpringBoot,项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(十三)在线教育网站搭建-前台页面搭建NUXT">
+<meta property="og:url" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/index.html">
+<meta property="og:site_name" content="W.T.的博客">
+<meta property="og:description" content="NUXT">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/pageparam.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/pagebody.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/frontpage.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/teacher.gif">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/teacherbyid.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/teachercourse.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/frontteacherid.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/singleteacher.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/singleteacher2.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/courselist.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/courselistfron.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/frontcourselist.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/frontcoursebyid.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/singlecourse.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/course.gif">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/zhuanma.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/mp.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/hls.png">
+<meta property="og:updated_time" content="2020-03-11T18:12:12.696Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(十三)在线教育网站搭建-前台页面搭建NUXT">
+<meta name="twitter:description" content="NUXT">
+<meta name="twitter:image" content="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/pageparam.png">
+  <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
+  <link rel="canonical" href="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+
+  <title>(十三)在线教育网站搭建-前台页面搭建NUXT | W.T.的博客</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?59cd4bc54e9d484dff9357727e454c80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container">
+    <div class="headband"></div>
+    <!-- github -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">W.T.的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Every day to be a little better</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">23</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">275</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-schedule">
+      
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-commonweal">
+      
+    
+      
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+  <a href="https://github.com/helloworld1006" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Ting">
+      <meta itemprop="description" content="技术成长笔记">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W.T.的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">(十三)在线教育网站搭建-前台页面搭建NUXT
+
+          
+        </h1>
+
+        <div class="post-meta">
+
+           
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-30 07:33:33" itemprop="dateCreated datePublished" datetime="2019-09-30T07:33:33+08:00">2019-09-30</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-12 02:12:12" itemprop="dateModified" datetime="2020-03-12T02:12:12+08:00">2020-03-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2019/09/30/在线教育网站搭建十三前台页面搭建/" class="post-meta-item leancloud_visitors" data-flag-title="(十三)在线教育网站搭建-前台页面搭建NUXT" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+          
+           
+           <!--
+            <span class="post-meta-item" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          -->
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">评论：</span>
+    
+    <a title="valine" href="/2019/09/30/在线教育网站搭建十三前台页面搭建/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/09/30/在线教育网站搭建十三前台页面搭建/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.3k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>4 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center">NUXT</blockquote>
+
+<a id="more"></a>
+
+<h1 id="服务端渲染技术NUXT"><a href="#服务端渲染技术NUXT" class="headerlink" title="服务端渲染技术NUXT"></a><font size="4px">服务端渲染技术NUXT</font></h1><p>Nuxt.js 是一个基于 Vue.js 的轻量级应用框架,可用来创建服务端渲染 (SSR) 应用,也可充当静态站点引擎生成静态站点应用,具有优雅的代码结构分层和热加载等特性。</p>
+<p>可以做到服务端拼接好html后直接返回，首屏可以做到无需发起ajax请求</p>
+<p><a href="https://zh.nuxtjs.org/" target="_blank" rel="noopener">https://zh.nuxtjs.org/</a></p>
+<h1 id="下载demo"><a href="#下载demo" class="headerlink" title="下载demo"></a><font size="4px">下载demo</font></h1><p><a href="https://zh.nuxtjs.org/guide/installation" target="_blank" rel="noopener">https://zh.nuxtjs.org/guide/installation</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npx create-nuxt-app &lt;项目名&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">create-nuxt-app v2.14.0</span><br><span class="line">✨  Generating Nuxt.js project in </span><br><span class="line">? Project name </span><br><span class="line">? Project description </span><br><span class="line">? Author name </span><br><span class="line">? Choose the package manager </span><br><span class="line">? Choose UI framework </span><br><span class="line">? Choose custom server framework </span><br><span class="line">? Choose Nuxt.js modules (Press &lt;space&gt; to select, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection)</span><br><span class="line">? Choose linting tools (Press &lt;space&gt; to select, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection)</span><br><span class="line">? Choose test framework </span><br><span class="line">? Choose rendering mode</span><br></pre></td></tr></table></figure>
+
+<p><code>Choose custom server framework</code>（选择服务端框架），选择<code>Express</code>。</p>
+<ul>
+<li>选择默认的Nuxt服务器，不会生成<code>server</code>文件夹，所有服务端渲染的操作都是Nuxt帮你完成，开发体验更接近Vue项目，缺点是无法做一些服务端定制化的操作。</li>
+<li><code>Express</code>，会生成<code>server</code>文件夹，帮你搭建一个基本的Node服务端环境，可以在里面做一些node端的操作。</li>
+</ul>
+<p>还有<code>Choose Nuxt.js modules</code>（选择nuxt.js的模块），可以选<code>axios</code>和<code>PWA</code>,如果选了axios，则会帮你在nuxt实例下注册<code>$axios</code>，让你可以在.vue文件中直接<code>this.$axios</code>发起请求</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">🎉  Successfully created project edu-online-nuxt</span><br><span class="line"></span><br><span class="line">  To get started:</span><br><span class="line"></span><br><span class="line">	cd edu-online-nuxt</span><br><span class="line">	npm run dev</span><br><span class="line"></span><br><span class="line">  To build &amp; start for production:</span><br><span class="line"></span><br><span class="line">	cd edu-online-nuxt</span><br><span class="line">	npm run build</span><br><span class="line">	npm run start</span><br><span class="line"></span><br><span class="line">  To test:</span><br><span class="line"></span><br><span class="line">	cd edu-online-nuxt</span><br><span class="line">	npm run test</span><br></pre></td></tr></table></figure>
+
+<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a><font size="4px">目录结构</font></h1><ul>
+<li><p>资源目录 assets</p>
+<p>用于组织未编译的静态资源如 LESS、SASS 或 JavaScript。</p>
+</li>
+<li><p>组件目录 components</p>
+<p>用于组织应用的 Vue.js 组件。Nuxt.js 不会扩展增强该目录下 Vue.js 组件，即这些组件不会像页面组件那样有 asyncData 方法的特性。</p>
+</li>
+<li><p>布局目录 layouts</p>
+<p>用于组织应用的布局组件。</p>
+</li>
+<li><p>页面目录 pages</p>
+<p>用于组织应用的路由及视图。Nuxt.js 框架读取该目录下所有的 .vue 文件并自动生成对应的路由配置。</p>
+</li>
+<li><p>插件目录 plugins</p>
+<p>用于组织那些需要在 根vue.js应用 实例化之前需要运行的 Javascript 插件。</p>
+</li>
+<li><p>nuxt.config.js 文件</p>
+<p>nuxt.config.js 文件用于组织Nuxt.js 应用的个性化配置，以便覆盖默认配置。</p>
+</li>
+</ul>
+<h1 id="安装幻灯片"><a href="#安装幻灯片" class="headerlink" title="安装幻灯片"></a><font size="4px">安装幻灯片</font></h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-awesome-swiper</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置插件-plugin-nuxt-swiper-plugin-js"><a href="#配置插件-plugin-nuxt-swiper-plugin-js" class="headerlink" title="配置插件 - plugin/nuxt-swiper-plugin.js"></a><font size="3px">配置插件 - plugin/nuxt-swiper-plugin.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueAwesomeSwiper <span class="keyword">from</span> <span class="string">'vue-awesome-swiper/dist/ssr'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueAwesomeSwiper)</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置插件-nuxt-config-js"><a href="#配置插件-nuxt-config-js" class="headerlink" title="配置插件 - nuxt.config.js"></a><font size="3px">配置插件 - nuxt.config.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">css: [</span><br><span class="line">    <span class="string">'swiper/dist/css/swiper.css'</span></span><br><span class="line">],</span><br><span class="line"></span><br><span class="line">plugins: [</span><br><span class="line">  &#123; <span class="attr">src</span>: <span class="string">'~/plugins/nuxt-swiper-plugin.js'</span>, <span class="attr">ssr</span>: <span class="literal">false</span> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h1 id="搭建前台"><a href="#搭建前台" class="headerlink" title="搭建前台"></a><font size="4px">搭建前台</font></h1><h2 id="修改布局-layouts-default-vue"><a href="#修改布局-layouts-default-vue" class="headerlink" title="修改布局 - layouts/default.vue"></a><font size="3px">修改布局 - layouts/default.vue</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!-- 页头 -logo --&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;router-link to=&quot;/course&quot; tag=&quot;li&quot; active-class=&quot;current&quot;&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 内容区域 --&gt;</span><br><span class="line">    &lt;nuxt /&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 页尾 - copyright --&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="course-gt-page-course-index-vue"><a href="#course-gt-page-course-index-vue" class="headerlink" title="/course -&gt; page/course/index.vue"></a><font size="3px">/course -&gt; page/course/index.vue</font></h2><h3 id="页面渲染之前获取所有数据-asyncData"><a href="#页面渲染之前获取所有数据-asyncData" class="headerlink" title="页面渲染之前获取所有数据 - asyncData"></a><font size="3px">页面渲染之前获取所有数据 - asyncData</font></h3><p>调用axios中get方法得到方法返回json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;div v-for=&quot;(teacher,index) in items&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">            &lt;a :href=&quot;&apos;teacher/&apos;+teacher.id&quot;&gt; &#123;&#123;teacher.name&#125;&#125;&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    //页面渲染之前获取所有数据</span><br><span class="line">    asyncData(&#123;param,error&#125;)&#123;</span><br><span class="line">        return axios.get(&apos;http://localhost:9500/eduservice/edu-teacher/listTeachers&apos;)</span><br><span class="line">            .then(response=&gt;&#123;</span><br><span class="line">                ///console.log(response)</span><br><span class="line">                return &#123;items: response.data.data.items&#125;</span><br><span class="line">            &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="‘teacher-‘-teacher-id-gt-teacher-id-vue"><a href="#‘teacher-‘-teacher-id-gt-teacher-id-vue" class="headerlink" title="‘teacher/‘+teacher.id -&gt; /teacher/_id.vue"></a><font size="3px">‘teacher/‘+teacher.id -&gt; /teacher/_id.vue</font></h2><p>每个讲师链接id，动态路由需要建立 _键.vue 文件</p>
+<h3 id="id-vue"><a href="#id-vue" class="headerlink" title="_id.vue"></a><font size="3px">_id.vue</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &#123;&#123;teacher.name&#125;&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    asyncData(&#123;params,error&#125;)&#123;</span><br><span class="line">        return axios.get(&apos;http://localhost:9500/eduservice/edu-teacher/selectTeacher/&apos;+params.id)</span><br><span class="line">            .then(response =&gt; &#123;</span><br><span class="line">                return &#123;teacher: response.data.data.items&#125;</span><br><span class="line">            &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="按页查询讲师顺序"><a href="#按页查询讲师顺序" class="headerlink" title="按页查询讲师顺序"></a><font size="4px">按页查询讲师顺序</font></h1><h2 id="后台查询讲师数据-FrontEduTeacherController"><a href="#后台查询讲师数据-FrontEduTeacherController" class="headerlink" title="后台查询讲师数据 - FrontEduTeacherController"></a><font size="3px">后台查询讲师数据 - FrontEduTeacherController</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.online.edu.eduservice.controller.front;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.online.edu.common.R;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.entity.EduTeacher;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.service.EduTeacherService;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.Api;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiOperation;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Api</span>(<span class="string">"前端讲师控制器"</span>)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/eduservice/front/edu-teacher"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FrontEduTeacherController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    EduTeacherService eduTeacherService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation</span>(<span class="string">"分页查询所有讲师"</span>)</span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/listTeachers/&#123;current&#125;/&#123;size&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">listTeachers</span><span class="params">(@PathVariable String current,</span></span></span><br><span class="line"><span class="function"><span class="params">                          @PathVariable String size)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        Map&lt;String,Object&gt; lists  = eduTeacherService.frontListPageTeacher(current,size);</span><br><span class="line">        <span class="keyword">return</span> R.ok().data(<span class="string">"items"</span>,lists);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="后台查询讲师数据-EduTeacherServiceImpl"><a href="#后台查询讲师数据-EduTeacherServiceImpl" class="headerlink" title="后台查询讲师数据 - EduTeacherServiceImpl"></a><font size="3px">后台查询讲师数据 - EduTeacherServiceImpl</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">frontListPageTeacher</span><span class="params">(String current, String size)</span> </span>&#123;</span><br><span class="line">    Long currentPage = Long.parseLong(current);</span><br><span class="line">    Long pageSize = Long.parseLong(size);</span><br><span class="line"></span><br><span class="line">    Page&lt;EduTeacher&gt; page = <span class="keyword">new</span> Page&lt;&gt;(currentPage,pageSize);</span><br><span class="line">    <span class="comment">//结果 按sort降序，相同时按id升序</span></span><br><span class="line">    QueryWrapper&lt;EduTeacher&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.orderByDesc(<span class="string">"sort"</span>);</span><br><span class="line">    queryWrapper.orderByAsc(<span class="string">"id"</span>);</span><br><span class="line"></span><br><span class="line">    Page&lt;EduTeacher&gt; eduTeacherPage = baseMapper.selectPage(page, queryWrapper);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//存入所有记录</span></span><br><span class="line">    Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">"total"</span>,eduTeacherPage.getTotal());</span><br><span class="line">    map.put(<span class="string">"current"</span>,eduTeacherPage.getCurrent());</span><br><span class="line">    map.put(<span class="string">"size"</span>,eduTeacherPage.getSize());</span><br><span class="line">    map.put(<span class="string">"hasNext"</span>,eduTeacherPage.hasNext());</span><br><span class="line">    map.put(<span class="string">"hasPrevious"</span>,eduTeacherPage.hasPrevious());</span><br><span class="line">    map.put(<span class="string">"pages"</span>,eduTeacherPage.getPages());</span><br><span class="line">    map.put(<span class="string">"items"</span>,eduTeacherPage.getRecords());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> map;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="后台查询讲师数据-测试swagger-ui"><a href="#后台查询讲师数据-测试swagger-ui" class="headerlink" title="后台查询讲师数据 - 测试swagger-ui"></a><font size="3px">后台查询讲师数据 - 测试swagger-ui</font></h2><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/pageparam.png" alt></p>
+<p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/pagebody.png" alt></p>
+<h2 id="前台-封装axios-同vue的request-js"><a href="#前台-封装axios-同vue的request-js" class="headerlink" title="前台-封装axios - 同vue的request.js"></a><font size="3px">前台-封装axios - 同vue的request.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> service = axios.create(&#123;</span><br><span class="line">    baseURL:<span class="string">'http://locahost:9500'</span>,</span><br><span class="line">    timeout:<span class="number">20000</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> service</span><br></pre></td></tr></table></figure>
+
+<h2 id="前台-封装请求方法-同vue的api-teacher-js"><a href="#前台-封装请求方法-同vue的api-teacher-js" class="headerlink" title="前台-封装请求方法 - 同vue的api/teacher.js"></a><font size="3px">前台-封装请求方法 - 同vue的api/teacher.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">'@/utils/request'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> base = <span class="string">'/eduservice/front/edu-teacher'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line"></span><br><span class="line">    listTeachers(current,size)&#123;</span><br><span class="line">        <span class="keyword">return</span> request(&#123;</span><br><span class="line">            url:<span class="string">`<span class="subst">$&#123;base&#125;</span>/listTeachers/<span class="subst">$&#123;current&#125;</span>/<span class="subst">$&#123;size&#125;</span>`</span>,</span><br><span class="line">            method:<span class="string">'get'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="前台-调用请求方法-同vue的views-index-vue"><a href="#前台-调用请求方法-同vue的views-index-vue" class="headerlink" title="前台-调用请求方法 - 同vue的views/index.vue"></a><font size="3px">前台-调用请求方法 - 同vue的views/index.vue</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;div v-for=&quot;(teacher,index) in teacherList&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">            &lt;a :href=&quot;&apos;teacher/&apos;+teacher.id&quot;&gt; &#123;&#123;teacher.name&#125;&#125;&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 分页 --&gt;</span><br><span class="line">        &lt;el-pagination</span><br><span class="line">            :current-page=&quot;current&quot;</span><br><span class="line">            :page-size=&quot;size&quot;</span><br><span class="line">            :total=&quot;total&quot;</span><br><span class="line">            background</span><br><span class="line">            style=&quot;padding: 30px 0; text-align: center;&quot;</span><br><span class="line">            layout=&quot;total, prev, pager, next, jumper&quot;</span><br><span class="line">            @current-change=&quot;getTeacherList&quot;/&gt;    </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import teacher from &apos;@/api/teacher&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            current: 1,</span><br><span class="line">            size: 8,</span><br><span class="line">            total: 0,</span><br><span class="line">            teacherList: []</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    //页面渲染之前获取所有数据</span><br><span class="line">    created()&#123;</span><br><span class="line">       this.getTeacherList()</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        //调用路径请求</span><br><span class="line">        getTeacherList(current=1)&#123;</span><br><span class="line">            this.current = current</span><br><span class="line">            teacher.listTeachers(this.current,this.size).then(response=&gt;&#123;</span><br><span class="line">                this.teacherList = response.data.data.items.items</span><br><span class="line">                this.total = response.data.data.items.total</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="http-localhost-3000-teacher"><a href="#http-localhost-3000-teacher" class="headerlink" title="http://localhost:3000/teacher"></a><font size="3px"><a href="http://localhost:3000/teacher" target="_blank" rel="noopener">http://localhost:3000/teacher</a></font></h2><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/frontpage.png" alt></p>
+<h2 id="添加样式"><a href="#添加样式" class="headerlink" title="添加样式"></a><font size="3px">添加样式</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id=&quot;aCoursesList&quot; class=&quot;bg-fa of&quot;&gt;</span><br><span class="line">        &lt;!-- 讲师列表 开始 --&gt;</span><br><span class="line">        &lt;section class=&quot;container&quot;&gt;</span><br><span class="line">            &lt;header class=&quot;comm-title all-teacher-title&quot;&gt;</span><br><span class="line">                &lt;h2 class=&quot;fl tac&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;c-333&quot;&gt;全部讲师&lt;/span&gt;</span><br><span class="line">                &lt;/h2&gt;</span><br><span class="line">                &lt;section class=&quot;c-tab-title&quot;&gt;</span><br><span class="line">                    &lt;a id=&quot;subjectAll&quot; title=&quot;全部&quot; href=&quot;#&quot;&gt;全部&lt;/a&gt;</span><br><span class="line">                &lt;/section&gt;</span><br><span class="line">            &lt;/header&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;section class=&quot;c-sort-box unBr&quot;&gt;</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;!-- /无数据提示 开始--&gt;</span><br><span class="line">                    &lt;section class=&quot;no-data-wrap&quot; v-if=&quot;total===0&quot;&gt;</span><br><span class="line">                        &lt;em class=&quot;icon30 no-data-ico&quot;&gt;&amp;nbsp;&lt;/em&gt;</span><br><span class="line">                        &lt;span class=&quot;c-666 fsize14 ml10 vam&quot;&gt;没有相关数据，小编正在努力整理中...&lt;/span&gt;</span><br><span class="line">                    &lt;/section&gt;</span><br><span class="line">                    &lt;!-- /无数据提示 结束--&gt;</span><br><span class="line">                    &lt;article class=&quot;i-teacher-list&quot;&gt;</span><br><span class="line">                        &lt;ul class=&quot;of&quot;&gt;</span><br><span class="line">                            &lt;li v-for=&quot;teacher in teacherList&quot; :key=&quot;teacher.id&quot;&gt;</span><br><span class="line">                                &lt;section class=&quot;i-teach-wrap&quot;&gt;</span><br><span class="line">                                    &lt;div class=&quot;i-teach-pic&quot;&gt;</span><br><span class="line">                                        &lt;a :href=&quot;`/teacher/`+teacher.id&quot; :title=&quot;teacher.name&quot; target=&quot;_blank&quot;&gt;</span><br><span class="line">                                            &lt;img v-if=&quot;teacher.avatar!==&apos;&apos;&quot; :src=&quot;teacher.avatar&quot; alt&gt;</span><br><span class="line">                                            &lt;img v-else src=&quot;~/assets/img/avatar-boy.gif&quot;/&gt;</span><br><span class="line">                                        &lt;/a&gt;</span><br><span class="line">                                    &lt;/div&gt;</span><br><span class="line">                                    &lt;div class=&quot;mt10 hLh30 txtOf tac&quot;&gt;</span><br><span class="line">                                        &lt;a :href=&quot;`/teacher/`+teacher.id&quot; :title=&quot;teacher.name&quot; target=&quot;_blank&quot; class=&quot;fsize18 c-666&quot;&gt;&#123;&#123;teacher.name&#125;&#125;&lt;/a&gt;</span><br><span class="line">                                    &lt;/div&gt;</span><br><span class="line">                                    &lt;div class=&quot;hLh30 txtOf tac&quot;&gt;</span><br><span class="line">                                        &lt;span class=&quot;fsize14 c-999&quot;&gt;</span><br><span class="line">                                            &#123;&#123;teacher.career&#125;&#125;</span><br><span class="line">                                        &lt;/span&gt;</span><br><span class="line">                                    &lt;/div&gt;</span><br><span class="line">                                    &lt;div class=&quot;mt15 i-q-txt&quot;&gt;</span><br><span class="line">                                        &lt;p class=&quot;c-999 f-fA&quot;&gt;&#123;&#123;teacher.intro&#125;&#125;&lt;/p&gt;</span><br><span class="line">                                    &lt;/div&gt;</span><br><span class="line">                                &lt;/section&gt;</span><br><span class="line">                            &lt;/li&gt;</span><br><span class="line">                        &lt;/ul&gt;</span><br><span class="line">                        &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;/article&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/section&gt;</span><br><span class="line">        &lt;/section&gt;</span><br><span class="line">        </span><br><span class="line">&lt;!--  </span><br><span class="line">        &lt;div v-for=&quot;(teacher,index) in teacherList&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">            &lt;a :href=&quot;&apos;teacher/&apos;+teacher.id&quot;&gt; &#123;&#123;teacher.name&#125;&#125;&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt; --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 分页 --&gt;</span><br><span class="line">        &lt;el-pagination</span><br><span class="line">            :current-page=&quot;current&quot;</span><br><span class="line">            :page-size=&quot;size&quot;</span><br><span class="line">            :total=&quot;total&quot;</span><br><span class="line">            background</span><br><span class="line">            style=&quot;padding: 30px 0; text-align: center;&quot;</span><br><span class="line">            layout=&quot;total, prev, pager, next, jumper&quot;</span><br><span class="line">            @current-change=&quot;getTeacherList&quot;/&gt;    </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/teacher.gif" alt></p>
+<h1 id="单个讲师详情页-讲师-所讲课程"><a href="#单个讲师详情页-讲师-所讲课程" class="headerlink" title=" 单个讲师详情页- 讲师+所讲课程"></a><font size="4px"> 单个讲师详情页- 讲师+所讲课程</font></h1><h2 id="后台查询讲师数据-FrontEduTeacherController-1"><a href="#后台查询讲师数据-FrontEduTeacherController-1" class="headerlink" title="后台查询讲师数据 - FrontEduTeacherController"></a><font size="3px">后台查询讲师数据 - FrontEduTeacherController</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(<span class="string">"单个讲师信息查询+所讲课程"</span>)</span><br><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/getTeacherById/&#123;id&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> R <span class="title">getTeacherById</span><span class="params">(@PathVariable String id)</span></span>&#123;</span><br><span class="line">    <span class="comment">//讲师</span></span><br><span class="line">    EduTeacher teacher = eduTeacherService.getById(id);</span><br><span class="line">    <span class="comment">//课程</span></span><br><span class="line">    List&lt;EduCourse&gt; courses = eduTeacherService.getTeacherCourse(id);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> R.ok().data(<span class="string">"teacher"</span>,teacher).data(<span class="string">"courses"</span>,courses);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="后台查询讲师数据-EduTeacherServiceImpl-1"><a href="#后台查询讲师数据-EduTeacherServiceImpl-1" class="headerlink" title="后台查询讲师数据 - EduTeacherServiceImpl"></a><font size="3px">后台查询讲师数据 - EduTeacherServiceImpl</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//前端讲师对应课程查询</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;EduCourse&gt; <span class="title">getTeacherCourse</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    QueryWrapper&lt;EduCourse&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.eq(<span class="string">"teacher_id"</span>,id);</span><br><span class="line">    List&lt;EduCourse&gt; list = eduCourseService.list(queryWrapper);</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="后台查询讲师数据-测试swagger-ui-1"><a href="#后台查询讲师数据-测试swagger-ui-1" class="headerlink" title="后台查询讲师数据 - 测试swagger-ui"></a><font size="3px">后台查询讲师数据 - 测试swagger-ui</font></h2><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/teacherbyid.png" alt></p>
+<p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/teachercourse.png" alt></p>
+<h2 id="前台-封装请求方法-api-teacher-js"><a href="#前台-封装请求方法-api-teacher-js" class="headerlink" title="前台-封装请求方法 - api/teacher.js"></a><font size="3px">前台-封装请求方法 - api/teacher.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getTeacherById(id)&#123;</span><br><span class="line">    <span class="keyword">return</span> request(&#123;</span><br><span class="line">        url: <span class="string">`<span class="subst">$&#123;base&#125;</span>/getTeacherById/`</span>+id,</span><br><span class="line">        method: <span class="string">'get'</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="前台-调用请求方法-teacher-id-vue"><a href="#前台-调用请求方法-teacher-id-vue" class="headerlink" title="前台-调用请求方法 - teacher/_id.vue"></a><font size="3px">前台-调用请求方法 - teacher/_id.vue</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &#123;&#123;teacherObj.name&#125;&#125;</span><br><span class="line">        &#123;&#123;teacherObj.intro&#125;&#125;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for=&quot;course in courseList&quot; :key=&quot;course.id&quot;&gt;</span><br><span class="line">                &#123;&#123;course.title&#125;&#125;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import teacher from &apos;@/api/teacher&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    </span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            teacherObj:&#123;&#125;,</span><br><span class="line">            courseList:[]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created()&#123;</span><br><span class="line">        this.getTeacherById(this.$route.params.id)</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        getTeacherById(id)&#123;</span><br><span class="line">            teacher.getTeacherById(id).then(response=&gt;&#123;</span><br><span class="line">                //console.log(response)</span><br><span class="line">                this.teacherObj = response.data.data.teacher</span><br><span class="line">                this.courseList = response.data.data.courses</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="http-localhost-3000-teacher-11"><a href="#http-localhost-3000-teacher-11" class="headerlink" title="http://localhost:3000/teacher/11"></a><font size="3px"><a href="http://localhost:3000/teacher/11" target="_blank" rel="noopener">http://localhost:3000/teacher/11</a></font></h2><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/frontteacherid.png" alt></p>
+<h2 id="添加样式-1"><a href="#添加样式-1" class="headerlink" title="添加样式"></a><font size="3px">添加样式</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id=&quot;aCoursesList&quot; class=&quot;bg-fa of&quot;&gt;</span><br><span class="line">        &lt;!-- 讲师介绍 开始 --&gt;</span><br><span class="line">        &lt;section class=&quot;container&quot;&gt;</span><br><span class="line">            &lt;header class=&quot;comm-title&quot;&gt;</span><br><span class="line">                &lt;h2 class=&quot;fl tac&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;c-333&quot;&gt;讲师介绍&lt;/span&gt;</span><br><span class="line">                &lt;/h2&gt;</span><br><span class="line">            &lt;/header&gt;</span><br><span class="line">            &lt;div class=&quot;t-infor-wrap&quot;&gt;</span><br><span class="line">                &lt;!-- 讲师基本信息 --&gt;</span><br><span class="line">                &lt;section class=&quot;fl t-infor-box c-desc-content&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;mt20 ml20&quot;&gt;</span><br><span class="line">                        &lt;section class=&quot;t-infor-pic&quot;&gt;</span><br><span class="line">                            &lt;img v-if=&quot;teacherObj.avatar!==&apos;&apos;&quot; :src=&quot;teacherObj.avatar&quot; style=&quot;width:270px;height:270px;&quot;/&gt;</span><br><span class="line">                            </span><br><span class="line">                            &lt;img v-else src=&quot;~/assets/img/avatar-boy.gif&quot; style=&quot;width:270px;height:270px;&quot;/&gt;</span><br><span class="line">                        &lt;/section&gt;</span><br><span class="line">                        &lt;h3 class=&quot;hLh30&quot;&gt;</span><br><span class="line">                            &lt;span class=&quot;fsize24 c-333&quot;&gt;&#123;&#123;teacherObj.name&#125;&#125;&amp;nbsp;</span><br><span class="line">                                &lt;span v-if=&quot;teacherObj.level===1&quot;&gt;高级讲师&lt;/span&gt;</span><br><span class="line">                                &lt;span v-else&gt;首席讲师&lt;/span&gt;</span><br><span class="line">                            &lt;/span&gt;</span><br><span class="line">                        &lt;/h3&gt;</span><br><span class="line">                        &lt;section class=&quot;mt10&quot;&gt;</span><br><span class="line">                            &lt;span class=&quot;t-tag-bg&quot;&gt;&#123;&#123;teacherObj.intro&#125;&#125;&lt;/span&gt;</span><br><span class="line">                        &lt;/section&gt;</span><br><span class="line">                        &lt;section class=&quot;t-infor-txt&quot;&gt;</span><br><span class="line">                            &lt;p class=&quot;mt20&quot;&gt;&#123;&#123;teacherObj.career&#125;&#125;&lt;/p&gt;</span><br><span class="line">                        &lt;/section&gt;</span><br><span class="line">                        &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/section&gt;</span><br><span class="line">                &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;section class=&quot;mt30&quot;&gt;</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;header class=&quot;comm-title all-teacher-title c-course-content&quot;&gt;</span><br><span class="line">                        &lt;h2 class=&quot;fl tac&quot;&gt;</span><br><span class="line">                            &lt;span class=&quot;c-333&quot;&gt;主讲课程&lt;/span&gt;</span><br><span class="line">                        &lt;/h2&gt;</span><br><span class="line">                        &lt;section class=&quot;c-tab-title&quot;&gt;</span><br><span class="line">                            &lt;a href=&quot;javascript: void(0)&quot;&gt;&amp;nbsp;&lt;/a&gt;</span><br><span class="line">                        &lt;/section&gt;</span><br><span class="line">                    &lt;/header&gt;</span><br><span class="line">                    &lt;!-- /无数据提示 开始--&gt;</span><br><span class="line">                    &lt;section class=&quot;no-data-wrap&quot; v-if=&quot;courseList.id===&apos;&apos;&quot;&gt;</span><br><span class="line">                        &lt;em class=&quot;icon30 no-data-ico&quot;&gt;&amp;nbsp;&lt;/em&gt;</span><br><span class="line">                        &lt;span class=&quot;c-666 fsize14 ml10 vam&quot;&gt;没有相关数据，小编正在努力整理中...&lt;/span&gt;</span><br><span class="line">                    &lt;/section&gt;</span><br><span class="line">                    &lt;!-- /无数据提示 结束--&gt;</span><br><span class="line">                    &lt;article class=&quot;comm-course-list&quot;&gt;</span><br><span class="line">                        &lt;ul class=&quot;of&quot;&gt;</span><br><span class="line">                            &lt;li v-for=&quot;course in courseList&quot; :key=&quot;course.id&quot;&gt;</span><br><span class="line">                                &lt;div class=&quot;cc-l-wrap&quot;&gt;</span><br><span class="line">                                    &lt;section class=&quot;course-img&quot;&gt;</span><br><span class="line">                                        &lt;img v-if=&quot;course.cover!==null&quot; :src=&quot;course.cover&quot; class=&quot;img-responsive&quot; &gt;</span><br><span class="line">                                        &lt;img v-else src=&quot;~/assets/img/video.jpg&quot; class=&quot;img-responsive&quot;&gt;</span><br><span class="line">                                        &lt;div class=&quot;cc-mask&quot;&gt;</span><br><span class="line">                                            &lt;a href=&quot;#&quot; title=&quot;开始学习&quot; target=&quot;_blank&quot; class=&quot;comm-btn c-btn-1&quot;&gt;开始学习&lt;/a&gt;</span><br><span class="line">                                        &lt;/div&gt;</span><br><span class="line">                                    &lt;/section&gt;</span><br><span class="line">                                    &lt;h3 class=&quot;hLh30 txtOf mt10&quot;&gt;</span><br><span class="line">                                        &lt;a href=&quot;#&quot; :title=&quot;course.title&quot; target=&quot;_blank&quot; class=&quot;course-title fsize18 c-333&quot;&gt;</span><br><span class="line">                                            &#123;&#123;course.title&#125;&#125;</span><br><span class="line">                                        &lt;/a&gt;</span><br><span class="line">                                    &lt;/h3&gt;</span><br><span class="line">                                &lt;/div&gt;</span><br><span class="line">                            &lt;/li&gt;</span><br><span class="line">                        &lt;/ul&gt;</span><br><span class="line">                        &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;/article&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/section&gt;</span><br><span class="line">        &lt;/section&gt;</span><br><span class="line">        &lt;!-- &#123;&#123;teacherObj.name&#125;&#125;</span><br><span class="line">        &#123;&#123;teacherObj.intro&#125;&#125;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for=&quot;course in courseList&quot; :key=&quot;course.id&quot;&gt;</span><br><span class="line">                &#123;&#123;course.title&#125;&#125;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt; --&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<h3 id="有数据"><a href="#有数据" class="headerlink" title="有数据"></a><font size="3px">有数据</font></h3><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/singleteacher.png" alt></p>
+<h3 id="无数据"><a href="#无数据" class="headerlink" title="无数据"></a><font size="3px">无数据</font></h3><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/singleteacher2.png" alt></p>
+<h1 id="课程列表"><a href="#课程列表" class="headerlink" title=" 课程列表"></a><font size="4px"> 课程列表</font></h1><h2 id="请求分页查询-FrontEduCourseController"><a href="#请求分页查询-FrontEduCourseController" class="headerlink" title="请求分页查询 - FrontEduCourseController"></a><font size="3px">请求分页查询 - FrontEduCourseController</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.online.edu.eduservice.controller.front;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.online.edu.common.R;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.entity.EduCourse;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.entity.front.query.FrontCourseInfo;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.service.EduCourseService;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiOperation;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/eduservice/front/edu-course"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FrontEduCourseController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    EduCourseService eduCourseService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation</span>(<span class="string">"课程分页查询"</span>)</span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/listCourses/&#123;current&#125;/&#123;size&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">listCourses</span><span class="params">(@PathVariable String current,</span></span></span><br><span class="line"><span class="function"><span class="params">                         @PathVariable String size)</span></span>&#123;</span><br><span class="line">        Map&lt;String,Object&gt; courses = eduCourseService.frontSelectPage(current,size);</span><br><span class="line">        <span class="keyword">return</span> R.ok().data(<span class="string">"items"</span>,courses);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询实现-EduCourseServiceImpl"><a href="#查询实现-EduCourseServiceImpl" class="headerlink" title="查询实现 - EduCourseServiceImpl"></a><font size="3px">查询实现 - EduCourseServiceImpl</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//前台分页查询课程信息</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String,Object&gt; <span class="title">frontSelectPage</span><span class="params">(String current, String size)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Long currentPage = Long.parseLong(current);</span><br><span class="line">    Long pageSize = Long.parseLong(size);</span><br><span class="line"></span><br><span class="line">    Page&lt;EduCourse&gt; page = <span class="keyword">new</span> Page&lt;&gt;(currentPage,pageSize);</span><br><span class="line"><span class="comment">//        QueryWrapper&lt;EduCourse&gt; queryWrapper = new QueryWrapper&lt;&gt;();</span></span><br><span class="line"><span class="comment">//        queryWrapper.orderByAsc("id");</span></span><br><span class="line"></span><br><span class="line">    Page&lt;EduCourse&gt; eduCoursePage = baseMapper.selectPage(page,<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">    Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">"total"</span>,eduCoursePage.getTotal());</span><br><span class="line">    map.put(<span class="string">"courses"</span>,eduCoursePage.getRecords());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> map;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试swagger-ui"><a href="#测试swagger-ui" class="headerlink" title="测试swagger-ui"></a><font size="3px">测试swagger-ui</font></h2><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/courselist.png" alt></p>
+<h2 id="前台封装请求方法-api-course-js"><a href="#前台封装请求方法-api-course-js" class="headerlink" title="前台封装请求方法-api/course.js"></a><font size="3px">前台封装请求方法-api/course.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">'@/utils/request'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> base = <span class="string">'/eduservice/front/edu-course'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    listCourses(current,size)&#123;</span><br><span class="line">        <span class="keyword">return</span> request(&#123;</span><br><span class="line">            url:<span class="string">`<span class="subst">$&#123;base&#125;</span>/listCourses/<span class="subst">$&#123;current&#125;</span>/<span class="subst">$&#123;size&#125;</span>`</span>,</span><br><span class="line">            method:<span class="string">'get'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="调用请求-pages-course-index-vue"><a href="#调用请求-pages-course-index-vue" class="headerlink" title="调用请求 - pages/course/index.vue"></a><font size="3px">调用请求 - pages/course/index.vue</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for=&quot;course in courseList&quot; :key=&quot;course.id&quot;&gt;</span><br><span class="line">                &#123;&#123;course.title&#125;&#125;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;el-pagination</span><br><span class="line">          :current-page=&quot;current&quot;</span><br><span class="line">          :page-size=&quot;size&quot;</span><br><span class="line">          :total=&quot;total&quot;</span><br><span class="line">          background</span><br><span class="line">          style=&quot;padding: 30px 0; text-align: center;&quot;</span><br><span class="line">          layout=&quot;total, prev, pager, next, jumper&quot;</span><br><span class="line">          @current-change=&quot;getCourseList&quot;/&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import course from &apos;@/api/course&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            courseList: [],</span><br><span class="line">            current: 1,</span><br><span class="line">            size: 3,</span><br><span class="line">            total: 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created()&#123;</span><br><span class="line">        this.getCourseList()</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        getCourseList(current=1)&#123;</span><br><span class="line">            this.current = current</span><br><span class="line">            course.listCourses(this.current,this.size).then(response=&gt;&#123;</span><br><span class="line">                this.courseList = response.data.data.items.courses</span><br><span class="line">                this.total = response.data.data.items.total</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现页面-得到数据"><a href="#实现页面-得到数据" class="headerlink" title="实现页面 - 得到数据"></a><font size="3px">实现页面 - 得到数据</font></h2><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/courselistfron.png" alt></p>
+<h2 id="添加样式-2"><a href="#添加样式-2" class="headerlink" title="添加样式"></a><font size="3px">添加样式</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id=&quot;aCoursesList&quot; class=&quot;bg-fa of&quot;&gt;</span><br><span class="line">        &lt;!-- /课程列表 开始 --&gt;</span><br><span class="line">        &lt;section class=&quot;container&quot;&gt;</span><br><span class="line">            &lt;header class=&quot;comm-title&quot;&gt;</span><br><span class="line">                &lt;h2 class=&quot;fl tac&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;c-333&quot;&gt;全部课程&lt;/span&gt;</span><br><span class="line">                &lt;/h2&gt;</span><br><span class="line">            &lt;/header&gt;</span><br><span class="line">            &lt;div class=&quot;mt40&quot;&gt;</span><br><span class="line">                &lt;!-- /无数据提示 开始--&gt;</span><br><span class="line">                &lt;section class=&quot;no-data-wrap&quot; v-if=&quot;courseList.length===0&quot;&gt;</span><br><span class="line">                    &lt;em class=&quot;icon30 no-data-ico&quot;&gt;&amp;nbsp;&lt;/em&gt;</span><br><span class="line">                    &lt;span class=&quot;c-666 fsize14 ml10 vam&quot;&gt;没有相关数据，小编正在努力整理中...&lt;/span&gt;</span><br><span class="line">                &lt;/section&gt;</span><br><span class="line">                &lt;!-- /无数据提示 结束--&gt;</span><br><span class="line">                &lt;article class=&quot;comm-course-list&quot;&gt;</span><br><span class="line">                    &lt;ul class=&quot;of&quot; id=&quot;bna&quot;&gt;</span><br><span class="line">                        &lt;li v-for=&quot;course in courseList&quot; :key=&quot;course.id&quot;&gt;</span><br><span class="line">                            &lt;div class=&quot;cc-l-wrap&quot;&gt;</span><br><span class="line">                                &lt;section class=&quot;course-img&quot;&gt;</span><br><span class="line">                                    &lt;img v-if=&quot;course.cover!==null&amp;&amp;course.cover!==&apos;&apos;&quot; :src=&quot;course.cover&quot; class=&quot;img-responsive&quot; &gt;</span><br><span class="line">                                    &lt;img v-else src=&quot;~/assets/img/video.jpg&quot; class=&quot;img-responsive&quot;&gt;</span><br><span class="line">                                    &lt;div class=&quot;cc-mask&quot;&gt;</span><br><span class="line">                                        &lt;a :href=&quot;`/course/`+course.id&quot; title=&quot;开始学习&quot; class=&quot;comm-btn c-btn-1&quot;&gt;开始学习&lt;/a&gt;</span><br><span class="line">                                    &lt;/div&gt;</span><br><span class="line">                                &lt;/section&gt;</span><br><span class="line">                                &lt;h3 class=&quot;hLh30 txtOf mt10&quot;&gt;</span><br><span class="line">                                    &lt;a :href=&quot;`/course/`+course.id&quot; :title=&quot;course.title&quot; class=&quot;course-title fsize18 c-333&quot;&gt;</span><br><span class="line">                                       &#123;&#123;course.title&#125;&#125;   </span><br><span class="line">                                    &lt;/a&gt;</span><br><span class="line">                                &lt;/h3&gt;</span><br><span class="line">                                &lt;section class=&quot;mt10 hLh20 of&quot;&gt;</span><br><span class="line">                                    &lt;span class=&quot;fr jgTag bg-green&quot;&gt;</span><br><span class="line">                                        &lt;i class=&quot;c-fff fsize12 f-fA&quot; v-if=&quot;Number(course.price)===0&quot;&gt;免费&lt;/i&gt;</span><br><span class="line">                                        &lt;i class=&quot;c-fff fsize12 f-fA&quot; v-else&gt;收费&lt;/i&gt;</span><br><span class="line">                                    &lt;/span&gt;</span><br><span class="line">                                    &lt;span class=&quot;fl jgAttr c-ccc f-fA&quot;&gt;</span><br><span class="line">                                        &lt;i class=&quot;c-999 f-fA&quot;&gt;&#123;&#123;course.viewCount&#125;&#125;人学习&lt;/i&gt;</span><br><span class="line">                                        &lt;!-- |</span><br><span class="line">                                        &lt;i class=&quot;c-999 f-fA&quot;&gt;123评论&lt;/i&gt; --&gt;</span><br><span class="line">                                    &lt;/span&gt;</span><br><span class="line">                                &lt;/section&gt;</span><br><span class="line">                            &lt;/div&gt;</span><br><span class="line">                        &lt;/li&gt;</span><br><span class="line">                    &lt;/ul&gt;</span><br><span class="line">                    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span><br><span class="line">                &lt;/article&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/section&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- &lt;ul&gt;</span><br><span class="line">            &lt;li v-for=&quot;course in courseList&quot; :key=&quot;course.id&quot;&gt;</span><br><span class="line">                &#123;&#123;course.title&#125;&#125;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt; --&gt;</span><br><span class="line">        &lt;el-pagination</span><br><span class="line">          :current-page=&quot;current&quot;</span><br><span class="line">          :page-size=&quot;size&quot;</span><br><span class="line">          :total=&quot;total&quot;</span><br><span class="line">          background</span><br><span class="line">          style=&quot;padding: 30px 0; text-align: center;&quot;</span><br><span class="line">          layout=&quot;total, prev, pager, next, jumper&quot;</span><br><span class="line">          @current-change=&quot;getCourseList&quot;/&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="页面"><a href="#页面" class="headerlink" title="页面"></a><font size="3px">页面</font></h2><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/frontcourselist.png" alt></p>
+<h1 id="单个课程页面"><a href="#单个课程页面" class="headerlink" title=" 单个课程页面"></a><font size="4px"> 单个课程页面</font></h1><h2 id="查询课程表-描述表-讲师表-科目表-组合显示"><a href="#查询课程表-描述表-讲师表-科目表-组合显示" class="headerlink" title="查询课程表+描述表+讲师表+科目表 - 组合显示"></a><font size="3px">查询课程表+描述表+讲师表+科目表 - 组合显示</font></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> c.id,c.title,c.price,c.cover,c.view_count,c.lesson_num,c.buy_count,</span><br><span class="line">			 cd.description,</span><br><span class="line">			 et.id teacherId,et.name teacherName,et.avatar,et.intro,</span><br><span class="line">			 es.id subjecId</span><br><span class="line"><span class="keyword">from</span> edu_course c</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> edu_course_description cd <span class="keyword">on</span> c.id=cd.id</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> edu_teacher et <span class="keyword">on</span> c.teacher_id=et.id</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> edu_subject es <span class="keyword">on</span> c.subject_id = es.id</span><br><span class="line"><span class="keyword">where</span> c.id = <span class="string">'1235822849831206914'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="FrontCourseInfo-查询组合对象"><a href="#FrontCourseInfo-查询组合对象" class="headerlink" title="FrontCourseInfo - 查询组合对象"></a><font size="3px">FrontCourseInfo - 查询组合对象</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.online.edu.eduservice.entity.front.query;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.entity.query.QueryChapter;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiModelProperty;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiParam;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FrontCourseInfo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"id"</span>)</span><br><span class="line">    <span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"课程标题"</span>)</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"课程封面"</span>)</span><br><span class="line">    <span class="keyword">private</span> String cover;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"课程总价"</span>)</span><br><span class="line">    <span class="keyword">private</span> BigDecimal price;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"总课时"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> lessonNum;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"销售数量"</span>)</span><br><span class="line">    <span class="keyword">private</span> Long buyCount;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"浏览数量"</span>)</span><br><span class="line">    <span class="keyword">private</span> Long viewCount;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"课程描述"</span>)</span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"讲师ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> String teacherId;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"讲师姓名"</span>)</span><br><span class="line">    <span class="keyword">private</span> String teacherName;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"讲师头像"</span>)</span><br><span class="line">    <span class="keyword">private</span> String avatar;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"讲师资历"</span>)</span><br><span class="line">    <span class="keyword">private</span> String intro;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"科目类别"</span>)</span><br><span class="line">    <span class="keyword">private</span> String subjectName;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"科目ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> String subjectId;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"章节+小节"</span>)</span><br><span class="line">    <span class="keyword">private</span> List&lt;QueryChapter&gt; chapters;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="EduTeacherMapper-xml-查询语句"><a href="#EduTeacherMapper-xml-查询语句" class="headerlink" title="EduTeacherMapper.xml - 查询语句"></a><font size="3px">EduTeacherMapper.xml - 查询语句</font></h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"frontGetAllCourseInfo"</span> <span class="attr">resultType</span>=<span class="string">"com.online.edu.eduservice.entity.front.query.FrontCourseInfo"</span>&gt;</span></span><br><span class="line">    select c.id,c.title,c.price,c.cover,c.view_count,c.lesson_num,c.buy_count,</span><br><span class="line">   cd.description,</span><br><span class="line">   et.id teacherId,et.name teacherName,et.avatar,et.intro,</span><br><span class="line">   es.id subjectId</span><br><span class="line">    from edu_course c</span><br><span class="line">         left outer join edu_course_description cd on c.id=cd.id</span><br><span class="line">         left outer join edu_teacher et on c.teacher_id=et.id</span><br><span class="line">         left outer join edu_subject es on c.subject_id = es.id</span><br><span class="line">    where c.id = #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="EduCourseMapper-定义查询方法"><a href="#EduCourseMapper-定义查询方法" class="headerlink" title="EduCourseMapper - 定义查询方法"></a><font size="3px">EduCourseMapper - 定义查询方法</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">EduCourseMapper</span> <span class="keyword">extends</span> <span class="title">BaseMapper</span>&lt;<span class="title">EduCourse</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">CourseInfo <span class="title">getAllCourseInfo</span><span class="params">(String id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">FrontCourseInfo <span class="title">frontGetAllCourseInfo</span><span class="params">(String id)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="EduCourseServiceImpl-组合查询结果"><a href="#EduCourseServiceImpl-组合查询结果" class="headerlink" title="EduCourseServiceImpl - 组合查询结果"></a><font size="3px">EduCourseServiceImpl - 组合查询结果</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//得到前台课程信息 = 课程+讲师+描述表+科目表</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> FrontCourseInfo <span class="title">frontGetAllCourseInfo</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    FrontCourseInfo courseInfo = baseMapper.frontGetAllCourseInfo(id);</span><br><span class="line">    <span class="comment">//科目路径</span></span><br><span class="line">    String subjectName = eduSubjectService.getSubjectPath(courseInfo.getSubjectId());</span><br><span class="line">    courseInfo.setSubjectName(subjectName);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//章节</span></span><br><span class="line">    List&lt;QueryChapter&gt; chapters = eduChapterService.selectAllInfo(id);</span><br><span class="line">    courseInfo.setChapters(chapters);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> courseInfo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="FrontEduCourseController"><a href="#FrontEduCourseController" class="headerlink" title="FrontEduCourseController"></a><font size="3px">FrontEduCourseController</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(<span class="string">"单课程信息：课程，讲师，章节，视频"</span>)</span><br><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/getCourseById/&#123;id&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> R <span class="title">getCourseIdById</span><span class="params">(@PathVariable String id)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    FrontCourseInfo courseInfo = eduCourseService.frontGetAllCourseInfo(id);</span><br><span class="line">    <span class="keyword">return</span> R.ok().data(<span class="string">"course"</span>,courseInfo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试swagger-ui-1"><a href="#测试swagger-ui-1" class="headerlink" title="测试swagger-ui"></a><font size="3px">测试swagger-ui</font></h2><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/frontcoursebyid.png" alt></p>
+<h2 id="前台定义路由-course-js"><a href="#前台定义路由-course-js" class="headerlink" title="前台定义路由 - course.js"></a><font size="3px">前台定义路由 - course.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getCourseById(id)&#123;</span><br><span class="line">    <span class="keyword">return</span> request(&#123;</span><br><span class="line">        url:<span class="string">`<span class="subst">$&#123;base&#125;</span>/getCourseById/`</span>+id,</span><br><span class="line">        method: <span class="string">'get'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="单个课程页面-course-id-vue"><a href="#单个课程页面-course-id-vue" class="headerlink" title="单个课程页面 - course/_id.vue"></a><font size="3px">单个课程页面 - course/_id.vue</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &#123;&#123;courseObj.title&#125;&#125;</span><br><span class="line">        &lt;h3&gt;&#123;&#123;courseObj.teacherName&#125;&#125;&lt;/h3&gt;</span><br><span class="line">        &lt;h3&gt;&#123;&#123;courseObj.subjectName&#125;&#125;&lt;/h3&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for=&quot;chapter in chapterList&quot; :key=&quot;chapter.id&quot;&gt;</span><br><span class="line">                - &#123;&#123;chapter.title&#125;&#125;</span><br><span class="line">                &lt;ul&gt;</span><br><span class="line">                    &lt;li v-for=&quot;course in chapter.children&quot; :key=&quot;course.id&quot;&gt;</span><br><span class="line">                       --  &#123;&#123;course.title&#125;&#125;</span><br><span class="line">                    &lt;/li&gt;</span><br><span class="line">                &lt;/ul&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import course from &apos;@/api/course&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            courseObj:&#123;&#125;,</span><br><span class="line">            chapterList: []</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ,created()&#123;</span><br><span class="line">        this.getCourseById(this.$route.params.id)</span><br><span class="line">    &#125;</span><br><span class="line">    ,methods:&#123;</span><br><span class="line">        getCourseById(id)&#123;</span><br><span class="line">            course.getCourseById(id).then(response=&gt;&#123;</span><br><span class="line">                this.courseObj = response.data.data.course</span><br><span class="line">                this.chapterList = response.data.data.course.chapters</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试页面展示数据"><a href="#测试页面展示数据" class="headerlink" title="测试页面展示数据"></a><font size="3px">测试页面展示数据</font></h2><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/singlecourse.png" alt></p>
+<h2 id="添加样式-3"><a href="#添加样式-3" class="headerlink" title="添加样式"></a><font size="3px">添加样式</font></h2><p>描述的显示 v-html 除去html部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id=&quot;aCoursesList&quot; class=&quot;bg-fa of&quot;&gt;</span><br><span class="line">        &lt;!-- /课程详情 开始 --&gt;</span><br><span class="line">        &lt;section class=&quot;container&quot;&gt;</span><br><span class="line">            &lt;section class=&quot;path-wrap txtOf hLh30&quot;&gt;</span><br><span class="line">                &lt;a href=&quot;#&quot; title class=&quot;c-999 fsize14&quot;&gt;首页&lt;/a&gt;</span><br><span class="line">                \</span><br><span class="line">                &lt;a :href=&quot;`/course`&quot; title class=&quot;c-999 fsize14&quot;&gt;课程列表&lt;/a&gt;</span><br><span class="line">                </span><br><span class="line">                &lt;span class=&quot;c-333 fsize14&quot;</span><br><span class="line">                   v-for=&quot;(name,index) in courseObj.subjectName&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">                    \ &#123;&#123;name&#125;&#125;</span><br><span class="line">                &lt;/span&gt;</span><br><span class="line">            &lt;/section&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;article class=&quot;c-v-pic-wrap&quot; style=&quot;height: 357px;&quot;&gt;</span><br><span class="line">                    &lt;section class=&quot;p-h-video-box&quot; id=&quot;videoPlay&quot;&gt;</span><br><span class="line">                        &lt;img v-if=&quot;courseObj.cover!==null&amp;&amp;courseObj.cover!==&apos;&apos;&quot; :src=&quot;courseObj.cover&quot; class=&quot;img-responsive&quot; style=&quot;width: 650px;height: 358px;&quot;&gt;</span><br><span class="line">                        &lt;img v-else src=&quot;~/assets/img/video.jpg&quot; class=&quot;img-responsive&quot; style=&quot;width: 650px;height: 358px;&quot;&gt;</span><br><span class="line">                    &lt;/section&gt;</span><br><span class="line">                &lt;/article&gt;</span><br><span class="line">                &lt;aside class=&quot;c-attr-wrap&quot;&gt;</span><br><span class="line">                    &lt;section class=&quot;ml20 mr15&quot;&gt;</span><br><span class="line">                        &lt;h2 class=&quot;hLh30 txtOf mt15&quot;&gt;</span><br><span class="line">                            &lt;span class=&quot;c-fff fsize24&quot;&gt;&#123;&#123;courseObj.title&#125;&#125;&lt;/span&gt;</span><br><span class="line">                        &lt;/h2&gt;</span><br><span class="line">                        &lt;section class=&quot;c-attr-jg&quot;&gt;</span><br><span class="line">                             &lt;span class=&quot;c-fff&quot;&gt;价格：&lt;/span&gt;</span><br><span class="line">                             &lt;b class=&quot;c-yellow&quot; style=&quot;font-size:24px;&quot;&gt;￥&#123;&#123;courseObj.price&#125;&#125;&lt;/b&gt;</span><br><span class="line">                        &lt;/section&gt;</span><br><span class="line">                        &lt;section class=&quot;c-attr-mt c-attr-undis&quot;&gt;</span><br><span class="line">                            &lt;span class=&quot;c-fff fsize14&quot;&gt;</span><br><span class="line">                                主讲： &#123;&#123;courseObj.teacherName&#125;&#125;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span><br><span class="line">                            &lt;/span&gt;</span><br><span class="line">                        &lt;/section&gt;</span><br><span class="line">                        &lt;section class=&quot;c-attr-mt of&quot;&gt;</span><br><span class="line">                            &lt;span class=&quot;ml10 vam&quot;&gt;</span><br><span class="line">                                &lt;em class=&quot;icon18 scIcon&quot;&gt;&lt;/em&gt;</span><br><span class="line">                                 &lt;a class=&quot;c-fff vam&quot; title=&quot;收藏&quot; href=&quot;#&quot; &gt;收藏&lt;/a&gt;</span><br><span class="line">                            &lt;/span&gt;</span><br><span class="line">                        &lt;/section&gt;</span><br><span class="line">                        &lt;section class=&quot;c-attr-mt&quot;&gt;</span><br><span class="line">                            &lt;a href=&quot;#&quot; title=&quot;立即观看&quot; class=&quot;comm-btn c-btn-3&quot;&gt;立即观看&lt;/a&gt;</span><br><span class="line">                        &lt;/section&gt;</span><br><span class="line">                    &lt;/section&gt;</span><br><span class="line">                &lt;/aside&gt;</span><br><span class="line">                &lt;aside class=&quot;thr-attr-box&quot;&gt;</span><br><span class="line">                    &lt;ol class=&quot;thr-attr-ol clearfix&quot;&gt;</span><br><span class="line">                        &lt;li&gt;</span><br><span class="line">                             &lt;p&gt;&amp;nbsp;&lt;/p&gt;</span><br><span class="line">                             &lt;aside&gt;</span><br><span class="line">                                 &lt;span class=&quot;c-fff f-fM&quot;&gt;购买数&lt;/span&gt;</span><br><span class="line">                                 &lt;br&gt;</span><br><span class="line">                                 &lt;h6 class=&quot;c-fff f-fM mt10&quot;&gt;&#123;&#123;courseObj.buyCount&#125;&#125;&lt;/h6&gt;</span><br><span class="line">                             &lt;/aside&gt;</span><br><span class="line">                        &lt;/li&gt;</span><br><span class="line">                        &lt;li&gt;</span><br><span class="line">                             &lt;p&gt;&amp;nbsp;&lt;/p&gt;</span><br><span class="line">                             &lt;aside&gt;</span><br><span class="line">                                 &lt;span class=&quot;c-fff f-fM&quot;&gt;课时数&lt;/span&gt;</span><br><span class="line">                                 &lt;br&gt;</span><br><span class="line">                                 &lt;h6 class=&quot;c-fff f-fM mt10&quot;&gt;&#123;&#123;courseObj.lessonNum&#125;&#125;&lt;/h6&gt;</span><br><span class="line">                             &lt;/aside&gt;</span><br><span class="line">                        &lt;/li&gt;</span><br><span class="line">                        &lt;li&gt;</span><br><span class="line">                             &lt;p&gt;&amp;nbsp;&lt;/p&gt;</span><br><span class="line">                             &lt;aside&gt;</span><br><span class="line">                                 &lt;span class=&quot;c-fff f-fM&quot;&gt;浏览数&lt;/span&gt;</span><br><span class="line">                                 &lt;br&gt;</span><br><span class="line">                                 &lt;h6 class=&quot;c-fff f-fM mt10&quot;&gt;&#123;&#123;courseObj.viewCount&#125;&#125;&lt;/h6&gt;</span><br><span class="line">                             &lt;/aside&gt;</span><br><span class="line">                        &lt;/li&gt;</span><br><span class="line">                    &lt;/ol&gt;</span><br><span class="line">                &lt;/aside&gt;</span><br><span class="line">                &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;!-- /课程封面介绍 --&gt;</span><br><span class="line">            &lt;div class=&quot;mt20 c-infor-box&quot;&gt;</span><br><span class="line">                &lt;article class=&quot;fl col-7&quot;&gt;</span><br><span class="line">                    &lt;section class=&quot;mr30&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;i-box&quot;&gt;</span><br><span class="line">                            &lt;div&gt;</span><br><span class="line">                                &lt;section id=&quot;c-i-tabTitle&quot; class=&quot;c-infor-tabTitle c-tab-title&quot;&gt;</span><br><span class="line">                                     &lt;a name=&quot;c-i&quot; class=&quot;current&quot; title=&quot;课程详情&quot;&gt;课程详情&lt;/a&gt;</span><br><span class="line">                                &lt;/section&gt;</span><br><span class="line">                            &lt;/div&gt;</span><br><span class="line">                            &lt;article class=&quot;ml10 mr10 pt20&quot;&gt;</span><br><span class="line">                                &lt;div&gt;</span><br><span class="line">                                    &lt;h6 class=&quot;c-i-content c-infor-title&quot;&gt;</span><br><span class="line">                                        &lt;span&gt;课程介绍&lt;/span&gt;</span><br><span class="line">                                    &lt;/h6&gt;</span><br><span class="line">                                    &lt;div class=&quot;course-txt-body-wrap&quot;&gt;</span><br><span class="line">                                        &lt;section class=&quot;course-txt-body&quot;&gt;</span><br><span class="line">                                            &lt;p v-html=&quot;courseObj.description&quot;&gt;&#123;&#123;courseObj.description&#125;&#125;&lt;/p&gt;</span><br><span class="line">                                        &lt;/section&gt;</span><br><span class="line">                                    &lt;/div&gt;</span><br><span class="line">                                &lt;/div&gt;</span><br><span class="line">                                &lt;!-- /课程介绍 --&gt;</span><br><span class="line">                                &lt;div class=&quot;mt50&quot;&gt;</span><br><span class="line">                                    &lt;h6 class=&quot;c-g-content c-infor-title&quot;&gt;</span><br><span class="line">                                        &lt;span&gt;课程大纲&lt;/span&gt;</span><br><span class="line">                                    &lt;/h6&gt;</span><br><span class="line">                                     &lt;section class=&quot;mt20&quot;&gt;</span><br><span class="line">                                         &lt;div class=&quot;lh-menu-wrap&quot;&gt;</span><br><span class="line">                                             &lt;menu id=&quot;lh-menu&quot; class=&quot;lh-menu mt10 mr10&quot;&gt;</span><br><span class="line">                                                 &lt;ul&gt;</span><br><span class="line">                                                      &lt;!-- 文件目录 --&gt;</span><br><span class="line">                                                      &lt;li class=&quot;lh-menu-stair&quot; v-for=&quot;chapter in chapterList&quot; :key=&quot;chapter.id&quot;&gt;</span><br><span class="line">                                                          &lt;a href=&quot;javascript: void(0)&quot; :title=&quot;chapter.title&quot; class=&quot;current-1&quot;&gt;</span><br><span class="line">                                                              &lt;em class=&quot;lh-menu-i-1 icon18 mr10&quot;&gt;&lt;/em&gt;&#123;&#123;chapter.title&#125;&#125;</span><br><span class="line">                                                          &lt;/a&gt;</span><br><span class="line">                                                          &lt;ol class=&quot;lh-menu-ol&quot; style=&quot;display: block;&quot;&gt;</span><br><span class="line">                                                               &lt;li class=&quot;lh-menu-second ml30&quot; v-for=&quot;video in chapter.children&quot; :key=&quot;video.id&quot;&gt;</span><br><span class="line">                                                                   &lt;a href=&quot;#&quot; title&gt;</span><br><span class="line">                                                                       &lt;span class=&quot;fr&quot;&gt;</span><br><span class="line">                                                                           &lt;i class=&quot;free-icon vam mr10&quot; v-if=&quot;!video.isFree&quot;&gt;免费试听&lt;/i&gt;</span><br><span class="line">                                                                       &lt;/span&gt;</span><br><span class="line">                                                                       &lt;em class=&quot;lh-menu-i-2 icon16 mr5&quot;&gt;&amp;nbsp;&lt;/em&gt;&#123;&#123;video.title&#125;&#125;</span><br><span class="line">                                                                   &lt;/a&gt;</span><br><span class="line">                                                               &lt;/li&gt;</span><br><span class="line">                                                          &lt;/ol&gt;</span><br><span class="line">                                                      &lt;/li&gt;</span><br><span class="line">                                                 &lt;/ul&gt;</span><br><span class="line">                                             &lt;/menu&gt;</span><br><span class="line">                                         &lt;/div&gt;</span><br><span class="line">                                     &lt;/section&gt;</span><br><span class="line">                                &lt;/div&gt;</span><br><span class="line">                                &lt;!-- /课程大纲 --&gt;</span><br><span class="line">                            &lt;/article&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/section&gt;</span><br><span class="line">                &lt;/article&gt;</span><br><span class="line">                &lt;aside class=&quot;fl col-3&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;i-box&quot;&gt;</span><br><span class="line">                        &lt;div&gt;</span><br><span class="line">                            &lt;section class=&quot;c-infor-tabTitle c-tab-title&quot;&gt;</span><br><span class="line">                                &lt;a title href=&quot;javascript:void(0)&quot;&gt;主讲讲师&lt;/a&gt;</span><br><span class="line">                            &lt;/section&gt;</span><br><span class="line">                            &lt;section class=&quot;stud-act-list&quot;&gt;</span><br><span class="line">                                 &lt;ul style=&quot;height: auto;&quot;&gt;</span><br><span class="line">                                     &lt;li&gt;</span><br><span class="line">                                         &lt;div class=&quot;u-face&quot;&gt;</span><br><span class="line">                                             &lt;a :href=&quot;`/teacher/`+courseObj.teacherId&quot;&gt;</span><br><span class="line">                                                &lt;img v-if=&quot;courseObj.avatar!==&apos;&apos;&amp;&amp;courseObj.avatar!==null&quot; :src=&quot;courseObj.avatar&quot; width=&quot;50&quot; height=&quot;50&quot; alt/&gt;</span><br><span class="line">                                                &lt;img v-else src=&quot;~/assets/img/avatar-boy.gif&quot; width=&quot;50&quot; height=&quot;50&quot; alt/&gt;</span><br><span class="line">                                             &lt;/a&gt;</span><br><span class="line">                                         &lt;/div&gt;</span><br><span class="line">                                         &lt;section class=&quot;hLh30 txtOf&quot;&gt;</span><br><span class="line">                                             &lt;a class=&quot;c-333 fsize16 fl&quot; :href=&quot;`/teacher/`+courseObj.teacherId&quot;&gt;&#123;&#123;courseObj.teacherName&#125;&#125;&lt;/a&gt;</span><br><span class="line">                                        &lt;/section&gt;</span><br><span class="line">                                        &lt;section class=&quot;hLh20 txtOf&quot;&gt;</span><br><span class="line">                                            &lt;span class=&quot;c-999&quot;&gt;&#123;&#123;courseObj.intro&#125;&#125;&lt;/span&gt;</span><br><span class="line">                                        &lt;/section&gt;</span><br><span class="line">                                     &lt;/li&gt;</span><br><span class="line">                                 &lt;/ul&gt;</span><br><span class="line">                            &lt;/section&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/aside&gt;</span><br><span class="line">                &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/section&gt;                                             </span><br><span class="line">        &lt;!-- &#123;&#123;courseObj.title&#125;&#125;</span><br><span class="line">        &lt;h3&gt;&#123;&#123;courseObj.teacherName&#125;&#125;&lt;/h3&gt;</span><br><span class="line">        &lt;h3&gt;&#123;&#123;courseObj.subjectName&#125;&#125;&lt;/h3&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for=&quot;chapter in chapterList&quot; :key=&quot;chapter.id&quot;&gt;</span><br><span class="line">                - &#123;&#123;chapter.title&#125;&#125;</span><br><span class="line">                &lt;ul&gt;</span><br><span class="line">                    &lt;li v-for=&quot;course in chapter.children&quot; :key=&quot;course.id&quot;&gt;</span><br><span class="line">                       --  &#123;&#123;course.title&#125;&#125;</span><br><span class="line">                    &lt;/li&gt;</span><br><span class="line">                &lt;/ul&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt; --&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import course from &apos;@/api/course&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            courseObj:&#123;&#125;,</span><br><span class="line">            chapterList: []</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ,created()&#123;</span><br><span class="line">        this.getCourseById(this.$route.params.id)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    ,methods:&#123;</span><br><span class="line">        getCourseById(id)&#123;</span><br><span class="line">            course.getCourseById(id).then(response=&gt;&#123;</span><br><span class="line">                this.courseObj = response.data.data.course</span><br><span class="line">                this.chapterList = response.data.data.course.chapters</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a><font size="3px">展示</font></h2><p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/course.gif" alt></p>
+<h1 id="立即观看-添加锚点"><a href="#立即观看-添加锚点" class="headerlink" title="立即观看-添加锚点"></a><font size="3px">立即观看-添加锚点</font></h1><p>跳转至章节部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;#playvideos&quot; title=&quot;立即观看&quot; class=&quot;comm-btn c-btn-3&quot;&gt;立即观看&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;ul id=&quot;playvideos&quot;&gt;</span><br><span class="line">    &lt;!-- 文件目录 --&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="播放页面"><a href="#播放页面" class="headerlink" title="播放页面"></a><font size="4px">播放页面</font></h1><p>点击小节实现跳转</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"`/player/`+video.videoSourceId"</span> <span class="attr">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="播放刷新观看人数-video-js"><a href="#播放刷新观看人数-video-js" class="headerlink" title="播放刷新观看人数-video.js"></a><font size="3px">播放刷新观看人数-video.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">'@/utils/request'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> base = <span class="string">'/videoservice/front/video'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    getVideoInfo(videoSourceId)&#123;</span><br><span class="line">        <span class="keyword">return</span> request(&#123;</span><br><span class="line">            url: <span class="string">`<span class="subst">$&#123;base&#125;</span>/getVideoInfo/`</span>+videoSourceId,</span><br><span class="line">            method: <span class="string">'get'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    updateViewCount(videoSourceId)&#123;</span><br><span class="line">        <span class="keyword">return</span> request(&#123;</span><br><span class="line">            url: <span class="string">'/eduservice/front/edu-video/updateViewCount/'</span>+videoSourceId,</span><br><span class="line">            method:<span class="string">'get'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="后端-controller"><a href="#后端-controller" class="headerlink" title="后端 - controller"></a><font size="3px">后端 - controller</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.online.edu.eduservice.controller.front;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.online.edu.common.R;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.service.EduVideoService;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiOperation;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/eduservice/front/edu-video"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FrontEduVideoController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    EduVideoService eduVideoService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation</span>(<span class="string">"更新观看人数"</span>)</span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/updateViewCount/&#123;videoSourceId&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">updateViewCount</span><span class="params">(@PathVariable String videoSourceId)</span></span>&#123;</span><br><span class="line">        eduVideoService.updateViewCount(videoSourceId);</span><br><span class="line">        <span class="keyword">return</span> R.ok();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="后端-service"><a href="#后端-service" class="headerlink" title="后端 - service"></a><font size="3px">后端 - service</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateViewCount</span><span class="params">(String videoSourceId)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//根据video_source_id查询视频</span></span><br><span class="line">        QueryWrapper&lt;EduVideo&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">        queryWrapper.eq(<span class="string">"video_source_id"</span>,videoSourceId);</span><br><span class="line">        EduVideo video = baseMapper.selectOne(queryWrapper);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//得到视频得课程id</span></span><br><span class="line">        String courseId = video.getCourseId();</span><br><span class="line"></span><br><span class="line">        EduCourse course = courseService.getById(courseId);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//课程中的观看数+1</span></span><br><span class="line">        Long viewCount = course.getViewCount();</span><br><span class="line">        viewCount++;</span><br><span class="line">        course.setViewCount(viewCount);</span><br><span class="line">        courseService.updateById(course);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//更新视频信息</span></span><br><span class="line">        R result = vodClient.getAliyunVideoInfo(video.getVideoSourceId());</span><br><span class="line">        Map&lt;String,Object&gt; map = (Map&lt;String,Object&gt;)result.getData().get(<span class="string">"videoInfo"</span>);</span><br><span class="line">        video.setDuration((Double)map.get(<span class="string">"duration"</span>));</span><br><span class="line">        video.setStatus((String)map.get(<span class="string">"status"</span>));</span><br><span class="line"></span><br><span class="line">        baseMapper.updateById(video);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="新建pages-player-id-vue"><a href="#新建pages-player-id-vue" class="headerlink" title="新建pages/player/_id.vue"></a><font size="3px">新建pages/player/_id.vue</font></h1><p>播放器直接来自阿里云官网</p>
+<p><strong>集成文档：</strong><a href="https://help.aliyun.com/document_detail/51991.html?spm=a2c4g.11186623.2.39.478e192b8VSdEn" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/51991.html?spm=a2c4g.11186623.2.39.478e192b8VSdEn</a></p>
+<p><strong>在线配置：</strong><a href="https://player.alicdn.com/aliplayer/setting/setting.html" target="_blank" rel="noopener">https://player.alicdn.com/aliplayer/setting/setting.html</a></p>
+<p><strong>功能展示：</strong><a href="https://player.alicdn.com/aliplayer/presentation/index.html" target="_blank" rel="noopener">https://player.alicdn.com/aliplayer/presentation/index.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;!-- 阿里云视频播放器样式 --&gt;</span><br><span class="line">        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/aliplayer-min.css&quot; /&gt;</span><br><span class="line">        &lt;!-- 阿里云视频播放器脚本 --&gt;</span><br><span class="line">        &lt;script type=&quot;text/javascript&quot; src=&quot;/js/aliplayer-min.js&quot;&gt;&lt;/script&gt; </span><br><span class="line">        &lt;!-- &lt;link rel=&quot;stylesheet&quot; href=&quot;//g.alicdn.com/de/prismplayer/2.6.0/skins/default/aliplayer-min.css&quot; /&gt; </span><br><span class="line">        &lt;script type=&quot;text/javascript&quot; src=&quot;//g.alicdn.com/de/prismplayer/2.6.0/aliplayer-min.js&quot;&gt;&lt;/script&gt; --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 定义播放器dom --&gt;</span><br><span class="line">        &lt;div  class=&quot;prism-player&quot; id=&quot;J_prismPlayer&quot;&gt;&lt;/div&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import video from &apos;@/api/video&apos;</span><br><span class="line">export default &#123;</span><br><span class="line"></span><br><span class="line">     //layout:&apos;video&apos;,</span><br><span class="line">    asyncData(&#123;params,error&#125;)&#123;</span><br><span class="line">        return video.getVideoInfo(params.id).then(response=&gt;&#123;</span><br><span class="line">            //console.log(response)</span><br><span class="line">            return&#123;</span><br><span class="line">                videoId: params.id,</span><br><span class="line">                playAuth: response.data.data.videoInfo.playAuth,</span><br><span class="line">                cover: response.data.data.videoInfo.coverUrl</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    created()&#123;</span><br><span class="line">        //每次刷新页面，课程观看次数+1</span><br><span class="line">        video.updateViewCount(this.$route.params.id)</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">    * 页面渲染完成时：此时js脚本已加载，Aliplayer已定义，可以使用</span><br><span class="line">    * 如果在created生命周期函数中使用，Aliplayer is not defined错误</span><br><span class="line">    */</span><br><span class="line">    mounted()&#123;</span><br><span class="line">        var player = new Aliplayer(&#123; </span><br><span class="line">            id: &quot;J_prismPlayer&quot;, </span><br><span class="line">            autoplay: true, </span><br><span class="line">            width:&quot;720px&quot;, </span><br><span class="line">            height:&quot;300px&quot;, </span><br><span class="line">            encryptType: &apos;1&apos;,</span><br><span class="line">            vid: this.videoId,</span><br><span class="line">            playauth: this.playAuth,</span><br><span class="line">            cover: this.cover,</span><br><span class="line">            rePlay: false, // 循环播放,</span><br><span class="line">            preload: true,</span><br><span class="line">            controlBarVisibility: &apos;hover&apos;, // 控制条的显示方式：鼠标悬停</span><br><span class="line">            useH5Prism: true, // 播放器类型：html5</span><br><span class="line">            qualitySort: &apos;asc&apos;, // 清晰度排序,</span><br><span class="line">            format: &apos;mp4&apos; // 播放格式</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里 chrome浏览器版本不支持 flv格式播放视频</p>
+<p>将视频转码，这里会将视频转为mp4，m3u8格式</p>
+<p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/zhuanma.png" alt></p>
+<p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/mp.png" alt></p>
+<p><img src="/2019/09/30/在线教育网站搭建十三前台页面搭建/hls.png" alt></p>
+<p>这样flv视频就可以标清版播放</p>
+
+    </div>
+    
+    <div>
+    
+        <div style="margin-top:30px;padding-top:20px;border-top: 1px dashed #b3a9a7;text-align:center;color: #ccc;font-size:20px;">
+        本文结束&nbsp;<i class="fa fa-smile-o"></i>&nbsp;感谢您的阅读</div>
+    
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li><strong>本文标题：</strong><a href="/2019/09/30/在线教育网站搭建十三前台页面搭建/">(十三)在线教育网站搭建-前台页面搭建NUXT</a></li>
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/" title="(十三)在线教育网站搭建-前台页面搭建NUXT">https://www.runaccpeted.com/2019/09/30/在线教育网站搭建十三前台页面搭建/</a>
+  </li>
+  <li><strong>发布时间：</strong>2019年09月30日 - 07:33</li>
+  <li><strong>更新时间：</strong>2020年03月12日 - 02:12</li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
+            
+              <a href="/tags/项目/" rel="tag"><i class="fa fa-tag"></i> 项目</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/29/在线教育网站搭建十二项目统计分析功能/" rel="next" title="(十二)在线教育网站搭建-项目统计分析功能-Echarts">
+                  <i class="fa fa-chevron-left"></i> (十二)在线教育网站搭建-项目统计分析功能-Echarts
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/10/01/在线教育网站搭建十四微信扫码登录/" rel="prev" title="(十四)在线教育网站搭建-微信扫码登录❌注册登录">
+                  (十四)在线教育网站搭建-微信扫码登录❌注册登录 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#服务端渲染技术NUXT"><span class="nav-number">1.</span> <span class="nav-text">服务端渲染技术NUXT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下载demo"><span class="nav-number">2.</span> <span class="nav-text">下载demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录结构"><span class="nav-number">3.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装幻灯片"><span class="nav-number">4.</span> <span class="nav-text">安装幻灯片</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置插件-plugin-nuxt-swiper-plugin-js"><span class="nav-number">4.1.</span> <span class="nav-text">配置插件 - plugin/nuxt-swiper-plugin.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置插件-nuxt-config-js"><span class="nav-number">4.2.</span> <span class="nav-text">配置插件 - nuxt.config.js</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建前台"><span class="nav-number">5.</span> <span class="nav-text">搭建前台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改布局-layouts-default-vue"><span class="nav-number">5.1.</span> <span class="nav-text">修改布局 - layouts/default.vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#course-gt-page-course-index-vue"><span class="nav-number">5.2.</span> <span class="nav-text">/course -&gt; page/course/index.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#页面渲染之前获取所有数据-asyncData"><span class="nav-number">5.2.1.</span> <span class="nav-text">页面渲染之前获取所有数据 - asyncData</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#‘teacher-‘-teacher-id-gt-teacher-id-vue"><span class="nav-number">5.3.</span> <span class="nav-text">‘teacher/‘+teacher.id -&gt; /teacher/_id.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#id-vue"><span class="nav-number">5.3.1.</span> <span class="nav-text">_id.vue</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#按页查询讲师顺序"><span class="nav-number">6.</span> <span class="nav-text">按页查询讲师顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后台查询讲师数据-FrontEduTeacherController"><span class="nav-number">6.1.</span> <span class="nav-text">后台查询讲师数据 - FrontEduTeacherController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后台查询讲师数据-EduTeacherServiceImpl"><span class="nav-number">6.2.</span> <span class="nav-text">后台查询讲师数据 - EduTeacherServiceImpl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后台查询讲师数据-测试swagger-ui"><span class="nav-number">6.3.</span> <span class="nav-text">后台查询讲师数据 - 测试swagger-ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前台-封装axios-同vue的request-js"><span class="nav-number">6.4.</span> <span class="nav-text">前台-封装axios - 同vue的request.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前台-封装请求方法-同vue的api-teacher-js"><span class="nav-number">6.5.</span> <span class="nav-text">前台-封装请求方法 - 同vue的api/teacher.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前台-调用请求方法-同vue的views-index-vue"><span class="nav-number">6.6.</span> <span class="nav-text">前台-调用请求方法 - 同vue的views/index.vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-localhost-3000-teacher"><span class="nav-number">6.7.</span> <span class="nav-text">http://localhost:3000/teacher</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加样式"><span class="nav-number">6.8.</span> <span class="nav-text">添加样式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单个讲师详情页-讲师-所讲课程"><span class="nav-number">7.</span> <span class="nav-text"> 单个讲师详情页- 讲师+所讲课程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后台查询讲师数据-FrontEduTeacherController-1"><span class="nav-number">7.1.</span> <span class="nav-text">后台查询讲师数据 - FrontEduTeacherController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后台查询讲师数据-EduTeacherServiceImpl-1"><span class="nav-number">7.2.</span> <span class="nav-text">后台查询讲师数据 - EduTeacherServiceImpl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后台查询讲师数据-测试swagger-ui-1"><span class="nav-number">7.3.</span> <span class="nav-text">后台查询讲师数据 - 测试swagger-ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前台-封装请求方法-api-teacher-js"><span class="nav-number">7.4.</span> <span class="nav-text">前台-封装请求方法 - api/teacher.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前台-调用请求方法-teacher-id-vue"><span class="nav-number">7.5.</span> <span class="nav-text">前台-调用请求方法 - teacher/_id.vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-localhost-3000-teacher-11"><span class="nav-number">7.6.</span> <span class="nav-text">http://localhost:3000/teacher/11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加样式-1"><span class="nav-number">7.7.</span> <span class="nav-text">添加样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有数据"><span class="nav-number">7.7.1.</span> <span class="nav-text">有数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无数据"><span class="nav-number">7.7.2.</span> <span class="nav-text">无数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程列表"><span class="nav-number">8.</span> <span class="nav-text"> 课程列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#请求分页查询-FrontEduCourseController"><span class="nav-number">8.1.</span> <span class="nav-text">请求分页查询 - FrontEduCourseController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询实现-EduCourseServiceImpl"><span class="nav-number">8.2.</span> <span class="nav-text">查询实现 - EduCourseServiceImpl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试swagger-ui"><span class="nav-number">8.3.</span> <span class="nav-text">测试swagger-ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前台封装请求方法-api-course-js"><span class="nav-number">8.4.</span> <span class="nav-text">前台封装请求方法-api/course.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用请求-pages-course-index-vue"><span class="nav-number">8.5.</span> <span class="nav-text">调用请求 - pages/course/index.vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现页面-得到数据"><span class="nav-number">8.6.</span> <span class="nav-text">实现页面 - 得到数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加样式-2"><span class="nav-number">8.7.</span> <span class="nav-text">添加样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面"><span class="nav-number">8.8.</span> <span class="nav-text">页面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单个课程页面"><span class="nav-number">9.</span> <span class="nav-text"> 单个课程页面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查询课程表-描述表-讲师表-科目表-组合显示"><span class="nav-number">9.1.</span> <span class="nav-text">查询课程表+描述表+讲师表+科目表 - 组合显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FrontCourseInfo-查询组合对象"><span class="nav-number">9.2.</span> <span class="nav-text">FrontCourseInfo - 查询组合对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EduTeacherMapper-xml-查询语句"><span class="nav-number">9.3.</span> <span class="nav-text">EduTeacherMapper.xml - 查询语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EduCourseMapper-定义查询方法"><span class="nav-number">9.4.</span> <span class="nav-text">EduCourseMapper - 定义查询方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EduCourseServiceImpl-组合查询结果"><span class="nav-number">9.5.</span> <span class="nav-text">EduCourseServiceImpl - 组合查询结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FrontEduCourseController"><span class="nav-number">9.6.</span> <span class="nav-text">FrontEduCourseController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试swagger-ui-1"><span class="nav-number">9.7.</span> <span class="nav-text">测试swagger-ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前台定义路由-course-js"><span class="nav-number">9.8.</span> <span class="nav-text">前台定义路由 - course.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单个课程页面-course-id-vue"><span class="nav-number">9.9.</span> <span class="nav-text">单个课程页面 - course/_id.vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试页面展示数据"><span class="nav-number">9.10.</span> <span class="nav-text">测试页面展示数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加样式-3"><span class="nav-number">9.11.</span> <span class="nav-text">添加样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示"><span class="nav-number">9.12.</span> <span class="nav-text">展示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#立即观看-添加锚点"><span class="nav-number">10.</span> <span class="nav-text">立即观看-添加锚点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#播放页面"><span class="nav-number">11.</span> <span class="nav-text">播放页面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#播放刷新观看人数-video-js"><span class="nav-number">11.1.</span> <span class="nav-text">播放刷新观看人数-video.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端-controller"><span class="nav-number">11.2.</span> <span class="nav-text">后端 - controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端-service"><span class="nav-number">11.3.</span> <span class="nav-text">后端 - service</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建pages-player-id-vue"><span class="nav-number">12.</span> <span class="nav-text">新建pages/player/_id.vue</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/a.jpg"
+      alt="Wang Ting">
+  <p class="site-author-name" itemprop="name">Wang Ting</p>
+  <div class="site-description" itemprop="description">技术成长笔记</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">275</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/helloworld1006" title="GitHub &rarr; https://github.com/helloworld1006" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:wangtn01@163.com" title="E-Mail &rarr; mailto:wangtn01@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" title="Weibo &rarr; https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/sinat_32676193" title="CDSN &rarr; https://blog.csdn.net/sinat_32676193" rel="noopener" target="_blank"><i class="fa fa-fw fa-codiepie"></i>CDSN</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      最近阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" title="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" rel="noopener" target="_blank">数学大观</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" title="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" rel="noopener" target="_blank">王道训练营 C语言视频最新教程</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av77638697/?p=3&t=14" title="https://www.bilibili.com/video/av77638697/?p=3&t=14" rel="noopener" target="_blank">浙江大学-研究生机器学习课程</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span>网站总字数&nbsp;<span>
+    <span title="站点总字数">363k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span>阅读总时长&nbsp;<span>
+    <span title="站点阅读时长">10:05</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+  <span class="post-meta-divider">|</span> -->
+  <span id="sitetime"></span>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2018,12,23,00,00,00); //北京时间2018-12-23 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML=" 已运行 "+ diffYears+" 年 "+ diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+  siteTime();
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span>本站总访问量&nbsp;</span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span>本站访客数&nbsp;</span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='96,96,96' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+<script src="/js/utils.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script><script src="/js/bookmark.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('/js/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'XYcjlUMI3JT5ggb51F8oIkwy-gzGzoHsz',
+    appKey: 'OHyypRDYnlmDqCN7vrH85KrL',
+    placeholder: '撰写评论',
+    avatar: 'mm# Gravatar style',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn',
+    avatar_cdn: 'https://www.gravatar.com/avatar/',
+    path: location.pathname
+  });
+}, window.Valine);
+  function ssl_avatar($avatar) {
+     $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
+     return $avatar;
+  }
+</script>
+
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":125,"height":290},"mobile":{"show":true},"react":{"opacity":0.7},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
+</html>

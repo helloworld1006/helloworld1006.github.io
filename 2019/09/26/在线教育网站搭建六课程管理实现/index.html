@@ -1,0 +1,1183 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "4767878b"
+    });
+  daovoice('update');
+  </script>
+
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"falt"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+  (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://www.runaccpeted.com"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+  <meta name="description" content="element步骤条使用">
+<meta name="keywords" content="SpringBoot,项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(六)在线教育网站搭建-课程管理实现-课程信息">
+<meta property="og:url" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/index.html">
+<meta property="og:site_name" content="W.T.的博客">
+<meta property="og:description" content="element步骤条使用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/info.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/chapter.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/publish.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/ininfo.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/insert.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/response-id.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/insert-sql.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/listTeacher.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/cascader.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/response-subject.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/car-code.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/nodeinfo.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/car-success.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/zh.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/tinymce.png">
+<meta property="og:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/insert-console.png">
+<meta property="og:updated_time" content="2020-03-08T11:00:00.345Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(六)在线教育网站搭建-课程管理实现-课程信息">
+<meta name="twitter:description" content="element步骤条使用">
+<meta name="twitter:image" content="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/info.png">
+  <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
+  <link rel="canonical" href="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+
+  <title>(六)在线教育网站搭建-课程管理实现-课程信息 | W.T.的博客</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?59cd4bc54e9d484dff9357727e454c80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container">
+    <div class="headband"></div>
+    <!-- github -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">W.T.的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Every day to be a little better</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">23</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">275</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-schedule">
+      
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-commonweal">
+      
+    
+      
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+  <a href="https://github.com/helloworld1006" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Ting">
+      <meta itemprop="description" content="技术成长笔记">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W.T.的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">(六)在线教育网站搭建-课程管理实现-课程信息
+
+          
+        </h1>
+
+        <div class="post-meta">
+
+           
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-26 12:26:50" itemprop="dateCreated datePublished" datetime="2019-09-26T12:26:50+08:00">2019-09-26</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-08 19:00:00" itemprop="dateModified" datetime="2020-03-08T19:00:00+08:00">2020-03-08</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2019/09/26/在线教育网站搭建六课程管理实现/" class="post-meta-item leancloud_visitors" data-flag-title="(六)在线教育网站搭建-课程管理实现-课程信息" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+          
+           
+           <!--
+            <span class="post-meta-item" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          -->
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">评论：</span>
+    
+    <a title="valine" href="/2019/09/26/在线教育网站搭建六课程管理实现/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/09/26/在线教育网站搭建六课程管理实现/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.7k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center">element步骤条使用</blockquote>
+
+<a id="more"></a>
+
+<h1 id="前端页面-基本功能显示"><a href="#前端页面-基本功能显示" class="headerlink" title="前端页面 - 基本功能显示"></a><font size="4px">前端页面 - 基本功能显示</font></h1><p><a href="https://element.eleme.cn/#/zh-CN/component/steps" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/steps</a></p>
+<h2 id="分配路由"><a href="#分配路由" class="headerlink" title="分配路由"></a><font size="3px">分配路由</font></h2><p>课程大纲，上传课程页面隐藏仅供应路由</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/course'</span>,</span><br><span class="line">  component: Layout,</span><br><span class="line">  redirect: <span class="string">'/course/list'</span>,</span><br><span class="line">  name: <span class="string">'课程管理'</span>,</span><br><span class="line">  meta: &#123; <span class="attr">title</span>: <span class="string">'课程管理'</span>, <span class="attr">icon</span>: <span class="string">'component'</span> &#125;,</span><br><span class="line">  children: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'list'</span>,</span><br><span class="line">      name: <span class="string">'课程列表'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/edu/course/index'</span>),</span><br><span class="line">      meta: &#123; <span class="attr">title</span>: <span class="string">'课程列表'</span>, <span class="attr">icon</span>: <span class="string">'table'</span> &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'info'</span>,</span><br><span class="line">      name: <span class="string">'发布课程'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/edu/course/info'</span>),</span><br><span class="line">      meta: &#123; <span class="attr">title</span>: <span class="string">'发布课程'</span>, <span class="attr">icon</span>: <span class="string">'tree'</span> &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'chapter/:id'</span>,</span><br><span class="line">      name: <span class="string">'课程大纲'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/edu/course/chapter'</span>),</span><br><span class="line">      meta: &#123; <span class="attr">title</span>: <span class="string">'课程大纲'</span>, <span class="attr">icon</span>: <span class="string">'tree'</span> &#125;,</span><br><span class="line">      hidden: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'publish/:id'</span>,</span><br><span class="line">      name: <span class="string">'上传课程'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/edu/course/publish'</span>),</span><br><span class="line">      meta: &#123; <span class="attr">title</span>: <span class="string">'上传课程'</span>, <span class="attr">icon</span>: <span class="string">'tree'</span> &#125;,</span><br><span class="line">      hidden:<span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="课程基本信息-info-vue"><a href="#课程基本信息-info-vue" class="headerlink" title="课程基本信息 - info.vue"></a><font size="3px">课程基本信息 - info.vue</font></h2><p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/info.png" alt></p>
+<p>通过<code>&lt;el-steps :active=&quot;1&quot;&gt;&lt;/el-steps&gt;</code>的active控制哪一个<code>el-step</code>显示，按钮跳转至/course/chapter/1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;app-container&quot;&gt;</span><br><span class="line">        &lt;h2 style=&quot;text-align: center;margin-bottom: 50px;&quot;&gt;发布新课程&lt;/h2&gt;</span><br><span class="line">        &lt;el-steps :active=&quot;1&quot; align-center style=&quot;margin-bottom: 50px;&quot;&gt;</span><br><span class="line">            &lt;el-step title=&quot;填写课程基本信息&quot; icon=&quot;el-icon-edit&quot;&gt;&lt;/el-step&gt;</span><br><span class="line">            &lt;el-step title=&quot;创建课程大纲&quot; icon=&quot;el-icon-document&quot;&gt;&lt;/el-step&gt;</span><br><span class="line">            &lt;el-step title=&quot;提交审核&quot; icon=&quot;el-icon-upload&quot;&gt;&lt;/el-step&gt;</span><br><span class="line">        &lt;/el-steps&gt;</span><br><span class="line">        &lt;el-form label-width=&quot;120px&quot;&gt;</span><br><span class="line">            &lt;el-form-item&gt;</span><br><span class="line">                &lt;el-button :disabled=&quot;saveBtnDisabled&quot; type=&quot;primary&quot; @click=&quot;next&quot;&gt;保存并下一步&lt;/el-button&gt;</span><br><span class="line">            &lt;/el-form-item&gt;</span><br><span class="line">         &lt;/el-form&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        next()&#123;</span><br><span class="line">            this.$router.push(&#123;</span><br><span class="line">                path:&quot;/course/chapter/1&quot;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="课程大纲-chapter-vue"><a href="#课程大纲-chapter-vue" class="headerlink" title="课程大纲 - chapter.vue"></a><font size="3px">课程大纲 - chapter.vue</font></h2><p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/chapter.png" alt></p>
+<p>设置active为2，创建课程大纲显现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;app-container&quot;&gt;</span><br><span class="line">        &lt;h2 style=&quot;text-align: center;margin-bottom: 50px;&quot;&gt;发布新课程&lt;/h2&gt;</span><br><span class="line">        &lt;el-steps :active=&quot;2&quot; align-center style=&quot;margin-bottom: 50px;&quot;&gt;</span><br><span class="line">            &lt;el-step title=&quot;填写课程基本信息&quot; icon=&quot;el-icon-edit&quot;&gt;&lt;/el-step&gt;</span><br><span class="line">            &lt;el-step title=&quot;创建课程大纲&quot; icon=&quot;el-icon-document&quot;&gt;&lt;/el-step&gt;</span><br><span class="line">            &lt;el-step title=&quot;提交审核&quot; icon=&quot;el-icon-upload&quot;&gt;&lt;/el-step&gt;</span><br><span class="line">        &lt;/el-steps&gt;</span><br><span class="line">        &lt;el-form label-width=&quot;120px&quot;&gt;</span><br><span class="line">            &lt;el-form-item&gt;</span><br><span class="line">                &lt;el-button :disabled=&quot;saveBtnDisabled&quot; type=&quot;primary&quot; @click=&quot;primary&quot;&gt;返回到上一步&lt;/el-button&gt;</span><br><span class="line">                &lt;el-button :disabled=&quot;saveBtnDisabled&quot; type=&quot;primary&quot; @click=&quot;next&quot;&gt;保存并下一步&lt;/el-button&gt;</span><br><span class="line">            &lt;/el-form-item&gt;</span><br><span class="line">         &lt;/el-form&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        next()&#123;</span><br><span class="line">            this.$router.push(&#123;</span><br><span class="line">                path:&quot;/course/publish/1&quot;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        primary()&#123;</span><br><span class="line">            this.$router.push(&#123;</span><br><span class="line">                path:&apos;/course/info&apos;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="提交审核-publish-vue"><a href="#提交审核-publish-vue" class="headerlink" title="提交审核 - publish.vue"></a><font size="3px">提交审核 - publish.vue</font></h2><p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/publish.png" alt></p>
+<p>通过设置active为3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;app-container&quot;&gt;</span><br><span class="line">        &lt;h2 style=&quot;text-align: center;margin-bottom: 50px;&quot;&gt;发布新课程&lt;/h2&gt;</span><br><span class="line">        &lt;el-steps :active=&quot;3&quot; align-center style=&quot;margin-bottom: 50px;&quot;&gt;</span><br><span class="line">            &lt;el-step title=&quot;填写课程基本信息&quot; icon=&quot;el-icon-edit&quot;&gt;&lt;/el-step&gt;</span><br><span class="line">            &lt;el-step title=&quot;创建课程大纲&quot; icon=&quot;el-icon-document&quot;&gt;&lt;/el-step&gt;</span><br><span class="line">            &lt;el-step title=&quot;提交审核&quot; icon=&quot;el-icon-upload&quot;&gt;&lt;/el-step&gt;</span><br><span class="line">        &lt;/el-steps&gt;</span><br><span class="line">        &lt;el-form label-width=&quot;120px&quot;&gt;</span><br><span class="line">            &lt;el-form-item&gt;</span><br><span class="line">                &lt;el-button :disabled=&quot;saveBtnDisabled&quot; type=&quot;primary&quot; @click=&quot;primary&quot;&gt;修改信息&lt;/el-button&gt;</span><br><span class="line">                &lt;el-button :disabled=&quot;saveBtnDisabled&quot; type=&quot;primary&quot; @click=&quot;next&quot;&gt;发布课程&lt;/el-button&gt;</span><br><span class="line">            &lt;/el-form-item&gt;</span><br><span class="line">         &lt;/el-form&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        next()&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;,</span><br><span class="line">        primary()&#123;</span><br><span class="line">            this.$router.push(&#123;</span><br><span class="line">                path:&quot;/course/chapter/1&quot;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="前端功能-课程基本信息填写"><a href="#前端功能-课程基本信息填写" class="headerlink" title="前端功能 - 课程基本信息填写"></a><font size="4px">前端功能 - 课程基本信息填写</font></h1><h2 id="info-vue"><a href="#info-vue" class="headerlink" title="info.vue"></a><font size="3px">info.vue</font></h2><p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/ininfo.png" alt><br>courseObj 携带课程title，lessonNum，price，description用于传给后端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form label-width=&quot;120px&quot; :model=&quot;courseObj&quot;&gt;</span><br><span class="line">            &lt;el-form-item label = &quot;课程标题&quot;&gt;</span><br><span class="line">                &lt;el-input v-model=&quot;courseObj.title&quot; placeholder=&quot;示例 - vue实战项目:从基础到搭建项目视频课程 专业名称注意大小写&quot;/&gt;</span><br><span class="line">            &lt;/el-form-item&gt;</span><br><span class="line">            &lt;el-form-item label=&quot;总课时&quot;&gt;</span><br><span class="line">                &lt;el-tooltip placement=&quot;right&quot; effect=&quot;light&quot;&gt;</span><br><span class="line">                    &lt;div slot=&quot;content&quot;&gt;请填写课程的总课时数&lt;/div&gt;</span><br><span class="line">                    &lt;el-input-number :min=&quot;0&quot; v-model=&quot;courseObj.lessonNum&quot; placeholder=&quot;单位小时&quot;/&gt;</span><br><span class="line">                &lt;/el-tooltip&gt;</span><br><span class="line">                小时</span><br><span class="line">            &lt;/el-form-item&gt;</span><br><span class="line">            &lt;el-form-item label = &quot;课程简介&quot;&gt;</span><br><span class="line">                &lt;el-input v-model=&quot;courseObj.decription&quot; type=&quot;textarea&quot; rows=&quot;5&quot; placeholder=&quot;示例 - 简介 专业名称注意大小写&quot;/&gt;</span><br><span class="line">            &lt;/el-form-item&gt;</span><br><span class="line">            &lt;el-form-item label=&quot;课程价格&quot;&gt;</span><br><span class="line">                &lt;el-tooltip content=&quot;免费课程请设置为0元&quot; placement=&quot;right&quot; effect=&quot;light&quot;&gt;</span><br><span class="line">                   &lt;!--https://element.eleme.cn/#/zh-CN/component/input-number --&gt;</span><br><span class="line">                    &lt;el-input-number :min=&quot;0.00&quot; :precision=&quot;2&quot; v-model=&quot;courseObj.price&quot; controls-position=&quot;right&quot; step=&quot;0.01&quot;/&gt;</span><br><span class="line">                &lt;/el-tooltip&gt;</span><br><span class="line">                元</span><br><span class="line">            &lt;/el-form-item&gt;</span><br><span class="line">            &lt;el-form-item&gt;</span><br><span class="line">                &lt;el-button :disabled=&quot;saveBtnDisabled&quot; type=&quot;primary&quot; @click=&quot;next&quot;&gt;保存并下一步&lt;/el-button&gt;</span><br><span class="line">            &lt;/el-form-item&gt;</span><br><span class="line">         &lt;/el-form&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            saveBtnDisabled:false,</span><br><span class="line">            courseObj:&#123;</span><br><span class="line">                title:&apos;&apos;,</span><br><span class="line">                decription: &apos;&apos;,</span><br><span class="line">                lessonNum: 0,</span><br><span class="line">                price: 0.00</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="后端功能-插入数据到课程表和课程信息表"><a href="#后端功能-插入数据到课程表和课程信息表" class="headerlink" title="后端功能 - 插入数据到课程表和课程信息表"></a><font size="4px">后端功能 - 插入数据到课程表和课程信息表</font></h1><h2 id="EduCoureseDescription"><a href="#EduCoureseDescription" class="headerlink" title="EduCoureseDescription"></a><font size="3px">EduCoureseDescription</font></h2><p>修改id的生成策略</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModelProperty</span>(value = <span class="string">"课程ID"</span>)</span><br><span class="line"><span class="comment">//手动注入id</span></span><br><span class="line"><span class="meta">@TableId</span>(value = <span class="string">"id"</span>, type = IdType.INPUT)</span><br><span class="line"><span class="keyword">private</span> String id;</span><br></pre></td></tr></table></figure>
+
+<h2 id="QueryCourse"><a href="#QueryCourse" class="headerlink" title="QueryCourse"></a><font size="3px">QueryCourse</font></h2><p>承接前端传入的数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.online.edu.eduservice.entity.query;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.annotation.IdType;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.annotation.TableId;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.Api;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiModelProperty;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Api</span>(<span class="string">"课程信息"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueryCourse</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"课程ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"课程讲师ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> String teacherId;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"课程专业ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> String subjectId;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"课程标题"</span>)</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"课程封面图片路径"</span>)</span><br><span class="line">    <span class="keyword">private</span> String cover;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"课程销售价格，设置为0则可免费观看"</span>)</span><br><span class="line">    <span class="keyword">private</span> BigDecimal price;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"总课时"</span>)</span><br><span class="line">    <span class="keyword">private</span> Integer lessonNum;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"课程简介"</span>)</span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="EduCourseServiceImpl-addCourseInfo"><a href="#EduCourseServiceImpl-addCourseInfo" class="headerlink" title="EduCourseServiceImpl - addCourseInfo"></a><font size="3px">EduCourseServiceImpl - addCourseInfo</font></h2><p>课程表和描述表都需要插入</p>
+<p>先根据传入的内容插入到edu_course表中</p>
+<p>两张表是一对一的，故根据生成的id值，插入到edu_course_description表</p>
+<p>将id传给前端，用于以后章节表，上传课程的id传输</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.online.edu.eduservice.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.util.BeanUtil;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.entity.EduCourse;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.entity.EduCourseDescription;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.entity.query.QueryCourse;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.exception.EduException;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.mapper.EduCourseMapper;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.service.EduCourseDescriptionService;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.service.EduCourseService;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.BeanUtils;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EduCourseServiceImpl</span> <span class="keyword">extends</span> <span class="title">ServiceImpl</span>&lt;<span class="title">EduCourseMapper</span>, <span class="title">EduCourse</span>&gt; <span class="keyword">implements</span> <span class="title">EduCourseService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    EduCourseDescriptionService eduCourseDescriptionService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addCourseInfo</span><span class="params">(QueryCourse queryCourse)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//课程基本信息</span></span><br><span class="line">        EduCourse eduCourse = <span class="keyword">new</span> EduCourse();</span><br><span class="line">        BeanUtils.copyProperties(queryCourse,eduCourse);</span><br><span class="line">        <span class="keyword">int</span> flag = baseMapper.insert(eduCourse);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">boolean</span>  result = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(flag==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> EduException(<span class="number">20001</span>,<span class="string">"添加课程信息失败"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//获取课程id对应描述表中的id</span></span><br><span class="line">            String id = eduCourse.getId();</span><br><span class="line">            <span class="comment">//课程描述信息</span></span><br><span class="line">            EduCourseDescription description = <span class="keyword">new</span> EduCourseDescription();</span><br><span class="line">            description.setId(id);</span><br><span class="line">            description.setDescription(queryCourse.getDescription());</span><br><span class="line"></span><br><span class="line">            result = eduCourseDescriptionService.save(description);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result) &#123;</span><br><span class="line">            <span class="keyword">return</span> eduCourse.getId();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="EduCourseController-addCourseInfo"><a href="#EduCourseController-addCourseInfo" class="headerlink" title="EduCourseController - addCourseInfo"></a><font size="3px">EduCourseController - addCourseInfo</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.online.edu.eduservice.controller;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.online.edu.common.R;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.entity.query.QueryCourse;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.service.EduCourseService;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/eduservice/edu-course"</span>)</span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EduCourseController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    EduCourseService eduCourseService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/insertCourse"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">addCourseInfo</span><span class="params">(@ApiParam(<span class="string">"课程信息"</span>)</span> @RequestBody QueryCourse queryCourse)</span>&#123;</span><br><span class="line"></span><br><span class="line">        String id = eduCourseService.addCourseInfo(queryCourse);</span><br><span class="line">        <span class="keyword">if</span>(id!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> R.ok().message(<span class="string">"添加成功"</span>).data(<span class="string">"courseId"</span>,id);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> R.error().message(<span class="string">"添加失败"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试功能"><a href="#测试功能" class="headerlink" title="测试功能"></a><font size="3px">测试功能</font></h2><p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/insert.png" alt></p>
+<p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/response-id.png" alt></p>
+<p>查询数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> c.id,c.title,d.description <span class="keyword">from</span> edu_course c <span class="keyword">left</span> <span class="keyword">join</span> edu_course_description d <span class="keyword">on</span> c.id=d.id</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/insert-sql.png" alt></p>
+<h1 id="课程信息中加入讲师名称"><a href="#课程信息中加入讲师名称" class="headerlink" title="课程信息中加入讲师名称"></a><font size="4px">课程信息中加入讲师名称</font></h1><h2 id="后端查询数据-EduTeacherController-selAll"><a href="#后端查询数据-EduTeacherController-selAll" class="headerlink" title="后端查询数据 - EduTeacherController - selAll()"></a><font size="3px">后端查询数据 - EduTeacherController - selAll()</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"所有讲师列表"</span>)</span><br><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/listTeachers"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> R <span class="title">selectAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">    List&lt;EduTeacher&gt; teachers =eduTeacherService.list(<span class="keyword">null</span>);</span><br><span class="line">    <span class="keyword">return</span> R.ok().data(<span class="string">"items"</span>,teachers);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加查询所有讲师方法-teacher-js"><a href="#添加查询所有讲师方法-teacher-js" class="headerlink" title="添加查询所有讲师方法 - teacher.js"></a><font size="3px">添加查询所有讲师方法 - teacher.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//得到所有讲师信息</span></span><br><span class="line">    getTeacherList()&#123;</span><br><span class="line">        <span class="keyword">return</span> request(&#123;</span><br><span class="line">            url:<span class="string">`<span class="subst">$&#123;base&#125;</span>/listTeachers`</span>,</span><br><span class="line">            method:<span class="string">'get'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="建立下拉框显示所有讲师信息-info-vue"><a href="#建立下拉框显示所有讲师信息-info-vue" class="headerlink" title="建立下拉框显示所有讲师信息 - info.vue"></a><font size="3px">建立下拉框显示所有讲师信息 - info.vue</font></h2><p><a href="https://element.eleme.cn/#/zh-CN/component/select" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/select</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 查询所有讲师 下拉框--&gt;</span><br><span class="line">  &lt;el-form-item label=&quot;课程讲师&quot;&gt;</span><br><span class="line">      &lt;el-select v-model=&quot;courseObj.teacherId&quot; placeholder=&quot;请选择讲师&quot;&gt;</span><br><span class="line">          &lt;el-option </span><br><span class="line">              v-for=&quot;teacher in teacherList&quot; </span><br><span class="line">              :key=&quot;teacher.id&quot;</span><br><span class="line">              :label=&quot;teacher.name&quot;</span><br><span class="line">              :value=&quot;teacher.id&quot;/&gt;</span><br><span class="line">      &lt;/el-select&gt;</span><br><span class="line">  &lt;/el-form-item&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import teacher from &apos;@/api/edu/teacher&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">          return&#123;</span><br><span class="line">              teacherList:[],</span><br><span class="line">          &#125;</span><br><span class="line">     &#125;,</span><br><span class="line">    created()&#123;</span><br><span class="line">        this.getTeacherList()</span><br><span class="line">        //根据路由选择不同操作 插入/更新</span><br><span class="line">        this.init()</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        //得到讲师信息</span><br><span class="line">        getTeacherList()&#123;</span><br><span class="line">            teacher.getTeacherList()</span><br><span class="line">            .then(response=&gt;&#123;</span><br><span class="line">                //console.log(response)</span><br><span class="line">                this.teacherList = response.data.items</span><br><span class="line">             &#125;).catch(respose=&gt;&#123;</span><br><span class="line"></span><br><span class="line">             &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示讲师"><a href="#显示讲师" class="headerlink" title="显示讲师"></a><font size="3px">显示讲师</font></h2><p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/listTeacher.png" alt></p>
+<h1 id="课程信息中加入科目分类信息"><a href="#课程信息中加入科目分类信息" class="headerlink" title="课程信息中加入科目分类信息"></a><font size="4px">课程信息中加入科目分类信息</font></h1><h2 id="导入subject-getSubjectList方法"><a href="#导入subject-getSubjectList方法" class="headerlink" title="导入subject-getSubjectList方法"></a><font size="3px">导入subject-getSubjectList方法</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getSubjectList()&#123;</span><br><span class="line">    <span class="keyword">return</span> request(&#123;</span><br><span class="line">        url:<span class="string">`<span class="subst">$&#123;base&#125;</span>/list`</span>,</span><br><span class="line">        method:<span class="string">'get'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>导入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  import subject from &apos;@/api/edu/subject&apos;</span><br><span class="line">  export default&#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">      return&#123;</span><br><span class="line">         subjectList :[]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created()&#123;</span><br><span class="line">        this.getSubjectList()</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">      //得到科目分级列表</span><br><span class="line">        getSubjectList()&#123;</span><br><span class="line">            subject.getSubjectList().then(response=&gt;&#123;</span><br><span class="line">                this.subjectList = response.data.nestedList</span><br><span class="line">            &#125;).catch()</span><br><span class="line">        &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="多级联动-cascader"><a href="#多级联动-cascader" class="headerlink" title="多级联动 - cascader"></a><font size="3px">多级联动 - cascader</font></h2><p><a href="https://element.eleme.cn/#/zh-CN/component/cascader" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/cascader</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form-item label=&quot;课程分类&quot;&gt;</span><br><span class="line">     &lt;!-- </span><br><span class="line">				props	配置选项</span><br><span class="line">				v-model 选中项绑定值</span><br><span class="line">				options 可选项数据源，键名通过 Props 属性配置</span><br><span class="line">     --&gt;</span><br><span class="line">     &lt;el-cascader</span><br><span class="line">        :props=&quot;defaultProps&quot;</span><br><span class="line">        v-model=&quot;courseObj.subjectId&quot;</span><br><span class="line">        :options=&quot;subjectList&quot;</span><br><span class="line">        &gt;</span><br><span class="line">    &lt;/el-cascader&gt;</span><br><span class="line">&lt;/el-form-item&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default&#123;</span><br><span class="line">  	data()&#123;</span><br><span class="line">  			return()&#123;</span><br><span class="line">            //value	指定选项的值为选项对象的某个属性值</span><br><span class="line">            //label	指定选项标签为选项对象的某个属性值</span><br><span class="line">            //children	指定选项的子选项为选项对象的某个属性值</span><br><span class="line">          	//expandTrigger	次级菜单的展开方式</span><br><span class="line">             //emitPath 在选中节点改变时，是否返回由该节点所在的各级菜单的值所组成的数组，若设置 false，则只返回该节点的值 </span><br><span class="line">            //checkStrictly 来设置父子节点取消选中关联，从而达到选择任意一级选项的目的</span><br><span class="line">   					defaultProps: &#123;</span><br><span class="line">                children: &apos;children&apos;,</span><br><span class="line">                label: &apos;title&apos;,</span><br><span class="line">                value: &apos;id&apos;,</span><br><span class="line">                expandTrigger: &apos;hover&apos;,</span><br><span class="line">                emitPath: false,</span><br><span class="line">                checkStrictly : true </span><br><span class="line">            &#125;</span><br><span class="line"> 			 &#125;</span><br><span class="line">  	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="没有叶节点问题"><a href="#没有叶节点问题" class="headerlink" title="没有叶节点问题"></a><font size="3px" color="#f00">没有叶节点问题</font></h3><p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/cascader.png" alt></p>
+<h3 id="后台传入的无论父子科目都有children变量"><a href="#后台传入的无论父子科目都有children变量" class="headerlink" title="后台传入的无论父子科目都有children变量"></a><font size="3px" color="#f00">后台传入的无论父子科目都有children变量</font></h3><p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/response-subject.png" alt></p>
+<h3 id="而实例中叶科目无children变量"><a href="#而实例中叶科目无children变量" class="headerlink" title="而实例中叶科目无children变量"></a><font size="3px" color="#f00">而实例中叶科目无children变量</font></h3><p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/car-code.png" alt></p>
+<h3 id="试图得到每个节点信息-采用自定义节点内容"><a href="#试图得到每个节点信息-采用自定义节点内容" class="headerlink" title="试图得到每个节点信息-采用自定义节点内容"></a><font size="3px" color="#f00">试图得到每个节点信息-采用自定义节点内容</font></h3><p>可以通过<code>scoped slot</code>对级联选择器的备选项的节点内容进行自定义，scoped slot会传入两个字段 <code>node</code> 和 <code>data</code>，分别表示当前节点的 Node 对象和数据。</p>
+<p>通过dealLeaf(node)方法得到node所有信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form-item label=&quot;课程分类&quot;&gt;</span><br><span class="line">     	&lt;!-- </span><br><span class="line">				props	配置选项</span><br><span class="line">				v-model 选中项绑定值</span><br><span class="line">				options 可选项数据源，键名通过 Props 属性配置</span><br><span class="line">        show-all-levels 仅显示最后一级</span><br><span class="line">        change 当选中节点变化时触发</span><br><span class="line">        --&gt;</span><br><span class="line">     &lt;el-cascader</span><br><span class="line">        :props=&quot;defaultProps&quot;</span><br><span class="line">        v-model=&quot;courseObj.subjectId&quot;</span><br><span class="line">        :options=&quot;subjectList&quot;</span><br><span class="line">        clearable  </span><br><span class="line">        :show-all-levels=&quot;false&quot;</span><br><span class="line">        @change=&quot;handleChange&quot;  </span><br><span class="line">        &gt;</span><br><span class="line">        &lt;template slot-scope=&quot;&#123; node, data &#125;&quot;&gt;</span><br><span class="line">             &lt;!-- 当节点的子节点数为0时，输出节点信息--&gt;</span><br><span class="line">             &lt;span v-if=&quot;data.children.length===0&quot;&gt;</span><br><span class="line">                 &#123;&#123;dealLeaf(node)&#125;&#125;</span><br><span class="line">             &lt;/span&gt;</span><br><span class="line">             &lt;span&gt;&#123;&#123; node.label &#125;&#125;&lt;/span&gt;</span><br><span class="line">             &lt;!-- 得到子节点个数 --&gt;</span><br><span class="line">             &lt;span v-if=&quot;!node.isLeaf&quot;&gt; </span><br><span class="line">                 (&#123;&#123; data.children.length &#125;&#125;) </span><br><span class="line">            &lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">    &lt;/el-cascader&gt; </span><br><span class="line"> &lt;/el-form-item&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default&#123;</span><br><span class="line">    methods:&#123;</span><br><span class="line">      dealLeaf(node)&#123;</span><br><span class="line">        console.log(node)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="控制台得到信息"><a href="#控制台得到信息" class="headerlink" title="控制台得到信息"></a><font size="3px">控制台得到信息</font></h4><p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/nodeinfo.png" alt></p>
+<p>或许可以通过设置hasChildren=false来控制节点是否成为叶节点</p>
+<h4 id="node-hasChildren-false"><a href="#node-hasChildren-false" class="headerlink" title="node.hasChildren=false"></a><font size="3px">node.hasChildren=false</font></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dealLeaf(node)&#123;</span><br><span class="line">    node.hasChildren=false</span><br><span class="line">    console.log(node)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a><font size="3px">运行结果</font></h4><p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/car-success.png" alt></p>
+<h1 id="课程简介采用富文本-Tinymce"><a href="#课程简介采用富文本-Tinymce" class="headerlink" title="课程简介采用富文本-Tinymce"></a><font size="4px">课程简介采用富文本-Tinymce</font></h1><p><a href="https://panjiachen.github.io/vue-element-admin-site/feature/component/rich-editor.html#tinymce" target="_blank" rel="noopener">https://panjiachen.github.io/vue-element-admin-site/feature/component/rich-editor.html#tinymce</a></p>
+<p>将插件引入文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form-item label = &quot;课程简介&quot;&gt;</span><br><span class="line">    &lt;tinymce v-model=&quot;courseObj.description&quot; :height=&quot;200&quot; /&gt;</span><br><span class="line">&lt;/el-form-item&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Tinymce from &apos;@/components/Tinymce&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123; Tinymce &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>默认显示的是英文，修改配置文件</p>
+<p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/zh.png" alt></p>
+<p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/tinymce.png" alt></p>
+<h1 id="测试传输数据"><a href="#测试传输数据" class="headerlink" title="测试传输数据"></a><font size="4px">测试传输数据</font></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  next()&#123;</span><br><span class="line">      console.log(this.courseObj)</span><br><span class="line">      this.$router.push(&#123;</span><br><span class="line">          path:&quot;/course/chapter/&quot;+this.courseObj.id</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>富文本的内容都是本地的，图片被 <code>base64</code>技术转为一长串字符</p>
+<p><img src="/2019/09/26/在线教育网站搭建六课程管理实现/insert-console.png" alt></p>
+<p>description中的内容就是html代码，可以直接输出</p>
+<p>就是生成时间有点长</p>
+<h1 id="封面上传-图片列表缩略图"><a href="#封面上传-图片列表缩略图" class="headerlink" title="封面上传-图片列表缩略图"></a><font size="4px">封面上传-图片列表缩略图</font></h1><p><a href="https://element.eleme.cn/#/zh-CN/component/upload" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/upload</a></p>
+<p>action  上传地址</p>
+<p>name 文件参数名</p>
+<p>on-success 文件上传成功时的钩子  – function(response, file, fileList)</p>
+<p>before-upload上传前的钩子 用于处理是否上传的是图片及图片大小 – function(file)</p>
+<p>before-remove  删除文件之前的钩子，参数为上传的文件和文件列表 – function(file, fileList)</p>
+<p>on-preview 点击文件列表中已上传的文件时的钩子 – function(file)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-upload</span><br><span class="line">    class=&quot;avatar-uploader&quot;</span><br><span class="line">    :action=&quot;path&quot;</span><br><span class="line">    name=&quot;file&quot;</span><br><span class="line">    :on-success=&quot;handleSuccess&quot;</span><br><span class="line">    :on-preview=&quot;handlePreview&quot;</span><br><span class="line">    :before-remove=&quot;handleRemove&quot;</span><br><span class="line">    :before-upload=&quot;handleUpload&quot;</span><br><span class="line">    list-type=&quot;picture&quot;&gt;</span><br><span class="line">    &lt;el-tooltip content=&quot;只能上传jpg/png文件，且不超过500kb&quot; placement=&quot;right&quot; effect=&quot;light&quot;&gt;</span><br><span class="line">        &lt;el-button size=&quot;small&quot; type=&quot;primary&quot; :disabled=&quot;UpoladBtnDisabled&quot;&gt;点击上传&lt;/el-button&gt;</span><br><span class="line">    &lt;/el-tooltip&gt;</span><br><span class="line">&lt;/el-upload&gt;</span><br><span class="line">&lt;!-- 点击查看大图 --&gt;</span><br><span class="line">&lt;el-dialog :visible.sync=&quot;dialogVisible&quot;&gt;</span><br><span class="line">    &lt;img width=&quot;100%&quot; height=&quot;50%&quot; :src=&quot;dialogImageUrl&quot; alt=&quot;&quot;&gt;</span><br><span class="line">&lt;/el-dialog&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  data()&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">      UpoladBtnDisabled:false,</span><br><span class="line">      dialogVisible:false,</span><br><span class="line">      path:&apos;http://localhost:8080/eduservice/upload?param=video&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  methods:&#123;</span><br><span class="line">    		//删除文件之前的钩子</span><br><span class="line">        handleRemove(file, fileLis) &#123;</span><br><span class="line">            //console.log(file, fileList);</span><br><span class="line">            this.UpoladBtnDisabled=false</span><br><span class="line">         &#125;,</span><br><span class="line">         //点击文件列表中已上传的文件时的钩子</span><br><span class="line">        handlePreview(file) &#123;</span><br><span class="line">             //console.log(file)</span><br><span class="line">             this.dialogImageUrl = file.url</span><br><span class="line">             this.dialogVisible = true</span><br><span class="line">         &#125;,</span><br><span class="line">         //文件上传成功时的钩子</span><br><span class="line">         handleSuccess(response,file)&#123;</span><br><span class="line">             //禁用按钮</span><br><span class="line">             this.UpoladBtnDisabled = true</span><br><span class="line"></span><br><span class="line">             //上传封面至oss</span><br><span class="line">             this.courseObj.cover = response.data.path  </span><br><span class="line">             </span><br><span class="line">             this.dialogImageUrl=response.data.path</span><br><span class="line">                 </span><br><span class="line">         &#125;,</span><br><span class="line">         //上传文件之前的钩子 限制文件大小和类型</span><br><span class="line">         handleUpload(file)&#123;</span><br><span class="line">            const isJPG = file.type === &apos;image/jpeg&apos;;</span><br><span class="line">            const isLt2M = file.size / 1024 / 500 &lt; 1;</span><br><span class="line"></span><br><span class="line">            if (!isJPG) &#123;</span><br><span class="line">                this.$message.error(&apos;上传头像图片只能是 JPG 格式!&apos;);</span><br><span class="line">            &#125;</span><br><span class="line">            if (!isLt2M) &#123;</span><br><span class="line">                this.$message.error(&apos;上传头像图片大小不能超过 500kb!&apos;);</span><br><span class="line">            &#125;</span><br><span class="line">            return isJPG &amp;&amp; isLt2M;</span><br><span class="line">         &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a><font size="3px">实现效果</font></h2><video width="800" height="400" controls autoplay loop>
+        <source src="/2019/09/26/在线教育网站搭建六课程管理实现/upload.mp4" type="video/mp4">    
+ </video>
+# <font size="4px">实现上传功能</font>
+
+<h2 id="edu-course-js"><a href="#edu-course-js" class="headerlink" title="edu/course.js"></a><font size="3px">edu/course.js</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">'@/utils/request'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> base = <span class="string">'/eduservice/edu-course'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    insertCourse(courseObj)&#123;</span><br><span class="line">        <span class="keyword">return</span> request(&#123;</span><br><span class="line">            url:<span class="string">`<span class="subst">$&#123;base&#125;</span>/insertCourse`</span>,</span><br><span class="line">            method:<span class="string">'post'</span>,</span><br><span class="line">            data:courseObj</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="view-edu-course-info-vue"><a href="#view-edu-course-info-vue" class="headerlink" title="view/edu/course/info.vue"></a><font size="3px">view/edu/course/info.vue</font></h2><p>上传点击事件在next方法上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  import course from &apos;@/api/edu/course&apos;</span><br><span class="line">  data()&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    next()&#123;</span><br><span class="line">      //根据内容判断实现 插入/更新</span><br><span class="line">      if(this.courseObj.title === &apos;&apos;)&#123;</span><br><span class="line">          </span><br><span class="line">      &#125;else&#123;</span><br><span class="line">          this.insertCourse()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;，</span><br><span class="line">    insertCourse()&#123;</span><br><span class="line">            course.insertCourse(this.courseObj).then(response=&gt;&#123;</span><br><span class="line">            this.$message(&#123;</span><br><span class="line">                type:&apos;success&apos;,</span><br><span class="line">                message:response.message</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">            //console.log(response)</span><br><span class="line">            this.courseObj.id = response.data.courseId</span><br><span class="line">              //成功后跳转至步骤2</span><br><span class="line">            this.$router.push(&#123;</span><br><span class="line">                path:&apos;/course/chapter/&apos;+this.courseObj.id</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">        &#125;).catch(response=&gt;&#123;</span><br><span class="line">            this.$message(&#123;</span><br><span class="line">                type:&apos;error&apos;,</span><br><span class="line">                message:response.message</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+    <div>
+    
+        <div style="margin-top:30px;padding-top:20px;border-top: 1px dashed #b3a9a7;text-align:center;color: #ccc;font-size:20px;">
+        本文结束&nbsp;<i class="fa fa-smile-o"></i>&nbsp;感谢您的阅读</div>
+    
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li><strong>本文标题：</strong><a href="/2019/09/26/在线教育网站搭建六课程管理实现/">(六)在线教育网站搭建-课程管理实现-课程信息</a></li>
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/" title="(六)在线教育网站搭建-课程管理实现-课程信息">https://www.runaccpeted.com/2019/09/26/在线教育网站搭建六课程管理实现/</a>
+  </li>
+  <li><strong>发布时间：</strong>2019年09月26日 - 12:26</li>
+  <li><strong>更新时间：</strong>2020年03月08日 - 19:00</li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
+            
+              <a href="/tags/项目/" rel="tag"><i class="fa fa-tag"></i> 项目</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/25/在线教育网站搭建五课程分类实现/" rel="next" title="(五)在线教育网站搭建-课程分类实现">
+                  <i class="fa fa-chevron-left"></i> (五)在线教育网站搭建-课程分类实现
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/27/在线教育网站搭建七课程大纲填写/" rel="prev" title="在线教育网站搭建七课程大纲填写">
+                  在线教育网站搭建七课程大纲填写 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前端页面-基本功能显示"><span class="nav-number">1.</span> <span class="nav-text">前端页面 - 基本功能显示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分配路由"><span class="nav-number">1.1.</span> <span class="nav-text">分配路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程基本信息-info-vue"><span class="nav-number">1.2.</span> <span class="nav-text">课程基本信息 - info.vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程大纲-chapter-vue"><span class="nav-number">1.3.</span> <span class="nav-text">课程大纲 - chapter.vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交审核-publish-vue"><span class="nav-number">1.4.</span> <span class="nav-text">提交审核 - publish.vue</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端功能-课程基本信息填写"><span class="nav-number">2.</span> <span class="nav-text">前端功能 - 课程基本信息填写</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#info-vue"><span class="nav-number">2.1.</span> <span class="nav-text">info.vue</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后端功能-插入数据到课程表和课程信息表"><span class="nav-number">3.</span> <span class="nav-text">后端功能 - 插入数据到课程表和课程信息表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#EduCoureseDescription"><span class="nav-number">3.1.</span> <span class="nav-text">EduCoureseDescription</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QueryCourse"><span class="nav-number">3.2.</span> <span class="nav-text">QueryCourse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EduCourseServiceImpl-addCourseInfo"><span class="nav-number">3.3.</span> <span class="nav-text">EduCourseServiceImpl - addCourseInfo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EduCourseController-addCourseInfo"><span class="nav-number">3.4.</span> <span class="nav-text">EduCourseController - addCourseInfo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试功能"><span class="nav-number">3.5.</span> <span class="nav-text">测试功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程信息中加入讲师名称"><span class="nav-number">4.</span> <span class="nav-text">课程信息中加入讲师名称</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后端查询数据-EduTeacherController-selAll"><span class="nav-number">4.1.</span> <span class="nav-text">后端查询数据 - EduTeacherController - selAll()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加查询所有讲师方法-teacher-js"><span class="nav-number">4.2.</span> <span class="nav-text">添加查询所有讲师方法 - teacher.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立下拉框显示所有讲师信息-info-vue"><span class="nav-number">4.3.</span> <span class="nav-text">建立下拉框显示所有讲师信息 - info.vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示讲师"><span class="nav-number">4.4.</span> <span class="nav-text">显示讲师</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程信息中加入科目分类信息"><span class="nav-number">5.</span> <span class="nav-text">课程信息中加入科目分类信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入subject-getSubjectList方法"><span class="nav-number">5.1.</span> <span class="nav-text">导入subject-getSubjectList方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多级联动-cascader"><span class="nav-number">5.2.</span> <span class="nav-text">多级联动 - cascader</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#没有叶节点问题"><span class="nav-number">5.2.1.</span> <span class="nav-text">没有叶节点问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后台传入的无论父子科目都有children变量"><span class="nav-number">5.2.2.</span> <span class="nav-text">后台传入的无论父子科目都有children变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#而实例中叶科目无children变量"><span class="nav-number">5.2.3.</span> <span class="nav-text">而实例中叶科目无children变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#试图得到每个节点信息-采用自定义节点内容"><span class="nav-number">5.2.4.</span> <span class="nav-text">试图得到每个节点信息-采用自定义节点内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#控制台得到信息"><span class="nav-number">5.2.4.1.</span> <span class="nav-text">控制台得到信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#node-hasChildren-false"><span class="nav-number">5.2.4.2.</span> <span class="nav-text">node.hasChildren=false</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行结果"><span class="nav-number">5.2.4.3.</span> <span class="nav-text">运行结果</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程简介采用富文本-Tinymce"><span class="nav-number">6.</span> <span class="nav-text">课程简介采用富文本-Tinymce</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试传输数据"><span class="nav-number">7.</span> <span class="nav-text">测试传输数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#封面上传-图片列表缩略图"><span class="nav-number">8.</span> <span class="nav-text">封面上传-图片列表缩略图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现效果"><span class="nav-number">8.1.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#edu-course-js"><span class="nav-number">8.2.</span> <span class="nav-text">edu/course.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#view-edu-course-info-vue"><span class="nav-number">8.3.</span> <span class="nav-text">view/edu/course/info.vue</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/a.jpg"
+      alt="Wang Ting">
+  <p class="site-author-name" itemprop="name">Wang Ting</p>
+  <div class="site-description" itemprop="description">技术成长笔记</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">275</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/helloworld1006" title="GitHub &rarr; https://github.com/helloworld1006" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:wangtn01@163.com" title="E-Mail &rarr; mailto:wangtn01@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" title="Weibo &rarr; https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/sinat_32676193" title="CDSN &rarr; https://blog.csdn.net/sinat_32676193" rel="noopener" target="_blank"><i class="fa fa-fw fa-codiepie"></i>CDSN</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      最近阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" title="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" rel="noopener" target="_blank">数学大观</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" title="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" rel="noopener" target="_blank">王道训练营 C语言视频最新教程</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av77638697/?p=3&t=14" title="https://www.bilibili.com/video/av77638697/?p=3&t=14" rel="noopener" target="_blank">浙江大学-研究生机器学习课程</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span>网站总字数&nbsp;<span>
+    <span title="站点总字数">363k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span>阅读总时长&nbsp;<span>
+    <span title="站点阅读时长">10:05</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+  <span class="post-meta-divider">|</span> -->
+  <span id="sitetime"></span>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2018,12,23,00,00,00); //北京时间2018-12-23 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML=" 已运行 "+ diffYears+" 年 "+ diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+  siteTime();
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span>本站总访问量&nbsp;</span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span>本站访客数&nbsp;</span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='96,96,96' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+<script src="/js/utils.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script><script src="/js/bookmark.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('/js/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'XYcjlUMI3JT5ggb51F8oIkwy-gzGzoHsz',
+    appKey: 'OHyypRDYnlmDqCN7vrH85KrL',
+    placeholder: '撰写评论',
+    avatar: 'mm# Gravatar style',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn',
+    avatar_cdn: 'https://www.gravatar.com/avatar/',
+    path: location.pathname
+  });
+}, window.Valine);
+  function ssl_avatar($avatar) {
+     $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
+     return $avatar;
+  }
+</script>
+
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":125,"height":290},"mobile":{"show":true},"react":{"opacity":0.7},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
+</html>
