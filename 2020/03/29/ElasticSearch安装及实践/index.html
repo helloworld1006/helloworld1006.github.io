@@ -1,0 +1,1172 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "4767878b"
+    });
+  daovoice('update');
+  </script>
+
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"falt"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+  (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://www.runaccpeted.com"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+  <meta name="description" content="elasticsearch kibana logstash ELK 最终选用低版本运行">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticSearch安装及实践">
+<meta property="og:url" content="https://www.runaccepted.com/2020/03/29/ElasticSearch安装及实践/index.html">
+<meta property="og:site_name" content="W.T.的博客">
+<meta property="og:description" content="elasticsearch kibana logstash ELK 最终选用低版本运行">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.runaccepted.com/2020/03/29/ElasticSearch安装及实践/kibanaindex.png">
+<meta property="og:image" content="https://www.runaccepted.com/2020/03/29/ElasticSearch安装及实践/kibana-index.png">
+<meta property="og:image" content="https://www.runaccepted.com/2020/03/29/ElasticSearch安装及实践/kibana.png">
+<meta property="og:image" content="https://www.runaccepted.com/2020/03/29/ElasticSearch安装及实践/logstash.png">
+<meta property="og:image" content="https://www.runaccepted.com/2020/03/29/ElasticSearch安装及实践/result.png">
+<meta property="og:updated_time" content="2020-03-29T10:10:41.813Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ElasticSearch安装及实践">
+<meta name="twitter:description" content="elasticsearch kibana logstash ELK 最终选用低版本运行">
+<meta name="twitter:image" content="https://www.runaccepted.com/2020/03/29/ElasticSearch安装及实践/kibanaindex.png">
+  <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
+  <link rel="canonical" href="https://www.runaccepted.com/2020/03/29/ElasticSearch安装及实践/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+
+  <title>ElasticSearch安装及实践 | W.T.的博客</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?59cd4bc54e9d484dff9357727e454c80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container">
+    <div class="headband"></div>
+    <!-- github -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">W.T.的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Every day to be a little better</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">25</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">19</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">279</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-schedule">
+      
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-commonweal">
+      
+    
+      
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+  <a href="https://github.com/helloworld1006" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2020/03/29/ElasticSearch安装及实践/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Ting">
+      <meta itemprop="description" content="技术成长笔记">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W.T.的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">ElasticSearch安装及实践
+
+          
+        </h1>
+
+        <div class="post-meta">
+
+           
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-29 17:15:01 / 修改时间：18:10:41" itemprop="dateCreated datePublished" datetime="2020-03-29T17:15:01+08:00">2020-03-29</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2020/03/29/ElasticSearch安装及实践/" class="post-meta-item leancloud_visitors" data-flag-title="ElasticSearch安装及实践" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+          
+           
+           <!--
+            <span class="post-meta-item" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          -->
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">评论：</span>
+    
+    <a title="valine" href="/2020/03/29/ElasticSearch安装及实践/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/03/29/ElasticSearch安装及实践/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.2k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>4 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center">elasticsearch kibana logstash ELK 最终选用低版本运行</blockquote>
+
+<a id="more"></a>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a><font size="4px">安装</font></h1><h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a><font size="3px">linux</font></h2><h3 id="ElasticSearch-存储和检索数据"><a href="#ElasticSearch-存储和检索数据" class="headerlink" title="ElasticSearch 存储和检索数据"></a><font size="3px">ElasticSearch 存储和检索数据</font></h3><p><a href="https://www.elastic.co/cn/downloads/elasticsearch" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/elasticsearch</a></p>
+<p>elasticsearch只能用非root启动</p>
+<p>拷贝至/usr/local/elasticsearch-7.6.1</p>
+<p>编译 elasticsearch.yml</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@192 Downloads]# tar zxvf elasticsearch-7.6.1-linux-x86_64.tar.gz</span><br><span class="line">[root@192 Downloads]# ls</span><br><span class="line">elasticsearch-7.6.1  elasticsearch-7.6.1-linux-x86_64.tar.gz  tomcat-users.xml</span><br><span class="line">[root@192 Downloads]# cp -rf elasticsearch-7.6.1 /usr/local/elasticsearch-7.6.1</span><br><span class="line">[root@192 Downloads]# cd /usr/local/elasticsearch-7.6.1</span><br><span class="line">[root@192 elasticsearch-7.6.1]# ls</span><br><span class="line">bin  config  jdk  lib  LICENSE.txt  logs  modules  NOTICE.txt  plugins  README.asciidoc</span><br><span class="line">[root@192 elasticsearch-7.6.1]# cd config</span><br><span class="line">[root@192 config]# ls</span><br><span class="line">elasticsearch.yml  jvm.options  log4j2.properties  role_mapping.yml  roles.yml  users  users_roles</span><br><span class="line">[root@192 config]# nano elasticsearch.yml</span><br></pre></td></tr></table></figure>
+
+<p><strong>elasticsearch.yml</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">cluster.name: es-linux</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> ------------------------------------ Node ------------------------------------</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> Use a descriptive name for the node:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">node.name: node-linux</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> Add custom attributes to the node:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> node.attr.rack: r1</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> ----------------------------------- Paths ------------------------------------</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> Path to directory where to store the data (separate multiple locations by comma):</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">path.data: /usr/local/elasticsearch-7.6.1/data</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> Path to log files:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">path.logs: /usr/local/elasticsearch-7.6.1/logs</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> ----------------------------------- Memory -----------------------------------</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> Lock the memory on startup:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">bootstrap.memory_lock: false</span><br><span class="line">bootstrap.system_call_filter: false</span><br><span class="line"><span class="meta">#</span> ---------------------------------- Network -----------------------------------</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> Set the bind address to a specific IP (IPv4 or IPv6):</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">network.host: 0.0.0.0</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> Set a custom port for HTTP:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">http.port: 9200</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> --------------------------------- Discovery ----------------------------------</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> Pass an initial list of hosts to perform discovery when this node is started:</span><br><span class="line"><span class="meta">#</span> The default list of hosts is ["127.0.0.1", "[::1]"]</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">discovery.zen.ping.unicast.hosts: ["127.0.0.1","192.168.0.100","192.168.0.112"]</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> Bootstrap the cluster using an initial set of master-eligible nodes:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">cluster.initial_master_nodes: ["es-linux"]</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> For more information, consult the discovery and cluster formation module documentation.</span><br><span class="line"><span class="meta">#</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>jvm.options</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-Xms256m</span><br><span class="line">-Xmx256m</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建用户和权限</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@192 bin]# adduser elasticsearch</span><br><span class="line">[root@192 bin]# passwd elasticsearch</span><br><span class="line"></span><br><span class="line">[root@192 local]# chown -R elasticsearch:elasticsearch elasticsearch-7.6.1</span><br></pre></td></tr></table></figure>
+
+<p><font color="#f00">ERROR Unable to invoke factory method in class org.apache.logging.log4j.core.appender.RollingFileAppender for element RollingFile</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@192 bin]# yum install -y log4j</span><br></pre></td></tr></table></figure>
+
+<p><font color="#f00">max file descriptors [4096] for elasticsearch process likely too low, increase to at least [65536]</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@192 bin]# nano /etc/security/limits.conf</span><br><span class="line"></span><br><span class="line">*               soft    nofile          65536</span><br><span class="line">*               hard    nofile          65536</span><br><span class="line">*               soft    nproc           4096</span><br><span class="line">*               hard    nproc           4096</span><br></pre></td></tr></table></figure>
+
+<p><font color="#f00">max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line">vm.max_map_count=262144</span><br><span class="line"></span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<p><strong>运行</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@192 bin]# su elasticsearch</span><br><span class="line">[elasticsearch@192 bin]$ ./elasticsearch</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://192.168.0.113:9200/" target="_blank" rel="noopener">http://192.168.0.113:9200/</a></p>
+<h3 id="Logstash-收集数据保存到es"><a href="#Logstash-收集数据保存到es" class="headerlink" title="Logstash 收集数据保存到es"></a><font size="3px">Logstash 收集数据保存到es</font></h3><p><a href="https://www.elastic.co/cn/downloads/logstash" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/logstash</a> 解压后进入config文件夹下</p>
+<p>nano  config/logstash-sample.conf</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Sample Logstash configuration for creating a simple</span><br><span class="line"><span class="meta">#</span> Beats -&gt; Logstash -&gt; Elasticsearch pipeline.</span><br><span class="line"></span><br><span class="line">input &#123;</span><br><span class="line">  beats &#123;</span><br><span class="line">    port =&gt; 5044</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output &#123;</span><br><span class="line">  elasticsearch &#123;</span><br><span class="line">    hosts =&gt; ["http://localhost:9200"]</span><br><span class="line">    index =&gt; "%&#123;[@metadata][beat]&#125;-%&#123;[@metadata][version]&#125;-%&#123;+YYYY.MM.dd&#125;"</span><br><span class="line">    #user =&gt; "elastic"</span><br><span class="line">    #password =&gt; "changeme"</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>logstash-sample.conf中的内容改为</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">input &#123;</span><br><span class="line">  tcp &#123;</span><br><span class="line">    port =&gt; 4560</span><br><span class="line">    codec =&gt; json_lines</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output &#123;</span><br><span class="line">  elasticsearch &#123;</span><br><span class="line">    hosts =&gt; ["http://192.168.0.113:9200"]</span><br><span class="line">    index =&gt; "applog"</span><br><span class="line">    #user =&gt; "elastic"</span><br><span class="line">    #password =&gt; "changeme"</span><br><span class="line">  &#125;</span><br><span class="line">  stdout&#123; codec =&gt; rubydebug&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>安装json_lines</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./logstash-plugin list|grep json-lines</span><br><span class="line">./logstash-plugin install logstash-codec-json_lines</span><br></pre></td></tr></table></figure>
+
+<h3 id="Kibana-可视化界面"><a href="#Kibana-可视化界面" class="headerlink" title="Kibana 可视化界面"></a><font size="3px">Kibana 可视化界面</font></h3><p><a href="https://www.elastic.co/cn/downloads/kibana" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/kibana</a></p>
+<p>config/kibana.yml</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server.port: 5601</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> To allow connections from remote users</span><br><span class="line">server.host: "192.168.0.100"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> The URLs of the Elasticsearch instances to use for all your queries.</span><br><span class="line">elasticsearch.hosts: ["http://192.168.0.100:9200"]</span><br></pre></td></tr></table></figure>
+
+<p>虚拟机中ELK全开+本机Intellij项目运行 笔记本完全卡死了。。。故采用树莓派安装ELK</p>
+<h2 id="树莓派"><a href="#树莓派" class="headerlink" title="树莓派"></a><font size="3px">树莓派</font></h2><p><a href="https://zhuanlan.zhihu.com/p/23111516" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/23111516</a></p>
+<h3 id="elasticsearch-1-0-1"><a href="#elasticsearch-1-0-1" class="headerlink" title="elasticsearch-1.0.1"></a><font size="3px">elasticsearch-1.0.1</font></h3><p><a href="https://www.elastic.co/cn/downloads/past-releases/elasticsearch-1-0-1" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/past-releases/elasticsearch-1-0-1</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pi@pi:/usr/local $ cd es1</span><br><span class="line">pi@pi:/usr/local/es1 $ ls</span><br><span class="line">bin  config  lib  LICENSE.txt  NOTICE.txt  README.textile</span><br><span class="line">root@pi:/usr/local/es1# cd config</span><br><span class="line">root@pi:/usr/local/es1/config# nano elasticsearch.yml </span><br><span class="line"><span class="meta">#</span> 集群名字，如果要搭集群的话，同个网段内的Elasticsearch应用集群名取得一样就行了，应用会自动广播组成集群的，非常方便</span><br><span class="line">cluster.name: es-pi</span><br><span class="line"><span class="meta">#</span> 节点的名称，这个应用的节点名字叫啥，用于区分同个集群里的不同节点</span><br><span class="line">node.name: "node-pi"</span><br><span class="line"><span class="meta">#</span> 是否为主节点，一个集群里必须有一个主节点，也只能有一个主节点。当出现一个主节点后，其他master: true的节点都只会成为备用主节点，只有当之前的主节点挂了的时候其他备用的节点才会顶上来。</span><br><span class="line">node.master: true</span><br><span class="line"><span class="meta">#</span> 是否是数据节点，一个集群必须要有至少一个数据节点来存储数据</span><br><span class="line">node.data: true</span><br><span class="line"><span class="meta">#</span> 默认这个集群中每个索引的分片数量。Elasticsearch中的数据都是存储在索引（index）中的（不同于sql数据库中的索引的概念），每个索引会被分成多个分片到不同的数据节点中进行保存。这就是一个分布式文件数据库的概念</span><br><span class="line">index.number_of_shards: 1</span><br><span class="line"><span class="meta">#</span> 默认这个集群中每个分片的副本数量。Elasticsearch中的每个分片都会产生等同于该配置数量的副本，副本分片一般不会与主分片存储在相同的主机节点中，当有主机挂掉的时候，该节点上的分片就丢失了，这时，如果设置了副本分片（相当于备份），那就会保证索引的完整性。如果是单节点没有集群的话，这里配置0就可以了</span><br><span class="line">index.number_of_replicas: 0</span><br><span class="line"><span class="meta">#</span> 节点中数据存储的路径，这条不配也没事，默认存储在Elasticsearch文件夹中</span><br><span class="line"><span class="meta">#</span> path.data: /path/to/data</span><br><span class="line"></span><br><span class="line">root@pi:/usr/local/es1/bin# nano elasticsearch.in.sh</span><br><span class="line">root@pi:/usr/local/es1/bin# </span><br><span class="line">ES_MIN_MEM=128m</span><br><span class="line">ES_MAX_MEM=128m</span><br></pre></td></tr></table></figure>
+
+<h3 id="Kibana-3-0-0"><a href="#Kibana-3-0-0" class="headerlink" title="Kibana-3.0.0"></a><font size="3px">Kibana-3.0.0</font></h3><p><a href="https://www.elastic.co/cn/downloads/past-releases/kibana-3-0-0" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/past-releases/kibana-3-0-0</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/home/pi# cd /usr/local/kibana</span><br><span class="line">root@pi:/usr/local/kibana# ls</span><br><span class="line">app  build.txt	config.js  css	favicon.ico  font  img	index.html  LICENSE.md	README.md  vendor</span><br><span class="line">root@pi:/usr/local/kibana# nano config.js</span><br><span class="line"></span><br><span class="line">elasticsearch: "http://192.168.0.112:9200",</span><br></pre></td></tr></table></figure>
+
+<p>kibana需要挂载到tomcat或nignx中显示</p>
+<p>整个文件添加到tomcat的webapps文件夹下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/usr/local/tomcat8/webapps# cp -rf /usr/local/kibana /usr/local/tomcat8/webapps</span><br><span class="line">root@pi:/usr/local/tomcat8/webapps# ls</span><br><span class="line">root@pi:/usr/local/tomcat8/webapps# ls</span><br><span class="line">docs  examples	host-manager  kibana  manager  ROOT</span><br></pre></td></tr></table></figure>
+
+<p>运行tomcat <a href="http://192.168.0.112:8080/kibana/index.html" target="_blank" rel="noopener">http://192.168.0.112:8080/kibana/index.html</a></p>
+<p><img src="/2020/03/29/ElasticSearch安装及实践/kibanaindex.png" alt></p>
+<p>根据索引查找</p>
+<p><img src="/2020/03/29/ElasticSearch安装及实践/kibana-index.png" alt></p>
+<h3 id="logstash-2-0-0"><a href="#logstash-2-0-0" class="headerlink" title="logstash-2.0.0"></a><font size="3px">logstash-2.0.0</font></h3><p><a href="https://www.elastic.co/cn/downloads/past-releases/logstash-2-0-0" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/past-releases/logstash-2-0-0</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/home/pi/Downloads# tar zxvf logstash-2.0.0.tar.gz</span><br><span class="line">root@pi:/home/pi/Downloads# cp -rf logstash-2.0.0 /usr/local/logstash</span><br><span class="line">root@pi:/home/pi# cd /usr/local/logstash</span><br><span class="line">root@pi:/usr/local/logstash# ls</span><br><span class="line">bin  CHANGELOG.md  CONTRIBUTORS  Gemfile  Gemfile.jruby-1.9.lock  lib  LICENSE	logstash.conf  NOTICE.TXT  vendor</span><br><span class="line">root@pi:/usr/local/logstash# cd bin</span><br><span class="line">root@pi:/usr/local/logstash/bin# ls</span><br><span class="line">logstash  logstash.bat	logstash.lib.sh  plugin  plugin.bat  rspec  rspec.bat  setup.bat</span><br><span class="line">root@pi:/usr/local/logstash/bin# ./logstash</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行出错-libjffi-1-2-so"><a href="#运行出错-libjffi-1-2-so" class="headerlink" title="运行出错 libjffi-1.2.so"></a><font size="3px">运行出错 libjffi-1.2.so</font></h4><p><font color="#f00">java.lang.UnsatisfiedLinkError: /usr/local/logstash/vendor/jruby/lib/jni/arm-Linux/libjffi-1.2.so: /usr/local/logstash/vendor/jruby/lib/jni/arm-Linux/libjffi-1.2.so: 无法打开共享对象文件: 没有那个文件或目录</font></p>
+<p><a href="https://discuss.elastic.co/t/logstash-7-x-on-raspberry-pi-4/205348" target="_blank" rel="noopener">https://discuss.elastic.co/t/logstash-7-x-on-raspberry-pi-4/205348</a></p>
+<p><strong>安装texinfo,jruby</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/usr/local/logstash/bin# apt-get install apt-transport-https jruby -y</span><br><span class="line">root@pi:/usr/local/logstash/bin# apt-get install texinfo build-essential ant git -y</span><br></pre></td></tr></table></figure>
+
+<p><font color="#f00">perl-base 5.24.1-3+deb9u6 [无候选版本]</font></p>
+<p><strong>安装perl</strong></p>
+<p><a href="https://packages.debian.org/buster/arm64/perl/download" target="_blank" rel="noopener">https://packages.debian.org/buster/arm64/perl/download</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/usr/local/logstash/bin# nano /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>镜像</span><br><span class="line">deb http://ftp.cn.debian.org/debian buster main </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>升级</span><br><span class="line">root@pi:/usr/local/logstash/bin# apt-get install update</span><br></pre></td></tr></table></figure>
+
+<p><font color="#f00">W: GPG 错误:<a href="http://ftp.us.debian.org/debian" target="_blank" rel="noopener">http://ftp.us.debian.org/debian</a> stretch Release: 由于没有公钥,无W: GPG 错误:<a href="http://ftp.us.debian.org/debian" target="_blank" rel="noopener">http://ftp.us.debian.org/debian</a> stretch Release: 由于没有公钥,无法验证下列签名 NO_PUBKEY &lt;&lt; key&gt;&gt;</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys &lt;&lt;key&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><font color="#f00">W: 目标 Packages (main/binary-armhf/Packages) 在 /etc/apt/sources.list.d/elastic-7.x.list:1和 /etc/apt/sources.list.d/elastic-7.x.list:2 中被配置了多次</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/usr/local/logstash/bin# cd /etc/apt/sources.list.d</span><br><span class="line">root@pi:/etc/apt/sources.list.d# ls</span><br><span class="line">docker.list elastic-7.x.list raspi.list</span><br><span class="line">root@pi:/etc/apt/sources.list.d# rm -r elastic-7.x.list</span><br><span class="line">root@pi:/etc/apt/sources.list.d# sudo apt-get update</span><br><span class="line">root@pi:/etc/apt/sources.list.d#</span><br><span class="line">root@pi:/etc/apt/sources.list.d#</span><br><span class="line">root@pi:/etc/apt/sources.list.d# apt-get install perl</span><br></pre></td></tr></table></figure>
+
+<p><font color="#f00">依旧perl-base 5.24.1-3+deb9u6 [无候选版本]</font></p>
+<p>手动安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/home/pi/Downloads# wget http://www.cpan.org/src/5.0/perl-5.24.1.tar.gz</span><br><span class="line">root@pi:/home/pi/Downloads# tar zxvf perl-5.24.1.tar.gz</span><br><span class="line">root@pi:/home/pi/Downloads# cp -rf perl-5.24.1 /usr/local/perl-5.24.1</span><br><span class="line">root@pi:/home/pi/Downloads# cd /usr/local/perl-5.24.1</span><br><span class="line">root@pi:/usr/local/perl-5.24.1# ./Configure -des -Dprefix=/usr  </span><br><span class="line">root@pi:/usr/local/perl-5.24.1# make  &amp;&amp; make install</span><br><span class="line">root@pi:/usr/local/perl-5.24.1# perl -v</span><br></pre></td></tr></table></figure>
+
+<p><strong>编译jffi库</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/usr/<span class="built_in">local</span><span class="comment"># git clone https://github.com/jnr/jffi 9</span></span><br><span class="line">root@pi:/usr/<span class="built_in">local</span><span class="comment"># cd jffi/</span></span><br><span class="line">root@pi:/usr/<span class="built_in">local</span>/jffi<span class="comment"># ant jar</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>替换jffi</strong></p>
+<p>将/usr/local/logstash/vendor/jruby/lib/jni/arm-Linux下的libjffi-1.2.so 替换为/usr/local/jffi/build/jni/下的libjffi-1.2.so </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/usr/local/jffi# cd /usr/local/logstash/vendor/jruby/lib/jni/arm-Linux</span><br><span class="line">root@pi:/usr/local/logstash/vendor/jruby/lib/jni/arm-Linux# ls</span><br><span class="line">libjffi-1.2.so</span><br><span class="line">root@pi:/usr/local/logstash/vendor/jruby/lib/jni/arm-Linux# cd /usr/local/jffi/build/jni/</span><br><span class="line">root@pi:/usr/local/jffi/build/jni# ls</span><br><span class="line">com_kenai_jffi_Foreign.h		 com_kenai_jffi_Foreign_InValidInstanceHolder.h  com_kenai_jffi_ObjectBuffer.h	jffi		  libjffi-1.2.so</span><br><span class="line">com_kenai_jffi_Foreign_InstanceHolder.h  com_kenai_jffi_Foreign_ValidInstanceHolder.h	 com_kenai_jffi_Version.h	libffi-arm-linux</span><br><span class="line">root@pi:/usr/local/jffi/build/jni# cd /usr/local/logstash/vendor/jruby/lib/jni/arm-Linux</span><br><span class="line">root@pi:/usr/local/logstash/vendor/jruby/lib/jni/arm-Linux# mv libjffi-1.2.so libjffi-1.2.so.old</span><br><span class="line">root@pi:/usr/local/logstash/vendor/jruby/lib/jni/arm-Linux# cd /usr/local/jffi/build/jni/</span><br><span class="line">root@pi:/usr/local/jffi/build/jni# cp libjffi-1.2.so /usr/local/logstash/vendor/jruby/lib/jni/arm-Linux/libjffi-1.2.so</span><br><span class="line">root@pi:/usr/local/jffi/build/jni# cd /usr/local/logstash/vendor/jruby/lib/jni/arm-Linux</span><br><span class="line">root@pi:/usr/local/logstash/vendor/jruby/lib/jni/arm-Linux# ls</span><br><span class="line">libjffi-1.2.so	libjffi-1.2.so.old</span><br><span class="line">root@pi:/usr/local/logstash/vendor/jruby/lib/jni/arm-Linux#</span><br><span class="line">root@pi:/usr/local/logstash/vendor/jruby/lib/jni/arm-Linux#</span><br><span class="line">root@pi:/usr/local/logstash/vendor/jruby/lib/jni/arm-Linux#</span><br><span class="line">root@pi:/usr/local/logstash/vendor/jruby/lib/jni/arm-Linux# cd /usr/local/logstash/bin</span><br><span class="line">root@pi:/usr/local/logstash/bin# ./logstash</span><br><span class="line">io/console not supported; tty will not be manipulated</span><br><span class="line">No command given</span><br><span class="line"></span><br><span class="line">Usage: logstash &lt;command&gt; [command args]</span><br><span class="line">Run a command with the --help flag to see the arguments.</span><br><span class="line">For example: logstash agent --help</span><br><span class="line"></span><br><span class="line">Available commands:</span><br><span class="line">  agent - runs the logstash agent</span><br><span class="line">  version - emits version info about this logstash</span><br><span class="line">root@pi:/usr/local/logstash/bin# ls</span><br><span class="line">logstash  logstash.bat	logstash.lib.sh  plugin  plugin.bat  rspec  rspec.bat  setup.bat</span><br><span class="line">root@pi:/usr/local/logstash/bin# logstash</span><br><span class="line">bash: logstash：未找到命令</span><br><span class="line">root@pi:/usr/local/logstash/bin# ./logstash --help</span><br><span class="line">io/console not supported; tty will not be manipulated</span><br><span class="line">Usage:</span><br><span class="line">    /bin/logstash agent [OPTIONS]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    -f, --config CONFIG_PATH      Load the logstash config from a specific file</span><br><span class="line">                                  or directory.  If a directory is given, all</span><br><span class="line">                                  files in that directory will be concatenated</span><br><span class="line">                                  in lexicographical order and then parsed as a</span><br><span class="line">                                  single config file. You can also specify</span><br><span class="line">                                  wildcards (globs) and any matched files will</span><br><span class="line">                                  be loaded in the order described above.</span><br><span class="line">    -e CONFIG_STRING              Use the given string as the configuration</span><br><span class="line">                                  data. Same syntax as the config file. If no</span><br><span class="line">                                  input is specified, then the following is</span><br><span class="line">                                  used as the default input:</span><br><span class="line">                                  "input &#123; stdin &#123; type =&gt; stdin &#125; &#125;"</span><br><span class="line">                                  and if no output is specified, then the</span><br><span class="line">                                  following is used as the default output:</span><br><span class="line">                                  "output &#123; stdout &#123; codec =&gt; rubydebug &#125; &#125;"</span><br><span class="line">                                  If you wish to use both defaults, please use</span><br><span class="line">                                  the empty string for the '-e' flag.</span><br><span class="line">                                   (default: "")</span><br><span class="line">    -w, --filterworkers COUNT     Sets the number of filter workers to run.</span><br><span class="line">                                   (default: 2)</span><br><span class="line">    -l, --log FILE                Write logstash internal logs to the given</span><br><span class="line">                                  file. Without this flag, logstash will emit</span><br><span class="line">                                  logs to standard output.</span><br><span class="line">    -v                            Increase verbosity of logstash internal logs.</span><br><span class="line">                                  Specifying once will show 'informational'</span><br><span class="line">                                  logs. Specifying twice will show 'debug'</span><br><span class="line">                                  logs. This flag is deprecated. You should use</span><br><span class="line">                                  --verbose or --debug instead.</span><br><span class="line">    --quiet                       Quieter logstash logging. This causes only </span><br><span class="line">                                  errors to be emitted.</span><br><span class="line">    --verbose                     More verbose logging. This causes 'info' </span><br><span class="line">                                  level logs to be emitted.</span><br><span class="line">    --debug                       Most verbose logging. This causes 'debug'</span><br><span class="line">                                  level logs to be emitted.</span><br><span class="line">    -V, --version                 Emit the version of logstash and its friends,</span><br><span class="line">                                  then exit.</span><br><span class="line">    -p, --pluginpath PATH         A path of where to find plugins. This flag</span><br><span class="line">                                  can be given multiple times to include</span><br><span class="line">                                  multiple paths. Plugins are expected to be</span><br><span class="line">                                  in a specific directory hierarchy:</span><br><span class="line">                                  'PATH/logstash/TYPE/NAME.rb' where TYPE is</span><br><span class="line">                                  'inputs' 'filters', 'outputs' or 'codecs'</span><br><span class="line">                                  and NAME is the name of the plugin.</span><br><span class="line">    -t, --configtest              Check configuration for valid syntax and then exit.</span><br><span class="line">    -h, --help                    print help</span><br><span class="line">root@pi:/usr/local/logstash/bin#</span><br></pre></td></tr></table></figure>
+
+<p><strong>运行logstash脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/usr/local/logstash/bin# ./logstash -e 'input&#123;stdin&#123;&#125;&#125;output&#123;stdout&#123;codec=&gt;rubydebug&#125;&#125;'</span><br><span class="line">io/console not supported; tty will not be manipulated</span><br><span class="line">Default settings used: Filter workers: 2</span><br><span class="line">Logstash startup completed</span><br><span class="line">Hello World</span><br><span class="line">&#123;</span><br><span class="line">       "message" =&gt; "Hello World",</span><br><span class="line">      "@version" =&gt; "1",</span><br><span class="line">    "@timestamp" =&gt; "2020-03-29T08:28:52.594Z",</span><br><span class="line">          "host" =&gt; "pi"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/usr/local/logstash/bin#cd /usr/local/logstash</span><br><span class="line">root@pi:/usr/local/logstash# ls</span><br><span class="line">bin  CHANGELOG.md  CONTRIBUTORS  Gemfile  Gemfile.jruby-1.9.lock  lib  LICENSE	logstash.conf  NOTICE.TXT  vendor</span><br><span class="line">root@pi:/usr/local/logstash# nano logstash.conf</span><br><span class="line"></span><br><span class="line">input &#123;</span><br><span class="line">  tcp &#123;</span><br><span class="line">    port =&gt; 4560</span><br><span class="line">    codec =&gt; json_lines</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output &#123;</span><br><span class="line">  elasticsearch &#123;</span><br><span class="line">    hosts =&gt; ["http://192.168.0.112:9200"]</span><br><span class="line">    index =&gt; "applog"</span><br><span class="line">    #user =&gt; "elastic"</span><br><span class="line">    #password =&gt; "changeme"</span><br><span class="line">  &#125;</span><br><span class="line">  stdout&#123; codec =&gt; rubydebug&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>开放4560端口</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/usr/local/logstash# iptables -I INPUT -i eth0 -p tcp --dport 4560 -j ACCEPT</span><br><span class="line">root@pi:/usr/local/logstash# iptables  -I OUTPUT -o eth0 -p tcp --sport 4560 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建Maven依赖"><a href="#创建Maven依赖" class="headerlink" title="创建Maven依赖"></a><font size="3px">创建Maven依赖</font></h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.logstash.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logstash-logback-encoder<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>6.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="logback-spring-xml"><a href="#logback-spring-xml" class="headerlink" title="logback-spring.xml"></a><font size="3px">logback-spring.xml</font></h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">resource</span>=<span class="string">"org/springframework/boot/logging/logback/base.xml"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">resource</span>=<span class="string">"org/springframework/boot/logging/logback/defaults.xml"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">resource</span>=<span class="string">"org/springframework/boot/logging/logback/console-appender.xml"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--应用名称--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"APP_NAME"</span> <span class="attr">value</span>=<span class="string">"edu-service"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--日志文件保存路径--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"LOG_FILE_PATH"</span> <span class="attr">value</span>=<span class="string">"edu-service"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">contextName</span>&gt;</span>$&#123;APP_NAME&#125;<span class="tag">&lt;/<span class="name">contextName</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--每天记录日志到文件appender--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"FILE"</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.rolling.RollingFileAppender"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">rollingPolicy</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.rolling.TimeBasedRollingPolicy"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">fileNamePattern</span>&gt;</span>$&#123;LOG_FILE_PATH&#125;/$&#123;APP_NAME&#125;-%d&#123;yyyy-MM-dd&#125;.log<span class="tag">&lt;/<span class="name">fileNamePattern</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">maxHistory</span>&gt;</span>30<span class="tag">&lt;/<span class="name">maxHistory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">rollingPolicy</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">encoder</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>$&#123;FILE_LOG_PATTERN&#125;<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">encoder</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--输出到logstash的appender--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"LOGSTASH"</span> <span class="attr">class</span>=<span class="string">"net.logstash.logback.appender.LogstashTcpSocketAppender"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">destination</span>&gt;</span>192.168.0.100:4560<span class="tag">&lt;/<span class="name">destination</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">encoder</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> <span class="attr">class</span>=<span class="string">"net.logstash.logback.encoder.LogstashEncoder"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--日志级别   DEBUG-INFO-WARN-ERROR  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">root</span> <span class="attr">level</span>=<span class="string">"DEBUG"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"CONSOLE"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"FILE"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"LOGSTASH"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="运行SpringBoot"><a href="#运行SpringBoot" class="headerlink" title="运行SpringBoot"></a><font size="4px">运行SpringBoot</font></h1><p><a href="http://192.168.0.112:8080/kibana/index.html#/dashboard/file/logstash.json" target="_blank" rel="noopener">http://192.168.0.112:8080/kibana/index.html#/dashboard/file/logstash.json</a></p>
+<p><img src="/2020/03/29/ElasticSearch安装及实践/kibana.png" alt></p>
+<p>树莓派终端</p>
+<p><img src="/2020/03/29/ElasticSearch安装及实践/logstash.png" alt></p>
+<p>运行一次就两千多个数据</p>
+<p><img src="/2020/03/29/ElasticSearch安装及实践/result.png" alt></p>
+
+    </div>
+    
+    <div>
+    
+        <div style="margin-top:30px;padding-top:20px;border-top: 1px dashed #b3a9a7;text-align:center;color: #ccc;font-size:20px;">
+        本文结束&nbsp;<i class="fa fa-smile-o"></i>&nbsp;感谢您的阅读</div>
+    
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li><strong>本文标题：</strong><a href="/2020/03/29/ElasticSearch安装及实践/">ElasticSearch安装及实践</a></li>
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.runaccepted.com/2020/03/29/ElasticSearch安装及实践/" title="ElasticSearch安装及实践">https://www.runaccepted.com/2020/03/29/ElasticSearch安装及实践/</a>
+  </li>
+  <li><strong>发布时间：</strong>2020年03月29日 - 17:15</li>
+  <li><strong>更新时间：</strong>2020年03月29日 - 18:10</li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/02/29/20200229/" rel="next" title="20200229">
+                  <i class="fa fa-chevron-left"></i> 20200229
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux"><span class="nav-number">1.1.</span> <span class="nav-text">linux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ElasticSearch-存储和检索数据"><span class="nav-number">1.1.1.</span> <span class="nav-text">ElasticSearch 存储和检索数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logstash-收集数据保存到es"><span class="nav-number">1.1.2.</span> <span class="nav-text">Logstash 收集数据保存到es</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kibana-可视化界面"><span class="nav-number">1.1.3.</span> <span class="nav-text">Kibana 可视化界面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树莓派"><span class="nav-number">1.2.</span> <span class="nav-text">树莓派</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#elasticsearch-1-0-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">elasticsearch-1.0.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kibana-3-0-0"><span class="nav-number">1.2.2.</span> <span class="nav-text">Kibana-3.0.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logstash-2-0-0"><span class="nav-number">1.2.3.</span> <span class="nav-text">logstash-2.0.0</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#运行出错-libjffi-1-2-so"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">运行出错 libjffi-1.2.so</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Maven依赖"><span class="nav-number">1.3.</span> <span class="nav-text">创建Maven依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logback-spring-xml"><span class="nav-number">1.4.</span> <span class="nav-text">logback-spring.xml</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行SpringBoot"><span class="nav-number">2.</span> <span class="nav-text">运行SpringBoot</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/a.jpg"
+      alt="Wang Ting">
+  <p class="site-author-name" itemprop="name">Wang Ting</p>
+  <div class="site-description" itemprop="description">技术成长笔记</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">279</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/helloworld1006" title="GitHub &rarr; https://github.com/helloworld1006" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:wangtn01@163.com" title="E-Mail &rarr; mailto:wangtn01@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" title="Weibo &rarr; https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/sinat_32676193" title="CDSN &rarr; https://blog.csdn.net/sinat_32676193" rel="noopener" target="_blank"><i class="fa fa-fw fa-codiepie"></i>CDSN</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      最近阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" title="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" rel="noopener" target="_blank">数学大观</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" title="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" rel="noopener" target="_blank">王道训练营 C语言视频最新教程</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av77638697/?p=3&t=14" title="https://www.bilibili.com/video/av77638697/?p=3&t=14" rel="noopener" target="_blank">浙江大学-研究生机器学习课程</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span>网站总字数&nbsp;<span>
+    <span title="站点总字数">377k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span>阅读总时长&nbsp;<span>
+    <span title="站点阅读时长">10:28</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+  <span class="post-meta-divider">|</span> -->
+  <span id="sitetime"></span>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2018,12,23,00,00,00); //北京时间2018-12-23 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML=" 已运行 "+ diffYears+" 年 "+ diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+  siteTime();
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span>本站总访问量&nbsp;</span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span>本站访客数&nbsp;</span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='96,96,96' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+<script src="/js/utils.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script><script src="/js/bookmark.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('/js/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'XYcjlUMI3JT5ggb51F8oIkwy-gzGzoHsz',
+    appKey: 'OHyypRDYnlmDqCN7vrH85KrL',
+    placeholder: '撰写评论',
+    avatar: 'mm# Gravatar style',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn',
+    avatar_cdn: 'https://www.gravatar.com/avatar/',
+    path: location.pathname
+  });
+}, window.Valine);
+  function ssl_avatar($avatar) {
+     $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
+     return $avatar;
+  }
+</script>
+
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":125,"height":290},"mobile":{"show":true},"react":{"opacity":0.7},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
+</html>
