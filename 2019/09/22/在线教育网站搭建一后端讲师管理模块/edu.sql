@@ -21,7 +21,14 @@ create table edu_teacher(
 	key idx_name(name)
 )
 
+alter table edu_teacher add rate decimal(10,1) unsigned not null default '5.0' comment '讲师评分';
+
+alter table edu_teacher modify gmt_create datetime not null comment '创建时间';
+alter table edu_teacher modify gmt_modified datetime not null comment '更新时间';
+
 select * from edu_teacher order by sort desc;
+
+SELECT count(*) FROM edu_teacher WHERE is_deleted=0
 
 drop table if exists edu_subject;
 
@@ -35,6 +42,11 @@ create table edu_subject(
   primary key (id),
   key idx_parent_id (parent_id)
 )
+
+alter table edu_subject add is_deleted tinyint(1) unsigned not null default 0 comment '逻辑删除 1 表示删除，0 表示未删除';
+
+alter table edu_subject modify gmt_create datetime not null comment '创建时间';
+alter table edu_subject modify gmt_modified datetime not null comment '更新时间';
 
 select * from edu_subject where id='1234965930556063746'
 
@@ -60,6 +72,16 @@ create table edu_course(
   key idx_teacher_id (teacher_id)
 )comment '课程表'
 
+
+alter table edu_course modify lesson_num bigint(10) unsigned not null default '0' comment '总课时';
+
+alter table edu_course add sort int(10) unsigned not null default '0' comment '排序字段';
+
+alter table edu_course modify gmt_create datetime not null comment '创建时间';
+alter table edu_course modify gmt_modified datetime not null comment '更新时间';
+
+delete from edu_course;
+
 select * from edu_course
 
 drop table if exists edu_course_description;
@@ -71,6 +93,13 @@ create table edu_course_description(
   gmt_modified datetime not null comment '更新时间',
   primary key (id)
 ) comment '课程描述表'
+
+alter table edu_course_description modify description longtext comment '课程简介';
+alter table edu_course_description modify gmt_create datetime not null comment '创建时间';
+alter table edu_course_description modify gmt_modified datetime not null comment '更新时间';
+
+delete from edu_course_description;
+
 select * from edu_course_description;
 
 select c.id,c.title,d.description,c.cover,c.version from edu_course c left join edu_course_description d on c.id=d.id
@@ -88,6 +117,11 @@ create table edu_chapter (
   key idx_course_id (course_id)
 )
 select * from edu_chapter ORDER BY sort desc;
+
+DELETE from edu_chapter
+
+alter table edu_chapter modify gmt_create datetime not null comment '创建时间';
+alter table edu_chapter modify gmt_modified datetime not null comment '更新时间';
 
 
 drop table if exists edu_video
@@ -112,6 +146,9 @@ create table edu_video (
   KEY idx_course_id (course_id),
   KEY idx_chapter_id (chapter_id)
 ) 
+
+alter table edu_video modify duration float not null default '0' comment '视频时长（秒）';
+alter table edu_video modify gmt_modified datetime not null comment '更新时间';
 
 alter table edu_video add column video_original_name varchar(50) default null comment '视频名称'
 
@@ -147,10 +184,10 @@ drop table if exists statistics_daily;
 create table statistics_daily (
   id char(19) not null comment '主键',
   date_calculate varchar(20) not null comment '统计日期',
-  register_num int(11) not null default '0' comment '注册人数',
-  login_num int(11) not null default '0' comment '登录人数',
-  video_view_num int(11) not null default '0' comment '每日播放视频数',
-  course_num int(11) not null default '0' comment '每日新增课程数',
+  register_num bigint(20) not null default '0' comment '注册人数',
+  login_num bigint(20) not null default '0' comment '登录人数',
+  video_view_num bigint(20) not null default '0' comment '每日播放视频数',
+  course_num bigint(20) not null default '0' comment '每日新增课程数',
   gmt_create datetime not null comment '创建时间',
   gmt_modified datetime not null comment '更新时间',
   primary key (id),
@@ -187,6 +224,44 @@ select count(*) from ucenter_member u where Date(u.gmt_create)='2019-01-19'
 
 select * from ucenter_member where nickname='小王';
 
+
+drop table if exists edu_admin;
+
+create table edu_admin(
+ id char(19) not null comment '管理员ID',
+ username varchar(50) default null comment '管理员姓名',
+ password varchar(255) default null comment '管理员密码',
+ introduction varchar(100) default null comment '签名',
+ avatar varchar(255) default null comment '管理员头像',
+ gmt_create datetime not null comment '创建时间',
+ gmt_login datetime not null comment '登录时间',
+ gmt_modified datetime not null comment '更新时间',
+ primary key(id)
+)
+
+select * from edu_admin;
+
+alter table edu_admin add is_deleted tinyint(1) unsigned not null default 0 comment '逻辑删除 1 表示删除，0 表示未删除';
+
+alter table edu_admin modify gmt_login datetime not null comment '创建时间';
+alter table edu_admin modify gmt_create datetime not null comment '创建时间';
+alter table edu_admin modify gmt_modified datetime not null comment '更新时间';
+
+
+
+drop table if exists edu_admin_role; 
+
+create table edu_admin_role(
+ id char(19) not null comment '权限ID',
+ role_name varchar(50) not null comment '权限名',
+ admin_id char(19) not null comment '管理员ID',
+ gmt_create datetime not null comment '创建时间',
+ gmt_modified datetime not null comment '更新时间',
+ primary key(id)
+)
+
+select * from edu_admin_role;
+
 drop table if exists edu_order;
 
 create table edu_order(
@@ -209,3 +284,4 @@ alter table edu_order add column is_deleted tinyint(1) unsigned not null default
 select * from edu_order;
 
 delete from edu_order where id='1243948257722261506'
+

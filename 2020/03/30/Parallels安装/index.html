@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://www.runaccepted.com/2020/03/30/Parallels安装/tools.png">
 <meta property="og:image" content="https://www.runaccepted.com/2020/03/30/Parallels安装/tooldis.png">
 <meta property="og:image" content="https://www.runaccepted.com/2020/03/30/Parallels安装/kelong.png">
-<meta property="og:updated_time" content="2020-03-31T05:35:34.647Z">
+<meta property="og:updated_time" content="2020-04-07T06:07:02.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Parallels Desktop 15 For Mac 破解版">
 <meta name="twitter:description" content="Parallels安装 CentOS7安装">
@@ -228,7 +228,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">28</span></a>
 
   </li>
       
@@ -254,7 +254,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">280</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">283</span></a>
 
   </li>
       
@@ -391,7 +391,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-31 13:35:34" itemprop="dateModified" datetime="2020-03-31T13:35:34+08:00">2020-03-31</time>
+                <time title="修改时间：2020-04-07 14:07:02" itemprop="dateModified" datetime="2020-04-07T14:07:02+08:00">2020-04-07</time>
               </span>
             
           
@@ -452,7 +452,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.7k</span>
+              <span>1.9k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -556,7 +556,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[linux@localhost ~]$ cd /etc/sysconfig/network-scripts</span><br><span class="line">[linux@localhost network-scripts]$ nano ifcfg-eth0</span><br><span class="line"></span><br><span class="line">TYPE="Ethernet"</span><br><span class="line">BOOTPROTO="static"</span><br><span class="line">DEVICE="eth0"</span><br><span class="line">ONBOOT="yes"</span><br><span class="line">IPADDR="192.168.0.102"</span><br><span class="line">GATEWAY="192.168.0.1"</span><br><span class="line">NETMASK="255.255.255.0"</span><br><span class="line">DNS1="8.8.8.8"</span><br><span class="line"></span><br><span class="line">[linux@localhost network-scripts]$</span><br></pre></td></tr></table></figure>
 
 <p>删除Linux物理地址绑定的文件（该文件会在操作系统重启并生成物理地址以后将物理地址绑定到IP上</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[linux@localhost network-scripts]$ rm -rf /etc/udev/rules.d/``70``-persistent-net.rules</span><br><span class="line">[linux@localhost network-scripts]$ reboot</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[linux@localhost network-scripts]$ rm -rf /etc/udev/rules.d/70-persistent-net.rules</span><br><span class="line">[linux@localhost network-scripts]$ reboot</span><br></pre></td></tr></table></figure>
 
 <h2 id="Mac-连接linux2"><a href="#Mac-连接linux2" class="headerlink" title="Mac 连接linux2"></a><font size="3px">Mac 连接linux2</font></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LearningtekiMacBook-Air:myblog Learning$ ssh linux@192.168.0.102</span><br><span class="line">[linux@localhost ~]$ </span><br><span class="line">[linux@localhost ~]$ ip addr</span><br><span class="line">2: eth0: inet 192.168.0.102/24 </span><br><span class="line">[linux@localhost ~]$</span><br></pre></td></tr></table></figure>
 
@@ -565,6 +565,29 @@
 
 <p><a href="http://192.168.0.102:9200/" target="_blank" rel="noopener">http://192.168.0.102:9200/</a></p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// http://192.168.0.102:9200/</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"efBli3S"</span>,</span><br><span class="line">  <span class="attr">"cluster_name"</span>: <span class="string">"elasticsearch"</span>,</span><br><span class="line">  <span class="attr">"cluster_uuid"</span>: <span class="string">"RmnRPDI-T4G8hOH92bX5wQ"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: &#123;</span><br><span class="line">    <span class="attr">"number"</span>: <span class="string">"5.6.11"</span>,</span><br><span class="line">    <span class="attr">"build_hash"</span>: <span class="string">"bc3eef4"</span>,</span><br><span class="line">    <span class="attr">"build_date"</span>: <span class="string">"2018-08-16T15:25:17.293Z"</span>,</span><br><span class="line">    <span class="attr">"build_snapshot"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"lucene_version"</span>: <span class="string">"6.6.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"tagline"</span>: <span class="string">"You Know, for Search"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="再重启ssh拒绝-Connection-refused"><a href="#再重启ssh拒绝-Connection-refused" class="headerlink" title="再重启ssh拒绝 Connection refused"></a><font size="3px">再重启ssh拒绝 Connection refused</font></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LearningtekiMacBook-Air:~ Learning$ ssh linux@192.168.0.102</span><br><span class="line">ssh: connect to host 192.168.0.102 port 22: Connection refused</span><br><span class="line">LearningtekiMacBook-Air:~ Learning$</span><br></pre></td></tr></table></figure>
+
+<p>查看ssh是否启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[linux@localhost ~]$ ps -e | grep ssh</span><br><span class="line">  981 ?        00:00:00 sshd</span><br><span class="line">[linux@localhost ~]$</span><br></pre></td></tr></table></figure>
+
+<p>查看22端口</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[linux@localhost ~]$ ss -lnt</span><br><span class="line">State      Recv-Q Send-Q                          Local Address:Port                                         Peer Address:Port              </span><br><span class="line">LISTEN     0      128                                         *:22                                                      *:*                  </span><br><span class="line">LISTEN     0      100                                 127.0.0.1:25                                                      *:*                  </span><br><span class="line">LISTEN     0      128                                      [::]:22                                                   [::]:*                  </span><br><span class="line">LISTEN     0      100                                     [::1]:25                                                   [::]:*                  </span><br><span class="line">[linux@localhost ~]$</span><br></pre></td></tr></table></figure>
+
+<p>查看hosts名单</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure>
+
+<p>添加本地ip和hostname</p>
+<p>– 本机hostname是？ ping 192.168.0.100</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[linux@localhost ~]$ ping 192.168.0.100</span><br><span class="line">PING 192.168.0.100 (192.168.0.100) 56(84) bytes of data.</span><br><span class="line">64 bytes from 192.168.0.100: icmp_seq=1 ttl=64 time=0.165 ms</span><br><span class="line">64 bytes from 192.168.0.100: icmp_seq=2 ttl=64 time=0.274 ms</span><br><span class="line">64 bytes from 192.168.0.100: icmp_seq=3 ttl=64 time=0.374 ms</span><br><span class="line">^C</span><br><span class="line">--- 192.168.0.100 ping statistics ---</span><br><span class="line">3 packets transmitted, 3 received, 0% packet loss, time 2002ms</span><br><span class="line">rtt min/avg/max/mdev = 0.165/0.271/0.374/0.085 ms</span><br><span class="line">[linux@localhost ~]$</span><br></pre></td></tr></table></figure>
+
+<p>hostname就是ip吧，添加</p>
+<p><code>192.168.0.100 192.168.0.100</code></p>
+<p><strong>ssh hostname</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[linux@localhost ~]$ ssh 192.168.0.100</span><br><span class="line">Warning: Permanently added '192.168.0.100' (ECDSA) to the list of known hosts.</span><br></pre></td></tr></table></figure>
+
+<p>再次ssh linux2</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LearningtekiMacBook-Air:~ Learning$ ssh linux@192.168.0.102</span><br><span class="line">linux@192.168.0.102's password: </span><br><span class="line">[linux@localhost ~]$</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -594,7 +617,7 @@
     <a href="https://www.runaccepted.com/2020/03/30/Parallels安装/" title="Parallels Desktop 15 For Mac 破解版">https://www.runaccepted.com/2020/03/30/Parallels安装/</a>
   </li>
   <li><strong>发布时间：</strong>2020年03月30日 - 22:36</li>
-  <li><strong>更新时间：</strong>2020年03月31日 - 13:35</li>
+  <li><strong>更新时间：</strong>2020年04月07日 - 14:07</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -629,6 +652,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/04/02/在线教育网站搭建二十采用dubbo服务注册和发现/" rel="prev" title="(二十)在线教育网站搭建一采用dubbo服务注册和发现">
+                  (二十)在线教育网站搭建一采用dubbo服务注册和发现 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -680,7 +707,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Parallels-Desktop-15-安装"><span class="nav-number">1.</span> <span class="nav-text">Parallels Desktop 15 安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装win10"><span class="nav-number">2.</span> <span class="nav-text">安装win10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS-7下载及配置"><span class="nav-number">3.</span> <span class="nav-text">CentOS 7下载及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看ip-固定ip"><span class="nav-number">3.1.</span> <span class="nav-text">查看ip-固定ip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ip相关配置文件"><span class="nav-number">3.2.</span> <span class="nav-text">ip相关配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-连接linux"><span class="nav-number">3.3.</span> <span class="nav-text">Mac 连接linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防火墙"><span class="nav-number">3.4.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yum源中加入阿里云源"><span class="nav-number">3.5.</span> <span class="nav-text">yum源中加入阿里云源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装docker"><span class="nav-number">4.</span> <span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重启后docker无法启动"><span class="nav-number">5.</span> <span class="nav-text">重启后docker无法启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#克隆linux"><span class="nav-number">6.</span> <span class="nav-text">克隆linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-连接linux2"><span class="nav-number">6.1.</span> <span class="nav-text">Mac 连接linux2</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Parallels-Desktop-15-安装"><span class="nav-number">1.</span> <span class="nav-text">Parallels Desktop 15 安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装win10"><span class="nav-number">2.</span> <span class="nav-text">安装win10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS-7下载及配置"><span class="nav-number">3.</span> <span class="nav-text">CentOS 7下载及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看ip-固定ip"><span class="nav-number">3.1.</span> <span class="nav-text">查看ip-固定ip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ip相关配置文件"><span class="nav-number">3.2.</span> <span class="nav-text">ip相关配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-连接linux"><span class="nav-number">3.3.</span> <span class="nav-text">Mac 连接linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防火墙"><span class="nav-number">3.4.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yum源中加入阿里云源"><span class="nav-number">3.5.</span> <span class="nav-text">yum源中加入阿里云源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装docker"><span class="nav-number">4.</span> <span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重启后docker无法启动"><span class="nav-number">5.</span> <span class="nav-text">重启后docker无法启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#克隆linux"><span class="nav-number">6.</span> <span class="nav-text">克隆linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-连接linux2"><span class="nav-number">6.1.</span> <span class="nav-text">Mac 连接linux2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再重启ssh拒绝-Connection-refused"><span class="nav-number">6.2.</span> <span class="nav-text">再重启ssh拒绝 Connection refused</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -698,7 +725,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">280</span>
+          <span class="site-state-item-count">283</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -816,7 +843,11 @@
         
           
         
-        <span class="site-state-item-count">26</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -923,13 +954,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">378k</span>
+    <span title="站点总字数">388k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">10:31</span>
+    <span title="站点阅读时长">10:46</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

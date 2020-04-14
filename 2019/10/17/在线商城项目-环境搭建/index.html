@@ -91,10 +91,11 @@
 <meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/dubbopng.png">
 <meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/dubbo-admin.png">
 <meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/mavenzoo.png">
+<meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/dubbo-zook.png">
 <meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/vaild.png">
 <meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/ab.png">
 <meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/login.png">
-<meta property="og:updated_time" content="2020-03-29T09:27:35.114Z">
+<meta property="og:updated_time" content="2020-04-02T12:00:31.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(一)在线商城项目-环境搭建">
 <meta name="twitter:description" content="RPC思想 zookeeper mysql主从数据库配置 dubbo配置">
@@ -229,7 +230,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">28</span></a>
 
   </li>
       
@@ -255,7 +256,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">280</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">283</span></a>
 
   </li>
       
@@ -392,7 +393,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-29 17:27:35" itemprop="dateModified" datetime="2020-03-29T17:27:35+08:00">2020-03-29</time>
+                <time title="修改时间：2020-04-02 20:00:31" itemprop="dateModified" datetime="2020-04-02T20:00:31+08:00">2020-04-02</time>
               </span>
             
           
@@ -534,6 +535,10 @@
 <h3 id="Maven依赖"><a href="#Maven依赖" class="headerlink" title="Maven依赖"></a><font size="3px">Maven依赖</font></h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- dubbo --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.dubbo<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>dubbo-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- zookeeper--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-framework<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- java.lang.NoClassDefFoundError: org/apache/curator/framework/recipes/cache/TreeCacheListener--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-recipes<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/2019/10/17/在线商城项目-环境搭建/mavenzoo.png" alt></p>
+<p>或者直接</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Dubbo --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>dubbo-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/10/17/在线商城项目-环境搭建/dubbo-zook.png" alt></p>
 <h3 id="application-properties"><a href="#application-properties" class="headerlink" title="application.properties"></a><font size="3px">application.properties</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dubbo.application.name=gmall-pms</span><br><span class="line">dubbo.registry.address=zookeeper://192.168.0.112:2181</span><br><span class="line">dubbo.protocol.port=20880</span><br><span class="line">dubbo.protocol.name=dubbo</span><br><span class="line">#不检查环境中是否有提供者</span><br><span class="line">dubbo.consumer.check=false</span><br></pre></td></tr></table></figure>
 
 <h3 id="提供者注解-Service"><a href="#提供者注解-Service" class="headerlink" title="提供者注解@Service"></a><font size="3px">提供者注解@Service</font></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.dubbo.config.annotation.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductServiceImpl</span> <span class="keyword">extends</span> <span class="title">ServiceImpl</span>&lt;<span class="title">ProductMapper</span>, <span class="title">Product</span>&gt; <span class="keyword">implements</span> <span class="title">ProductService</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
@@ -787,7 +792,7 @@
     <a href="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/" title="(一)在线商城项目-环境搭建">https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/</a>
   </li>
   <li><strong>发布时间：</strong>2019年10月17日 - 23:44</li>
-  <li><strong>更新时间：</strong>2020年03月29日 - 17:27</li>
+  <li><strong>更新时间：</strong>2020年04月02日 - 20:00</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -895,7 +900,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">280</span>
+          <span class="site-state-item-count">283</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1013,7 +1018,11 @@
         
           
         
-        <span class="site-state-item-count">26</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1120,13 +1129,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">378k</span>
+    <span title="站点总字数">388k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">10:31</span>
+    <span title="站点阅读时长">10:46</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
