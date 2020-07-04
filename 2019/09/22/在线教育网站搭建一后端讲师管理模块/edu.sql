@@ -72,17 +72,31 @@ create table edu_course(
   key idx_teacher_id (teacher_id)
 )comment '课程表'
 
+select count(*) from edu_course c where Date(c.gmt_create) ='2020-04-11'
 
 alter table edu_course modify lesson_num bigint(10) unsigned not null default '0' comment '总课时';
 
-alter table edu_course add sort int(10) unsigned not null default '0' comment '排序字段';
+alter table edu_course add subject_name text not null comment '类别名称';
+alter table edu_course add teacher_name varchar(20) not null comment '讲师姓名';
+
+alter table edu_course add keyword varchar(255) not null comment '课程摘要';
 
 alter table edu_course modify gmt_create datetime not null comment '创建时间';
 alter table edu_course modify gmt_modified datetime not null comment '更新时间';
 
 delete from edu_course;
 
-select * from edu_course
+select * from edu_course order by price
+
+select count(*) from edu_course
+
+alter table edu_course add column es_flag tinyint(1) unsigned not null default '0' comment '是否被添加到elasticsearch';
+
+alter table edu_course modify es_flag bigint(10) not null default '0' comment '是否被添加到elasticsearch';
+
+alter table edu_course rename column es_flag to current
+
+update edu_course set es_flag = 0
 
 drop table if exists edu_course_description;
 
@@ -221,6 +235,9 @@ create table ucenter_member (
 
 select count(*) from ucenter_member u where Date(u.gmt_create)='2019-01-19'
 
+select count(*) from ucenter_member u where Date(u.last_login)='2020-05-06'
+
+alter table ucenter_member add column login_ip varchar(255) default null comment '登录时用户IP'
 
 select * from ucenter_member where nickname='小王';
 
@@ -240,6 +257,8 @@ create table edu_admin(
 )
 
 select * from edu_admin;
+
+alter table edu_admin add role_name longtext not null comment '权限名'
 
 alter table edu_admin add is_deleted tinyint(1) unsigned not null default 0 comment '逻辑删除 1 表示删除，0 表示未删除';
 
@@ -279,9 +298,24 @@ create table edu_order(
 	primary key(id)
 )
 
+select now()
+
+show variables like '%time_zone%'
+
+set global time_zone = '+8:00'
+
+flush privileges
+
+SELECT * FROM edu_order WHERE gmt_create >= '2020-05-05 15:05:00'
+
+alter table edu_order add column order_no char(40) not null comment '订单唯一编号';
+
 alter table edu_order add column is_deleted tinyint(1) unsigned not null default 0 comment '逻辑删除 1 表示删除，0 表示未删除';
 
 select * from edu_order;
 
+delete from edu_order;
+
 delete from edu_order where id='1243948257722261506'
 
+select count(*) from edu_order
