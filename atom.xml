@@ -360,9 +360,9 @@
     
       <category term="Java" scheme="https://www.runaccepted.com/tags/Java/"/>
     
-      <category term="SpringBoot" scheme="https://www.runaccepted.com/tags/SpringBoot/"/>
-    
       <category term="SpringCloud" scheme="https://www.runaccepted.com/tags/SpringCloud/"/>
+    
+      <category term="SpringBoot" scheme="https://www.runaccepted.com/tags/SpringBoot/"/>
     
   </entry>
   
