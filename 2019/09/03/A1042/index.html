@@ -79,18 +79,18 @@
         }
     })();
 </script>
-  <meta name="description" content="洗牌">
+  <meta name="description" content="简单模拟">
 <meta name="keywords" content="PAT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A1042 Shuffling Machine (20 point(s))">
 <meta property="og:url" content="https://www.runaccepted.com/2019/09/03/A1042/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="洗牌">
+<meta property="og:description" content="简单模拟">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-05T13:48:55.123Z">
+<meta property="og:updated_time" content="2020-07-17T06:01:59.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A1042 Shuffling Machine (20 point(s))">
-<meta name="twitter:description" content="洗牌">
+<meta name="twitter:description" content="简单模拟">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccepted.com/2019/09/03/A1042/">
 
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">287</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">293</span></a>
 
   </li>
       
@@ -384,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-05 21:48:55" itemprop="dateModified" datetime="2019-09-05T21:48:55+08:00">2019-09-05</time>
+                <time title="修改时间：2020-07-17 14:01:59" itemprop="dateModified" datetime="2020-07-17T14:01:59+08:00">2020-07-17</time>
               </span>
             
           
@@ -445,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.6k</span>
+              <span>1.8k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -468,11 +468,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote class="blockquote-center">洗牌</blockquote>
+        <blockquote class="blockquote-center">简单模拟</blockquote>
 
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>Shuffling is a procedure used to randomize a deck of playing cards. Because standard shuffling techniques are seen as weak, and in order to avoid “inside jobs” where employees collaborate with gamblers by performing inadequate shuffles, many casinos employ <strong>automatic shuffling machines</strong>. Your task is to simulate a shuffling machine.</p>
+
+
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805442671132672" target="_blank" rel="noopener">PTA链接</a></p>
+<p>Shuffling is a procedure used to randomize a deck of playing cards. Because standard shuffling techniques are seen as weak, and in order to avoid “inside jobs” where employees collaborate with gamblers by performing inadequate shuffles, many casinos employ <strong>automatic shuffling machines</strong>. Your task is to simulate a shuffling machine.</p>
 <p>The machine shuffles a deck of 54 cards according to a given random order and repeats for a given number of times. It is assumed that the initial status of a card deck is in the following order:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">S1, S2, ..., S13, </span><br><span class="line">H1, H2, ..., H13, </span><br><span class="line">C1, C2, ..., C13, </span><br><span class="line">D1, D2, ..., D13, </span><br><span class="line">J1, J2</span><br></pre></td></tr></table></figure>
 
@@ -487,9 +490,14 @@
 <p> <strong>Sample output:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S7 C11 C10 C12 S1 H7 H8 H9 D8 D9 S11 S12 S13 D10 D11 D12 S3 S4 S6 S10 H1 H2 C13 D2 D3 D4 H6 H3 D13 J1 J2 C1 C2 C3 C4 D1 S5 H5 H11 H12 C6 C7 C8 C9 S2 S8 S9 H10 D5 D6 D7 H4 H13 C5</span><br></pre></td></tr></table></figure>
 
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><p>end[scan[j]]=start[j]</p>
-<p>str[(end[i]-1)/13]  (end[i]-1)%13+1</p>
-<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> scan[<span class="number">60</span>]=&#123;&#125;;</span><br><span class="line"><span class="keyword">int</span> start[<span class="number">60</span>]=&#123;&#125;;</span><br><span class="line"><span class="keyword">int</span> end[<span class="number">60</span>]=&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">55</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;scan[i]);</span><br><span class="line">		end[i]=i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; <span class="number">55</span>; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			start[j]=end[j];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; <span class="number">55</span>; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			end[scan[j]]=start[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">char</span> str[]=<span class="string">"SHCDJ"</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">55</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (i!=<span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> pos=end[i]<span class="number">-1</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c%d"</span>,str[pos/<span class="number">13</span>],pos%<span class="number">13</span>+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><p>54张牌，编号为1-54，初始编号从小到大排列。规定13张S，13张H，13张C，13张D，2张J</p>
+<p>执行操作，将牌的位置改变为指定位置。S3, H5, C1, D13 and J2，指定{4, 2, 5, 3, 1}，变为J2, H5, D13, S3, C1。</p>
+<p>Solution：</p>
+<ul>
+<li>设置两个数组scan[],end[]，存放执行前和执行后的牌序，<code>end[order[i]]=scan[i]</code></li>
+<li>使用char数组 <code>char str[]=&quot;SHCDJ&quot;</code>建立编号和花色关系。<code>str[(end[i]-1)/13]</code> 即为对应花色， <code>(end[i]-1)%13+1</code>即为花色下的编号</li>
+</ul>
+<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> order[<span class="number">60</span>]=&#123;&#125;;</span><br><span class="line"><span class="keyword">int</span> end[<span class="number">60</span>]=&#123;&#125;;</span><br><span class="line"><span class="keyword">int</span> scan[<span class="number">60</span>]=&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">55</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;order[i]);</span><br><span class="line">		end[i]=i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(k--)&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">55</span>; ++i)</span><br><span class="line">		&#123;</span><br><span class="line">			scan[i]=end[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">55</span>; ++i)</span><br><span class="line">		&#123;</span><br><span class="line">			end[order[i]]=scan[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">char</span> str[]=<span class="string">"SHCDJ"</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">55</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> pos = end[i]<span class="number">-1</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c%d"</span>,str[pos/<span class="number">13</span>],pos%<span class="number">13</span>+<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span> (i&lt;<span class="number">54</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -519,7 +527,7 @@
     <a href="https://www.runaccepted.com/2019/09/03/A1042/" title="A1042 Shuffling Machine (20 point(s))">https://www.runaccepted.com/2019/09/03/A1042/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月03日 - 12:34</li>
-  <li><strong>更新时间：</strong>2019年09月05日 - 21:48</li>
+  <li><strong>更新时间：</strong>2020年07月17日 - 14:01</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -625,7 +633,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">287</span>
+          <span class="site-state-item-count">293</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -844,13 +852,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">404k</span>
+    <span title="站点总字数">416k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">11:14</span>
+    <span title="站点阅读时长">11:33</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

@@ -79,18 +79,20 @@
         }
     })();
 </script>
-  <meta name="description" content="简单圈内两点的计算">
+  <meta name="description" content="简单圈内两点最短距离计算">
 <meta name="keywords" content="PAT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A1046 Shortest Distance (20 point(s))">
 <meta property="og:url" content="https://www.runaccepted.com/2019/09/03/A1046/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="简单圈内两点的计算">
+<meta property="og:description" content="简单圈内两点最短距离计算">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-05T11:39:00.443Z">
+<meta property="og:image" content="https://www.runaccepted.com/2019/09/03/A1046/A1046.jpeg">
+<meta property="og:updated_time" content="2020-07-17T06:41:45.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A1046 Shortest Distance (20 point(s))">
-<meta name="twitter:description" content="简单圈内两点的计算">
+<meta name="twitter:description" content="简单圈内两点最短距离计算">
+<meta name="twitter:image" content="https://www.runaccepted.com/2019/09/03/A1046/A1046.jpeg">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccepted.com/2019/09/03/A1046/">
 
@@ -247,7 +249,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">287</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">293</span></a>
 
   </li>
       
@@ -384,7 +386,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-05 19:39:00" itemprop="dateModified" datetime="2019-09-05T19:39:00+08:00">2019-09-05</time>
+                <time title="修改时间：2020-07-17 14:41:45" itemprop="dateModified" datetime="2020-07-17T14:41:45+08:00">2020-07-17</time>
               </span>
             
           
@@ -445,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>930</span>
+              <span>1.2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -468,11 +470,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote class="blockquote-center">简单圈内两点的计算</blockquote>
+        <blockquote class="blockquote-center">简单圈内两点最短距离计算</blockquote>
 
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>The task is really simple: given <em>N</em> exits on a highway which forms a simple cycle, you are supposed to tell the shortest distance between any pair of exits.</p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805435700199424" target="_blank" rel="noopener">原题</a> </p>
+<p>The task is really simple: given <em>N</em> exits on a highway which forms a simple cycle, you are supposed to tell the shortest distance between any pair of exits.</p>
 <p><strong>Input Specification:</strong></p>
 <p>Each input file contains one test case. For each case, the first line contains an integer <em>N</em> (in [3,$10^5]$), followed by <em>N</em> integer distances <em>D</em>1 <em>D</em>2 ⋯ <em>DN</em>, where <em>Di</em> is the distance between the <em>i</em>-th and the (<em>i</em>+1)-st exits, and <em>DN</em> is between the <em>N</em>-th and the 1st exits. All the numbers in a line are separated by a space. The second line gives a positive integer <em>M</em> (≤$10^4$), with <em>M</em> lines follow, each contains a pair of exit numbers, provided that the exits are numbered from 1 to <em>N</em>. It is guaranteed that the total round trip distance is no more than $10^7$.</p>
 <p><strong>output Specification:</strong></p>
@@ -483,7 +486,15 @@
 <p> <strong>Sample output:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">10</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
 
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> num[<span class="number">100010</span>]=&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">		num[i]=num[i<span class="number">-1</span>]+a;</span><br><span class="line">		sum+=a;</span><br><span class="line">		<span class="comment">//printf("%d %d\n", i,num[i]);</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k);</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</span><br><span class="line">		<span class="keyword">if</span> (a&lt;b)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> temp=b;</span><br><span class="line">			b=a;</span><br><span class="line">			a=temp;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> temp=num[a<span class="number">-1</span>]-num[b<span class="number">-1</span>];</span><br><span class="line">		<span class="keyword">if</span> (sum-temp&gt;temp)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, temp);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum-temp);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><font size="4px">解析</font></h1><p>有n个结点围成一个圈，相邻两个点之间的距离已知，每次只能移动到相邻点。询问A和B之间的最短距离。</p>
+<p>如1，2，3，4，5</p>
+<p><img src="/2019/09/03/A1046/A1046.jpeg" alt></p>
+<p>1 3: 从1号到3号的最短距离为3 路径为1-&gt;2-&gt;3</p>
+<p>2 5: 从2号到5号的最短距离为10 路径为2-&gt;1-&gt;5</p>
+<p>4 1: 从4号到1号的最短距离为7 路径为4-&gt;3-&gt;1</p>
+<p>Solution:</p>
+<p>用num[i]表示1号结点按顺时针方向到达”i号结点顺时针方向的下一个结点”，sum表示一圈总距离。每个查询left-&gt;right，结果就是num(left,right) 和sum-num(left, right)之间的较小值。</p>
+<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> num[<span class="number">100010</span>]=&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> a;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">		sum+=a;</span><br><span class="line">		num[i] = num[i<span class="number">-1</span>]+a;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> m;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> a,b;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</span><br><span class="line">		<span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span> (a&gt;b)</span><br><span class="line">		&#123;</span><br><span class="line">			temp = num[a<span class="number">-1</span>]-num[b<span class="number">-1</span>];</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			temp = num[b<span class="number">-1</span>]-num[a<span class="number">-1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (sum-temp&gt;temp)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,temp);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum-temp);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -513,7 +524,7 @@
     <a href="https://www.runaccepted.com/2019/09/03/A1046/" title="A1046 Shortest Distance (20 point(s))">https://www.runaccepted.com/2019/09/03/A1046/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月03日 - 12:34</li>
-  <li><strong>更新时间：</strong>2019年09月05日 - 19:39</li>
+  <li><strong>更新时间：</strong>2020年07月17日 - 14:41</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -619,7 +630,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">287</span>
+          <span class="site-state-item-count">293</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -838,13 +849,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">404k</span>
+    <span title="站点总字数">416k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">11:14</span>
+    <span title="站点阅读时长">11:33</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

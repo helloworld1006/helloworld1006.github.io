@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="cctype 大写转小写，map记录个数，取最多的字符串">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-18T07:11:20.277Z">
+<meta property="og:updated_time" content="2020-07-20T18:39:05.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A1071 Speech Patterns (25 point(s))">
 <meta name="twitter:description" content="cctype 大写转小写，map记录个数，取最多的字符串">
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">287</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">293</span></a>
 
   </li>
       
@@ -384,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-18 15:11:20" itemprop="dateModified" datetime="2020-06-18T15:11:20+08:00">2020-06-18</time>
+                <time title="修改时间：2020-07-21 02:39:05" itemprop="dateModified" datetime="2020-07-21T02:39:05+08:00">2020-07-21</time>
               </span>
             
           
@@ -472,7 +472,8 @@
 
 <a id="more"></a>
 
-<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>People often have a preference among synonyms of the same word. For example, some may prefer “the police”, while others may prefer “the cops”. Analyzing such patterns can help to narrow down a speaker’s identity, which is useful when validating, for example, whether it’s still the same person behind an online avatar.</p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805398257647616" target="_blank" rel="noopener">原题</a></p>
+<p>People often have a preference among synonyms of the same word. For example, some may prefer “the police”, while others may prefer “the cops”. Analyzing such patterns can help to narrow down a speaker’s identity, which is useful when validating, for example, whether it’s still the same person behind an online avatar.</p>
 <p>Now given a paragraph of text sampled from someone’s speech, can you find the person’s most commonly used word?</p>
 <p><strong>Input Specification:</strong></p>
 <p>Each input file contains one test case. For each case, there is one line of text no more than 1048576 characters in length, terminated by a carriage return <code>\n</code>. The input contains at least one alphanumerical character, i.e., one character from the set [<code>0-9 A-Z a-z</code>].</p>
@@ -489,7 +490,7 @@
 <p>ans.length()&gt;0 忽略空格</p>
 <p>最后一个字符</p>
 <p><code>if(!isalnum(str[i]) || i == str.length() - 1)</code>无论是否符合都要放在map中</p>
-<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt; exist;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> str;</span><br><span class="line">	getline(<span class="built_in">cin</span>,str);</span><br><span class="line">	<span class="built_in">string</span> ans;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span> (<span class="built_in">isalnum</span>(str[i]))</span><br><span class="line">		&#123;</span><br><span class="line">			ans+=<span class="built_in">tolower</span>(str[i]);</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (ans.length()&gt;<span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			exist[ans]++;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.clear();</span><br><span class="line">		<span class="comment">//printf("%d\n", i);</span></span><br><span class="line">	&#125;</span><br><span class="line">    ans.clear();</span><br><span class="line">	<span class="keyword">int</span> max=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;::iterator i = exist.begin(); </span><br><span class="line">       i != exist.end(); ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (i-&gt;second&gt;max)</span><br><span class="line">		&#123;</span><br><span class="line">		   max=i-&gt;second;</span><br><span class="line">		   ans=i-&gt;first;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="string">" "</span>&lt;&lt;max&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt; perfect;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> str;</span><br><span class="line">	getline(<span class="built_in">cin</span>,str);</span><br><span class="line">	<span class="built_in">string</span> ans;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		str[i]=<span class="built_in">tolower</span>(str[i]);</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">isalnum</span>(str[i]))</span><br><span class="line">		&#123;</span><br><span class="line">			ans+=str[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (!<span class="built_in">isalnum</span>(str[i])||i==str.length()<span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (ans.length()&gt;<span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				perfect[ans]++;</span><br><span class="line">			&#125;</span><br><span class="line">			ans.clear();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> cnt = <span class="number">-1</span>;</span><br><span class="line">	<span class="built_in">string</span> word;</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;::iterator i = perfect.begin();i!=perfect.end();i++)&#123;</span><br><span class="line">		<span class="keyword">if</span> (i-&gt;second&gt;cnt)</span><br><span class="line">		&#123;</span><br><span class="line">			cnt = i-&gt;second;</span><br><span class="line">			word = i-&gt;first;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;word&lt;&lt;<span class="string">" "</span>&lt;&lt;cnt&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -519,7 +520,7 @@
     <a href="https://www.runaccepted.com/2019/09/03/A1071/" title="A1071 Speech Patterns (25 point(s))">https://www.runaccepted.com/2019/09/03/A1071/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月03日 - 12:32</li>
-  <li><strong>更新时间：</strong>2020年06月18日 - 15:11</li>
+  <li><strong>更新时间：</strong>2020年07月21日 - 02:39</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -625,7 +626,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">287</span>
+          <span class="site-state-item-count">293</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -844,13 +845,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">404k</span>
+    <span title="站点总字数">416k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">11:14</span>
+    <span title="站点阅读时长">11:33</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
