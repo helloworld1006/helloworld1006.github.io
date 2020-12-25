@@ -79,18 +79,18 @@
         }
     })();
 </script>
-  <meta name="description" content="b">
+  <meta name="description" content="时间相减">
 <meta name="keywords" content="PAT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B1026 程序运行时间 (15分)">
 <meta property="og:url" content="https://www.runaccepted.com/2019/09/07/B1026/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="时间相减">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-10T06:20:00.634Z">
+<meta property="og:updated_time" content="2020-12-25T08:27:36.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="B1026 程序运行时间 (15分)">
-<meta name="twitter:description" content="b">
+<meta name="twitter:description" content="时间相减">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccepted.com/2019/09/07/B1026/">
 
@@ -221,7 +221,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">30</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">32</span></a>
 
   </li>
       
@@ -234,7 +234,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">11</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">13</span></a>
 
   </li>
       
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">294</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">299</span></a>
 
   </li>
       
@@ -384,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-10 14:20:00" itemprop="dateModified" datetime="2020-02-10T14:20:00+08:00">2020-02-10</time>
+                <time title="修改时间：2020-12-25 16:27:36" itemprop="dateModified" datetime="2020-12-25T16:27:36+08:00">2020-12-25</time>
               </span>
             
           
@@ -445,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>532</span>
+              <span>531</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -468,7 +468,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">时间相减</blockquote>
+
 <a id="more"></a>
 
 <h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a><font size="4px">原文</font></h1><p>要获得一个 C 语言程序的运行时间，常用的方法是调用头文件 time.h，其中提供了 clock() 函数，可以捕捉从程序开始运行到 clock() 被调用时所耗费的时间。这个时间单位是 clock tick，即“时钟打点”。同时还有一个常数 CLK_TCK，给出了机器时钟每秒所走的时钟打点数。于是为了获得一个函数 <em>f</em> 的运行时间，我们只要在调用 <em>f</em> 之前先调用 clock()，获得一个时钟打点数 C1；在 <em>f</em> 执行完成后再调用 clock()，获得另一个时钟打点数 C2；两次获得的时钟打点数之差 (C2-C1) 就是 <em>f</em> 运行所消耗的时钟打点数，再除以常数 CLK_TCK，就得到了以秒为单位的运行时间。</p>
@@ -483,7 +484,7 @@
 <p><strong>输出样例：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">12:42:59</span><br></pre></td></tr></table></figure>
 
-<h1 id="解析思路"><a href="#解析思路" class="headerlink" title="解析思路"></a><font size="4px">解析思路</font></h1><h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> c1,c2;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;c1,&amp;c2);</span><br><span class="line">	<span class="keyword">int</span> sub=(<span class="keyword">int</span>)round(<span class="number">1.0</span>*(c2-c1)/<span class="number">100</span>);</span><br><span class="line">	<span class="keyword">int</span> h=sub/(<span class="number">60</span>*<span class="number">60</span>);</span><br><span class="line">	<span class="keyword">int</span> m=sub/<span class="number">60</span>%<span class="number">60</span>;</span><br><span class="line">	<span class="keyword">int</span> s=sub%<span class="number">60</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%02d:%02d:%02d\n"</span>, h,m,s);	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> c1,c2;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;c1,&amp;c2);</span><br><span class="line">	<span class="keyword">int</span> sub=(<span class="keyword">int</span>)round(<span class="number">1.0</span>*(c2-c1)/<span class="number">100</span>);</span><br><span class="line">	<span class="keyword">int</span> h=sub/(<span class="number">60</span>*<span class="number">60</span>);</span><br><span class="line">	<span class="keyword">int</span> m=sub/<span class="number">60</span>%<span class="number">60</span>;</span><br><span class="line">	<span class="keyword">int</span> s=sub%<span class="number">60</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%02d:%02d:%02d\n"</span>, h,m,s);	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -513,7 +514,7 @@
     <a href="https://www.runaccepted.com/2019/09/07/B1026/" title="B1026 程序运行时间 (15分)">https://www.runaccepted.com/2019/09/07/B1026/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月07日 - 10:48</li>
-  <li><strong>更新时间：</strong>2020年02月10日 - 14:20</li>
+  <li><strong>更新时间：</strong>2020年12月25日 - 16:27</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -601,7 +602,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原文"><span class="nav-number">1.</span> <span class="nav-text">原文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解析思路"><span class="nav-number">2.</span> <span class="nav-text">解析思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">3.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原文"><span class="nav-number">1.</span> <span class="nav-text">原文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">2.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -619,7 +620,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">294</span>
+          <span class="site-state-item-count">299</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -656,7 +657,11 @@
         
           
         
-        <span class="site-state-item-count">11</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -731,7 +736,11 @@
         
           
         
-        <span class="site-state-item-count">30</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -838,13 +847,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">416k</span>
+    <span title="站点总字数">438k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">11:34</span>
+    <span title="站点阅读时长">12:10</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

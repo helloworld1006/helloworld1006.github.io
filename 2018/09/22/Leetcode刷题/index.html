@@ -1,0 +1,1842 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "4767878b"
+    });
+  daovoice('update');
+  </script>
+
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"falt"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+  (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://www.runaccpeted.com"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+  <meta name="description" content="https://leetcode.com/problemset/all/">
+<meta name="keywords" content="Leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode刷题">
+<meta property="og:url" content="https://www.runaccepted.com/2018/09/22/Leetcode刷题/index.html">
+<meta property="og:site_name" content="W.T.的博客">
+<meta property="og:description" content="https://leetcode.com/problemset/all/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-09-22T13:16:06.701Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode刷题">
+<meta name="twitter:description" content="https://leetcode.com/problemset/all/">
+  <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
+  <link rel="canonical" href="https://www.runaccepted.com/2018/09/22/Leetcode刷题/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+
+  <title>Leetcode刷题 | W.T.的博客</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?59cd4bc54e9d484dff9357727e454c80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container">
+    <div class="headband"></div>
+    <!-- github -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">W.T.的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Every day to be a little better</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">32</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">13</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">299</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-schedule">
+      
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-commonweal">
+      
+    
+      
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+  <a href="https://github.com/helloworld1006" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2018/09/22/Leetcode刷题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Ting">
+      <meta itemprop="description" content="技术成长笔记">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W.T.的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Leetcode刷题
+
+          
+        </h1>
+
+        <div class="post-meta">
+
+           
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-22 20:01:07" itemprop="dateCreated datePublished" datetime="2018-09-22T20:01:07+08:00">2018-09-22</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-22 21:16:06" itemprop="dateModified" datetime="2020-09-22T21:16:06+08:00">2020-09-22</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2018/09/22/Leetcode刷题/" class="post-meta-item leancloud_visitors" data-flag-title="Leetcode刷题" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+          
+           
+           <!--
+            <span class="post-meta-item" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          -->
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">评论：</span>
+    
+    <a title="valine" href="/2018/09/22/Leetcode刷题/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2018/09/22/Leetcode刷题/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>5.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>9 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center"><a href="https://leetcode.com/problemset/all/" target="_blank" rel="noopener">https://leetcode.com/problemset/all/</a></blockquote>
+
+<a id="more"></a>
+
+<h1 id="如何刷题"><a href="#如何刷题" class="headerlink" title="如何刷题"></a><font size="4px">如何刷题</font></h1><p>Up主：<a href="https://space.bilibili.com/555585221" target="_blank" rel="noopener">土妹编程</a> <a href="https://space.bilibili.com/9880352" target="_blank" rel="noopener">花花酱的表世界</a></p>
+<p>按类型tag刷题，每个类型10-20题(动态规划：多多益善)</p>
+<p>周一：树/链表</p>
+<p>周二：搜索</p>
+<p>周三：动态规划 …</p>
+<p>第一遍：5分钟想不出来就看答案</p>
+<p>第二遍：尝试不看答案完整实现，不超过60分钟</p>
+<p>第三遍：快速实现</p>
+<p>看别人的代码(论坛)，至少3-5种不同的实现，分析优缺点，速度快慢</p>
+<p>学习新的语言，算法，数据结构，API，模版</p>
+<p>完整的手写实现，不要copy代码，增强肌肉记忆</p>
+<p>运行时间70%左右的代码，阅读提高能力</p>
+<p>扩宽思路-使用什么算法，推算时间复杂度，统一代码风格，取有意义的变量名</p>
+<h1 id="解析思路"><a href="#解析思路" class="headerlink" title="解析思路"></a><font size="4px">解析思路</font></h1><p><a href="https://zxi.mytechroad.com/blog/leetcode-problem-categories/" target="_blank" rel="noopener">https://zxi.mytechroad.com/blog/leetcode-problem-categories/</a></p>
+<h2 id="Tree（树）"><a href="#Tree（树）" class="headerlink" title="Tree（树）"></a><font size="3px">Tree（树）</font></h2><table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>Similar Problems</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>94</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-94-binary-tree-inorder-traversal/" target="_blank" rel="noopener">Binary Tree Inorder Traversal</a></td>
+<td>★</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-144-binary-tree-preorder-traversal/" target="_blank" rel="noopener">144</a> <a href="https://zxi.mytechroad.com/blog/tree/leetcode-145-binary-tree-postorder-traversal/" target="_blank" rel="noopener">145</a> <a href="https://zxi.mytechroad.com/blog/tree/leetcode-429-n-ary-tree-level-order-traversal/" target="_blank" rel="noopener">429</a> <a href="https://zxi.mytechroad.com/blog/tree/leetcode-589-n-ary-tree-preorder-traversal/" target="_blank" rel="noopener">589</a> <a href="https://zxi.mytechroad.com/blog/tree/leetcode-590-n-ary-tree-postorder-traversal/" target="_blank" rel="noopener">590</a></td>
+<td>traversal</td>
+</tr>
+<tr>
+<td>100</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-100-same-tree/" target="_blank" rel="noopener">Same Tree</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-101-symmetric-tree/" target="_blank" rel="noopener">101</a> <a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-110-balanced-binary-tree/" target="_blank" rel="noopener">110</a> <a href="https://zxi.mytechroad.com/blog/tree/leetcode-111-minimum-depth-of-binary-tree/" target="_blank" rel="noopener">111</a> <a href="https://leetcode.com/problems/subtree-of-another-tree" target="_blank" rel="noopener">572</a> <a href="https://leetcode.com/problems/univalued-binary-tree/" target="_blank" rel="noopener">965</a></td>
+<td></td>
+</tr>
+<tr>
+<td>102</td>
+<td><a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-102-binary-tree-level-order-traversal/" target="_blank" rel="noopener">Binary Tree Level Order Traversal</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-107-binary-tree-level-order-traversal-ii/" target="_blank" rel="noopener">107</a> <a href="https://zxi.mytechroad.com/blog/tree/leetcode-429-n-ary-tree-level-order-traversal/" target="_blank" rel="noopener">429</a> <a href="https://zxi.mytechroad.com/blog/tree/leetcode-872-leaf-similar-trees/" target="_blank" rel="noopener">872</a></td>
+<td>collecting nodes</td>
+</tr>
+<tr>
+<td>814</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-814-binary-tree-pruning/" target="_blank" rel="noopener">Binary Tree Pruning</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-669-trim-a-binary-search-tree/" target="_blank" rel="noopener">669</a> <a href="https://zxi.mytechroad.com/blog/tree/leetcode-1325-delete-leaves-with-a-given-value/" target="_blank" rel="noopener">1325</a></td>
+<td></td>
+</tr>
+<tr>
+<td>112</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-112-path-sum/" target="_blank" rel="noopener">Path Sum</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-113-path-sum-ii/" target="_blank" rel="noopener">113</a> <a href="https://zxi.mytechroad.com/blog/tree/leetcode-437-path-sum-iii/" target="_blank" rel="noopener">437</a></td>
+<td></td>
+</tr>
+<tr>
+<td>129</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-129-sum-root-to-leaf-numbers/" target="_blank" rel="noopener">Sum Root to Leaf Numbers</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-257-binary-tree-paths/" target="_blank" rel="noopener">257</a></td>
+<td></td>
+</tr>
+<tr>
+<td>236</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-236-lowest-common-ancestor-of-a-binary-tree/" target="_blank" rel="noopener">Lowest Common Ancestor of a Binary Tree</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-235-lowest-common-ancestor-of-a-binary-search-tree/" target="_blank" rel="noopener">235</a></td>
+<td></td>
+</tr>
+<tr>
+<td>297</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-297-serialize-and-deserialize-binary-tree/" target="_blank" rel="noopener">Serialize and Deserialize Binary Tree</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-449-serialize-and-deserialize-bst/" target="_blank" rel="noopener">449</a></td>
+<td></td>
+</tr>
+<tr>
+<td>508</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-508-most-frequent-subtree-sum/" target="_blank" rel="noopener">Most Frequent Subtree Sum</a></td>
+<td>★★★</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>124</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-124-binary-tree-maximum-path-sum/" target="_blank" rel="noopener">Binary Tree Maximum Path Sum</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-543-diameter-of-binary-tree/" target="_blank" rel="noopener">543</a> <a href="https://zxi.mytechroad.com/blog/tree/leetcode-687-longest-univalue-path/" target="_blank" rel="noopener">687</a></td>
+<td>Use both children, return one</td>
+</tr>
+<tr>
+<td>968</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-968-binary-tree-cameras/" target="_blank" rel="noopener">Binary Tree Cameras</a></td>
+<td>★★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-337-house-robber-iii/" target="_blank" rel="noopener">337</a> <a href="https://zxi.mytechroad.com/blog/tree/leetcode-979-distribute-coins-in-binary-tree/" target="_blank" rel="noopener">979</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="Divide-and-conquer（分治）"><a href="#Divide-and-conquer（分治）" class="headerlink" title="Divide and conquer（分治）"></a><font size="3px">Divide and conquer（分治）</font></h2><table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>Similar Problems</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>169</td>
+<td><a href="https://zxi.mytechroad.com/blog/divide-and-conquer/leetcode-169-majority-element/" target="_blank" rel="noopener">Majority Element</a></td>
+<td>★★</td>
+<td></td>
+<td>你知道茴香豆的茴有几种写法吗？</td>
+</tr>
+<tr>
+<td>153</td>
+<td><a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-153-find-minimum-in-rotated-sorted-array/" target="_blank" rel="noopener">Find Minimum in Rotated Sorted Array</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/divide-and-conquer/leetcode-154-find-minimum-in-rotated-sorted-array-ii/" target="_blank" rel="noopener">154</a></td>
+<td></td>
+</tr>
+<tr>
+<td>912</td>
+<td><a href="https://zxi.mytechroad.com/blog/algorithms/array/leetcode-912-sort-an-array/" target="_blank" rel="noopener">Sort and Array</a></td>
+<td>★★★</td>
+<td></td>
+<td>merge sort</td>
+</tr>
+<tr>
+<td>315</td>
+<td><a href="https://leetcode.com/problems/count-of-smaller-numbers-after-self/" target="_blank" rel="noopener">Count of Smaller Numbers After Self</a></td>
+<td>★★★★</td>
+<td></td>
+<td>merge sort / BIT</td>
+</tr>
+</tbody></table>
+<p>##<font size="3px"> List（链表）</font></p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>Similar Problems</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td><a href="https://zxi.mytechroad.com/blog/simulation/leetcode-2-add-two-numbers-2/" target="_blank" rel="noopener">Add Two Numbers</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/list/leetcode-445-add-two-numbers-ii/" target="_blank" rel="noopener">445</a></td>
+<td>traversal</td>
+</tr>
+<tr>
+<td>24</td>
+<td><a href="https://zxi.mytechroad.com/blog/list/leetcode-24-swap-nodes-in-pairs/" target="_blank" rel="noopener">Swap Nodes in Pairs</a></td>
+<td>★★</td>
+<td></td>
+<td>reverse</td>
+</tr>
+<tr>
+<td>206</td>
+<td><a href="https://zxi.mytechroad.com/blog/list/leetcode-206-reverse-linked-list/" target="_blank" rel="noopener">Reverse Linked List</a></td>
+<td>★★</td>
+<td></td>
+<td>reverse</td>
+</tr>
+<tr>
+<td>141</td>
+<td><a href="https://zxi.mytechroad.com/blog/list/leetcode-141-linked-list-cycle/" target="_blank" rel="noopener">Linked List Cycle</a></td>
+<td>★★</td>
+<td><a href="https://leetcode.com/problems/linked-list-cycle-ii" target="_blank" rel="noopener">142</a></td>
+<td>priority_queue / mergesort</td>
+</tr>
+<tr>
+<td>23</td>
+<td><a href="https://zxi.mytechroad.com/blog/list/leetcode-23-merge-k-sorted-lists-2/" target="_blank" rel="noopener">Merge k Sorted Lists</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-21-merge-two-sorted-lists/" target="_blank" rel="noopener">21</a></td>
+<td>priority_queue / mergesort</td>
+</tr>
+<tr>
+<td>147</td>
+<td><a href="https://leetcode.com/problems/insertion-sort-list/" target="_blank" rel="noopener">Insertion Sort List</a></td>
+<td>★★★</td>
+<td></td>
+<td>insertion sort</td>
+</tr>
+<tr>
+<td>148</td>
+<td><a href="https://zxi.mytechroad.com/blog/divide-and-conquer/leetcode-148-sort-list/" target="_blank" rel="noopener">Sort List</a></td>
+<td>★★★★</td>
+<td></td>
+<td>merge sort O(1) space</td>
+</tr>
+<tr>
+<td>707</td>
+<td><a href="https://zxi.mytechroad.com/blog/list/leetcode-707-design-linked-list/" target="_blank" rel="noopener">Design Linked List</a></td>
+<td>★★★★</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="BST（二叉搜索树）"><a href="#BST（二叉搜索树）" class="headerlink" title="BST（二叉搜索树）"></a><font size="3px">BST（二叉搜索树）</font></h2><table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>Similar Problems</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>98</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-98-validate-binary-search-tree/" target="_blank" rel="noopener">Validate Binary Search Tree</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-530-minimum-absolute-difference-in-bst/" target="_blank" rel="noopener">530</a></td>
+<td>inorder</td>
+</tr>
+<tr>
+<td>700</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-700-search-in-a-binary-search-tree/" target="_blank" rel="noopener">Search in a Binary Search Tree</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-701-insert-into-a-binary-search-tree/" target="_blank" rel="noopener">701</a></td>
+<td>binary search</td>
+</tr>
+<tr>
+<td>230</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-230-kth-smallest-element-in-a-bst/" target="_blank" rel="noopener">Kth Smallest Element in a BST</a></td>
+<td>★★★</td>
+<td></td>
+<td>inorder</td>
+</tr>
+<tr>
+<td>99</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-99-recover-binary-search-tree/" target="_blank" rel="noopener">Recover Binary Search Tree</a></td>
+<td>★★★</td>
+<td></td>
+<td>inorder</td>
+</tr>
+<tr>
+<td>108</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-108-convert-sorted-array-to-binary-search-tree/" target="_blank" rel="noopener">Convert Sorted Array to Binary Search Tree</a></td>
+<td>★★★</td>
+<td></td>
+<td>build BST</td>
+</tr>
+<tr>
+<td>501</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-501-find-mode-in-binary-search-tree/" target="_blank" rel="noopener">Find Mode in Binary Search Tree</a></td>
+<td>★★★</td>
+<td></td>
+<td>inorder</td>
+</tr>
+<tr>
+<td>450</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-450-delete-node-in-a-bst/" target="_blank" rel="noopener">Delete Node in a BST</a></td>
+<td>★★★★</td>
+<td></td>
+<td>binary search</td>
+</tr>
+</tbody></table>
+<h2 id="Graph（图论）"><a href="#Graph（图论）" class="headerlink" title="Graph（图论）"></a><font size="3px">Graph（图论）</font></h2><table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>Similar Problems</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>133</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-133-clone-graph/" target="_blank" rel="noopener">Clone Graph</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/hashtable/leetcode-138-copy-list-with-random-pointer/" target="_blank" rel="noopener">138</a></td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-200-number-of-islands/" target="_blank" rel="noopener">Number of Islands</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-547-friend-circles/" target="_blank" rel="noopener">547</a>  <a href="https://zxi.mytechroad.com/blog/searching/leetcode-733-flood-fill/" target="_blank" rel="noopener">695</a> <a href="https://leetcode.com/problems/flood-fill/" target="_blank" rel="noopener">733</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-827-making-a-large-island/" target="_blank" rel="noopener">827</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-1162-as-far-from-land-as-possible/" target="_blank" rel="noopener">1162</a></td>
+<td>grid + connected components</td>
+</tr>
+<tr>
+<td>841</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-841-keys-and-rooms/" target="_blank" rel="noopener">Keys and Rooms</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-1202-smallest-string-with-swaps/" target="_blank" rel="noopener">1202</a></td>
+<td></td>
+</tr>
+<tr>
+<td>207</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-207-course-schedule/" target="_blank" rel="noopener">Course Schedule</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-210-course-schedule-ii/" target="_blank" rel="noopener">210</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-802-find-eventual-safe-states/" target="_blank" rel="noopener">802</a></td>
+<td></td>
+</tr>
+<tr>
+<td>399</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-399-evaluate-division/" target="_blank" rel="noopener">Evaluate Division</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/string/leetcode-839-similar-string-groups/" target="_blank" rel="noopener">839</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-952-largest-component-size-by-common-factor/" target="_blank" rel="noopener">952</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-990-satisfiability-of-equality-equations/" target="_blank" rel="noopener">990</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-721-accounts-merge/" target="_blank" rel="noopener">721</a> <a href="https://zxi.mytechroad.com/blog/hashtable/leetcode-737-sentence-similarity-ii/" target="_blank" rel="noopener">737</a></td>
+<td>union find</td>
+</tr>
+<tr>
+<td>785</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-785-is-graph-bipartite/" target="_blank" rel="noopener">Is Graph Bipartite?</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-886-possible-bipartition/" target="_blank" rel="noopener">886</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-1042-flower-planting-with-no-adjacent/" target="_blank" rel="noopener">1042</a></td>
+<td>bipartition, graph coloring</td>
+</tr>
+<tr>
+<td>997</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-997-find-the-town-judge/" target="_blank" rel="noopener">Find the Town Judge</a></td>
+<td>★★★</td>
+<td></td>
+<td>in/out degrees</td>
+</tr>
+<tr>
+<td>433</td>
+<td><a href="https://zxi.mytechroad.com/blog/string/leetcode-433-minimum-genetic-mutation/" target="_blank" rel="noopener">Minimum Genetic Mutation</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-815-bus-routes/" target="_blank" rel="noopener">815</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-863-all-nodes-distance-k-in-binary-tree/" target="_blank" rel="noopener">863</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-1129-shortest-path-with-alternating-colors/" target="_blank" rel="noopener">1129</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-1263-minimum-moves-to-move-a-box-to-their-target-location/" target="_blank" rel="noopener">1263</a></td>
+<td>unweighted shortest path / BFS</td>
+</tr>
+<tr>
+<td>684</td>
+<td><a href="https://zxi.mytechroad.com/blog/tree/leetcode-684-redundant-connection/" target="_blank" rel="noopener">Redundant Connection</a></td>
+<td>★★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-685-redundant-connection-ii/" target="_blank" rel="noopener">685</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-1319-number-of-operations-to-make-network-connected/" target="_blank" rel="noopener">1319</a></td>
+<td>cycle, union find</td>
+</tr>
+<tr>
+<td>743</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-743-network-delay-time/" target="_blank" rel="noopener">Network Delay Time</a></td>
+<td>★★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-787-cheapest-flights-within-k-stops/" target="_blank" rel="noopener">787</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-882-reachable-nodes-in-subdivided-graph/" target="_blank" rel="noopener">882</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-924-minimize-malware-spread/" target="_blank" rel="noopener">924</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-1334-find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/" target="_blank" rel="noopener">1334</a></td>
+<td>weighted shortest path</td>
+</tr>
+<tr>
+<td>847</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-847-shortest-path-visiting-all-nodes/" target="_blank" rel="noopener">Shortest Path Visiting All Nodes</a></td>
+<td>★★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-864-shortest-path-to-get-all-keys/" target="_blank" rel="noopener">864</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-1298-maximum-candies-you-can-get-from-boxes/" target="_blank" rel="noopener">1298</a></td>
+<td>BFS</td>
+</tr>
+<tr>
+<td>332</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-332-reconstruct-itinerary/" target="_blank" rel="noopener">Reconstruct Itinerary</a></td>
+<td>★★★★</td>
+<td></td>
+<td>Eulerian path</td>
+</tr>
+<tr>
+<td>1192</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-1192-critical-connections-in-a-network/" target="_blank" rel="noopener">Critical Connections in a Network</a></td>
+<td>★★★★</td>
+<td></td>
+<td>Tarjan</td>
+</tr>
+<tr>
+<td>943</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-943-find-the-shortest-superstring/" target="_blank" rel="noopener">Find the Shortest Superstring</a></td>
+<td>★★★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-980-unique-paths-iii/" target="_blank" rel="noopener">980</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-996-number-of-squareful-arrays/" target="_blank" rel="noopener">996</a></td>
+<td>Hamiltonian path (DFS / DP)</td>
+</tr>
+<tr>
+<td>959</td>
+<td><a href="https://zxi.mytechroad.com/blog/graph/leetcode-959-regions-cut-by-slashes/" target="_blank" rel="noopener">Regions Cut By Slashes</a></td>
+<td>★★★★★</td>
+<td></td>
+<td>union find / grid + CCs</td>
+</tr>
+</tbody></table>
+<h2 id="Search-BFS-DFS-（搜索-回溯）"><a href="#Search-BFS-DFS-（搜索-回溯）" class="headerlink" title="Search (BFS/DFS)（搜索/回溯）"></a><font size="3px">Search (BFS/DFS)（搜索/回溯）</font></h2><table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>Similar Problems</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>17</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-17-letter-combinations-of-a-phone-number/" target="_blank" rel="noopener">Letter Combinations of a Phone Number</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-39-combination-sum/" target="_blank" rel="noopener">39</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-40-combination-sum-ii/" target="_blank" rel="noopener">40</a>  <a href="https://zxi.mytechroad.com/blog/searching/leetcode-77-combinations/" target="_blank" rel="noopener">77</a>  <a href="https://zxi.mytechroad.com/blog/searching/leetcode-78-subsets/" target="_blank" rel="noopener">78</a>  <a href="https://zxi.mytechroad.com/blog/searching/leetcode-90-subsets-ii/" target="_blank" rel="noopener">90</a>  <a href="https://zxi.mytechroad.com/blog/searching/leetcode-216-combination-sum-iii/" target="_blank" rel="noopener">216</a></td>
+<td>Combination</td>
+</tr>
+<tr>
+<td>46</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-46-permutations/" target="_blank" rel="noopener">Permutations</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-47-permutations-ii/" target="_blank" rel="noopener">47</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-784-letter-case-permutation/" target="_blank" rel="noopener">784</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-943-find-the-shortest-superstring/" target="_blank" rel="noopener">943</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-996-number-of-squareful-arrays/" target="_blank" rel="noopener">996</a></td>
+<td>Permutation</td>
+</tr>
+<tr>
+<td>22</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-22-generate-parentheses/" target="_blank" rel="noopener">Generate Parentheses</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-301-remove-invalid-parentheses/" target="_blank" rel="noopener">301</a></td>
+<td>DFS</td>
+</tr>
+<tr>
+<td>37</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-37-sudoku-solver/" target="_blank" rel="noopener">Sudoku Solver</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-51-n-queens/" target="_blank" rel="noopener">51</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-52-n-queens-ii/" target="_blank" rel="noopener">52</a></td>
+<td>DFS</td>
+</tr>
+<tr>
+<td>79</td>
+<td><a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-79-word-search/" target="_blank" rel="noopener">Word Search</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-212-word-search-ii/" target="_blank" rel="noopener">212</a></td>
+<td>DFS</td>
+</tr>
+<tr>
+<td>127</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/127-word-ladder/" target="_blank" rel="noopener">Word Ladder</a></td>
+<td>★★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-126-word-ladder-ii/" target="_blank" rel="noopener">126</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-752-open-the-lock/" target="_blank" rel="noopener">752</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-818-race-car/" target="_blank" rel="noopener">818</a></td>
+<td>BFS</td>
+</tr>
+<tr>
+<td>542</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-542-01-matrix/" target="_blank" rel="noopener">01 Matrix</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-675-cut-off-trees-for-golf-event/" target="_blank" rel="noopener">675</a> <a href="https://zxi.mytechroad.com/blog/graph/leetcode-934-shortest-bridge/" target="_blank" rel="noopener">934</a></td>
+<td>BFS</td>
+</tr>
+<tr>
+<td>698</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-698-partition-to-k-equal-sum-subsets/" target="_blank" rel="noopener">Partition to K Equal Sum Subsets</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-93-restore-ip-addresses/" target="_blank" rel="noopener">93</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-131-palindrome-partitioning/" target="_blank" rel="noopener">131</a> <a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-241-different-ways-to-add-parentheses/" target="_blank" rel="noopener">241</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-282-expression-add-operators/" target="_blank" rel="noopener">282</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-842-split-array-into-fibonacci-sequence/" target="_blank" rel="noopener">842</a></td>
+<td>Partition</td>
+</tr>
+</tbody></table>
+<h2 id="Binary-Search（二分搜索）"><a href="#Binary-Search（二分搜索）" class="headerlink" title="Binary Search（二分搜索）"></a><font size="3px">Binary Search（二分搜索）</font></h2><table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>Similar Problems</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>35</td>
+<td><a href="https://zxi.mytechroad.com/blog/algorithms/binary-search/leetcode-35-search-insert-position/" target="_blank" rel="noopener">Search Insert Position</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/algorithms/binary-search/leetcode-34-find-first-and-last-position-of-element-in-sorted-array/" target="_blank" rel="noopener">34</a>  <a href="https://zxi.mytechroad.com/blog/algorithms/array/leetcode-704-binary-search/" target="_blank" rel="noopener">704</a> <a href="https://zxi.mytechroad.com/blog/hashtable/leetcode-981-time-based-key-value-store/" target="_blank" rel="noopener">981</a></td>
+<td>upper_bound</td>
+</tr>
+<tr>
+<td>33</td>
+<td><a href="https://leetcode.com/problems/search-in-rotated-sorted-array" target="_blank" rel="noopener">Search in Rotated Sorted Array</a></td>
+<td>★★★</td>
+<td><a href="https://leetcode.com/problems/search-in-rotated-sorted-array-ii/" target="_blank" rel="noopener">81</a>  <a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-153-find-minimum-in-rotated-sorted-array/" target="_blank" rel="noopener">153</a>  <a href="https://zxi.mytechroad.com/blog/divide-and-conquer/leetcode-154-find-minimum-in-rotated-sorted-array-ii/" target="_blank" rel="noopener">154</a>  <a href="https://zxi.mytechroad.com/blog/algorithms/binary-search/%e8%8a%b1%e8%8a%b1%e9%85%b1-leetcode-162-find-peak-element/" target="_blank" rel="noopener">162</a>  <a href="https://zxi.mytechroad.com/blog/algorithms/binary-search/leetcode-852-peak-index-in-a-mountain-array/" target="_blank" rel="noopener">852</a></td>
+<td>rotated / peak</td>
+</tr>
+<tr>
+<td>69</td>
+<td><a href="https://zxi.mytechroad.com/blog/math/leetcode-69-sqrtx/" target="_blank" rel="noopener">Sqrt(x)</a></td>
+<td>★★★</td>
+<td></td>
+<td>upper_bound</td>
+</tr>
+<tr>
+<td>74</td>
+<td><a href="https://zxi.mytechroad.com/blog/algorithms/binary-search/leetcode-74-search-a-2d-matrix/" target="_blank" rel="noopener">Search a 2D Matrix</a></td>
+<td>★★★</td>
+<td></td>
+<td>treat 2d as 1d</td>
+</tr>
+<tr>
+<td>875</td>
+<td><a href="https://zxi.mytechroad.com/blog/algorithms/binary-search/leetcode-875-koko-eating-bananas/" target="_blank" rel="noopener">Koko Eating Bananas</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/algorithms/binary-search/leetcode-1011-capacity-to-ship-packages-within-d-days/" target="_blank" rel="noopener">1011</a></td>
+<td>guess ans and check</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://zxi.mytechroad.com/blog/algorithms/binary-search/leetcode-4-median-of-two-sorted-arrays/" target="_blank" rel="noopener">Median of Two Sorted Arrays</a></td>
+<td>★★★★</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>378</td>
+<td><a href="https://zxi.mytechroad.com/blog/algorithms/binary-search/leetcode-378-kth-smallest-element-in-a-sorted-matrix/" target="_blank" rel="noopener">Kth Smallest Element in a Sorted Matrix</a></td>
+<td>★★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/algorithms/binary-search/leetcode-668-kth-smallest-number-in-multiplication-table/" target="_blank" rel="noopener">668</a></td>
+<td>kth + matrix</td>
+</tr>
+<tr>
+<td>719</td>
+<td><a href="https://zxi.mytechroad.com/blog/divide-and-conquer/leetcode-719-find-k-th-smallest-pair-distance/" target="_blank" rel="noopener">Find K-th Smallest Pair Distance</a></td>
+<td>★★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/two-pointers/leetcode-786-k-th-smallest-prime-fraction/" target="_blank" rel="noopener">786</a></td>
+<td>kth + two pointers</td>
+</tr>
+</tbody></table>
+<h2 id="Two-Pointers（双指针）"><a href="#Two-Pointers（双指针）" class="headerlink" title="Two Pointers（双指针）"></a><font size="3px">Two Pointers（双指针）</font></h2><table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>Similar Problems</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11</td>
+<td><a href="https://zxi.mytechroad.com/blog/two-pointers/leetcode-11-container-with-most-water/" target="_blank" rel="noopener">Container With Most Water</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-42-trapping-rain-water/" target="_blank" rel="noopener">42</a></td>
+<td></td>
+</tr>
+<tr>
+<td>125</td>
+<td><a href="https://zxi.mytechroad.com/blog/two-pointers/leetcode-209-minimum-size-subarray-sum/" target="_blank" rel="noopener">Valid Palindrome</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/greedy/leetcode-455-assign-cookies/" target="_blank" rel="noopener">455</a></td>
+<td></td>
+</tr>
+<tr>
+<td>917</td>
+<td><a href="https://zxi.mytechroad.com/blog/string/leetcode-917-reverse-only-letters/" target="_blank" rel="noopener">Reverse Only Letters</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/two-pointers/leetcode-925-long-pressed-name/" target="_blank" rel="noopener">925</a>  <a href="https://zxi.mytechroad.com/blog/geometry/leetcode-986-interval-list-intersections/" target="_blank" rel="noopener">986</a> <a href="https://zxi.mytechroad.com/blog/greedy/leetcode-885-boats-to-save-people/" target="_blank" rel="noopener">855</a></td>
+<td></td>
+</tr>
+<tr>
+<td>167</td>
+<td><a href="https://zxi.mytechroad.com/blog/algorithms/binary-search/167-two-sum-ii-input-array-is-sorted/" target="_blank" rel="noopener">Two Sum II – Input array is sorted</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/two-pointers/leetcode-15-3sum/" target="_blank" rel="noopener">15</a> <a href="https://zxi.mytechroad.com/blog/two-pointers/leetcode-16-3sum-closest/" target="_blank" rel="noopener">16</a></td>
+<td></td>
+</tr>
+<tr>
+<td>977</td>
+<td><a href="https://leetcode.com/problems/squares-of-a-sorted-array" target="_blank" rel="noopener">Squares of a Sorted Array</a></td>
+<td>★★</td>
+<td></td>
+<td>merge sort</td>
+</tr>
+<tr>
+<td>992</td>
+<td><a href="https://zxi.mytechroad.com/blog/two-pointers/leetcode-992-subarrays-with-k-different-integers/" target="_blank" rel="noopener">Subarrays with K Different Integers</a></td>
+<td>★★★★</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="Advanced（高级）"><a href="#Advanced（高级）" class="headerlink" title="Advanced（高级）"></a><font size="3px">Advanced（高级）</font></h2><table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>Similar Problems</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>208</td>
+<td><a href="https://zxi.mytechroad.com/blog/data-structure/leetcode-208-implement-trie-prefix-tree/" target="_blank" rel="noopener">Implement Trie (Prefix Tree)</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/string/leetcode-648-replace-words/" target="_blank" rel="noopener">648</a>  <a href="https://zxi.mytechroad.com/blog/hashtable/leetcode-676-implement-magic-dictionary/" target="_blank" rel="noopener">676</a>  <a href="https://zxi.mytechroad.com/blog/tree/leetcode-677-map-sum-pairs/" target="_blank" rel="noopener">677</a>  <a href="https://zxi.mytechroad.com/blog/string/leetcode-720-longest-word-in-dictionary/" target="_blank" rel="noopener">720</a>  <a href="https://zxi.mytechroad.com/blog/tree/leetcode-745-prefix-and-suffix-search/" target="_blank" rel="noopener">745</a> 211</td>
+<td>Trie</td>
+</tr>
+<tr>
+<td>307</td>
+<td><a href="https://zxi.mytechroad.com/blog/data-structure/307-range-sum-query-mutable/" target="_blank" rel="noopener">Range Sum Query – Mutable</a></td>
+<td>★★★</td>
+<td></td>
+<td>BIT/Segment Tree</td>
+</tr>
+<tr>
+<td>901</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-901-online-stock-span/" target="_blank" rel="noopener">Online Stock Span</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/stack/leetcode-907-sum-of-subarray-minimums/" target="_blank" rel="noopener">907 </a> <a href="https://zxi.mytechroad.com/blog/uncategorized/leetcode-weekly-contest-130/" target="_blank" rel="noopener">1019</a></td>
+<td>monotonic stack</td>
+</tr>
+<tr>
+<td>239</td>
+<td><a href="https://zxi.mytechroad.com/blog/heap/leetcode-239-sliding-window-maximum/" target="_blank" rel="noopener">Sliding Window Maximum</a></td>
+<td>★★★</td>
+<td></td>
+<td>monotonic queue</td>
+</tr>
+</tbody></table>
+<h2 id="DP（动态规划）"><a href="#DP（动态规划）" class="headerlink" title="DP（动态规划）"></a><font size="3px">DP（动态规划）</font></h2><table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>Similar Problems</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>70</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-70-climbing-stairs/" target="_blank" rel="noopener">Climbing Stairs</a></td>
+<td>★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-746-min-cost-climbing-stairs/" target="_blank" rel="noopener">746</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1137-n-th-tribonacci-number/" target="_blank" rel="noopener">1137</a></td>
+<td>I: O(n), S = O(n), T = O(n)</td>
+</tr>
+<tr>
+<td>303</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-303-range-sum-query-immutable/" target="_blank" rel="noopener">Range Sum Query – Immutable</a></td>
+<td>★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1218-longest-arithmetic-subsequence-of-given-difference/" target="_blank" rel="noopener">1218</a></td>
+<td>I: O(n), S = O(n), T = O(n)</td>
+</tr>
+<tr>
+<td>53</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-53-maximum-subarray/" target="_blank" rel="noopener">Maximum Subarray</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-121-best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">121</a></td>
+<td>I: O(n), S = O(n), T = O(n)</td>
+</tr>
+<tr>
+<td>62</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-62-unique-paths/" target="_blank" rel="noopener">Unique Paths</a></td>
+<td>★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-63-unique-paths-ii/" target="_blank" rel="noopener">63</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-64-minimum-path-sum/" target="_blank" rel="noopener">64</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-120-triangle/" target="_blank" rel="noopener">120</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-174-dungeon-game/" target="_blank" rel="noopener">174</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-931-minimum-falling-path-sum/" target="_blank" rel="noopener">931</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-1210-minimum-moves-to-reach-target-with-rotations/" target="_blank" rel="noopener">1210</a></td>
+<td>I: O(mn), S = O(mn), T = O(mn)</td>
+</tr>
+<tr>
+<td>85</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-85-maximal-rectangle/" target="_blank" rel="noopener">Maximal Rectangle</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-304-range-sum-query-2d-immutable/" target="_blank" rel="noopener">221</a> <a href="https://leetcode.com/problems/range-sum-query-2d-immutable" target="_blank" rel="noopener">304</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1277-count-square-submatrices-with-all-ones/" target="_blank" rel="noopener">1277</a></td>
+<td>I: O(mn), S = O(mn), T = O(mn)</td>
+</tr>
+<tr>
+<td>198</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-198-house-robber/" target="_blank" rel="noopener">House Robber</a></td>
+<td>★★★</td>
+<td><a href="https://leetcode.com/problems/house-robber-ii/" target="_blank" rel="noopener">213</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-309-best-time-to-buy-and-sell-stock-with-cooldown/" target="_blank" rel="noopener">309</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-740-delete-and-earn/" target="_blank" rel="noopener">740</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-790-domino-and-tromino-tiling/" target="_blank" rel="noopener">790</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-801-minimum-swaps-to-make-sequences-increasing/" target="_blank" rel="noopener">801</a></td>
+<td>I: O(n), S = O(3n), T = O(3n)</td>
+</tr>
+<tr>
+<td>279</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-279-perfect-squares/" target="_blank" rel="noopener">Perfect Squares</a></td>
+<td>★★★</td>
+<td></td>
+<td>I: n, S = O(n), T = O(n*sqrt(n))</td>
+</tr>
+<tr>
+<td>139</td>
+<td><a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-139-word-break/" target="_blank" rel="noopener">Word Break</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-140-word-break-ii/" target="_blank" rel="noopener">140</a>  <a href="https://zxi.mytechroad.com/blog/searching/leetcode-818-race-car/" target="_blank" rel="noopener">818</a></td>
+<td>I: O(n), S = O(n), T = O($n^2$)</td>
+</tr>
+<tr>
+<td>300</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-300-longest-increasing-subsequence/" target="_blank" rel="noopener">Longest Increasing Subsequence</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-673-number-of-longest-increasing-subsequence/" target="_blank" rel="noopener">673</a>  <a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-weekly-contest-137/" target="_blank" rel="noopener">1048</a></td>
+<td>I: O(n), S = O(n), T = O($n^2$)</td>
+</tr>
+<tr>
+<td>96</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-96-unique-binary-search-trees/" target="_blank" rel="noopener">Unique Binary Search Trees</a></td>
+<td>★★★</td>
+<td></td>
+<td>I: O(n), S = O(n), T = O($n^2$)</td>
+</tr>
+<tr>
+<td>1105</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1105-filling-bookcase-shelves/" target="_blank" rel="noopener">Filling Bookcase Shelves</a></td>
+<td>★★★</td>
+<td></td>
+<td>I: O(n) + t, S = O(n), T = O($n^2$)</td>
+</tr>
+<tr>
+<td>131</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-131-palindrome-partitioning/" target="_blank" rel="noopener">Palindrome Partitioning</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-89-gray-code/" target="_blank" rel="noopener">89</a></td>
+<td>I: O(n), S = O(2^n), T = O($2^n$)</td>
+</tr>
+<tr>
+<td>72</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-72-edit-distance/" target="_blank" rel="noopener">Edit Distance</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-10-regular-expression-matching/" target="_blank" rel="noopener">10</a> <a href="https://leetcode.com/problems/wildcard-matching/" target="_blank" rel="noopener">44</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-97-interleaving-string/" target="_blank" rel="noopener">97</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-115-distinct-subsequences/" target="_blank" rel="noopener">115</a>  <a href="https://leetcode.com/problems/delete-operation-for-two-strings/" target="_blank" rel="noopener">583</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1187-make-array-strictly-increasing/" target="_blank" rel="noopener">1187</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1143-longest-common-subsequence/" target="_blank" rel="noopener">1143</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1092-shortest-common-supersequence/" target="_blank" rel="noopener">1092</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-718-maximum-length-of-repeated-subarray/" target="_blank" rel="noopener">718</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-712-minimum-ascii-delete-sum-for-two-strings/" target="_blank" rel="noopener">712</a></td>
+<td>I: O(m+n), S = O(mn), T = O(mn)</td>
+</tr>
+<tr>
+<td>1139</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1139-largest-1-bordered-square/" target="_blank" rel="noopener">Largest 1-Bordered Square</a></td>
+<td>★★★</td>
+<td></td>
+<td>I: O(mn), S = O(mn) T = O(mn*min(n,m))</td>
+</tr>
+<tr>
+<td>688</td>
+<td><a href="https://leetcode.com/problems/knight-probability-in-chessboard/" target="_blank" rel="noopener">Knight Probability in Chessboard</a></td>
+<td>★★★</td>
+<td><a href="https://leetcode.com/problems/out-of-boundary-paths/" target="_blank" rel="noopener">576</a> <a href="https://leetcode.com/problems/knight-dialer/" target="_blank" rel="noopener">935</a></td>
+<td>I: O(mn) + k S = O(kmn), T = O(kmn)</td>
+</tr>
+<tr>
+<td>322</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-322-coin-change/" target="_blank" rel="noopener">Coin Change</a></td>
+<td>★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-377-combination-sum-iv/" target="_blank" rel="noopener">377</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-416-partition-equal-subset-sum/" target="_blank" rel="noopener">416</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-494-target-sum/" target="_blank" rel="noopener">494</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1043-partition-array-for-maximum-sum/" target="_blank" rel="noopener">1043</a> <a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-weekly-contest-137/" target="_blank" rel="noopener">1049</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1220-count-vowels-permutation/" target="_blank" rel="noopener">1220</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1230-toss-strange-coins/" target="_blank" rel="noopener">1230</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1262-greatest-sum-divisible-by-three/" target="_blank" rel="noopener">1262</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1269-number-of-ways-to-stay-in-the-same-place-after-some-steps/" target="_blank" rel="noopener">1269</a></td>
+<td>I: O(n) + k, S = O(n), T = O(kn)</td>
+</tr>
+<tr>
+<td>813</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-813-largest-sum-of-averages/" target="_blank" rel="noopener">Largest Sum of Averages</a></td>
+<td>★★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1278-palindrome-partitioning-iii/" target="_blank" rel="noopener">1278</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1335-minimum-difficulty-of-a-job-schedule/" target="_blank" rel="noopener">1335</a>  <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-410-split-array-largest-sum/" target="_blank" rel="noopener">410</a></td>
+<td>I: O(n) + k，S = O(nk), T = O(k$n^2$)</td>
+</tr>
+<tr>
+<td>1223</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1223-dice-roll-simulation/" target="_blank" rel="noopener">Dice Roll Simulation</a></td>
+<td>★★★★</td>
+<td></td>
+<td>I: O(n) + k + p，S = O(kp), T = O($n^2$kp)</td>
+</tr>
+<tr>
+<td>312</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-312-burst-balloons/" target="_blank" rel="noopener">Burst Balloons</a></td>
+<td>★★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-664-strange-printer/" target="_blank" rel="noopener">664</a>  <a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-weekly-contest-131-1021-1022-1023-1024/" target="_blank" rel="noopener">1024</a>  <a href="https://zxi.mytechroad.com/blog/leetcode/leetcode-weekly-contest-135-1037-1038-1039-1040/" target="_blank" rel="noopener">1039</a>  <a href="https://zxi.mytechroad.com/blog/recursion/leetcode-1140-stone-game-ii/" target="_blank" rel="noopener">1140</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/1130-minimum-cost-tree-from-leaf-values/" target="_blank" rel="noopener">1130</a></td>
+<td>I: O(n), S = O($n^2$), T = O($n^3$)</td>
+</tr>
+<tr>
+<td>741</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-741-cherry-pickup/" target="_blank" rel="noopener">Cherry Pickup</a></td>
+<td>★★★★</td>
+<td></td>
+<td>I: O($n^2$), S = O($n^3$), T = O($n^3$)</td>
+</tr>
+<tr>
+<td>546</td>
+<td><a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-546-remove-boxes/" target="_blank" rel="noopener">Remove Boxes</a></td>
+<td>★★★★★</td>
+<td></td>
+<td>I: O(n), S = O($n^3$), T = O($n^4$)</td>
+</tr>
+<tr>
+<td>943</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-943-find-the-shortest-superstring/" target="_blank" rel="noopener">Find the Shortest Superstring</a></td>
+<td>★★★★★</td>
+<td><a href="https://zxi.mytechroad.com/blog/searching/leetcode-980-unique-paths-iii/" target="_blank" rel="noopener">980</a> <a href="https://zxi.mytechroad.com/blog/searching/leetcode-996-number-of-squareful-arrays/" target="_blank" rel="noopener">996</a> <a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1125-smallest-sufficient-team/" target="_blank" rel="noopener">1125</a></td>
+<td>I: O(n)，S = O(nx$2^n$), T = ($n^2$*$2^n$)</td>
+</tr>
+</tbody></table>
+<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a><font size="4px">AC代码</font></h1>
+    </div>
+    
+    <div>
+    
+        <div style="margin-top:30px;padding-top:20px;border-top: 1px dashed #b3a9a7;text-align:center;color: #ccc;font-size:20px;">
+        本文结束&nbsp;<i class="fa fa-smile-o"></i>&nbsp;感谢您的阅读</div>
+    
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li><strong>本文标题：</strong><a href="/2018/09/22/Leetcode刷题/">Leetcode刷题</a></li>
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong><a href="/" title="访问 Wang Ting 的个人博客">Wang Ting</a></li>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.runaccepted.com/2018/09/22/Leetcode刷题/" title="Leetcode刷题">https://www.runaccepted.com/2018/09/22/Leetcode刷题/</a>
+  </li>
+  <li><strong>发布时间：</strong>2018年09月22日 - 20:01</li>
+  <li><strong>更新时间：</strong>2020年09月22日 - 21:16</li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Leetcode/" rel="tag"><i class="fa fa-tag"></i> Leetcode</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/01/26/B1003/" rel="prev" title="B1003 我要通过！ (20分)">
+                  B1003 我要通过！ (20分) <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何刷题"><span class="nav-number">1.</span> <span class="nav-text">如何刷题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解析思路"><span class="nav-number">2.</span> <span class="nav-text">解析思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree（树）"><span class="nav-number">2.1.</span> <span class="nav-text">Tree（树）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Divide-and-conquer（分治）"><span class="nav-number">2.2.</span> <span class="nav-text">Divide and conquer（分治）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BST（二叉搜索树）"><span class="nav-number">2.3.</span> <span class="nav-text">BST（二叉搜索树）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph（图论）"><span class="nav-number">2.4.</span> <span class="nav-text">Graph（图论）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-BFS-DFS-（搜索-回溯）"><span class="nav-number">2.5.</span> <span class="nav-text">Search (BFS/DFS)（搜索/回溯）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Search（二分搜索）"><span class="nav-number">2.6.</span> <span class="nav-text">Binary Search（二分搜索）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Two-Pointers（双指针）"><span class="nav-number">2.7.</span> <span class="nav-text">Two Pointers（双指针）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advanced（高级）"><span class="nav-number">2.8.</span> <span class="nav-text">Advanced（高级）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DP（动态规划）"><span class="nav-number">2.9.</span> <span class="nav-text">DP（动态规划）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码"><span class="nav-number">3.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/a.jpg"
+      alt="Wang Ting">
+  <p class="site-author-name" itemprop="name">Wang Ting</p>
+  <div class="site-description" itemprop="description">技术成长笔记</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">299</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/helloworld1006" title="GitHub &rarr; https://github.com/helloworld1006" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:wangtn01@163.com" title="E-Mail &rarr; mailto:wangtn01@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" title="Weibo &rarr; https://weibo.com/5107570539/profile?rightmod=1&wvr=6&mod=personinfo" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/sinat_32676193" title="CDSN &rarr; https://blog.csdn.net/sinat_32676193" rel="noopener" target="_blank"><i class="fa fa-fw fa-codiepie"></i>CDSN</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      最近阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" title="https://www.bilibili.com/video/av27666354?from=search&seid=16145558899213252036" rel="noopener" target="_blank">数学大观</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" title="https://www.bilibili.com/video/av49228231?from=search&seid=1276315582965680632" rel="noopener" target="_blank">王道训练营 C语言视频最新教程</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/video/av77638697/?p=3&t=14" title="https://www.bilibili.com/video/av77638697/?p=3&t=14" rel="noopener" target="_blank">浙江大学-研究生机器学习课程</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span>网站总字数&nbsp;<span>
+    <span title="站点总字数">438k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span>阅读总时长&nbsp;<span>
+    <span title="站点阅读时长">12:10</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+  <span class="post-meta-divider">|</span> -->
+  <span id="sitetime"></span>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2018,12,23,00,00,00); //北京时间2018-12-23 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML=" 已运行 "+ diffYears+" 年 "+ diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+  siteTime();
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span>本站总访问量&nbsp;</span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span>本站访客数&nbsp;</span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+<script src="/js/utils.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script><script src="/js/bookmark.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('/js/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'XYcjlUMI3JT5ggb51F8oIkwy-gzGzoHsz',
+    appKey: 'OHyypRDYnlmDqCN7vrH85KrL',
+    placeholder: '撰写评论',
+    avatar: 'mm# Gravatar style',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn',
+    avatar_cdn: 'https://www.gravatar.com/avatar/',
+    path: location.pathname
+  });
+}, window.Valine);
+  function ssl_avatar($avatar) {
+     $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
+     return $avatar;
+  }
+</script>
+
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":125,"height":290},"mobile":{"show":true},"react":{"opacity":0.7},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body>
+</html>
