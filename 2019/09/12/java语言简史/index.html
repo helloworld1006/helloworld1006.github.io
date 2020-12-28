@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="Java语言 - 跨平台优势">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-10-09T11:18:37.729Z">
+<meta property="og:image" content="https://www.runaccepted.com/2019/09/12/java语言简史/Java8.jpg">
+<meta property="og:updated_time" content="2020-12-27T17:49:59.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java语言简介">
 <meta name="twitter:description" content="Java语言 - 跨平台优势">
+<meta name="twitter:image" content="https://www.runaccepted.com/2019/09/12/java语言简史/Java8.jpg">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccepted.com/2019/09/12/java语言简史/">
 
@@ -247,7 +249,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">299</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">300</span></a>
 
   </li>
       
@@ -384,7 +386,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-09 19:18:37" itemprop="dateModified" datetime="2020-10-09T19:18:37+08:00">2020-10-09</time>
+                <time title="修改时间：2020-12-28 01:49:59" itemprop="dateModified" datetime="2020-12-28T01:49:59+08:00">2020-12-28</time>
               </span>
             
           
@@ -445,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.7k</span>
+              <span>1.8k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -499,7 +501,8 @@
 <p>java源码经编译器编译成.class，生成的是与平台无关的字节码，字节码只能通过java虚拟机jvm解释成特定平台的机器码。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac xx.java  //编译</span><br><span class="line">java xx        //解释</span><br></pre></td></tr></table></figure>
 
-<h1 id="包下载"><a href="#包下载" class="headerlink" title="包下载"></a><font size="4px">包下载</font></h1><p>JDK java开发工具包，包括java编译器，运行时环境，常用类库，JRE。</p>
+<h1 id="包下载"><a href="#包下载" class="headerlink" title="包下载"></a><font size="4px">包下载</font></h1><p><img src="/2019/09/12/java语言简史/Java8.jpg" alt></p>
+<p>JDK java开发工具包，包括java编译器，运行时环境，常用类库，JRE。</p>
 <p>JRE java运行环境，包括JVM，类加载器，字节码校验器等</p>
 <p>JVM 执行字节码的虚拟计算机</p>
 <p>JDK文件夹</p>
@@ -510,7 +513,8 @@
 <p>– lib 工具命令实际执行程序</p>
 <p>– javafc-src.zip</p>
 <p>– README，LICENSE说明文档</p>
-<h1 id="配置环境变量-mac"><a href="#配置环境变量-mac" class="headerlink" title="配置环境变量-mac"></a><font size="4px">配置环境变量-mac</font></h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> open .bash_profile</span></span><br><span class="line"></span><br><span class="line">//添加内容</span><br><span class="line">JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH:.</span><br><span class="line"></span><br><span class="line">//导出环境变量</span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> PATH</span></span><br><span class="line">//使变量值生效</span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> .bash_profile</span></span><br><span class="line"></span><br><span class="line">//检查环境是否生效</span><br><span class="line"><span class="meta">$</span><span class="bash"> java -version</span></span><br><span class="line">java version "1.8.0_144"</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_144-b01)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)</span><br></pre></td></tr></table></figure>
+<h1 id="配置环境变量-mac"><a href="#配置环境变量-mac" class="headerlink" title="配置环境变量-mac"></a><font size="4px">配置环境变量-mac</font></h1><p>path是操作系统执行命令时，所要搜寻的路径</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> open .bash_profile</span></span><br><span class="line"></span><br><span class="line">//添加内容</span><br><span class="line">JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH:.</span><br><span class="line"></span><br><span class="line">//导出环境变量</span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> PATH</span></span><br><span class="line">//使变量值生效</span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> .bash_profile</span></span><br><span class="line"></span><br><span class="line">//检查环境是否生效</span><br><span class="line"><span class="meta">$</span><span class="bash"> java -version</span></span><br><span class="line">java version "1.8.0_144"</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_144-b01)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)</span><br></pre></td></tr></table></figure>
 
 <h1 id="源文件"><a href="#源文件" class="headerlink" title="源文件"></a><font size="4px">源文件</font></h1><p><a href="https://www.oracle.com/cn/java/technologies/javase-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/cn/java/technologies/javase-downloads.html</a></p>
 <h1 id="java程序-main"><a href="#java程序-main" class="headerlink" title="java程序-main"></a><font size="4px">java程序-main</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -553,7 +557,7 @@
     <a href="https://www.runaccepted.com/2019/09/12/java语言简史/" title="java语言简介">https://www.runaccepted.com/2019/09/12/java语言简史/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月12日 - 20:31</li>
-  <li><strong>更新时间：</strong>2020年10月09日 - 19:18</li>
+  <li><strong>更新时间：</strong>2020年12月28日 - 01:49</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -659,7 +663,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">299</span>
+          <span class="site-state-item-count">300</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
