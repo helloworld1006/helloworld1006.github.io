@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="Collection HashMap">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-09-10T11:45:25.451Z">
+<meta property="og:updated_time" content="2021-01-25T14:51:37.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-集合">
 <meta name="twitter:description" content="Collection HashMap">
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">300</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">305</span></a>
 
   </li>
       
@@ -384,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-10 19:45:25" itemprop="dateModified" datetime="2020-09-10T19:45:25+08:00">2020-09-10</time>
+                <time title="修改时间：2021-01-25 22:51:37" itemprop="dateModified" datetime="2021-01-25T22:51:37+08:00">2021-01-25</time>
               </span>
             
           
@@ -445,7 +445,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>3.9k</span>
+              <span>4.8k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -455,7 +455,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>7 分钟</span>
+              <span>8 分钟</span>
             </span>
           
 
@@ -478,6 +478,9 @@
 <h1 id="固定长度的List"><a href="#固定长度的List" class="headerlink" title="固定长度的List"></a><font size="4px">固定长度的List</font></h1><p>Arrays的内部类ArrayList的实例，不可增加，删除元素，没有重写add，remove方法。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">List list = Arrays.asList(Object... obj);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">asList</span><span class="params">(T... a)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;(a);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">RandomAccess</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> E[] a;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, E element)</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparator&lt;? <span class="keyword">super</span> E&gt; c)</span> </span>&#123; &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">List list = Arrays.asList();</span><br><span class="line"><span class="comment">//Exception in thread "main" java.lang.UnsupportedOperationException</span></span><br><span class="line">list.add(<span class="number">2</span>);</span><br><span class="line">System.out.println(list.size());</span><br></pre></td></tr></table></figure>
 
+<p>基本数据类型和包装类的不同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="keyword">int</span>[]&gt; list = Arrays.asList(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;);</span><br><span class="line"><span class="comment">//[[I@6166e06f]</span></span><br><span class="line">System.out.println(list);</span><br><span class="line"><span class="comment">//1</span></span><br><span class="line">System.out.println(list.get(<span class="number">0</span>)[<span class="number">0</span>]);</span><br><span class="line"><span class="comment">//1</span></span><br><span class="line">System.out.println(list.size());</span><br><span class="line"></span><br><span class="line">List&lt;Integer&gt; list2 = Arrays.asList(<span class="keyword">new</span> Integer[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;);</span><br><span class="line"><span class="comment">//[1,2,3]</span></span><br><span class="line">System.out.println(list2);</span><br><span class="line"><span class="comment">//3</span></span><br><span class="line">System.out.println(list2.size());</span><br></pre></td></tr></table></figure>
+
 <h1 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a><font size="4px">LinkedList</font></h1><p>双向链表实现，只能顺序访问，故get方法效率低，可以快速插入和删除元素。</p>
 <p>结点 prev|element|next，双向链表</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    E item;</span><br><span class="line">    Node&lt;E&gt; next;</span><br><span class="line">    Node&lt;E&gt; prev;</span><br><span class="line"></span><br><span class="line">    Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</span><br><span class="line">        <span class="keyword">this</span>.item = element;</span><br><span class="line">        <span class="keyword">this</span>.next = next;</span><br><span class="line">        <span class="keyword">this</span>.prev = prev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -493,10 +496,15 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (index &lt; (size &gt;&gt; <span class="number">1</span>)) &#123;</span><br><span class="line">    Node&lt;E&gt; x = first;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; index; i++)</span><br><span class="line">        x = x.next;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Node&lt;E&gt; x = last;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = size - <span class="number">1</span>; i &gt; index; i--)</span><br><span class="line">        x = x.prev;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a><font size="4px">ArrayList</font></h1><p>动态数组，支持随机访问</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>,<span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">//数组默认大小10</span></span><br><span class="line"><span class="class"><span class="title">private</span> <span class="title">static</span> <span class="title">final</span> <span class="title">int</span> <span class="title">DEFAULT_CAPACITY</span> </span>= <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>,<span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">transient</span> Object[] elementData;</span><br><span class="line"><span class="comment">//数组默认大小10</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 
-<p>扩容 扩为1.5倍</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</span><br><span class="line">elementData = Arrays.copyOf(elementData, newCapacity);</span><br></pre></td></tr></table></figure>
+<p>jdk1.7:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>jdk1.8:</p>
+<p>只创建空的数组</p>
+<p>等到插入数据时才扩容为10</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Constructs an empty list with an initial capacity of ten.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">    elementData[size++] = e;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">    minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">&#125;</span><br><span class="line">grow(minCapacity)&#123;</span><br><span class="line">				<span class="keyword">int</span> oldCapacity = elementData.length;</span><br><span class="line">        <span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</span><br><span class="line">            newCapacity = minCapacity;</span><br><span class="line">				elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>add()</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elementData[size++] = e;</span><br></pre></td></tr></table></figure>
@@ -710,8 +718,44 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vector v = <span class="keyword">new</span> Vector();</span><br><span class="line">Enumeration em = v.elements();</span><br><span class="line"><span class="keyword">while</span>(em.hasMoreElements())&#123;</span><br><span class="line">  em.nextElement();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a><font size="4px">泛型</font></h1><p>参数化类型，在创建对象时指定集合元素类型。不需要再对集合元素取值进行强制类型转换，泛型会动态指定类型实参。</p>
-<p>泛型类&lt;泛型&gt;，泛型接口&lt;泛型&gt;  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(T t)</span></span>&#123;</span><br><span class="line">    System.out.println(t);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span>&lt;<span class="title">O</span>&gt;</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(O o)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyImpl</span>&lt;<span class="title">O</span>&gt; <span class="keyword">implements</span> <span class="title">MyInterface</span>&lt;<span class="title">O</span>&gt;</span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(O o)</span></span>&#123;</span><br><span class="line">    System.out.println(o);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>泛型可以有多个参数&lt;E1,E2,E3&gt;</p>
+</li>
+<li><p>泛型类的构造器不可以是<code>public GenericClass&lt;&gt;()</code></p>
+</li>
+<li><p>实例化后，操作原来泛型位置的结构必须与指定的泛型类型一致</p>
+</li>
+<li><p>泛型不同的引用不能相互赋值 <code>ArrayList&lt;String&gt;,ArrayList&lt;Integer&gt;不同</code></p>
+</li>
+<li><p>泛型如果不指定，泛型对应的类型按照Object处理，但不等价于Object</p>
+</li>
+<li><p>泛型不能使用基本数据结构</p>
+</li>
+<li><p>在类/接口上声明的泛型，在本类或本接口中即代表某种类型，可以作为非静态属性的类型，非静态方法的参数类型，非静态方法的返回值类型。<font color="#f00">静态方法中不能使用类的泛型，但可以有静态泛型方法</font></p>
+<p><font color="#f00">泛型方法所属的类与泛型类无关</font></p>
+<p><font color="#f00">泛型参数是在调用方法时确定的，并非在实例化类时确定，故泛型方法可以是静态的</font></p>
+</li>
+<li><p><font color="#f00">异常类不能是泛型</font></p>
+</li>
+<li><p>不能使用new E[]，但是可以<code>E[] elements = (E[]) new Object[capacity];</code></p>
+<p>泛型用于检查元素类型，在编译期会进行类型擦除，创建泛型数组而不知道数据类型，是不允许的</p>
+</li>
+<li><p>父类有泛型，子类可以选择保留泛型也可以选择指定泛型类型，子类必须是“富二代”，除了指定或保留父类的泛型，还可以增加自己的泛型</p>
+<p>子类不保留父类的泛型，按需实现：</p>
+<p><code>Class Father&lt;T1,T2&gt;{}</code></p>
+<ul>
+<li>没有类型，擦除 <code>Class Son&lt;A,B&gt; extends Father{}</code></li>
+<li>具体类型 <code>class Son&lt;A,B&gt; extends Father&lt;Integer,String&gt;{}</code></li>
+</ul>
+<p>子类保留父类的泛型，成为泛型子类</p>
+<ul>
+<li>全部保留 <code>Class Son&lt;T1,T2,A,B&gt; extends Father&lt;T1,T2&gt;{}</code></li>
+<li>部分保留 <code>Class Son&lt;T2,A,B&gt; extends Father&lt;Integer,T2&gt;{}</code></li>
+</ul>
+</li>
+</ul>
+<p>泛型类&lt;泛型&gt;，泛型接口&lt;泛型&gt;，&lt;泛型&gt;泛型方法(泛型)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(T t)</span></span>&#123;</span><br><span class="line">    System.out.println(t);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//泛型接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span>&lt;<span class="title">O</span>&gt;</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(O o)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyImpl</span>&lt;<span class="title">O</span>&gt; <span class="keyword">implements</span> <span class="title">MyInterface</span>&lt;<span class="title">O</span>&gt;</span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(O o)</span></span>&#123;</span><br><span class="line">    System.out.println(o);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//泛型方法</span></span><br><span class="line"><span class="keyword">public</span> &lt;E&gt; <span class="function">List&lt;E&gt; <span class="title">copy</span><span class="params">(E[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Arrays.asList(arr);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSystem</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Integer[] a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">    <span class="comment">//泛型调用时，指明泛型参数的类型，泛型方法所属类与泛型类没有关系</span></span><br><span class="line">    List&lt;Integer&gt; in = copy(a);</span><br><span class="line">    <span class="comment">//[1, 2, 3, 4, 5]</span></span><br><span class="line">    System.out.println(in);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>实际上，系统并没有创建带泛型的class文件，在编译时，不管泛型参数是什么，运行的是同样的类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; list1 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">ArrayList&lt;Integer&gt; list2 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">System.out.println(list1.getClass()==list2.getClass()); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
@@ -752,7 +796,7 @@
     <a href="https://www.runaccepted.com/2019/09/13/Java基础知识-集合/" title="Java基础知识-集合">https://www.runaccepted.com/2019/09/13/Java基础知识-集合/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月13日 - 22:12</li>
-  <li><strong>更新时间：</strong>2020年09月10日 - 19:45</li>
+  <li><strong>更新时间：</strong>2021年01月25日 - 22:51</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -776,8 +820,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/13/Java基础知识/" rel="next" title="Java基础知识">
-                  <i class="fa fa-chevron-left"></i> Java基础知识
+                <a href="/2019/09/13/boolean到底占几个字节/" rel="next" title="boolean到底占几个字节">
+                  <i class="fa fa-chevron-left"></i> boolean到底占几个字节
                 </a>
               
             </div>
@@ -858,7 +902,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">300</span>
+          <span class="site-state-item-count">305</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1075,7 +1119,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -1085,13 +1129,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">438k</span>
+    <span title="站点总字数">461k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">12:10</span>
+    <span title="站点阅读时长">12:48</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
