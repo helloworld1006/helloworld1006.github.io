@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.runaccepted.com/2019/09/21/Spring%E5%AE%9E%E6%88%98-overview/</loc>
+    <lastmod>2021-02-26</lastmod>
+  </url>  <url>
     <loc>https://www.runaccepted.com/2021/02/25/%E7%BD%91%E9%A1%B5%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E8%BD%AE%E6%92%AD/</loc>
     <lastmod>2021-02-26</lastmod>
   </url>  <url>
@@ -8,9 +11,6 @@
     <lastmod>2021-02-26</lastmod>
   </url>  <url>
     <loc>https://www.runaccepted.com/2019/09/23/%E8%B7%A8%E5%9F%9F%E5%90%8D%E8%AF%B7%E6%B1%82/</loc>
-    <lastmod>2021-02-26</lastmod>
-  </url>  <url>
-    <loc>https://www.runaccepted.com/2021/02/26/Spring%E5%AE%9E%E6%88%98-overview/jquery.min/</loc>
     <lastmod>2021-02-26</lastmod>
   </url>  <url>
     <loc>https://www.runaccepted.com/2019/09/13/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E9%9B%86%E5%90%88/</loc>
@@ -422,9 +422,6 @@
     <lastmod>2020-07-04</lastmod>
   </url>  <url>
     <loc>https://www.runaccepted.com/2019/09/21/Spring%E5%AE%9E%E6%88%98-%E8%A3%85%E9%85%8DBean/</loc>
-    <lastmod>2020-07-04</lastmod>
-  </url>  <url>
-    <loc>https://www.runaccepted.com/2019/09/21/Spring%E5%AE%9E%E6%88%98-overview/</loc>
     <lastmod>2020-07-04</lastmod>
   </url>  <url>
     <loc>https://www.runaccepted.com/2019/09/22/Spring%E5%AE%9E%E6%88%98-SpringMVC/</loc>
