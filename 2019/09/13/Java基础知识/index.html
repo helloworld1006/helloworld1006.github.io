@@ -88,7 +88,7 @@
 <meta property="og:description" content="Java核心技术卷I 知识点：数据类型，作用域，构造函数，字符串，继承，接口，泛型，反射，日志">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.runaccepted.com/2019/09/13/Java基础知识/a.jpg">
-<meta property="og:updated_time" content="2021-01-29T12:07:29.918Z">
+<meta property="og:updated_time" content="2021-02-21T16:23:46.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识">
 <meta name="twitter:description" content="Java核心技术卷I 知识点：数据类型，作用域，构造函数，字符串，继承，接口，泛型，反射，日志">
@@ -223,7 +223,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">33</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">35</span></a>
 
   </li>
       
@@ -236,7 +236,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">14</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">15</span></a>
 
   </li>
       
@@ -249,7 +249,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">307</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">310</span></a>
 
   </li>
       
@@ -386,7 +386,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-29 20:07:29" itemprop="dateModified" datetime="2021-01-29T20:07:29+08:00">2021-01-29</time>
+                <time title="修改时间：2021-02-22 00:23:46" itemprop="dateModified" datetime="2021-02-22T00:23:46+08:00">2021-02-22</time>
               </span>
             
           
@@ -447,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>10k</span>
+              <span>11k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -457,7 +457,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>17 分钟</span>
+              <span>18 分钟</span>
             </span>
           
 
@@ -476,9 +476,9 @@
 
 <a id="more"></a>
 
-<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a><font size="4px">数据类型</font></h1><p>java是强类型语言。每一个变量声明一种类型</p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a><font size="4px">数据类型</font></h1><p>java是强类型语言。每一个变量声明一种类型，变量的数据类型决定了变量占据存储空间大小。</p>
 <p>java没有无符号(unsigned)形式</p>
-<p><strong>变量</strong> 代表可操作的存储空间，空间位置确定，但内容不定</p>
+<p><strong>变量</strong> 代表可操作的存储空间，空间位置确定，但内容不定。要素包括变量名，变量类型和作用域。变量在使用前必须对其声明，只有在变量声明之后，才能为其分配相应长度的存储空间。</p>
 <h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a><font size="4px">基本数据类型</font></h2><table>
 <thead>
 <tr>
@@ -549,7 +549,7 @@
 <tr>
 <td>布尔值</td>
 <td>boolean</td>
-<td><font color="#f00">1??</font></td>
+<td>同int但数组1字节</td>
 <td>true or false，不与其他强制转换</td>
 <td>FALSE</td>
 <td>Boolean</td>
@@ -643,8 +643,7 @@
 <p>Character [128]</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> Character cache[] = <span class="keyword">new</span> Character[<span class="number">127</span> + <span class="number">1</span>];</span><br></pre></td></tr></table></figure>
 
-<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a><font size="4px">作用域</font></h1><p><img src="/2019/09/13/Java基础知识/a.jpg" alt></p>
-<p>java允许局部变量和成员变量同名，局部变量会覆盖成员变量。</p>
+<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a><font size="4px">作用域</font></h1><h1 id><a href="#" class="headerlink" title></a><img src="/2019/09/13/Java基础知识/a.jpg" alt></h1><p>java允许局部变量和成员变量同名，局部变量会覆盖成员变量。</p>
 <table>
 <thead>
 <tr>
@@ -754,7 +753,7 @@
 <p><font color="#f00">常量与常量的拼接结果在常量池中，而且常量池中不存在相同的内容常量</font></p>
 <p><font color="#f00">只要出现变量，结果就会存入堆中</font></p>
 <p><font color="#f00">拼接结果调用intern()方法，返回值放在常量池中</font></p>
-<p>跟输出形式关联</p>
+<p><strong>跟输出形式关联</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String str=String.format(<span class="string">"%d"</span>,age);</span><br></pre></td></tr></table></figure>
 
 <h2 id="String常用方法"><a href="#String常用方法" class="headerlink" title="String常用方法"></a><font size="3px">String常用方法</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">String str.replace(<span class="string">""</span>,<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//按符合正则表达式进行分割</span></span><br><span class="line">String[] str.split(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//将str2加到str后</span></span><br><span class="line">String str2 = <span class="string">" World"</span>;</span><br><span class="line">str.concat(str2);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第一次出现字符串的位置，从0位开始</span></span><br><span class="line"><span class="keyword">int</span> str.indexOf(<span class="string">"wor"</span>);</span><br><span class="line"></span><br><span class="line">String str.toLowerCase();</span><br><span class="line">String str.toUpperCase();</span><br></pre></td></tr></table></figure>
@@ -878,17 +877,12 @@
 <tr>
 <td>定义</td>
 <td>同一方法名的参数顺序，个数，类型不同；返回值，访问权限，异常不同并不构成重载</td>
-<td>同一方法名，参数相同；子类返回值，异常类型小于父类，访问权限大于父类</td>
+<td>同一方法名，参数相同；<br>子类返回值，异常类型小于父类，访问权限大于父类</td>
 </tr>
 <tr>
 <td>原理</td>
 <td>方法调用</td>
 <td>用于多态</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>子类可见性不能低于父类</td>
 </tr>
 </tbody></table>
 <h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a><font size="4px">多态</font></h1><p>当同一个存在作用在不同对象时，会有不同的语义。</p>
@@ -1074,10 +1068,58 @@
 <p>如：assert 1+1==3:“assert failed，exit”，调用java -ea Test ，-ea启用 -da禁用</p>
 <p>输出：Exception in thread “main” Java.lang.AssertError:assert failed, exit at Test.main(Test.java 5)</p>
 <p>抛出AssertError异常</p>
-<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a><font size="4px">泛型</font></h1><ul>
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a><font size="4px">泛型</font></h1><p>泛型的本质是“<font color="#f00">数据类型的参数化</font>”，处理的数据类型不是固定的，而是可以作为参数传入。可以把“泛型”理解为数据类型的一个占位符(类似于形式参数)，即告诉编译器，在调用泛型时必须传入实际类型。这种参数类型可以用在类，接口和方法中，分别被称为泛型类，泛型接口，泛型方法。</p>
+<ul>
 <li>代码可以被不同类型的对象所重用。</li>
 <li>提供了编译期的类型安全，确保你只能把正确类型的对象放入集合中，避免了在运行时出现ClassCastException。</li>
 </ul>
+<h2 id="定义泛型"><a href="#定义泛型" class="headerlink" title="定义泛型"></a><font size="3px">定义泛型</font></h2><table>
+<thead>
+<tr>
+<th>泛型标记</th>
+<th>对应单词</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E</td>
+<td>Element</td>
+<td>在容器中使用，表示容器中的元素</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Type</td>
+<td>表示普通的java类</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Key</td>
+<td>表示键，如：Map中的键key</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Value</td>
+<td>表示值</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Number</td>
+<td>表示数值类型</td>
+</tr>
+<tr>
+<td>？</td>
+<td></td>
+<td>表示不确定的java类型</td>
+</tr>
+</tbody></table>
+<h3 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a><font size="3px">泛型类</font></h3><p><code>public class 类名&lt;泛型表示符合&gt;</code></p>
+<h3 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a><font size="3px">泛型接口</font></h3><p><code>public interface 接口名&lt;泛型表示符合&gt;</code></p>
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a><font size="3px">泛型方法</font></h3><p><code>public &lt;泛型类型&gt; 泛型类型 方法名(泛型类型 行参)</code></p>
+<p>静态方法无法访问类上定义的泛型；如果静态方法操作的引用数据类型不确定的时候，必须要将泛型定义在方法上。</p>
+<p><code>public static &lt;泛型&gt; void 方法名(泛型 行参)</code></p>
+<p><code>public static &lt;泛型&gt; 泛型 方法名（泛型 行参）</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getSum</span><span class="params">(T a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="虚拟机中的泛型"><a href="#虚拟机中的泛型" class="headerlink" title="虚拟机中的泛型"></a><font size="3px">虚拟机中的泛型</font></h2><ul>
 <li>泛型是通过<font color="#f00">类型擦除</font>来实现的，编译器在编译时擦除了所有类型相关的信息，所以在运行时不存在任何类型相关的信息。例如List&lt; String&gt;在运行时仅用一个List来表示。无法在运行时访问到类型参数，因为编译器已经把泛型类型转换成了原始类型。</li>
 </ul>
@@ -1128,7 +1170,7 @@
 <h2 id="Error-unchecked"><a href="#Error-unchecked" class="headerlink" title="Error - unchecked"></a><font size="3px">Error - unchecked</font></h2><p>系统内部错误和资源耗尽错误</p>
 <p>StackOverFlowError，OutOfMemoryError等错误直接导致程序终止</p>
 <p>必须解决该类问题</p>
-<h2 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a><font size="3px">Exception</font></h2><h3 id="ClassNotFoundException-checked"><a href="#ClassNotFoundException-checked" class="headerlink" title="ClassNotFoundException-checked"></a><font size="3px">ClassNotFoundException-checked</font></h3><h3 id="IOException-checked"><a href="#IOException-checked" class="headerlink" title="IOException-checked"></a><font size="3px">IOException-checked</font></h3><p>IOException，SQLException等发生不会导致程序出错，进行处理可以继续执行后续操作，编译器强制去捕获该类型的异常 </p>
+<h2 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a><font size="3px">Exception</font></h2><h3 id="IOException-checked"><a href="#IOException-checked" class="headerlink" title="IOException-checked"></a><font size="3px">IOException-checked</font></h3><p>IOException，SQLException等发生不会导致程序出错，进行处理可以继续执行后续操作，编译器强制去捕获该类型的异常 </p>
 <p>子类方法中声明的已检查异常不能比超类方法声明的异常更通用</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">readData</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!in.hasNext())&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> EOFException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1137,7 +1179,7 @@
 <p>出现异常：</p>
 <ol>
 <li>jvm根据异常产生的原因创建一个异常对象，这个异常对象包含了异常产生的内容，原因，位置；</li>
-<li>查找try-catch，没有jvm则把异常对象抛出给方法的调用者来处理异常</li>
+<li>查找try-catch，没有，jvm则把异常对象抛出给方法的调用者来处理异常</li>
 <li>方法调用者收到异常对象，若没有异常处理逻辑则继续把异常对象抛出给上一层方法调用者，若始终没有处理者，最终由main的调用者jvm处理</li>
 <li>jvm接收到这个异常对象，把异常对象以红色字体打印到控制台</li>
 <li>jvm终止当前正在执行的java程序，中断程序</li>
@@ -1226,7 +1268,7 @@
     <a href="https://www.runaccepted.com/2019/09/13/Java基础知识/" title="Java基础知识">https://www.runaccepted.com/2019/09/13/Java基础知识/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月13日 - 21:03</li>
-  <li><strong>更新时间：</strong>2021年01月29日 - 20:07</li>
+  <li><strong>更新时间：</strong>2021年02月22日 - 00:23</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -1314,7 +1356,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大数值"><span class="nav-number">1.2.</span> <span class="nav-text">大数值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举类"><span class="nav-number">1.3.</span> <span class="nav-text">枚举类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义枚举类"><span class="nav-number">1.3.1.</span> <span class="nav-text">自定义枚举类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#enum类"><span class="nav-number">1.3.2.</span> <span class="nav-text">enum类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现接口"><span class="nav-number">1.3.3.</span> <span class="nav-text">实现接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式类型转换"><span class="nav-number">1.4.</span> <span class="nav-text">隐式类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制类型转换"><span class="nav-number">1.5.</span> <span class="nav-text">强制类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换"><span class="nav-number">1.5.1.</span> <span class="nav-text">类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不可变类"><span class="nav-number">1.6.</span> <span class="nav-text">不可变类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包装类"><span class="nav-number">1.6.1.</span> <span class="nav-text">包装类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Integer"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">Integer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Float"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">Float</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Double"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">Double</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Long"><span class="nav-number">1.6.1.4.</span> <span class="nav-text">Long</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Short"><span class="nav-number">1.6.1.5.</span> <span class="nav-text">Short</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Byte"><span class="nav-number">1.6.1.6.</span> <span class="nav-text">Byte</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Character"><span class="nav-number">1.6.1.7.</span> <span class="nav-text">Character</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Void"><span class="nav-number">1.6.1.8.</span> <span class="nav-text">Void</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boolean"><span class="nav-number">1.6.1.9.</span> <span class="nav-text">Boolean</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#装箱，拆箱"><span class="nav-number">1.6.2.</span> <span class="nav-text">装箱，拆箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存池问题"><span class="nav-number">1.6.3.</span> <span class="nav-text">缓存池问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上界可调"><span class="nav-number">1.6.4.</span> <span class="nav-text">上界可调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他数据类型的缓存"><span class="nav-number">1.6.5.</span> <span class="nav-text">其他数据类型的缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-number">2.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符"><span class="nav-number">3.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串"><span class="nav-number">4.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">4.1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String常用方法"><span class="nav-number">4.2.</span> <span class="nav-text">String常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">4.3.</span> <span class="nav-text">StringBuilder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuffer"><span class="nav-number">4.4.</span> <span class="nav-text">StringBuffer</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程安全"><span class="nav-number">5.</span> <span class="nav-text">线程安全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#值传递"><span class="nav-number">6.</span> <span class="nav-text">值传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#输入输出"><span class="nav-number">7.</span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">8.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">8.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arrays-工具类"><span class="nav-number">8.2.</span> <span class="nav-text">Arrays 工具类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时间"><span class="nav-number">9.</span> <span class="nav-text">时间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-time-x"><span class="nav-number">9.1.</span> <span class="nav-text">java.time.x</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造器，this-super"><span class="nav-number">10.</span> <span class="nav-text">构造器，this/super</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象"><span class="nav-number">11.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类关系"><span class="nav-number">12.</span> <span class="nav-text">类关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内部类"><span class="nav-number">13.</span> <span class="nav-text">内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#静态内部类"><span class="nav-number">13.1.</span> <span class="nav-text">静态内部类 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员内部类"><span class="nav-number">13.2.</span> <span class="nav-text">成员内部类 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部内部类"><span class="nav-number">13.3.</span> <span class="nav-text">局部内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名内部类"><span class="nav-number">13.4.</span> <span class="nav-text">匿名内部类 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重载-vs-重写"><span class="nav-number">14.</span> <span class="nav-text">重载 vs 重写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多态"><span class="nav-number">15.</span> <span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态绑定-c-f-param"><span class="nav-number">15.1.</span> <span class="nav-text">动态绑定 c.f(param)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">16.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#抽象类-模板"><span class="nav-number">17.</span> <span class="nav-text">抽象类 - 模板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口-规范标准"><span class="nav-number">18.</span> <span class="nav-text">接口 - 规范标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Object"><span class="nav-number">19.</span> <span class="nav-text">Object</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#equals"><span class="nav-number">19.1.</span> <span class="nav-text">equals()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashCode"><span class="nav-number">19.2.</span> <span class="nav-text">hashCode()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toString-NaN"><span class="nav-number">19.3.</span> <span class="nav-text">toString()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone"><span class="nav-number">19.4.</span> <span class="nav-text">clone()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关键字"><span class="nav-number">20.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#final"><span class="nav-number">20.1.</span> <span class="nav-text">final</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#static"><span class="nav-number">20.2.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch"><span class="nav-number">20.3.</span> <span class="nav-text">switch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile"><span class="nav-number">20.4.</span> <span class="nav-text">volatile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instanceof"><span class="nav-number">20.5.</span> <span class="nav-text">instanceof</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stricfp"><span class="nav-number">20.6.</span> <span class="nav-text">stricfp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#assert"><span class="nav-number">20.7.</span> <span class="nav-text">assert</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型"><span class="nav-number">21.</span> <span class="nav-text">泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机中的泛型"><span class="nav-number">21.1.</span> <span class="nav-text">虚拟机中的泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#约束"><span class="nav-number">21.2.</span> <span class="nav-text">约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时类型查询只适用于原始类型"><span class="nav-number">21.2.1.</span> <span class="nav-text">运行时类型查询只适用于原始类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不能创建参数化类型的数组"><span class="nav-number">21.2.2.</span> <span class="nav-text">不能创建参数化类型的数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数个数可变情况中"><span class="nav-number">21.2.2.1.</span> <span class="nav-text">参数个数可变情况中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不能实例化类型变量"><span class="nav-number">21.2.3.</span> <span class="nav-text">不能实例化类型变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型类的静态上下文中类型变量无效"><span class="nav-number">21.2.4.</span> <span class="nav-text">泛型类的静态上下文中类型变量无效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不能抛出或捕获泛型类的实例"><span class="nav-number">21.2.5.</span> <span class="nav-text">不能抛出或捕获泛型类的实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通配符"><span class="nav-number">21.3.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型与反射"><span class="nav-number">21.4.</span> <span class="nav-text">泛型与反射</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常Throwable"><span class="nav-number">22.</span> <span class="nav-text">异常Throwable</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-unchecked"><span class="nav-number">22.1.</span> <span class="nav-text">Error - unchecked</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exception"><span class="nav-number">22.2.</span> <span class="nav-text">Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ClassNotFoundException-checked"><span class="nav-number">22.2.1.</span> <span class="nav-text">ClassNotFoundException-checked</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IOException-checked"><span class="nav-number">22.2.2.</span> <span class="nav-text">IOException-checked</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RuntimeException-unchecked"><span class="nav-number">22.2.3.</span> <span class="nav-text">RuntimeException - unchecked</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建异常类"><span class="nav-number">22.2.3.1.</span> <span class="nav-text">创建异常类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#捕获异常"><span class="nav-number">22.2.3.2.</span> <span class="nav-text">捕获异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throw-Objects-throws-try-catch-finally"><span class="nav-number">22.3.</span> <span class="nav-text">throw,Objects,throws,try-catch,finally</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#throw"><span class="nav-number">22.3.1.</span> <span class="nav-text">throw</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Objects"><span class="nav-number">22.3.2.</span> <span class="nav-text">Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throws"><span class="nav-number">22.3.3.</span> <span class="nav-text">throws</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch"><span class="nav-number">22.3.4.</span> <span class="nav-text">try-catch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finally"><span class="nav-number">22.3.5.</span> <span class="nav-text">finally</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多异常捕获"><span class="nav-number">22.4.</span> <span class="nav-text">多异常捕获</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子父类异常"><span class="nav-number">22.5.</span> <span class="nav-text">子父类异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK9异常处理新特性"><span class="nav-number">22.6.</span> <span class="nav-text">JDK9异常处理新特性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#System"><span class="nav-number">23.</span> <span class="nav-text">System</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#日志"><span class="nav-number">24.</span> <span class="nav-text">日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#默认全局日志记录器"><span class="nav-number">24.1.</span> <span class="nav-text"> 默认全局日志记录器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义日志记录器"><span class="nav-number">24.2.</span> <span class="nav-text"> 自定义日志记录器</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大数值"><span class="nav-number">1.2.</span> <span class="nav-text">大数值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举类"><span class="nav-number">1.3.</span> <span class="nav-text">枚举类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义枚举类"><span class="nav-number">1.3.1.</span> <span class="nav-text">自定义枚举类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#enum类"><span class="nav-number">1.3.2.</span> <span class="nav-text">enum类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现接口"><span class="nav-number">1.3.3.</span> <span class="nav-text">实现接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式类型转换"><span class="nav-number">1.4.</span> <span class="nav-text">隐式类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制类型转换"><span class="nav-number">1.5.</span> <span class="nav-text">强制类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换"><span class="nav-number">1.5.1.</span> <span class="nav-text">类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不可变类"><span class="nav-number">1.6.</span> <span class="nav-text">不可变类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包装类"><span class="nav-number">1.6.1.</span> <span class="nav-text">包装类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Integer"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">Integer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Float"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">Float</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Double"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">Double</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Long"><span class="nav-number">1.6.1.4.</span> <span class="nav-text">Long</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Short"><span class="nav-number">1.6.1.5.</span> <span class="nav-text">Short</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Byte"><span class="nav-number">1.6.1.6.</span> <span class="nav-text">Byte</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Character"><span class="nav-number">1.6.1.7.</span> <span class="nav-text">Character</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Void"><span class="nav-number">1.6.1.8.</span> <span class="nav-text">Void</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boolean"><span class="nav-number">1.6.1.9.</span> <span class="nav-text">Boolean</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#装箱，拆箱"><span class="nav-number">1.6.2.</span> <span class="nav-text">装箱，拆箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存池问题"><span class="nav-number">1.6.3.</span> <span class="nav-text">缓存池问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上界可调"><span class="nav-number">1.6.4.</span> <span class="nav-text">上界可调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他数据类型的缓存"><span class="nav-number">1.6.5.</span> <span class="nav-text">其他数据类型的缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-number">2.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符"><span class="nav-number">4.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串"><span class="nav-number">5.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">5.1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String常用方法"><span class="nav-number">5.2.</span> <span class="nav-text">String常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">5.3.</span> <span class="nav-text">StringBuilder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuffer"><span class="nav-number">5.4.</span> <span class="nav-text">StringBuffer</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程安全"><span class="nav-number">6.</span> <span class="nav-text">线程安全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#值传递"><span class="nav-number">7.</span> <span class="nav-text">值传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#输入输出"><span class="nav-number">8.</span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">9.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">9.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arrays-工具类"><span class="nav-number">9.2.</span> <span class="nav-text">Arrays 工具类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时间"><span class="nav-number">10.</span> <span class="nav-text">时间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-time-x"><span class="nav-number">10.1.</span> <span class="nav-text">java.time.x</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造器，this-super"><span class="nav-number">11.</span> <span class="nav-text">构造器，this/super</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象"><span class="nav-number">12.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类关系"><span class="nav-number">13.</span> <span class="nav-text">类关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内部类"><span class="nav-number">14.</span> <span class="nav-text">内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#静态内部类"><span class="nav-number">14.1.</span> <span class="nav-text">静态内部类 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员内部类"><span class="nav-number">14.2.</span> <span class="nav-text">成员内部类 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部内部类"><span class="nav-number">14.3.</span> <span class="nav-text">局部内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名内部类"><span class="nav-number">14.4.</span> <span class="nav-text">匿名内部类 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重载-vs-重写"><span class="nav-number">15.</span> <span class="nav-text">重载 vs 重写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多态"><span class="nav-number">16.</span> <span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态绑定-c-f-param"><span class="nav-number">16.1.</span> <span class="nav-text">动态绑定 c.f(param)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">17.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#抽象类-模板"><span class="nav-number">18.</span> <span class="nav-text">抽象类 - 模板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口-规范标准"><span class="nav-number">19.</span> <span class="nav-text">接口 - 规范标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Object"><span class="nav-number">20.</span> <span class="nav-text">Object</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#equals"><span class="nav-number">20.1.</span> <span class="nav-text">equals()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashCode"><span class="nav-number">20.2.</span> <span class="nav-text">hashCode()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toString-NaN"><span class="nav-number">20.3.</span> <span class="nav-text">toString()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone"><span class="nav-number">20.4.</span> <span class="nav-text">clone()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关键字"><span class="nav-number">21.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#final"><span class="nav-number">21.1.</span> <span class="nav-text">final</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#static"><span class="nav-number">21.2.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch"><span class="nav-number">21.3.</span> <span class="nav-text">switch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile"><span class="nav-number">21.4.</span> <span class="nav-text">volatile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instanceof"><span class="nav-number">21.5.</span> <span class="nav-text">instanceof</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stricfp"><span class="nav-number">21.6.</span> <span class="nav-text">stricfp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#assert"><span class="nav-number">21.7.</span> <span class="nav-text">assert</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型"><span class="nav-number">22.</span> <span class="nav-text">泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义泛型"><span class="nav-number">22.1.</span> <span class="nav-text">定义泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型类"><span class="nav-number">22.1.1.</span> <span class="nav-text">泛型类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型接口"><span class="nav-number">22.1.2.</span> <span class="nav-text">泛型接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型方法"><span class="nav-number">22.1.3.</span> <span class="nav-text">泛型方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机中的泛型"><span class="nav-number">22.2.</span> <span class="nav-text">虚拟机中的泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#约束"><span class="nav-number">22.3.</span> <span class="nav-text">约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时类型查询只适用于原始类型"><span class="nav-number">22.3.1.</span> <span class="nav-text">运行时类型查询只适用于原始类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不能创建参数化类型的数组"><span class="nav-number">22.3.2.</span> <span class="nav-text">不能创建参数化类型的数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数个数可变情况中"><span class="nav-number">22.3.2.1.</span> <span class="nav-text">参数个数可变情况中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不能实例化类型变量"><span class="nav-number">22.3.3.</span> <span class="nav-text">不能实例化类型变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型类的静态上下文中类型变量无效"><span class="nav-number">22.3.4.</span> <span class="nav-text">泛型类的静态上下文中类型变量无效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不能抛出或捕获泛型类的实例"><span class="nav-number">22.3.5.</span> <span class="nav-text">不能抛出或捕获泛型类的实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通配符"><span class="nav-number">22.4.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型与反射"><span class="nav-number">22.5.</span> <span class="nav-text">泛型与反射</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常Throwable"><span class="nav-number">23.</span> <span class="nav-text">异常Throwable</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-unchecked"><span class="nav-number">23.1.</span> <span class="nav-text">Error - unchecked</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exception"><span class="nav-number">23.2.</span> <span class="nav-text">Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IOException-checked"><span class="nav-number">23.2.1.</span> <span class="nav-text">IOException-checked</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RuntimeException-unchecked"><span class="nav-number">23.2.2.</span> <span class="nav-text">RuntimeException - unchecked</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建异常类"><span class="nav-number">23.2.2.1.</span> <span class="nav-text">创建异常类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#捕获异常"><span class="nav-number">23.2.2.2.</span> <span class="nav-text">捕获异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throw-Objects-throws-try-catch-finally"><span class="nav-number">23.3.</span> <span class="nav-text">throw,Objects,throws,try-catch,finally</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#throw"><span class="nav-number">23.3.1.</span> <span class="nav-text">throw</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Objects"><span class="nav-number">23.3.2.</span> <span class="nav-text">Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throws"><span class="nav-number">23.3.3.</span> <span class="nav-text">throws</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch"><span class="nav-number">23.3.4.</span> <span class="nav-text">try-catch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finally"><span class="nav-number">23.3.5.</span> <span class="nav-text">finally</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多异常捕获"><span class="nav-number">23.4.</span> <span class="nav-text">多异常捕获</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子父类异常"><span class="nav-number">23.5.</span> <span class="nav-text">子父类异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK9异常处理新特性"><span class="nav-number">23.6.</span> <span class="nav-text">JDK9异常处理新特性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#System"><span class="nav-number">24.</span> <span class="nav-text">System</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#日志"><span class="nav-number">25.</span> <span class="nav-text">日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#默认全局日志记录器"><span class="nav-number">25.1.</span> <span class="nav-text"> 默认全局日志记录器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义日志记录器"><span class="nav-number">25.2.</span> <span class="nav-text"> 自定义日志记录器</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -1332,7 +1374,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">307</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1375,7 +1417,9 @@
         
           
         
-        <span class="site-state-item-count">14</span>
+          
+        
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1456,7 +1500,11 @@
         
           
         
-        <span class="site-state-item-count">33</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1541,13 +1589,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">474k</span>
+    <span title="站点总字数">480k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:10</span>
+    <span title="站点阅读时长">13:20</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
