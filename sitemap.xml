@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.runaccepted.com/books/index.html</loc>
+    
+    <lastmod>2021-02-26T14:55:02.610Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.runaccepted.com/2019/07/01/hexo%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/</loc>
+    
+    <lastmod>2021-02-26T13:45:06.776Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.runaccepted.com/2019/09/21/Spring%E5%AE%9E%E6%88%98-overview/</loc>
     
     <lastmod>2021-02-26T12:34:11.131Z</lastmod>
@@ -82,13 +96,6 @@
     <loc>https://www.runaccepted.com/2020/02/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BB%AA%E8%AE%BA/</loc>
     
     <lastmod>2021-02-09T05:13:24.531Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.runaccepted.com/2019/07/01/hexo%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/</loc>
-    
-    <lastmod>2021-02-08T08:31:35.735Z</lastmod>
     
   </url>
   
@@ -1237,13 +1244,6 @@
     <loc>https://www.runaccepted.com/2019/09/30/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8D%81%E4%B8%89%E5%89%8D%E5%8F%B0%E9%A1%B5%E9%9D%A2%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2020-03-29T10:32:45.778Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.runaccepted.com/404/index.html</loc>
-    
-    <lastmod>2020-03-29T10:16:10.149Z</lastmod>
     
   </url>
   

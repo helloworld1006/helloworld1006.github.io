@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://www.runaccepted.com/2019/07/01/hexo网站搭建/dns.png">
 <meta property="og:image" content="https://www.runaccepted.com/2019/07/01/hexo网站搭建/dns2.png">
 <meta property="og:image" content="https://www.runaccepted.com/2019/07/01/hexo网站搭建/domain.png">
-<meta property="og:updated_time" content="2021-02-08T08:31:35.735Z">
+<meta property="og:updated_time" content="2021-02-26T13:45:06.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo网站搭建">
 <meta name="twitter:description" content="网站搭建过程">
@@ -295,7 +295,7 @@
       
     
 
-    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+    <a href="/books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>公益 404</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -393,7 +393,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-08 16:31:35" itemprop="dateModified" datetime="2021-02-08T16:31:35+08:00">2021-02-08</time>
+                <time title="修改时间：2021-02-26 21:45:06" itemprop="dateModified" datetime="2021-02-26T21:45:06+08:00">2021-02-26</time>
               </span>
             
           
@@ -454,7 +454,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>2.9k</span>
+              <span>4.1k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -464,7 +464,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>5 分钟</span>
+              <span>7 分钟</span>
             </span>
           
 
@@ -552,6 +552,118 @@
 <p>终端</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo clean </span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
+<h1 id="hexo基本配置"><a href="#hexo基本配置" class="headerlink" title="hexo基本配置"></a><font size="4px">hexo基本配置</font></h1><h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a><font size="3px">_config.yml</font></h2><p>在文件根目录下的_config.yml，就是整个hexo框架的配置文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>网站标题</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>网站副标题</td>
+</tr>
+<tr>
+<td>description</td>
+<td>网站描述</td>
+</tr>
+<tr>
+<td>author</td>
+<td>您的名字</td>
+</tr>
+<tr>
+<td>language</td>
+<td>网站使用的语言</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>网站时区。Hexo 默认使用您电脑的时区。时区列表。比如说：America/New_York, Japan, 和 UTC</td>
+</tr>
+</tbody></table>
+<p>其中，description主要用于SEO，告诉搜索引擎一个关于您站点的简单描述，通常建议在其中包含网站的关键词。author参数用于主题显示文章的作者</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>url</td>
+<td>网址, 把url改成你的网站域名</td>
+</tr>
+<tr>
+<td>root</td>
+<td>网站根目录</td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>文章的 永久链接 格式</td>
+</tr>
+<tr>
+<td>permalink_defaults</td>
+<td>永久链接中各部分的默认值</td>
+</tr>
+</tbody></table>
+<p>新建一个文章叫temp.md，那么这个时候他自动生成的地址就是<code>http://yoursite.com/2018/09/05/temp</code></p>
+<p>链接的变量还有很多</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:year/:month/:day/:title/</td>
+<td>2013/07/14/hello-world</td>
+</tr>
+<tr>
+<td>:year-:month-:day-:title.html</td>
+<td>2013-07-14-hello-world.html</td>
+</tr>
+<tr>
+<td>:category/:title</td>
+<td>foo/bar/hello-world</td>
+</tr>
+</tbody></table>
+<h2 id="layout（布局）"><a href="#layout（布局）" class="headerlink" title="layout（布局）"></a><font size="3px">layout（布局）</font></h2><p>当你每一次使用代码<code>hexo new paper</code>，其实默认使用的是post这个布局，也就是在source文件夹下的_post里面</p>
+<p>Hexo 有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而您自定义的其他布局和 post 相同，都将储存到 source/_posts 文件夹。</p>
+<table>
+<thead>
+<tr>
+<th>布局</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>post</code></td>
+<td><code>source/_posts</code></td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td><code>source</code></td>
+</tr>
+<tr>
+<td><code>draft</code></td>
+<td><code>source/_drafts</code></td>
+</tr>
+</tbody></table>
+<h3 id="post"><a href="#post" class="headerlink" title="post"></a><font size="3px">post</font></h3><p><code>hexo new [layout] &lt;title&gt;默认是post</code></p>
+<h3 id="page"><a href="#page" class="headerlink" title="page"></a><font size="3px">page</font></h3><p>如果你想另起一页，那么可以使用<code>hexo new page board</code>，系统会自动给你在source文件夹下创建一个board文件夹 ，以及board文件夹中的index.md，这样你访问的board对应的链接就是<code>http://xxx.xxx/board</code></p>
+<h3 id="draft"><a href="#draft" class="headerlink" title="draft"></a><font size="3px">draft</font></h3><ul>
+<li><p>draft是草稿的意思，也就是你如果想写文章，又不希望被看到<code>hexo new draft newpage</code>，会在source/_draft中新建一个newpage.md文件</p>
+</li>
+<li><p>草稿文件写的过程中，想要预览一下，那么可以使用<code>hexo server --draft</code>，在本地端口中开启服务预览</p>
+</li>
+<li><p>草稿文件写完了，想要发表到post中，<code>hexo publish draft newpage</code>会自动把newpage.md发送到post中。</p>
+</li>
+</ul>
 <h1 id="美化next主题"><a href="#美化next主题" class="headerlink" title="美化next主题"></a><font size="4px">美化next主题</font></h1><h2 id="fork-me-on-github"><a href="#fork-me-on-github" class="headerlink" title="fork me on github"></a><font size="3px">fork me on github</font></h2><p>next/_config.yml</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Follow me on GitHub banner in right-top corner.</span><br><span class="line">github_banner:</span><br><span class="line">  enable: true</span><br><span class="line">  permalink: https://github.com/yourname</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
 
@@ -699,7 +811,7 @@
     <a href="https://www.runaccepted.com/2019/07/01/hexo网站搭建/" title="hexo网站搭建">https://www.runaccepted.com/2019/07/01/hexo网站搭建/</a>
   </li>
   <li><strong>发布时间：</strong>2019年07月01日 - 09:35</li>
-  <li><strong>更新时间：</strong>2021年02月08日 - 16:31</li>
+  <li><strong>更新时间：</strong>2021年02月26日 - 21:45</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -789,7 +901,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注册GitHub"><span class="nav-number">1.</span> <span class="nav-text">注册GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建仓库"><span class="nav-number">1.1.</span> <span class="nav-text">创建仓库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#doDaddy域名购买"><span class="nav-number">2.</span> <span class="nav-text">doDaddy域名购买</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网址后缀"><span class="nav-number">2.1.</span> <span class="nav-text">网址后缀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#购买"><span class="nav-number">2.2.</span> <span class="nav-text">购买</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dnspod域名解析"><span class="nav-number">3.</span> <span class="nav-text">Dnspod域名解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加A记录"><span class="nav-number">3.1.</span> <span class="nav-text">添加A记录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#brew安装"><span class="nav-number">4.</span> <span class="nav-text">brew安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github与域名关联"><span class="nav-number">5.</span> <span class="nav-text">Github与域名关联</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装git"><span class="nav-number">6.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装hexo"><span class="nav-number">7.</span> <span class="nav-text">安装hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装自定义主题"><span class="nav-number">7.1.</span> <span class="nav-text">安装自定义主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到GitHub"><span class="nav-number">7.2.</span> <span class="nav-text">部署到GitHub</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#美化next主题"><span class="nav-number">8.</span> <span class="nav-text">美化next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fork-me-on-github"><span class="nav-number">8.1.</span> <span class="nav-text">fork me on github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装RSS"><span class="nav-number">8.2.</span> <span class="nav-text"> 安装RSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态背景"><span class="nav-number">8.3.</span> <span class="nav-text"> 动态背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本文结束🔚"><span class="nav-number">8.4.</span> <span class="nav-text"> 本文结束🔚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#社交小图标"><span class="nav-number">8.5.</span> <span class="nav-text"> 社交小图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图标"><span class="nav-number">8.6.</span> <span class="nav-text"> 图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阅读统计"><span class="nav-number">8.7.</span> <span class="nav-text"> 阅读统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章底部版权信息©️"><span class="nav-number">8.8.</span> <span class="nav-text"> 文章底部版权信息©️</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阅读次数👀-amp-评论💬"><span class="nav-number">8.9.</span> <span class="nav-text"> 阅读次数👀&amp;评论💬</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">8.9.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#placeholder"><span class="nav-number">8.9.2.</span> <span class="nav-text">placeholder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#avatar-头像"><span class="nav-number">8.9.3.</span> <span class="nav-text">avatar 头像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Counter，Comment"><span class="nav-number">8.9.4.</span> <span class="nav-text">创建Counter，Comment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#❌评论未显示"><span class="nav-number">8.9.5.</span> <span class="nav-text">❌评论未显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⚠️加载慢–修改CDN"><span class="nav-number">8.9.6.</span> <span class="nav-text">⚠️加载慢–修改CDN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gravatar"><span class="nav-number">8.9.7.</span> <span class="nav-text">Gravatar</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体大小"><span class="nav-number">8.10.</span> <span class="nav-text"> 字体大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改变背景样式"><span class="nav-number">8.11.</span> <span class="nav-text"> 改变背景样式</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注册GitHub"><span class="nav-number">1.</span> <span class="nav-text">注册GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建仓库"><span class="nav-number">1.1.</span> <span class="nav-text">创建仓库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#doDaddy域名购买"><span class="nav-number">2.</span> <span class="nav-text">doDaddy域名购买</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网址后缀"><span class="nav-number">2.1.</span> <span class="nav-text">网址后缀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#购买"><span class="nav-number">2.2.</span> <span class="nav-text">购买</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dnspod域名解析"><span class="nav-number">3.</span> <span class="nav-text">Dnspod域名解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加A记录"><span class="nav-number">3.1.</span> <span class="nav-text">添加A记录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#brew安装"><span class="nav-number">4.</span> <span class="nav-text">brew安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github与域名关联"><span class="nav-number">5.</span> <span class="nav-text">Github与域名关联</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装git"><span class="nav-number">6.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装hexo"><span class="nav-number">7.</span> <span class="nav-text">安装hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装自定义主题"><span class="nav-number">7.1.</span> <span class="nav-text">安装自定义主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到GitHub"><span class="nav-number">7.2.</span> <span class="nav-text">部署到GitHub</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo基本配置"><span class="nav-number">8.</span> <span class="nav-text">hexo基本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#config-yml"><span class="nav-number">8.1.</span> <span class="nav-text">_config.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layout（布局）"><span class="nav-number">8.2.</span> <span class="nav-text">layout（布局）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#post"><span class="nav-number">8.2.1.</span> <span class="nav-text">post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#page"><span class="nav-number">8.2.2.</span> <span class="nav-text">page</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#draft"><span class="nav-number">8.2.3.</span> <span class="nav-text">draft</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#美化next主题"><span class="nav-number">9.</span> <span class="nav-text">美化next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fork-me-on-github"><span class="nav-number">9.1.</span> <span class="nav-text">fork me on github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装RSS"><span class="nav-number">9.2.</span> <span class="nav-text"> 安装RSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态背景"><span class="nav-number">9.3.</span> <span class="nav-text"> 动态背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本文结束🔚"><span class="nav-number">9.4.</span> <span class="nav-text"> 本文结束🔚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#社交小图标"><span class="nav-number">9.5.</span> <span class="nav-text"> 社交小图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图标"><span class="nav-number">9.6.</span> <span class="nav-text"> 图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阅读统计"><span class="nav-number">9.7.</span> <span class="nav-text"> 阅读统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章底部版权信息©️"><span class="nav-number">9.8.</span> <span class="nav-text"> 文章底部版权信息©️</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阅读次数👀-amp-评论💬"><span class="nav-number">9.9.</span> <span class="nav-text"> 阅读次数👀&amp;评论💬</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">9.9.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#placeholder"><span class="nav-number">9.9.2.</span> <span class="nav-text">placeholder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#avatar-头像"><span class="nav-number">9.9.3.</span> <span class="nav-text">avatar 头像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Counter，Comment"><span class="nav-number">9.9.4.</span> <span class="nav-text">创建Counter，Comment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#❌评论未显示"><span class="nav-number">9.9.5.</span> <span class="nav-text">❌评论未显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⚠️加载慢–修改CDN"><span class="nav-number">9.9.6.</span> <span class="nav-text">⚠️加载慢–修改CDN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gravatar"><span class="nav-number">9.9.7.</span> <span class="nav-text">Gravatar</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体大小"><span class="nav-number">9.10.</span> <span class="nav-text"> 字体大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改变背景样式"><span class="nav-number">9.11.</span> <span class="nav-text"> 改变背景样式</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -1022,13 +1134,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">479k</span>
+    <span title="站点总字数">480k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:18</span>
+    <span title="站点阅读时长">13:20</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
