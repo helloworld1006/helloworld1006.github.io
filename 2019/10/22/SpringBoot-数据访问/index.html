@@ -223,6 +223,32 @@
       
       
         
+        <li class="menu-item menu-item-schedule">
+      
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-tasks"></i> <br>学习路线</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-books">
+      
+    
+      
+    
+
+    <a href="/books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书单</a>
+
+  </li>
+      
+      
+      
+        
         <li class="menu-item menu-item-tags">
       
     
@@ -262,19 +288,6 @@
       
       
         
-        <li class="menu-item menu-item-schedule">
-      
-    
-      
-    
-
-    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
-
-  </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-sitemap">
       
     
@@ -282,19 +295,6 @@
     
 
     <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-books">
-      
-    
-      
-    
-
-    <a href="/books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书单</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -723,7 +723,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JDBC-mysql-springboot项目"><span class="nav-number">1.</span> <span class="nav-text">JDBC-mysql springboot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#连接Linux中docker的mysql"><span class="nav-number">1.1.</span> <span class="nav-text">连接Linux中docker的mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看是否连接成功"><span class="nav-number">1.2.</span> <span class="nav-text">查看是否连接成功</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原理org-springframework-boot-autoconfigure-jdbc"><span class="nav-number">2.</span> <span class="nav-text">原理org.springframework.boot.autoconfigure.jdbc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataSourceProperties"><span class="nav-number">2.1.</span> <span class="nav-text">DataSourceProperties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DataSourceConfiguration"><span class="nav-number">2.2.</span> <span class="nav-text">DataSourceConfiguration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义数据源"><span class="nav-number">2.2.1.</span> <span class="nav-text">自定义数据源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DataSourceInitializer–运行sql语句"><span class="nav-number">2.3.</span> <span class="nav-text">DataSourceInitializer–运行sql语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接运行sql文件"><span class="nav-number">2.3.1.</span> <span class="nav-text">直接运行sql文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JdbcTemplate"><span class="nav-number">2.4.</span> <span class="nav-text">JdbcTemplate</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Druid数据源"><span class="nav-number">3.</span> <span class="nav-text">Druid数据源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven包"><span class="nav-number">3.1.</span> <span class="nav-text">Maven包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加配置–application-yml"><span class="nav-number">3.2.</span> <span class="nav-text">添加配置–application.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问http-localhost-8080-druid"><span class="nav-number">3.3.</span> <span class="nav-text">访问http://localhost:8080/druid/</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看数据"><span class="nav-number">3.4.</span> <span class="nav-text">查看数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#整合Mybatis"><span class="nav-number">4.</span> <span class="nav-text">整合Mybatis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven"><span class="nav-number">4.1.</span> <span class="nav-text">Maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Mapper-注解"><span class="nav-number">4.2.</span> <span class="nav-text">创建Mapper 注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册到容器中-MapperScan"><span class="nav-number">4.3.</span> <span class="nav-text">注册到容器中 @MapperScan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略表中a-b-–-驼峰命名"><span class="nav-number">4.4.</span> <span class="nav-text">忽略表中a_b – 驼峰命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Mapper-xml"><span class="nav-number">4.5.</span> <span class="nav-text">创建Mapper.xml</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#整合JPA"><span class="nav-number">5.</span> <span class="nav-text">整合JPA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven依赖"><span class="nav-number">5.1.</span> <span class="nav-text">Maven依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Entity类-对应表"><span class="nav-number">5.2.</span> <span class="nav-text">Entity类 对应表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JpaRepository-数据库交互"><span class="nav-number">5.3.</span> <span class="nav-text">JpaRepository 数据库交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application-yml-配置jpa"><span class="nav-number">5.4.</span> <span class="nav-text">application.yml 配置jpa</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRUD"><span class="nav-number">5.5.</span> <span class="nav-text">CRUD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#findById-查询"><span class="nav-number">5.5.1.</span> <span class="nav-text">findById 查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#save-插入-也可用于更新"><span class="nav-number">5.5.2.</span> <span class="nav-text">save 插入 也可用于更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deleteById-删除"><span class="nav-number">5.5.3.</span> <span class="nav-text">deleteById 删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行语句"><span class="nav-number">5.6.</span> <span class="nav-text">运行语句</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JDBC-mysql-springboot项目"><span class="nav-text">JDBC-mysql springboot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#连接Linux中docker的mysql"><span class="nav-text">连接Linux中docker的mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看是否连接成功"><span class="nav-text">查看是否连接成功</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原理org-springframework-boot-autoconfigure-jdbc"><span class="nav-text">原理org.springframework.boot.autoconfigure.jdbc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataSourceProperties"><span class="nav-text">DataSourceProperties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DataSourceConfiguration"><span class="nav-text">DataSourceConfiguration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义数据源"><span class="nav-text">自定义数据源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DataSourceInitializer–运行sql语句"><span class="nav-text">DataSourceInitializer–运行sql语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接运行sql文件"><span class="nav-text">直接运行sql文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JdbcTemplate"><span class="nav-text">JdbcTemplate</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Druid数据源"><span class="nav-text">Druid数据源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven包"><span class="nav-text">Maven包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加配置–application-yml"><span class="nav-text">添加配置–application.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问http-localhost-8080-druid"><span class="nav-text">访问http://localhost:8080/druid/</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看数据"><span class="nav-text">查看数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#整合Mybatis"><span class="nav-text">整合Mybatis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven"><span class="nav-text">Maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Mapper-注解"><span class="nav-text">创建Mapper 注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册到容器中-MapperScan"><span class="nav-text">注册到容器中 @MapperScan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略表中a-b-–-驼峰命名"><span class="nav-text">忽略表中a_b – 驼峰命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Mapper-xml"><span class="nav-text">创建Mapper.xml</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#整合JPA"><span class="nav-text">整合JPA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven依赖"><span class="nav-text">Maven依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Entity类-对应表"><span class="nav-text">Entity类 对应表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JpaRepository-数据库交互"><span class="nav-text">JpaRepository 数据库交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application-yml-配置jpa"><span class="nav-text">application.yml 配置jpa</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRUD"><span class="nav-text">CRUD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#findById-查询"><span class="nav-text">findById 查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#save-插入-也可用于更新"><span class="nav-text">save 插入 也可用于更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deleteById-删除"><span class="nav-text">deleteById 删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行语句"><span class="nav-text">运行语句</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -906,6 +906,11 @@
       </span>
     
   </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
 
 
   <div class="links-of-blogroll motion-element">
@@ -956,13 +961,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">480k</span>
+    <span title="站点总字数">483k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:20</span>
+    <span title="站点阅读时长">13:26</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

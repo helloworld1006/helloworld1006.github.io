@@ -1870,9 +1870,8 @@ article:last-child .post-eof {
   border-bottom: 1px solid #fc6423;
 }
 code {
-  color: #ff7600;
-  background: #fbf7f8;
-  margin: 2px;
+  color: #df6d5b;
+  background: transparent;
 }
 .highlight,
 pre {
@@ -1882,7 +1881,6 @@ pre {
   border-radius: 3px;
 }
 .highlight,
-code,
 pre {
   border: 1px solid #d6d6d6;
 }
@@ -1968,7 +1966,7 @@ pre {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0a0bff;
+  background: #3b4747;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
