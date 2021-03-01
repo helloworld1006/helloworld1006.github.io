@@ -333,6 +333,9 @@ td {
   text-align: left;
   vertical-align: middle;
 }
+thead {
+  background-color: rgba(153,153,153,0.451);
+}
 th,
 td {
   border: 1px solid #ddd;
@@ -1611,7 +1614,7 @@ article:last-child .post-eof {
   visibility: visible;
 }
 .post-body img {
-  border: 1px solid #ddd;
+/*border: 1px solid $gray-lighter;*/
   box-sizing: border-box;
   padding: 3px;
 }
@@ -1871,7 +1874,6 @@ article:last-child .post-eof {
 }
 code {
   color: #df6d5b;
-  background: transparent;
 }
 .highlight,
 pre {
@@ -1966,7 +1968,7 @@ pre {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #cd29ff;
+  background: #2ab844;
   border-radius: 50%;
   content: ' ';
   display: inline-block;

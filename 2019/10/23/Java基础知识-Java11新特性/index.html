@@ -66,7 +66,8 @@
     },
     sidebarPadding: 40
   };
-  (function () {
+  
+  /*(function () {
         if ('') {
             if (prompt('请输入文章密码') !== '') {
                 alert('密码错误！');
@@ -78,19 +79,20 @@
             }
         }
     })();
+    */
 </script>
-  <meta name="description" content="b">
+  <meta name="description" content="新增字符串处理方法，Optional 加强，局部变量类型推断升级，ZGC">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础知识-Java11新特性">
 <meta property="og:url" content="https://www.runaccepted.com/2019/10/23/Java基础知识-Java11新特性/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="新增字符串处理方法，Optional 加强，局部变量类型推断升级，ZGC">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-01-30T21:59:11.522Z">
+<meta property="og:updated_time" content="2021-03-01T13:51:22.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-Java11新特性">
-<meta name="twitter:description" content="b">
+<meta name="twitter:description" content="新增字符串处理方法，Optional 加强，局部变量类型推断升级，ZGC">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="https://www.runaccepted.com/2019/10/23/Java基础知识-Java11新特性/">
 
@@ -221,7 +223,7 @@
       
     
 
-    <a href="/route/" rel="section"><i class="menu-item-icon fa fa-fw fa-tasks"></i> <br>学习路线</a>
+    <a href="/route/" rel="section"><i class="menu-item-icon fa fa-fw fa-level-up"></i> <br>学习路线</a>
 
   </li>
       
@@ -247,7 +249,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">35</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">29</span></a>
 
   </li>
       
@@ -260,7 +262,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">15</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">19</span></a>
 
   </li>
       
@@ -273,7 +275,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">309</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">306</span></a>
 
   </li>
       
@@ -384,7 +386,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-31 05:59:11" itemprop="dateModified" datetime="2021-01-31T05:59:11+08:00">2021-01-31</time>
+                <time title="修改时间：2021-03-01 21:51:22" itemprop="dateModified" datetime="2021-03-01T21:51:22+08:00">2021-03-01</time>
               </span>
             
           
@@ -445,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>4.1k</span>
+              <span>4.2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -468,7 +470,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">新增字符串处理方法，Optional 加强，局部变量类型推断升级，ZGC</blockquote>
+
 <a id="more"></a>
 
 <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a><font size="4px">背景</font></h1><p>北京时间 2018年9 月 26 日， Oracle 官方宣布 Java 11 正式发布。这是 Java 大版本周期变化后的第一个长期支持版本，非常值得关注。从官网即可下载, 最新发布的 Java11 将带来 ZGC，Http Client 等重要特性，一共包含17 个 JEP(JDK Enhancement Proposals，JDK 增强提案)。其实，总共更新不止17个，只是我们更关注如下的17个JEP更新。JDK 11 将是一个 企业不可忽视的版本。从时间节点来看，JDK 11 的发布正好处在 JDK 8 免费更新到期的前夕，同时 JDK 9、10 也陆续成为“历史版本”。</p>
@@ -647,7 +650,7 @@
     <a href="https://www.runaccepted.com/2019/10/23/Java基础知识-Java11新特性/" title="Java基础知识-Java11新特性">https://www.runaccepted.com/2019/10/23/Java基础知识-Java11新特性/</a>
   </li>
   <li><strong>发布时间：</strong>2019年10月23日 - 05:39</li>
-  <li><strong>更新时间：</strong>2021年01月31日 - 05:59</li>
+  <li><strong>更新时间：</strong>2021年03月01日 - 21:51</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -753,7 +756,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">309</span>
+          <span class="site-state-item-count">306</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -798,7 +801,15 @@
         
           
         
-        <span class="site-state-item-count">15</span>
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -871,19 +882,7 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -917,11 +916,6 @@
         <a href="https://blog.csdn.net/sinat_32676193" title="CDSN &rarr; https://blog.csdn.net/sinat_32676193" rel="noopener" target="_blank"><i class="fa fa-fw fa-codiepie"></i>CDSN</a>
       </span>
     
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    
-  
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -973,13 +967,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">483k</span>
+    <span title="站点总字数">489k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:26</span>
+    <span title="站点阅读时长">13:34</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
