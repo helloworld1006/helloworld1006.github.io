@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="Lambda表达式，函数式接口，方法引用与构造器引用，Stream API，Optional类">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-01T13:51:57.142Z">
+<meta property="og:updated_time" content="2021-03-03T08:25:09.673Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-Java8新特性">
 <meta name="twitter:description" content="Lambda表达式，函数式接口，方法引用与构造器引用，Stream API，Optional类">
@@ -386,7 +386,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-01 21:51:57" itemprop="dateModified" datetime="2021-03-01T21:51:57+08:00">2021-03-01</time>
+                <time title="修改时间：2021-03-03 16:25:09" itemprop="dateModified" datetime="2021-03-03T16:25:09+08:00">2021-03-03</time>
               </span>
             
           
@@ -492,7 +492,7 @@
 <li><p>Nashorn引擎，允许在JVM上运行JS应用</p>
 </li>
 </ul>
-<h1 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a><font size="4px">Lambda表达式</font></h1><p>Lambda 是一个匿名函数，我们可以把 Lambda 表达式理解为是一段可以传递的代码(将代码像数据一样进行传递)。使用它可以写出更简洁、更 灵活的代码。作为一种更紧凑的代码风格，使Java的语言表达能力得到了提升。</p>
+<h1 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a><font size="4px">Lambda表达式</font></h1><p>Lambda 是一个匿名函数，我们可以把 Lambda 表达式理解为是<code>一段可以传递的代码</code>(将代码像数据一样进行传递)。使用它可以写出更简洁、更灵活的代码。作为一种更紧凑的代码风格，使Java的语言表达能力得到了提升。</p>
 <p>在Java 8中引入的一种新的语法元素和操作符。这个操作符为 “-&gt;” ， 该操作符被称为 Lambda 操作符 或箭头操作符。它将 Lambda 分为两个部分:</p>
 <ul>
 <li>左侧：指定了 Lambda 表达式需要的参数列表 </li>
@@ -524,7 +524,7 @@
 
 </li>
 </ol>
-<h2 id="Lambda的延迟执行"><a href="#Lambda的延迟执行" class="headerlink" title="Lambda的延迟执行"></a><font size="3px">Lambda的延迟执行</font></h2><p>有些场景的代码执行后，结果不一定会被使用，从而造成性能浪费。而Lambda表达式是延迟执行的，这正好可以 作为解决方案，提升性能。</p>
+<h2 id="Lambda的延迟执行"><a href="#Lambda的延迟执行" class="headerlink" title="Lambda的延迟执行"></a><font size="3px">Lambda的延迟执行</font></h2><p>有些场景的代码执行后，结果不一定会被使用，从而造成性能浪费。而Lambda表达式是延迟执行的，这正好可以作为解决方案，提升性能。</p>
 <h4 id="性能浪费的日志案例"><a href="#性能浪费的日志案例" class="headerlink" title="性能浪费的日志案例"></a><font size="3px">性能浪费的日志案例</font></h4><p>日志可以帮助我们快速的定位问题，记录程序运行过程中的情况，以便项目的监控和优化。 一种典型的场景就是对参数进行有条件使用，例如对日志消息进行拼接后，在满足条件的情况下进行打印输出:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01Logger</span> </span>&#123;</span><br><span class="line">    	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(<span class="keyword">int</span> level, String msg)</span> </span>&#123;</span><br><span class="line">					<span class="keyword">if</span> (level == <span class="number">1</span>) &#123; </span><br><span class="line">            System.out.println(msg);</span><br><span class="line">          &#125; </span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">        String msgA = <span class="string">"Hello"</span>;</span><br><span class="line">        String msgB = <span class="string">"World"</span>;</span><br><span class="line">        String msgC = <span class="string">"Java"</span>;</span><br><span class="line">        log(<span class="number">1</span>, msgA + msgB + msgC);</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -540,7 +540,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02LoggerLambda</span> </span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(<span class="keyword">int</span> level, MessageBuilder builder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (level == <span class="number">1</span>) &#123; </span><br><span class="line">          System.out.println(builder.buildMessage());</span><br><span class="line">        &#125; </span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">        String msgA = <span class="string">"Hello"</span>;</span><br><span class="line">        String msgB = <span class="string">"World"</span>;</span><br><span class="line">        String msgC = <span class="string">"Java"</span>;</span><br><span class="line">        log(<span class="number">1</span>, () ‐&gt; msgA + msgB + msgC ); </span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这样一来，只有当级别满足要求的时候，才会进行三个字符串的拼接；否则三个字符串将不会进行拼接。</p>
-<p>证明Lambda的延迟 下面的代码可以通过结果进行验证</p>
+<p>证明Lambda的延迟,下面的代码可以通过结果进行验证</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo03LoggerDelay</span> </span>&#123;</span><br><span class="line">      <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(<span class="keyword">int</span> level, MessageBuilder builder)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (level == <span class="number">1</span>) &#123; </span><br><span class="line">            System.out.println(builder.buildMessage());</span><br><span class="line">          &#125; </span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">        String msgA = <span class="string">"Hello"</span>;</span><br><span class="line">        String msgB = <span class="string">"World"</span>;</span><br><span class="line">        String msgC = <span class="string">"Java"</span>;</span><br><span class="line">        log(<span class="number">2</span>, () ‐&gt; &#123; </span><br><span class="line">          System.out.println(<span class="string">"Lambda执行!"</span>); <span class="keyword">return</span> msgA + msgB + msgC;</span><br><span class="line">        &#125;); </span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>从结果中可以看出，在不符合级别要求的情况下，Lambda将不会执行。从而达到节省性能的效果。 </p>
@@ -556,9 +556,9 @@
 
 <p>其中直接return一个Lambda表达式即可。</p>
 <h1 id="函数式接口概念"><a href="#函数式接口概念" class="headerlink" title="函数式接口概念"></a><font size="4px">函数式接口概念</font></h1><h2 id="如何理解函数式接口"><a href="#如何理解函数式接口" class="headerlink" title=" 如何理解函数式接口"></a><font size="3px"> 如何理解函数式接口</font></h2><ul>
-<li>Java从诞生日起就是一直倡导“一切皆对象”，在Java里面面向对象(OOP) 编程是一切。但是随着python、scala等语言的兴起和新技术的挑战，Java不 得不做出调整以便支持更加广泛的技术要求，也即java不但可以支持OOP还 可以支持OOF(面向函数编程)</li>
-<li>在函数式编程语言当中，函数被当做一等公民对待。在将函数作为一等公民的 编程语言中，Lambda表达式的类型是函数。但是在Java8中，有所不同。在 Java8中，Lambda表达式是对象，而不是函数，它们必须依附于一类特别的 对象类型——函数式接口。</li>
-<li>简单的说，在Java8中，Lambda表达式就是一个函数式接口的实例。这就是 Lambda表达式和函数式接口的关系。也就是说，只要一个对象是函数式接口 的实例，那么该对象就可以用Lambda表达式来表示。</li>
+<li>Java从诞生日起就是一直倡导“一切皆对象”，在Java里面面向对象(OOP) 编程是一切。但是随着python、scala等语言的兴起和新技术的挑战，Java不得不做出调整以便支持更加广泛的技术要求，也即java不但可以支持OOP还可以支持OOF(面向函数编程)</li>
+<li>在函数式编程语言当中，函数被当做一等公民对待。在将函数作为一等公民的编程语言中，Lambda表达式的类型是函数。但是在Java8中，有所不同。在 Java8中，Lambda表达式是对象，而不是函数，它们必须依附于一类特别的对象类型—函数式接口。</li>
+<li>简单的说，在Java8中，Lambda表达式就是一个函数式接口的实例。这就是 Lambda表达式和函数式接口的关系。也就是说，只要一个对象是函数式接口的实例，那么该对象就可以用Lambda表达式来表示。</li>
 <li>所以以前用匿名实现类表示的现在都可以用Lambda表达式来写。</li>
 </ul>
 <h2 id="什么是函数式-Functional-接口"><a href="#什么是函数式-Functional-接口" class="headerlink" title=" 什么是函数式(Functional)接口"></a><font size="3px"> 什么是函数式(Functional)接口</font></h2><p>函数式接口 : 有且仅有一个抽象方法的接口。 </p>
@@ -590,32 +590,37 @@
 <th>函数式接口</th>
 <th>参数类型</th>
 <th>返回类型</th>
-<th>用途</th>
+<th>抽象方法</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Consumer&lt; T&gt;  消费型接口</td>
+<td><code>Consumer&lt;T&gt;</code></td>
 <td>T</td>
 <td>void</td>
-<td>对类型为T的对象应用操作,方法:void accpet(T t)</td>
+<td>void accpet(T t)</td>
+<td>处理一个T类型的值</td>
 </tr>
 <tr>
-<td>Supplier&lt; T&gt; 供给型接口</td>
+<td><code>Supplier&lt;T&gt;</code></td>
 <td>无</td>
 <td>T</td>
-<td>返回类型为T的对象,方法: T get()</td>
+<td>T get()</td>
+<td>提供一个T类型的值</td>
 </tr>
 <tr>
-<td>Function&lt; T,R&gt; 函数型接口</td>
+<td><code>Function&lt;T,R&gt;</code></td>
 <td>T</td>
 <td>R</td>
-<td>对类型为T的对象应用操作，并返回结果。结果是R类型的对象。方法：R apply(T t)</td>
+<td>R apply(T t)</td>
+<td>T类型对象应用操作,结果是R类</td>
 </tr>
 <tr>
-<td>Predicate&lt; T&gt; 断定型接口</td>
+<td><code>Predicate&lt;T&gt;</code></td>
 <td>T</td>
 <td>boolean</td>
-<td>确定类型为T的对象是否满足某约束，并返回boolean值。方法：boolean test(T t)</td>
+<td>boolean test(T t)</td>
+<td>判断T类型是否满足某约束</td>
 </tr>
 </tbody></table>
 <h3 id="其他接口"><a href="#其他接口" class="headerlink" title="其他接口"></a><font size="3px">其他接口</font></h3><table>
@@ -624,49 +629,57 @@
 <th>函数式接口</th>
 <th>参数类型</th>
 <th>返回类型</th>
+<th>方法</th>
 <th>用途</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>BiFunction&lt;T, U, R&gt;</td>
+<td><code>BiFunction&lt;T,U,R&gt;</code></td>
 <td>T, U</td>
 <td>R</td>
-<td>对类型为T, U参数应用操作，返回R类型的结果。有方法: R apply(T t, U u);</td>
+<td>R apply(T t, U u)</td>
+<td>对类型为T, U参数应用操作，返回R类型的结果</td>
 </tr>
 <tr>
-<td>UnaryOperator&lt; T&gt;(Function子接口)</td>
+<td><code>UnaryOperator&lt;T&gt;</code><br>(Function子接口)</td>
 <td>T</td>
 <td>T</td>
-<td>对类型为T的对象进行一元运算，并返回T类型的结果。有方法: T apply(T t);</td>
+<td>T apply(T t)</td>
+<td>对类型为T的对象进行一元运算，并返回T类型的结果</td>
 </tr>
 <tr>
-<td>BinaryOperator&lt; T&gt; (BiFunction 子接口)</td>
+<td><code>BinaryOperator&lt;T&gt;</code><br>(BiFunction 子接口)</td>
 <td>T, T</td>
 <td>T</td>
-<td>对类型为T的对象进行二元运算，并返回T类型的结果。有方法: T apply(T t1, T t2);</td>
+<td>T apply(T t1, T t2)</td>
+<td>对类型为T的对象进行二元运算，并返回T类型的结果</td>
 </tr>
 <tr>
-<td>BiConsumer&lt;T, U&gt;</td>
+<td><code>BiConsumer&lt;T,U&gt;</code></td>
 <td>T, U</td>
 <td>void</td>
-<td>对类型为T, U参数应用操作。 有方法: void accept(T t, U u)</td>
+<td>void accept(T t, U u)</td>
+<td>对类型为T, U参数应用操作</td>
 </tr>
 <tr>
-<td>BiPredicate&lt;T,U&gt;</td>
+<td><code>BiPredicate&lt;T,U&gt;</code></td>
 <td>T,U</td>
 <td>boolean</td>
-<td>有方法: boolean test(T t,U u)</td>
+<td>boolean test(T t,U u)</td>
+<td>判断T,U类型是否满足某约束</td>
 </tr>
 <tr>
-<td>ToIntFunction&lt; T&gt;，ToLongFunction&lt; T&gt;，ToDoubleFunction&lt; T&gt;</td>
+<td><code>ToIntFunction&lt;T&gt;</code>,<br><code>ToLongFunction&lt;T&gt;</code>,<br><code>ToDoubleFunction&lt;T&gt;</code></td>
 <td>T</td>
 <td>int，long double</td>
+<td>int applyAsInt(T value)<br>long applyAsLong(T value)<br>double applyAsDouble(T value)</td>
 <td>分别计算int、long、double值的函数</td>
 </tr>
 <tr>
-<td>IntFunction&lt; R&gt;，LongFunction&lt; R&gt;，DoubleFunction&lt; R&gt;</td>
+<td><code>IntFunction&lt;R&gt;</code>，<br><code>LongFunction&lt;R&gt;</code>，<br><code>DoubleFunction&lt;R&gt;</code></td>
 <td>int，long double</td>
 <td>R</td>
+<td>R apply(int value)<br>R apply(long value)<br>R apply(double value)</td>
 <td>参数分别为int、long、double 类型的函数</td>
 </tr>
 </tbody></table>
@@ -755,8 +768,8 @@
 <h1 id="方法引用与构造器引用"><a href="#方法引用与构造器引用" class="headerlink" title="方法引用与构造器引用"></a><font size="4px">方法引用与构造器引用</font></h1><h2 id="方法引用"><a href="#方法引用" class="headerlink" title="方法引用"></a><font size="3px">方法引用</font></h2><ul>
 <li>当要传递给Lambda体的操作，已经有实现的方法了，可以使用方法引用</li>
 <li>方法引用可以看做是Lambda表达式深层次的表达。换句话说，方法引用就是Lambda表达式，也就是函数式接口的一个实例，通过方法的名字来指向 一个方法，可以认为是Lambda表达式的一个语法糖。</li>
-<li>实现接口的抽象方法的参数列表和返回值类型，必须与方法引用的 方法的参数列表和返回值类型保持一致</li>
-<li>格式:使用操作符 “<font color="#f00">::</font>” 将类(或对象) 与 方法名分隔开来。</li>
+<li>实现接口的抽象方法的参数列表和返回值类型，必须与方法引用的方法的参数列表和返回值类型保持一致</li>
+<li>格式:使用操作符 “<font color="#f00">::</font>” 将类(或对象) 与方法名分隔开来。</li>
 <li>如下三种主要使用情况:<ul>
 <li>对象::实例方法名 </li>
 <li>类::静态方法名 </li>
@@ -769,7 +782,7 @@
 <p>当函数式接口方法的第一个参数是需要引用方法的调用者，且第二个参数是需要引用方法的参数(或无参数)时：ClassName::methodName</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSystem</span><span class="params">()</span></span>&#123;</span><br><span class="line">    BiPredicate&lt;String,String&gt; bp = (x,y)-&gt;x.equals(y);</span><br><span class="line">    <span class="keyword">boolean</span> test = bp.test(<span class="string">"abc"</span>, <span class="string">"abb"</span>);</span><br><span class="line">   <span class="comment">//false</span></span><br><span class="line">    System.out.println(test);</span><br><span class="line"></span><br><span class="line">    bp = String::equals;</span><br><span class="line">    <span class="keyword">boolean</span> test1 = bp.test(<span class="string">"abc"</span>, <span class="string">"abc"</span>);</span><br><span class="line">    <span class="comment">//true</span></span><br><span class="line">    System.out.println(test1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="构造器引用-class-new"><a href="#构造器引用-class-new" class="headerlink" title="构造器引用 class::new"></a><font size="3px">构造器引用 class::new</font></h2><p>与函数式接口相结合，自动与函数式接口中方法兼容。 可以把构造器引用赋值给定义的方法，要求构造器参数列表要与接口中抽象 方法的参数列表一致，且方法的返回值即为构造器对应类的对象。</p>
+<h2 id="构造器引用-class-new"><a href="#构造器引用-class-new" class="headerlink" title="构造器引用 class::new"></a><font size="3px">构造器引用 class::new</font></h2><p>与函数式接口相结合，自动与函数式接口中方法兼容。 可以把构造器引用赋值给定义的方法，要求构造器参数列表要与接口中抽象方法的参数列表一致，且方法的返回值即为构造器对应类的对象。</p>
 <p><code>n-&gt;new MyClass(n)</code>-&gt;<code>MyClass::new</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyClass</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span></span>&#123;</span><br><span class="line">    <span class="function">MyClass <span class="title">getClass</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSystem</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    MyInterface my = n-&gt;<span class="keyword">new</span> MyClass(n);</span><br><span class="line">    MyClass myClass = my.getClass(<span class="string">"AAA"</span>);</span><br><span class="line">    <span class="comment">//AAA</span></span><br><span class="line">    System.out.println(myClass.name);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    my = MyClass::<span class="keyword">new</span>;</span><br><span class="line">    MyClass abc = my.getClass(<span class="string">"ABC"</span>);</span><br><span class="line">    <span class="comment">//ABC</span></span><br><span class="line">    System.out.println(abc.name);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1155,7 +1168,7 @@
     <a href="https://www.runaccepted.com/2019/09/20/Java基础知识-Java8新特性/" title="Java基础知识-Java8新特性">https://www.runaccepted.com/2019/09/20/Java基础知识-Java8新特性/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月20日 - 14:52</li>
-  <li><strong>更新时间：</strong>2021年03月01日 - 21:51</li>
+  <li><strong>更新时间：</strong>2021年03月03日 - 16:25</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -1243,7 +1256,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lambda表达式"><span class="nav-text">Lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda语法"><span class="nav-text">Lambda语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda的延迟执行"><span class="nav-text">Lambda的延迟执行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#性能浪费的日志案例"><span class="nav-text">性能浪费的日志案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Lambda作为参数和返回值"><span class="nav-text">使用Lambda作为参数和返回值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数式接口概念"><span class="nav-text">函数式接口概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何理解函数式接口"><span class="nav-text"> 如何理解函数式接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是函数式-Functional-接口"><span class="nav-text"> 什么是函数式(Functional)接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FunctionalInterface注解"><span class="nav-text">@FunctionalInterface注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用函数式接口"><span class="nav-text">常用函数式接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心接口"><span class="nav-text">核心接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他接口"><span class="nav-text">其他接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Supplier接口-T-get"><span class="nav-text">Supplier接口 - T get()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#求数组元素最大值"><span class="nav-text">求数组元素最大值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Consumer接口"><span class="nav-text">Consumer接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-accept-T-t"><span class="nav-text">void accept(T t)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consumer-andThen-Consumer"><span class="nav-text">Consumer andThen(Consumer)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化打印信息"><span class="nav-text">格式化打印信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Predicate接口"><span class="nav-text">Predicate接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#boolean-test-T-t"><span class="nav-text">boolean test(T t)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Predicate-and-Predicate"><span class="nav-text">Predicate and(Predicate)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Predicate-or-Predicate-“或”"><span class="nav-text">Predicate or(Predicate)“或”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Predicate-negate-Predicate-“非”"><span class="nav-text">Predicate negate(Predicate)“非”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集合信息筛选"><span class="nav-text">集合信息筛选</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function接口"><span class="nav-text">Function接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#R-apply-T-t"><span class="nav-text">R apply(T t)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-andThen-Function"><span class="nav-text">Function andThen(Function)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义函数模型拼接"><span class="nav-text">自定义函数模型拼接</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法引用与构造器引用"><span class="nav-text">方法引用与构造器引用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法引用"><span class="nav-text">方法引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类-实例方法名"><span class="nav-text">类::实例方法名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器引用-class-new"><span class="nav-text">构造器引用 class::new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组引用-type-new"><span class="nav-text">数组引用 type[]::new</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stream"><span class="nav-text">Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Stream方法"><span class="nav-text">获取Stream方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过集合Collection-stream"><span class="nav-text">通过集合Collection.stream()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过数组Arrays-stream-T"><span class="nav-text">通过数组Arrays.stream(T[])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过Stream的of"><span class="nav-text">通过Stream的of()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建无限流"><span class="nav-text">创建无限流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream-的中间操作"><span class="nav-text">Stream 的中间操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#筛选与切片"><span class="nav-text">筛选与切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#映射"><span class="nav-text">映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-text">排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream-的终止操作"><span class="nav-text">Stream 的终止操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配与查找"><span class="nav-text">匹配与查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归约"><span class="nav-text">归约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#收集"><span class="nav-text">收集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Collectors-实用类静态方法"><span class="nav-text">Collectors 实用类静态方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Optional类"><span class="nav-text">Optional类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用方法"><span class="nav-text">常用方法</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lambda表达式"><span class="nav-number">2.</span> <span class="nav-text">Lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda语法"><span class="nav-number">2.1.</span> <span class="nav-text">Lambda语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda的延迟执行"><span class="nav-number">2.2.</span> <span class="nav-text">Lambda的延迟执行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#性能浪费的日志案例"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">性能浪费的日志案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Lambda作为参数和返回值"><span class="nav-number">2.3.</span> <span class="nav-text">使用Lambda作为参数和返回值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数式接口概念"><span class="nav-number">3.</span> <span class="nav-text">函数式接口概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何理解函数式接口"><span class="nav-number">3.1.</span> <span class="nav-text"> 如何理解函数式接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是函数式-Functional-接口"><span class="nav-number">3.2.</span> <span class="nav-text"> 什么是函数式(Functional)接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FunctionalInterface注解"><span class="nav-number">3.3.</span> <span class="nav-text">@FunctionalInterface注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用函数式接口"><span class="nav-number">3.4.</span> <span class="nav-text">常用函数式接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心接口"><span class="nav-number">3.4.1.</span> <span class="nav-text">核心接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他接口"><span class="nav-number">3.4.2.</span> <span class="nav-text">其他接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Supplier接口-T-get"><span class="nav-number">3.4.3.</span> <span class="nav-text">Supplier接口 - T get()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#求数组元素最大值"><span class="nav-number">3.4.3.1.</span> <span class="nav-text">求数组元素最大值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Consumer接口"><span class="nav-number">3.4.4.</span> <span class="nav-text">Consumer接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-accept-T-t"><span class="nav-number">3.4.4.1.</span> <span class="nav-text">void accept(T t)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consumer-andThen-Consumer"><span class="nav-number">3.4.4.2.</span> <span class="nav-text">Consumer andThen(Consumer)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化打印信息"><span class="nav-number">3.4.4.3.</span> <span class="nav-text">格式化打印信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Predicate接口"><span class="nav-number">3.4.5.</span> <span class="nav-text">Predicate接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#boolean-test-T-t"><span class="nav-number">3.4.5.1.</span> <span class="nav-text">boolean test(T t)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Predicate-and-Predicate"><span class="nav-number">3.4.5.2.</span> <span class="nav-text">Predicate and(Predicate)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Predicate-or-Predicate-“或”"><span class="nav-number">3.4.5.3.</span> <span class="nav-text">Predicate or(Predicate)“或”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Predicate-negate-Predicate-“非”"><span class="nav-number">3.4.5.4.</span> <span class="nav-text">Predicate negate(Predicate)“非”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集合信息筛选"><span class="nav-number">3.4.5.5.</span> <span class="nav-text">集合信息筛选</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function接口"><span class="nav-number">3.4.6.</span> <span class="nav-text">Function接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#R-apply-T-t"><span class="nav-number">3.4.6.1.</span> <span class="nav-text">R apply(T t)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-andThen-Function"><span class="nav-number">3.4.6.2.</span> <span class="nav-text">Function andThen(Function)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义函数模型拼接"><span class="nav-number">3.4.6.3.</span> <span class="nav-text">自定义函数模型拼接</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法引用与构造器引用"><span class="nav-number">4.</span> <span class="nav-text">方法引用与构造器引用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法引用"><span class="nav-number">4.1.</span> <span class="nav-text">方法引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类-实例方法名"><span class="nav-number">4.1.1.</span> <span class="nav-text">类::实例方法名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器引用-class-new"><span class="nav-number">4.2.</span> <span class="nav-text">构造器引用 class::new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组引用-type-new"><span class="nav-number">4.3.</span> <span class="nav-text">数组引用 type[]::new</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stream"><span class="nav-number">5.</span> <span class="nav-text">Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">5.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Stream方法"><span class="nav-number">5.2.</span> <span class="nav-text">获取Stream方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过集合Collection-stream"><span class="nav-number">5.2.1.</span> <span class="nav-text">通过集合Collection.stream()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过数组Arrays-stream-T"><span class="nav-number">5.2.2.</span> <span class="nav-text">通过数组Arrays.stream(T[])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过Stream的of"><span class="nav-number">5.2.3.</span> <span class="nav-text">通过Stream的of()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建无限流"><span class="nav-number">5.2.4.</span> <span class="nav-text">创建无限流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream-的中间操作"><span class="nav-number">5.3.</span> <span class="nav-text">Stream 的中间操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#筛选与切片"><span class="nav-number">5.3.1.</span> <span class="nav-text">筛选与切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#映射"><span class="nav-number">5.3.2.</span> <span class="nav-text">映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">5.3.3.</span> <span class="nav-text">排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream-的终止操作"><span class="nav-number">5.4.</span> <span class="nav-text">Stream 的终止操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配与查找"><span class="nav-number">5.4.1.</span> <span class="nav-text">匹配与查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归约"><span class="nav-number">5.4.2.</span> <span class="nav-text">归约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#收集"><span class="nav-number">5.4.3.</span> <span class="nav-text">收集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Collectors-实用类静态方法"><span class="nav-number">5.4.3.1.</span> <span class="nav-text">Collectors 实用类静态方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Optional类"><span class="nav-number">6.</span> <span class="nav-text">Optional类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用方法"><span class="nav-number">6.1.</span> <span class="nav-text">常用方法</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
