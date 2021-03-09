@@ -447,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.3k</span>
+              <span>1.4k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -474,13 +474,13 @@
 
 <a id="more"></a>
 
-<h1 id="动态编译"><a href="#动态编译" class="headerlink" title="动态编译"></a><font size="4px">动态编译</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();</span><br><span class="line"><span class="comment">//int javax.tools.Tool.run(InputStream in, OutputStream out, OutputStream err, String... arguments)		</span></span><br><span class="line"><span class="keyword">int</span> result=compiler.run(<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="string">"/A.java"</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="动态编译">1. 动态编译</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();</span><br><span class="line"><span class="comment">//int javax.tools.Tool.run(InputStream in, OutputStream out, OutputStream err, String... arguments)		</span></span><br><span class="line"><span class="keyword">int</span> result=compiler.run(<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="string">"/A.java"</span>);</span><br></pre></td></tr></table></figure>
 
-<h1 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a><font size="4px">类加载过程</font></h1><h2 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a><font size="3px">类加载</font></h2><p>程序通过javac命令以后，生成一个或多个字节码文件。使用java命令对字节码文件进行解释运行。</p>
+<h1 id="类加载过程">2. 类加载过程</h1><h2 id="类加载">2.1. 类加载</h2><p>程序通过javac命令以后，生成一个或多个字节码文件。使用java命令对字节码文件进行解释运行。</p>
 <p>将类的class文件读入内存，并为之创建一个java.lang.Class对象</p>
 <p>类加载由类加载器来完成，类加载器由jvm提供</p>
 <p>可以通过<strong>extends ClassLoader</strong>实现自定义类加载器</p>
-<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a><font size="3px">连接</font></h2><p>把类的二进制数据合并到JRE中</p>
+<h2 id="连接">2.2. 连接</h2><p>把类的二进制数据合并到JRE中</p>
 <blockquote>
 <p>验证</p>
 </blockquote>
@@ -493,25 +493,25 @@
 <p>解析</p>
 </blockquote>
 <p>将类的二进制数据中的符号引用替换成直接引用</p>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a><font size="3px">初始化</font></h2><p>初始化类变量</p>
+<h2 id="初始化">2.3. 初始化</h2><p>初始化类变量</p>
 <blockquote>
 <p>声明类变量时指定初始值</p>
 <p>使用静态初始化块为类变量指定初始值</p>
 </blockquote>
-<h3 id="类主动引用-一定发生类初始化"><a href="#类主动引用-一定发生类初始化" class="headerlink" title="类主动引用-一定发生类初始化"></a><font size="3px" color="#f00">类主动引用-一定发生类初始化</font></h3><blockquote>
+<h3 id="类主动引用-一定发生类初始化">2.3.1. 类主动引用-一定发生类初始化</h3><blockquote>
 <p>创建类实例 new</p>
 <p>调用类的静态成员(除了final常量)和静态方法</p>
 <p>使用java.lang.reflect包的方法对类进行反射调用</p>
 <p>虚拟机启动，java Hello，一定会初始化Hello类，启动main方法所在的类</p>
 <p>初始化类先初始化父类</p>
 </blockquote>
-<h3 id="类被动引用-不会发生类初始化"><a href="#类被动引用-不会发生类初始化" class="headerlink" title="类被动引用-不会发生类初始化"></a><font size="3px" color="#f00">类被动引用-不会发生类初始化</font></h3><blockquote>
+<h3 id="类被动引用-不会发生类初始化">2.3.2. 类被动引用-不会发生类初始化</h3><blockquote>
 <p>访问静态域时，只有真正声明这个域的类才会被初始化</p>
 <p>子类引用父类的静态变量，不会导致子类的初始化</p>
 <p>通过数组定义类引用，不会触发类的初始化</p>
 <p>引用常量不会触发此类的初始化，常量在编译阶段就存入调用类的常量池中</p>
 </blockquote>
-<h1 id="Java初始化顺序"><a href="#Java初始化顺序" class="headerlink" title="Java初始化顺序"></a><font size="4px">Java初始化顺序</font></h1><ol>
+<h1 id="Java初始化顺序">3. Java初始化顺序</h1><ol>
 <li>父类静态变量，只初始化一次</li>
 <li>父类静态代码块</li>
 <li>子类静态变量</li>
@@ -523,27 +523,27 @@
 <li>子类非静态代码块</li>
 <li>子类构造函数</li>
 </ol>
-<h1 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a><font size="3px">类加载器</font></h1><p>类用 【包名+类名+类加载器】 作为唯一标识</p>
-<h2 id="Bootstrap-ClassLoader-根类加载器"><a href="#Bootstrap-ClassLoader-根类加载器" class="headerlink" title=" Bootstrap ClassLoader 根类加载器"></a><font size="3px"> Bootstrap ClassLoader 根类加载器</font></h2><blockquote>
+<h1 id="类加载器">4. 类加载器</h1><p>类用 【包名+类名+类加载器】 作为唯一标识</p>
+<h2 id="Bootstrap-ClassLoader-根类加载器">4.1.  Bootstrap ClassLoader 根类加载器</h2><blockquote>
 <p>加载java核心类。由jvm自身实现。String ，System这些核心类库在/jre/lib/rt.jar中</p>
 <p>并不继承java.lang.ClassLoader</p>
 <p>用原生代码C++实现</p>
 <p>加载扩展类和应用程序类加载器，并指定他们的父类加载器</p>
 </blockquote>
-<h2 id="Extension-ClassLoader-扩展类加载器"><a href="#Extension-ClassLoader-扩展类加载器" class="headerlink" title="Extension ClassLoader 扩展类加载器"></a><font size="3px">Extension ClassLoader 扩展类加载器</font></h2><blockquote>
+<h2 id="Extension-ClassLoader-扩展类加载器">4.2. Extension ClassLoader 扩展类加载器</h2><blockquote>
 <p>ClassLoader extension=system.getParent(); //ExtClassLoader</p>
 <p>加载JRE扩展目录中jar包类 /jre/lib/ext</p>
 </blockquote>
-<h2 id="System-ClassLoader-系统类加载器"><a href="#System-ClassLoader-系统类加载器" class="headerlink" title="System ClassLoader 系统类加载器"></a><font size="3px">System ClassLoader 系统类加载器</font></h2><blockquote>
+<h2 id="System-ClassLoader-系统类加载器">4.3. System ClassLoader 系统类加载器</h2><blockquote>
 <p>ClassLoader system=ClassLoader.getSystemClassLoader();  //AppClassLoader</p>
 <p>加载环境变量所指定的类路径。</p>
 </blockquote>
-<h2 id="URLClassLoader类"><a href="#URLClassLoader类" class="headerlink" title="URLClassLoader类"></a><font size="3px">URLClassLoader类</font></h2><blockquote>
+<h2 id="URLClassLoader类">4.4. URLClassLoader类</h2><blockquote>
 <p>作为SystemClassLoader,ExtensionClassLoader的父类</p>
 </blockquote>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ClassLoader classLoader = SimpleTests.class.getClassLoader();</span><br><span class="line">InputStream in = classLoader.getResourceAsStream(<span class="string">"db.properties"</span>);</span><br><span class="line"></span><br><span class="line">Properties pro = <span class="keyword">new</span> Properties();</span><br><span class="line">pro.load(in);</span><br><span class="line">String user = pro.getProperty(<span class="string">"user"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//=============================================</span></span><br><span class="line">URL[] urls = &#123;<span class="keyword">new</span> URL(<span class="string">"file:mysql-connector-java-bin.jar"</span>)&#125;;</span><br><span class="line">URLClassLoader loader = <span class="keyword">new</span> URLClassLoader(urls);</span><br><span class="line">Driver driver = (Driver)loader.loadClass(<span class="string">"com.mysql.jdbc.Driver"</span>).newInstamce();</span><br><span class="line"></span><br><span class="line">Properties p = <span class="keyword">new</span> Properties();</span><br><span class="line">p.setProperty(<span class="string">"user"</span>,user);</span><br><span class="line">p.setProperty(<span class="string">"pwd"</span>,pwd);</span><br><span class="line">Connection con = driver.connect(url,p);</span><br></pre></td></tr></table></figure>
 
-<h2 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a><font size="3px">类加载机制</font></h2><blockquote>
+<h2 id="类加载机制">4.5. 类加载机制</h2><blockquote>
 <p>全盘负责</p>
 </blockquote>
 <blockquote>
@@ -553,19 +553,19 @@
 <p>缓存机制</p>
 </blockquote>
 <p>保证所有加载过的class都被缓存，当缓存区中不存在class对象时，系统才读取class二进制文件，转换成class对象，存入缓存区。</p>
-<h2 id="自定义类加载"><a href="#自定义类加载" class="headerlink" title="自定义类加载"></a><font size="3px">自定义类加载</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">extends ClassLoader&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException&#123;</span><br><span class="line">  &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="自定义类加载">4.6. 自定义类加载</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">extends ClassLoader&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException&#123;</span><br><span class="line">  &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>编译java文件方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">compile</span><span class="params">(String javaFile)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">  Process p = Runtime.getRuntime().exec(<span class="string">"javac "</span>+javaFile);</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    p.waitFor();</span><br><span class="line">  &#125;<span class="keyword">catch</span>(InterruptedException e)&#123;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> ret = p.exitValue();</span><br><span class="line">  <span class="keyword">return</span> ret==<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="程序执行内存分析"><a href="#程序执行内存分析" class="headerlink" title="程序执行内存分析"></a><font size="4px">程序执行内存分析</font></h1><p>main是程序执行的入口</p>
-<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a><font size="3px">栈</font></h2><p>方法执行的内存模型，方法被调用时会为方法开辟栈帧</p>
+<h1 id="程序执行内存分析">5. 程序执行内存分析</h1><p>main是程序执行的入口</p>
+<h2 id="栈">5.1. 栈</h2><p>方法执行的内存模型，方法被调用时会为方法开辟栈帧</p>
 <p>存放局部变量</p>
 <p>由系统自动分配，拥有连续的内存空间</p>
-<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a><font size="3px">堆</font></h2><p>存储对象</p>
+<h2 id="堆">5.2. 堆</h2><p>存储对象</p>
 <p>被所有线程共享</p>
 <p>拥有不连续的空间，分配灵活</p>
-<h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a><font size="3px">方法区</font></h2><p>从属于堆</p>
+<h2 id="方法区">5.3. 方法区</h2><p>从属于堆</p>
 <p>存放类相关信息：</p>
 <ol>
 <li>代码</li>
@@ -689,7 +689,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动态编译"><span class="nav-text">动态编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类加载过程"><span class="nav-text">类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载"><span class="nav-text">类加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-text">连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-text">初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类主动引用-一定发生类初始化"><span class="nav-text">类主动引用-一定发生类初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类被动引用-不会发生类初始化"><span class="nav-text">类被动引用-不会发生类初始化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java初始化顺序"><span class="nav-text">Java初始化顺序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类加载器"><span class="nav-text">类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bootstrap-ClassLoader-根类加载器"><span class="nav-text"> Bootstrap ClassLoader 根类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extension-ClassLoader-扩展类加载器"><span class="nav-text">Extension ClassLoader 扩展类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-ClassLoader-系统类加载器"><span class="nav-text">System ClassLoader 系统类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URLClassLoader类"><span class="nav-text">URLClassLoader类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载机制"><span class="nav-text">类加载机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义类加载"><span class="nav-text">自定义类加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序执行内存分析"><span class="nav-text">程序执行内存分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#栈"><span class="nav-text">栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-text">堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法区"><span class="nav-text">方法区</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动态编译"><span class="nav-text">1. 动态编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类加载过程"><span class="nav-text">2. 类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载"><span class="nav-text">2.1. 类加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-text">2.2. 连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-text">2.3. 初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类主动引用-一定发生类初始化"><span class="nav-text">2.3.1. 类主动引用-一定发生类初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类被动引用-不会发生类初始化"><span class="nav-text">2.3.2. 类被动引用-不会发生类初始化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java初始化顺序"><span class="nav-text">3. Java初始化顺序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类加载器"><span class="nav-text">4. 类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bootstrap-ClassLoader-根类加载器"><span class="nav-text">4.1.  Bootstrap ClassLoader 根类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extension-ClassLoader-扩展类加载器"><span class="nav-text">4.2. Extension ClassLoader 扩展类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-ClassLoader-系统类加载器"><span class="nav-text">4.3. System ClassLoader 系统类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URLClassLoader类"><span class="nav-text">4.4. URLClassLoader类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载机制"><span class="nav-text">4.5. 类加载机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义类加载"><span class="nav-text">4.6. 自定义类加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序执行内存分析"><span class="nav-text">5. 程序执行内存分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#栈"><span class="nav-text">5.1. 栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-text">5.2. 堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法区"><span class="nav-text">5.3. 方法区</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -918,13 +918,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

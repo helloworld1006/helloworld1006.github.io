@@ -450,7 +450,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>393</span>
+              <span>480</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -477,25 +477,25 @@
 
 <a id="more"></a>
 
-<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a><font size="4px">目录结构</font></h1><p><img src="/2019/09/06/树莓派-Linux系统命令记录/d.png" alt></p>
+<h1 id="目录结构">1. 目录结构</h1><p><img src="/2019/09/06/树莓派-Linux系统命令记录/d.png" alt></p>
 <p>etc 系统配置文件 – 环境变量</p>
 <p>home 文件夹下有系统默认以用户命名的文件夹</p>
 <p>root 用户root文件夹</p>
 <p>usr 安装的软件存放处 /usr/local/tmp</p>
-<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a><font size="4px">命令</font></h1><h2 id="进入root"><a href="#进入root" class="headerlink" title="进入root"></a><font size="3px">进入root</font></h2><p>不知root密码</p>
+<h1 id="命令">2. 命令</h1><h2 id="进入root">2.1. 进入root</h2><p>不知root密码</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
 
 <p>进入root</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su 123</span><br></pre></td></tr></table></figure>
 
-<h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a><font size="3px">pwd</font></h2><p>查看当前所在文件夹全路径</p>
-<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a><font size="3px">cd</font></h2><p>cd .. 向上跳一级</p>
+<h2 id="pwd">2.2. pwd</h2><p>查看当前所在文件夹全路径</p>
+<h2 id="cd">2.3. cd</h2><p>cd .. 向上跳一级</p>
 <p>cd /usr 进入文件夹</p>
-<h2 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a><font size="3px">新建文件夹</font></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir tmp</span><br></pre></td></tr></table></figure>
+<h2 id="新建文件夹">2.4. 新建文件夹</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir tmp</span><br></pre></td></tr></table></figure>
 
-<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a><font size="3px">ls</font></h2><p>查看文件夹下所有信息</p>
+<h2 id="ls">2.5. ls</h2><p>查看文件夹下所有信息</p>
 <p>ls -l</p>
-<h2 id="新建文件"><a href="#新建文件" class="headerlink" title="新建文件"></a><font size="3px">新建文件</font></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi web.xml</span><br></pre></td></tr></table></figure>
+<h2 id="新建文件">2.6. 新建文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi web.xml</span><br></pre></td></tr></table></figure>
 
 <p>按键ℹ️进入编辑状态</p>
 <p>按键esc 退出编辑状态</p>
@@ -503,7 +503,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch a.java</span><br></pre></td></tr></table></figure>
 
 <p>创建空文件</p>
-<h2 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a><font size="3px">查看文件内容</font></h2><p>所有内容</p>
+<h2 id="查看文件内容">2.7. 查看文件内容</h2><p>所有内容</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat web.xml</span><br></pre></td></tr></table></figure>
 
 <p>头10行</p>
@@ -526,27 +526,27 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 'q' &gt;&gt; web.xml</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2019/09/06/树莓派-Linux系统命令记录/tailf.png" alt></p>
-<h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a><font size="3px">退出</font></h2><p>ctrl+c</p>
-<h2 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a><font size="3px">ifconfig</font></h2><p>查看网卡信息</p>
-<h2 id="reboot"><a href="#reboot" class="headerlink" title="reboot"></a><font size="3px">reboot</font></h2><p>重启</p>
-<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a><font size="3px">解压</font></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf temp.tar</span><br></pre></td></tr></table></figure>
+<h2 id="退出">2.8. 退出</h2><p>ctrl+c</p>
+<h2 id="ifconfig">2.9. ifconfig</h2><p>查看网卡信息</p>
+<h2 id="reboot">2.10. reboot</h2><p>重启</p>
+<h2 id="解压">2.11. 解压</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf temp.tar</span><br></pre></td></tr></table></figure>
 
-<h2 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a><font size="3px">拷贝文件</font></h2><p>cp 源文件 新文件</p>
+<h2 id="拷贝文件">2.12. 拷贝文件</h2><p>cp 源文件 新文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp web.xml a.xml</span><br></pre></td></tr></table></figure>
 
 <p>cp -r 源文件夹 新文件夹</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir aaa</span><br><span class="line">cp -r aaa bbb</span><br></pre></td></tr></table></figure>
 
-<h2 id="剪切文件"><a href="#剪切文件" class="headerlink" title="剪切文件"></a><font size="3px">剪切文件</font></h2><p>具有重命名功能</p>
+<h2 id="剪切文件">2.13. 剪切文件</h2><p>具有重命名功能</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv aaa a</span><br></pre></td></tr></table></figure>
 
-<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a><font size="3px">删除文件</font></h2><p>-f 不询问是否删除</p>
+<h2 id="删除文件">2.14. 删除文件</h2><p>-f 不询问是否删除</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f a.java</span><br></pre></td></tr></table></figure>
 
 <p>删除文件夹</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf a</span><br></pre></td></tr></table></figure>
 
-<h2 id="清屏"><a href="#清屏" class="headerlink" title="清屏"></a><font size="3px">清屏</font></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clean</span><br></pre></td></tr></table></figure>
+<h2 id="清屏">2.15. 清屏</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clean</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -666,7 +666,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目录结构"><span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令"><span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进入root"><span class="nav-text">进入root</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pwd"><span class="nav-text">pwd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cd"><span class="nav-text">cd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建文件夹"><span class="nav-text">新建文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls"><span class="nav-text">ls</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建文件"><span class="nav-text">新建文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件内容"><span class="nav-text">查看文件内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#退出"><span class="nav-text">退出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ifconfig"><span class="nav-text">ifconfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reboot"><span class="nav-text">reboot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压"><span class="nav-text">解压</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝文件"><span class="nav-text">拷贝文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪切文件"><span class="nav-text">剪切文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清屏"><span class="nav-text">清屏</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目录结构"><span class="nav-text">1. 目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令"><span class="nav-text">2. 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进入root"><span class="nav-text">2.1. 进入root</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pwd"><span class="nav-text">2.2. pwd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cd"><span class="nav-text">2.3. cd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建文件夹"><span class="nav-text">2.4. 新建文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls"><span class="nav-text">2.5. ls</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建文件"><span class="nav-text">2.6. 新建文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件内容"><span class="nav-text">2.7. 查看文件内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#退出"><span class="nav-text">2.8. 退出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ifconfig"><span class="nav-text">2.9. ifconfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reboot"><span class="nav-text">2.10. reboot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压"><span class="nav-text">2.11. 解压</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝文件"><span class="nav-text">2.12. 拷贝文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪切文件"><span class="nav-text">2.13. 剪切文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-text">2.14. 删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清屏"><span class="nav-text">2.15. 清屏</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -895,13 +895,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

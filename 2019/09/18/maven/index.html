@@ -488,11 +488,11 @@
 
 <a id="more"></a>
 
-<h1 id="Ant"><a href="#Ant" class="headerlink" title="Ant"></a><font size="4px">Ant</font></h1><p>项目构建工具</p>
+<h1 id="Ant">1. Ant</h1><p>项目构建工具</p>
 <p>在项目运行编辑打包等过程都需要依赖于ant构建工具</p>
-<h1 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a><font size="4px">分布式</font></h1><p>把一个完整的项目拆分成多个项目，把拆分的项目分别部署到对应的服务器中的过程叫做分布式项目部署</p>
+<h1 id="分布式">2. 分布式</h1><p>把一个完整的项目拆分成多个项目，把拆分的项目分别部署到对应的服务器中的过程叫做分布式项目部署</p>
 <p>将项目包换成一个单独项目</p>
-<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a><font size="4px">Maven</font></h1><h2 id="网址"><a href="#网址" class="headerlink" title="网址"></a><font size="3px">网址</font></h2><p><a href="https://mvnrepository.com/tags/maven" target="_blank" rel="noopener">https://mvnrepository.com/tags/maven</a></p>
+<h1 id="Maven">3. Maven</h1><h2 id="网址">3.1. 网址</h2><p><a href="https://mvnrepository.com/tags/maven" target="_blank" rel="noopener">https://mvnrepository.com/tags/maven</a></p>
 <p>基于Ant的构建工具，功能更加强大</p>
 <ul>
 <li><p>本地仓库：计算机中的一个文件夹</p>
@@ -524,7 +524,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="配置Maven"><a href="#配置Maven" class="headerlink" title="配置Maven"></a><font size="3px">配置Maven</font></h2><p><a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></p>
+<h2 id="配置Maven">3.2. 配置Maven</h2><p><a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></p>
 <p><img src="/2019/09/18/maven/internet.png" alt></p>
 <p>解压文件</p>
 <p>eclipse中装配maven</p>
@@ -537,7 +537,7 @@
 <p>配置settings.xml</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 本地仓库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>/Users/Learning/Resource/workspace/myEclipse/apache-maven-3.6.2/repository<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 镜像 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- jdk --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>jdk-1.8<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">jdk</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.compilerVersion</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.compilerVersion</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="新建Maven项目"><a href="#新建Maven项目" class="headerlink" title="新建Maven项目"></a><font size="3px">新建Maven项目</font></h2><p><img src="/2019/09/18/maven/newmaven.png" alt></p>
+<h2 id="新建Maven项目">3.3. 新建Maven项目</h2><p><img src="/2019/09/18/maven/newmaven.png" alt></p>
 <p>创造一个简单的maven项目</p>
 <p><img src="/2019/09/18/maven/mavenproject.png" alt></p>
 <p>最终项目列表</p>
@@ -558,18 +558,18 @@
 <p>调用, 还可以查看源码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;		</span><br><span class="line">	 test t = <span class="keyword">new</span> test();</span><br><span class="line">	 t.out();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="maven项目关系"><a href="#maven项目关系" class="headerlink" title="maven项目关系"></a><font size="3px">maven项目关系</font></h2><h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a><font size="3px">依赖</font></h3><p>项目中自动下载另一个项目依赖的其他项目</p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a><font size="3px">继承</font></h3><p>父项目必须为pom类型，父项目中看不到子项目，只有逻辑上的父子关系</p>
+<h2 id="maven项目关系">3.4. maven项目关系</h2><h3 id="依赖">3.4.1. 依赖</h3><p>项目中自动下载另一个项目依赖的其他项目</p>
+<h3 id="继承">3.4.2. 继承</h3><p>父项目必须为pom类型，父项目中看不到子项目，只有逻辑上的父子关系</p>
 <p>子项目为jar或war ，子项目中多了parent标签，出现警告子项目的groupId和version可以和父项目相同</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.runaccpeted<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>Parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a><font size="3px">聚合</font></h3><p><img src="/2019/09/18/maven/p-c.png" alt></p>
+<h3 id="聚合">3.4.3. 聚合</h3><p><img src="/2019/09/18/maven/p-c.png" alt></p>
 <p>前提是继承关系，父项目包含子项目</p>
 <p>子项目类型必须是Maven Module，但仍然是一个独立的项目</p>
 <p>父项目中多了modules标签</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">module</span>&gt;</span>children<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="dependencyManagement"><a href="#dependencyManagement" class="headerlink" title="dependencyManagement"></a><font size="3px">dependencyManagement</font></h2><p>写在父项目中</p>
+<h2 id="dependencyManagement">3.5. dependencyManagement</h2><p>写在父项目中</p>
 <p>子项目只需要有坐标的groupId和artifactid，version继承自父项目</p>
 <p>在父项目中声明properties把所有版本号进行统一管理</p>
 <p>父项目</p>
@@ -578,7 +578,7 @@
 <p>子项目</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="创建war项目"><a href="#创建war项目" class="headerlink" title="创建war项目"></a><font size="4px">创建war项目</font></h1><p>maven项目类型为war</p>
+<h1 id="创建war项目">4. 创建war项目</h1><p>maven项目类型为war</p>
 <p>在main/webapp 下新建META-INF和WEB-INF,web.xml,index.jsp</p>
 <p><img src="/2019/09/18/maven/war.png" alt></p>
 <p>在pom.xml中添加三个jar</p>
@@ -594,11 +594,11 @@
 <p><img src="/2019/09/18/maven/build.png" alt></p>
 <p>tomcat部署位置</p>
 <p>Web/src/main/webapp/</p>
-<h1 id="编译java文件夹的xml文件"><a href="#编译java文件夹的xml文件" class="headerlink" title="编译java文件夹的xml文件"></a><font size="4px">编译java文件夹的xml文件</font></h1><p>maven默认只把src/main/resources里面的非java文件进行编译到classes中</p>
+<h1 id="编译java文件夹的xml文件">5. 编译java文件夹的xml文件</h1><p>maven默认只把src/main/resources里面的非java文件进行编译到classes中</p>
 <p>希望src/main/java中的xml页编译到classes需要添加</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="热部署–发布到树莓派tomcat"><a href="#热部署–发布到树莓派tomcat" class="headerlink" title="热部署–发布到树莓派tomcat"></a><font size="4px">热部署–发布到树莓派tomcat</font></h1><p>部署属性</p>
+<h1 id="热部署–发布到树莓派tomcat">6. 热部署–发布到树莓派tomcat</h1><p>部署属性</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">username</span>&gt;</span>tomcat<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">password</span>&gt;</span>tomcat<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.0.103:8080/manager/text<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>整个tomcat</p>
@@ -728,7 +728,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ant"><span class="nav-text">Ant</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式"><span class="nav-text">分布式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven"><span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网址"><span class="nav-text">网址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Maven"><span class="nav-text">配置Maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建Maven项目"><span class="nav-text">新建Maven项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven项目关系"><span class="nav-text">maven项目关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚合"><span class="nav-text">聚合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dependencyManagement"><span class="nav-text">dependencyManagement</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建war项目"><span class="nav-text">创建war项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译java文件夹的xml文件"><span class="nav-text">编译java文件夹的xml文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#热部署–发布到树莓派tomcat"><span class="nav-text">热部署–发布到树莓派tomcat</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ant"><span class="nav-text">1. Ant</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式"><span class="nav-text">2. 分布式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven"><span class="nav-text">3. Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网址"><span class="nav-text">3.1. 网址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Maven"><span class="nav-text">3.2. 配置Maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建Maven项目"><span class="nav-text">3.3. 新建Maven项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven项目关系"><span class="nav-text">3.4. maven项目关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-text">3.4.1. 依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-text">3.4.2. 继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚合"><span class="nav-text">3.4.3. 聚合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dependencyManagement"><span class="nav-text">3.5. dependencyManagement</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建war项目"><span class="nav-text">4. 创建war项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译java文件夹的xml文件"><span class="nav-text">5. 编译java文件夹的xml文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#热部署–发布到树莓派tomcat"><span class="nav-text">6. 热部署–发布到树莓派tomcat</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -957,13 +957,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

@@ -447,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>240</span>
+              <span>246</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -474,11 +474,11 @@
 
 <a id="more"></a>
 
-<h1 id="配置管理账号密码"><a href="#配置管理账号密码" class="headerlink" title="配置管理账号密码"></a><font size="4px">配置管理账号密码</font></h1><p>当首次打开localhost:8080时，点击Manager App按钮，出现403配置信息</p>
+<h1 id="配置管理账号密码">1. 配置管理账号密码</h1><p>当首次打开localhost:8080时，点击Manager App按钮，出现403配置信息</p>
 <p>进入tomcat8/conf/tomcat-users.xml配置账号密码</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/usr/local/tomcat8/bin# cd ..</span><br><span class="line">root@pi:/usr/local/tomcat8# cd conf</span><br><span class="line">root@pi:/usr/local/tomcat8/conf# nano tomcat-users.xml</span><br><span class="line"></span><br><span class="line">&lt;role rolename="manager-gui"/&gt;</span><br><span class="line">&lt;user username="tomcat8" password="tomcat8" roles="manager-gui,manager-script"/&gt;</span><br></pre></td></tr></table></figure>
 
-<h1 id="重启tomcat仍出现403"><a href="#重启tomcat仍出现403" class="headerlink" title="重启tomcat仍出现403"></a><font size="4px">重启tomcat仍出现403</font></h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You are not authorized to view this page.</span><br><span class="line">By default the Host Manager is only accessible from a browser running on the same machine as Tomcat. If you wish to modify this restriction, you'll need to edit the Host Manager's context.xml file.</span><br></pre></td></tr></table></figure>
+<h1 id="重启tomcat仍出现403">2. 重启tomcat仍出现403</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You are not authorized to view this page.</span><br><span class="line">By default the Host Manager is only accessible from a browser running on the same machine as Tomcat. If you wish to modify this restriction, you'll need to edit the Host Manager's context.xml file.</span><br></pre></td></tr></table></figure>
 
 <p>编辑tomcat8/webapps/manager/META-INF/context.xml</p>
 <p>tomcat8/webapps/host-manager/META-INF/context.xml</p>
@@ -603,7 +603,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置管理账号密码"><span class="nav-text">配置管理账号密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重启tomcat仍出现403"><span class="nav-text">重启tomcat仍出现403</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置管理账号密码"><span class="nav-text">1. 配置管理账号密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重启tomcat仍出现403"><span class="nav-text">2. 重启tomcat仍出现403</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -832,13 +832,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

@@ -490,7 +490,7 @@
 <a id="more"></a>
 
 <p>连接树莓派 ssh 192.168.0.112 -l pi</p>
-<h1 id="jdk安装"><a href="#jdk安装" class="headerlink" title="jdk安装"></a><font size="4px">jdk安装</font></h1><p>查看树莓派系统信息</p>
+<h1 id="jdk安装">1. jdk安装</h1><p>查看树莓派系统信息</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
 
 <p>Linux armv7l GNU/Linux</p>
@@ -526,7 +526,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac Main.java</span><br><span class="line">java Main</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2019/09/06/树莓派搭建服务器/java.png" alt></p>
-<h1 id="tomcat安装"><a href="#tomcat安装" class="headerlink" title="tomcat安装"></a><font size="4px">tomcat安装</font></h1><p><a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-80.cgi</a></p>
+<h1 id="tomcat安装">2. tomcat安装</h1><p><a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-80.cgi</a></p>
 <p>下载apache-tomcat-8.5.47.tar.gz</p>
 <p>使用Transmit软件直接文件拷贝到树莓派文件夹中</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf apache-tomcat-8.5.47.tar</span><br><span class="line">ls</span><br><span class="line">cp -r apache-tomcat-8.5.47 /usr/local/tomcat8</span><br><span class="line">cd /etc</span><br><span class="line">nano profile</span><br></pre></td></tr></table></figure>
@@ -564,7 +564,7 @@
 <p>启动打印动态信息</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./startup.sh &amp; tail -f /usr/local/tomcat/logs/catalina.out</span><br></pre></td></tr></table></figure>
 
-<h1 id="mysql安装-–-mariadb"><a href="#mysql安装-–-mariadb" class="headerlink" title="mysql安装 – mariadb"></a><font size="4px">mysql安装 – mariadb</font></h1><p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品.</p>
+<h1 id="mysql安装-–-mariadb">3. mysql安装 – mariadb</h1><p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">没有可用的软件包 mysql-server，但是它被其它的软件包引用了。</span><br><span class="line">这可能意味着这个缺失的软件包可能已被废弃，</span><br><span class="line">或者只能在其他发布源中找到</span><br><span class="line">然而下列软件包会取代它：</span><br><span class="line">  mariadb-server-10.0</span><br><span class="line"></span><br><span class="line">E: 软件包 mysql-server 没有可安装候选</span><br></pre></td></tr></table></figure>
 
 <p>于是：</p>
@@ -591,7 +591,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
 
 <p>成功！</p>
-<h2 id="配置密码"><a href="#配置密码" class="headerlink" title="配置密码"></a><font size="3px">配置密码</font></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+<h2 id="配置密码">3.1. 配置密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
 
 <p>直接回车</p>
 <p>出现以下内容即为成功</p>
@@ -606,7 +606,7 @@
 <p>运行sql文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [test]&gt; source /home/pi/Downloads/insert.sql</span><br><span class="line">Query OK, 1 row affected (0.01 sec)</span><br></pre></td></tr></table></figure>
 
-<h2 id="配置远程服务"><a href="#配置远程服务" class="headerlink" title="配置远程服务"></a><font size="3px">配置远程服务</font></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf</span><br></pre></td></tr></table></figure>
+<h2 id="配置远程服务">3.2. 配置远程服务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf</span><br></pre></td></tr></table></figure>
 
 <p>将bind-address 127.0.0.1改为0.0.0.0</p>
 <p>control+o</p>
@@ -619,8 +619,8 @@
 <p>现在需要输入刚设置的密码登录mysql</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">grant all privileges on *.* to 'root'@'%' identified by '123456' with grant option;</span><br><span class="line">flush privileges; </span><br><span class="line">exit;</span><br></pre></td></tr></table></figure>
 
-<h2 id="客户端登陆-Navicat"><a href="#客户端登陆-Navicat" class="headerlink" title="客户端登陆-Navicat"></a><font size="3px">客户端登陆-Navicat</font></h2><p><img src="/2019/09/06/树莓派搭建服务器/navicat.png" alt></p>
-<h2 id="验证远程数据库"><a href="#验证远程数据库" class="headerlink" title="验证远程数据库"></a><font size="3px">验证远程数据库</font></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">test</span>(</span><br><span class="line"><span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment,</span><br><span class="line">uname <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">primary <span class="keyword">key</span>(<span class="keyword">id</span>)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">test</span> <span class="keyword">VALUES</span> (<span class="keyword">default</span>,<span class="string">'A'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">test</span> <span class="keyword">VALUES</span> (<span class="keyword">default</span>,<span class="string">'B'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">test</span> <span class="keyword">VALUES</span> (<span class="keyword">default</span>,<span class="string">'C'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="客户端登陆-Navicat">3.3. 客户端登陆-Navicat</h2><p><img src="/2019/09/06/树莓派搭建服务器/navicat.png" alt></p>
+<h2 id="验证远程数据库">3.4. 验证远程数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">test</span>(</span><br><span class="line"><span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment,</span><br><span class="line">uname <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">primary <span class="keyword">key</span>(<span class="keyword">id</span>)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">test</span> <span class="keyword">VALUES</span> (<span class="keyword">default</span>,<span class="string">'A'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">test</span> <span class="keyword">VALUES</span> (<span class="keyword">default</span>,<span class="string">'B'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">test</span> <span class="keyword">VALUES</span> (<span class="keyword">default</span>,<span class="string">'C'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span>;</span><br></pre></td></tr></table></figure>
 
 <p>树莓派中</p>
 <p><img src="/2019/09/06/树莓派搭建服务器/db.png" alt></p>
@@ -629,14 +629,14 @@
 
 <p>结果</p>
 <p><img src="/2019/09/06/树莓派搭建服务器/sql.png" alt></p>
-<h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a><font size="4px">nginx</font></h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装</span></span><br><span class="line">sudo apt-get install nginx</span><br><span class="line"><span class="meta">#</span><span class="bash">启动</span></span><br><span class="line">sudo /etc/init.d/nginx start</span><br><span class="line"><span class="meta">#</span><span class="bash">重启</span></span><br><span class="line">sudo /etc/init.d/nginx restart</span><br><span class="line"><span class="meta">#</span><span class="bash">停止</span></span><br><span class="line">sudo /etc/init.d/nginx stop</span><br></pre></td></tr></table></figure>
+<h1 id="nginx">4. nginx</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装</span></span><br><span class="line">sudo apt-get install nginx</span><br><span class="line"><span class="meta">#</span><span class="bash">启动</span></span><br><span class="line">sudo /etc/init.d/nginx start</span><br><span class="line"><span class="meta">#</span><span class="bash">重启</span></span><br><span class="line">sudo /etc/init.d/nginx restart</span><br><span class="line"><span class="meta">#</span><span class="bash">停止</span></span><br><span class="line">sudo /etc/init.d/nginx stop</span><br></pre></td></tr></table></figure>
 
 <p>启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx start</span><br><span class="line"></span><br><span class="line">启动“nginx.service”需要认证。</span><br><span class="line">Multiple identities can be used for authentication:</span><br><span class="line"> 1.  ,,, (pi)</span><br><span class="line"> 2.  root</span><br><span class="line">Choose identity to authenticate as (1-2): 2</span><br><span class="line">Password:  #树莓派密码</span><br></pre></td></tr></table></figure>
 
 <p>浏览器访问 树莓派IP</p>
 <p><img src="/2019/09/06/树莓派搭建服务器/nginx.png" alt="nginx">      </p>
-<h2 id="自定义网页"><a href="#自定义网页" class="headerlink" title="自定义网页"></a><font size="3px">自定义网页</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /var/www/html</span><br></pre></td></tr></table></figure>
+<h2 id="自定义网页">4.1. 自定义网页</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /var/www/html</span><br></pre></td></tr></table></figure>
 
 <p>新建文件夹test</p>
 <p>新建文件 index.html</p>
@@ -647,7 +647,7 @@
 
 <p>浏览器访问 树莓派IP/test</p>
 <p><img src="/2019/09/06/树莓派搭建服务器/hello.png" alt="hello"></p>
-<h1 id="ngrok"><a href="#ngrok" class="headerlink" title="ngrok"></a><font size="4px"><a href="http://www.ngrok.cc/" target="_blank" rel="noopener">ngrok</a></font></h1><h2 id="开通隧道"><a href="#开通隧道" class="headerlink" title="开通隧道"></a><font size="3px">开通隧道</font></h2><p><img src="/2019/09/06/树莓派搭建服务器/suidao.png" alt></p>
+<h1 id="ngrok">5. ngrok</h1><h2 id="开通隧道">5.1. 开通隧道</h2><p><img src="/2019/09/06/树莓派搭建服务器/suidao.png" alt></p>
 <p>隧道管理 -&gt; 开通隧道 -&gt; 选择一个服务器</p>
 <p>隧道名称：自定义</p>
 <p>域名类型：使用前置域名  |  使用自定义域名</p>
@@ -657,12 +657,12 @@
 <p>http验证密码：</p>
 <p>本地端口：树莓派IP:80</p>
 <p><img src="/2019/09/06/树莓派搭建服务器/tian.png" alt></p>
-<h2 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a><font size="3px">下载软件</font></h2><p>隧道管理界面</p>
+<h2 id="下载软件">5.2. 下载软件</h2><p>隧道管理界面</p>
 <p><img src="/2019/09/06/树莓派搭建服务器/software.png" alt="software"></p>
 <p>下载解压后，得到sunny.app</p>
 <p>终端cd到sunny.app所在文件夹备用</p>
-<h1 id="Dnspod"><a href="#Dnspod" class="headerlink" title="Dnspod"></a><font size="4px">Dnspod</font></h1><p>添加一条CNAME记录 记录值 free.idcfengye.com.  主机记录自定–&gt; 需要跟ngrok中的自定义域名一致</p>
-<h1 id="内网配置"><a href="#内网配置" class="headerlink" title="内网配置"></a><font size="4px">内网配置</font></h1><h2 id="访问192-168-0-1"><a href="#访问192-168-0-1" class="headerlink" title="访问192.168.0.1"></a><font size="3px">访问192.168.0.1</font></h2><p> 虚拟服务器 应用</p>
+<h1 id="Dnspod">6. Dnspod</h1><p>添加一条CNAME记录 记录值 free.idcfengye.com.  主机记录自定–&gt; 需要跟ngrok中的自定义域名一致</p>
+<h1 id="内网配置">7. 内网配置</h1><h2 id="访问192-168-0-1">7.1. 访问192.168.0.1</h2><p> 虚拟服务器 应用</p>
 <p>添加映射 </p>
 <table>
 <thead>
@@ -682,7 +682,7 @@
 <td>TCP</td>
 </tr>
 </tbody></table>
-<h2 id="回到树莓派"><a href="#回到树莓派" class="headerlink" title="回到树莓派"></a><font size="3px">回到树莓派</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/nginx/sites-available</span><br><span class="line">sudo nano default</span><br></pre></td></tr></table></figure>
+<h2 id="回到树莓派">7.2. 回到树莓派</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/nginx/sites-available</span><br><span class="line">sudo nano default</span><br></pre></td></tr></table></figure>
 
 <p>配置监听</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        server_name xx.xx.com;</span><br><span class="line">        </span><br><span class="line">ctrl+o ctrl+x 保存退出</span><br></pre></td></tr></table></figure>
@@ -690,7 +690,7 @@
 <p>终端</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br><span class="line">systemctl start nginx.service</span><br></pre></td></tr></table></figure>
 
-<h2 id="sunny启动"><a href="#sunny启动" class="headerlink" title="sunny启动"></a><font size="3px">sunny启动</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./sunny clientid 隧道id  在隧道管理界面可得</span><br></pre></td></tr></table></figure>
+<h2 id="sunny启动">7.3. sunny启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./sunny clientid 隧道id  在隧道管理界面可得</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2019/09/06/树莓派搭建服务器/ngrok.png" alt="ngrok"></p>
 <p>访问xx.xx.com </p>
@@ -815,7 +815,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jdk安装"><span class="nav-text">jdk安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tomcat安装"><span class="nav-text">tomcat安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql安装-–-mariadb"><span class="nav-text">mysql安装 – mariadb</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置密码"><span class="nav-text">配置密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置远程服务"><span class="nav-text">配置远程服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端登陆-Navicat"><span class="nav-text">客户端登陆-Navicat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证远程数据库"><span class="nav-text">验证远程数据库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx"><span class="nav-text">nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义网页"><span class="nav-text">自定义网页</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ngrok"><span class="nav-text">ngrok</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开通隧道"><span class="nav-text">开通隧道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载软件"><span class="nav-text">下载软件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dnspod"><span class="nav-text">Dnspod</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内网配置"><span class="nav-text">内网配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#访问192-168-0-1"><span class="nav-text">访问192.168.0.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到树莓派"><span class="nav-text">回到树莓派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sunny启动"><span class="nav-text">sunny启动</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jdk安装"><span class="nav-text">1. jdk安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tomcat安装"><span class="nav-text">2. tomcat安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql安装-–-mariadb"><span class="nav-text">3. mysql安装 – mariadb</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置密码"><span class="nav-text">3.1. 配置密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置远程服务"><span class="nav-text">3.2. 配置远程服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端登陆-Navicat"><span class="nav-text">3.3. 客户端登陆-Navicat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证远程数据库"><span class="nav-text">3.4. 验证远程数据库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx"><span class="nav-text">4. nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义网页"><span class="nav-text">4.1. 自定义网页</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ngrok"><span class="nav-text">5. ngrok</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开通隧道"><span class="nav-text">5.1. 开通隧道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载软件"><span class="nav-text">5.2. 下载软件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dnspod"><span class="nav-text">6. Dnspod</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内网配置"><span class="nav-text">7. 内网配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#访问192-168-0-1"><span class="nav-text">7.1. 访问192.168.0.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到树莓派"><span class="nav-text">7.2. 回到树莓派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sunny启动"><span class="nav-text">7.3. sunny启动</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -1044,13 +1044,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

@@ -447,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>886</span>
+              <span>923</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -457,7 +457,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -474,7 +474,7 @@
 
 <a id="more"></a>
 
-<h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a><font size="4px">转义字符</font></h1><table>
+<h1 id="转义字符">1. 转义字符</h1><table>
   <tr>
     <td>\n</td>
     <td>换行符</td>
@@ -493,7 +493,7 @@
   </tr>
 </table>
 
-<h1 id="标准字符"><a href="#标准字符" class="headerlink" title="标准字符"></a><font size="4px">标准字符</font></h1><table>
+<h1 id="标准字符">2. 标准字符</h1><table>
   <tr>
     <td>\d</td>
     <td>0-9数字</td>
@@ -512,7 +512,7 @@
   </tr>
 </table>
 
-<h1 id="内任意字符"><a href="#内任意字符" class="headerlink" title="[] 内任意字符"></a><font size="4px">[] 内任意字符</font></h1><table>
+<h1 id="内任意字符">3. [] 内任意字符</h1><table>
   <tr>
     <td>[ab5@]</td>
     <td>匹配 a\b\c\5\@</td>
@@ -533,7 +533,7 @@
 
 <p>包含在中括号中的特殊符号会失去特殊意义，除了^,-之外。</p>
 <p>如<code>[\d.\-+]</code>表示数字，小数点，-，+</p>
-<h1 id="量词"><a href="#量词" class="headerlink" title="量词"></a><font size="4px">量词</font></h1><table>
+<h1 id="量词">4. 量词</h1><table>
   <tr>
     <td>{n}</td>
     <td>表达式重复n次</td>
@@ -560,7 +560,7 @@
   </tr>
 </table>
 
-<h1 id="字符边界"><a href="#字符边界" class="headerlink" title="字符边界"></a><font size="4px">字符边界</font></h1><table>
+<h1 id="字符边界">5. 字符边界</h1><table>
   <tr>
     <td>^</td>
     <td>与字符串开始的地方匹配</td>
@@ -575,7 +575,7 @@
   </tr>
 </table>
 
-<h1 id="选择符和分组"><a href="#选择符和分组" class="headerlink" title="选择符和分组"></a><font size="4px">选择符和分组</font></h1><table>
+<h1 id="选择符和分组">6. 选择符和分组</h1><table>
   <tr>
     <td>|</td>
     <td>两个表达式之间 或 关系</td>
@@ -590,7 +590,7 @@
   </tr>
 </table>
 
-<h1 id="预搜索-零宽断言"><a href="#预搜索-零宽断言" class="headerlink" title="预搜索-零宽断言"></a><font size="4px">预搜索-零宽断言</font></h1><table>
+<h1 id="预搜索-零宽断言">7. 预搜索-零宽断言</h1><table>
   <tr>
     <td>(?=exp)</td>
     <td>断言后匹配exp <br>[a-z]+(?:\d) go222 222本身不计入匹配</td>
@@ -609,11 +609,11 @@
   </tr>
 </table>
 
-<h1 id="常用表达"><a href="#常用表达" class="headerlink" title="常用表达"></a><font size="4px">常用表达</font></h1><h2 id="电话号码"><a href="#电话号码" class="headerlink" title="电话号码"></a><font size="3px">电话号码</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0\d&#123;2-3&#125;-\d&#123;7,9&#125;</span><br><span class="line">1[356789]\d&#123;11&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="常用表达">8. 常用表达</h1><h2 id="电话号码">8.1. 电话号码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0\d&#123;2-3&#125;-\d&#123;7,9&#125;</span><br><span class="line">1[356789]\d&#123;11&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="邮箱"><a href="#邮箱" class="headerlink" title="邮箱"></a><font size="3px">邮箱</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">12334@qq.com</span><br><span class="line">234@sina.com.cn</span><br><span class="line"></span><br><span class="line">[\w\-]+@[A-Za-z0-9]+(\.[A-Za-z]&#123;2,3&#125;)&#123;1,2&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="邮箱">8.2. 邮箱</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">12334@qq.com</span><br><span class="line">234@sina.com.cn</span><br><span class="line"></span><br><span class="line">[\w\-]+@[A-Za-z0-9]+(\.[A-Za-z]&#123;2,3&#125;)&#123;1,2&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="java中使用"><a href="#java中使用" class="headerlink" title="java中使用"></a><font size="4px">java中使用</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line">Pattern pattern = Pattern.compile(<span class="string">"\\d"</span>);</span><br><span class="line"></span><br><span class="line">Matcher matcher = pattern.matcher(<span class="string">"aw"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span> flag =matcher.matches();</span><br><span class="line"></span><br><span class="line">System.out.println(flag);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<h1 id="java中使用">9. java中使用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line">Pattern pattern = Pattern.compile(<span class="string">"\\d"</span>);</span><br><span class="line"></span><br><span class="line">Matcher matcher = pattern.matcher(<span class="string">"aw"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span> flag =matcher.matches();</span><br><span class="line"></span><br><span class="line">System.out.println(flag);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -731,7 +731,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#转义字符"><span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标准字符"><span class="nav-text">标准字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内任意字符"><span class="nav-text">[] 内任意字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#量词"><span class="nav-text">量词</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符边界"><span class="nav-text">字符边界</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择符和分组"><span class="nav-text">选择符和分组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预搜索-零宽断言"><span class="nav-text">预搜索-零宽断言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用表达"><span class="nav-text">常用表达</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#电话号码"><span class="nav-text">电话号码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邮箱"><span class="nav-text">邮箱</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java中使用"><span class="nav-text">java中使用</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#转义字符"><span class="nav-text">1. 转义字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标准字符"><span class="nav-text">2. 标准字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内任意字符"><span class="nav-text">3. [] 内任意字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#量词"><span class="nav-text">4. 量词</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符边界"><span class="nav-text">5. 字符边界</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择符和分组"><span class="nav-text">6. 选择符和分组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预搜索-零宽断言"><span class="nav-text">7. 预搜索-零宽断言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用表达"><span class="nav-text">8. 常用表达</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#电话号码"><span class="nav-text">8.1. 电话号码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邮箱"><span class="nav-text">8.2. 邮箱</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java中使用"><span class="nav-text">9. java中使用</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -960,13 +960,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

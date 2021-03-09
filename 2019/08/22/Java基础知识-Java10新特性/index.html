@@ -447,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>2.2k</span>
+              <span>2.3k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -474,7 +474,7 @@
 
 <a id="more"></a>
 
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a><font size="4px">背景</font></h1><p>2018年3月21日，Oracle官方宣布Java10正式发布。</p>
+<h1 id="背景">1. 背景</h1><p>2018年3月21日，Oracle官方宣布Java10正式发布。</p>
 <ul>
 <li><p>需要注意的是 Java 9 和 Java 10 都不是 LTS (Long-Term-Support) 版本。和 过去的 Java 大版本升级不同，这两个只有半年左右的开发和维护期。而未 来的 Java 11，也就是 18.9 LTS，才是 Java 8 之后第一个 LTS 版本。</p>
 </li>
@@ -483,7 +483,7 @@
 <li><p>JDK10的12个JEP(JDK Enhancement Proposal特性加强提议)参阅官方文档:<a href="http://openjdk.java.net/projects/jdk/10/" target="_blank" rel="noopener">http://openjdk.java.net/projects/jdk/10/</a></p>
 </li>
 </ul>
-<h1 id="JDK10的12个JEP"><a href="#JDK10的12个JEP" class="headerlink" title="JDK10的12个JEP"></a><font size="4px">JDK10的12个JEP</font></h1><p>286: <font color="#f00">Local-Variable Type Inference 局部变量类型推断</font></p>
+<h1 id="JDK10的12个JEP">2. JDK10的12个JEP</h1><p>286: <font color="#f00">Local-Variable Type Inference 局部变量类型推断</font></p>
 <p>296: Consolidate the JDK Forest into a Single Repository JDK库的合并</p>
 <p>304: Garbage-Collector Interface 统一的垃圾回收接口</p>
 <p>307: Parallel Full GC for G1 为G1提供并行的Full GC</p>
@@ -495,9 +495,9 @@
 <p>317: Experimental Java-Based JIT Compiler 使用基于Java的JIT编译器</p>
 <p> 319: Root Certificates 根证书</p>
 <p>322: Time-Based Release Versioning 基于时间的发布版本</p>
-<h1 id="局部变量类型推断"><a href="#局部变量类型推断" class="headerlink" title="局部变量类型推断"></a><font size="4px">局部变量类型推断</font></h1><h2 id="产生背景"><a href="#产生背景" class="headerlink" title="产生背景"></a><font size="3px">产生背景</font></h2><p>开发者经常抱怨Java中引用代码的程度。局部变量的显示类型声明，常常被认为是不必须的，给一个好听的名字经常可以很清楚的表达出下面应该怎样继续。</p>
-<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a><font size="3px">好处</font></h2><p>  减少了啰嗦和形式的代码，避免了信息冗余，而且对齐了变量名，更容易阅读</p>
-<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a><font size="3px">举例</font></h2><p>适用于以下情况:</p>
+<h1 id="局部变量类型推断">3. 局部变量类型推断</h1><h2 id="产生背景">3.1. 产生背景</h2><p>开发者经常抱怨Java中引用代码的程度。局部变量的显示类型声明，常常被认为是不必须的，给一个好听的名字经常可以很清楚的表达出下面应该怎样继续。</p>
+<h2 id="好处">3.2. 好处</h2><p>  减少了啰嗦和形式的代码，避免了信息冗余，而且对齐了变量名，更容易阅读</p>
+<h2 id="举例">3.3. 举例</h2><p>适用于以下情况:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.局部变量的初始化</span></span><br><span class="line"> <span class="keyword">var</span> list = <span class="keyword">new</span> ArrayList&lt;&gt;(); </span><br><span class="line"><span class="comment">//2.增强for循环中的索引 </span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> v : list) &#123;</span><br><span class="line">	System.out.println(v); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.传统for循环中</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; <span class="number">100</span>;i++) &#123;</span><br><span class="line">	System.out.println(i); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -517,7 +517,7 @@
 <p>  我们也经常声明一种变量，它只会被使用一次，而且是用在下一行代码中，比如:</p>
 <pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">URL url = <span class="keyword">new</span> URL(<span class="string">"http://www.runaccepted.com"</span>); </span><br><span class="line">URLConnection connection = url.openConnection(); </span><br><span class="line">Reader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(connection.getInputStream()));</span><br></pre></td></tr></table></figure></code></pre></li>
 </ul>
-<pre><code>尽管 IDE可以帮我们自动完成这些代码，但当变量总是跳来跳去的时候，可读性还是会受到影响，因为变量类型的名称由各种不同长度的字符组成。而且，有时候开发人员会尽力避免声明中间变量，因为太多的类型声明只会分散注意力，不会带来额外的好处。</code></pre><h2 id="不适用以下的结构中"><a href="#不适用以下的结构中" class="headerlink" title="不适用以下的结构中"></a><font size="3px">不适用以下的结构中</font></h2><ul>
+<pre><code>尽管 IDE可以帮我们自动完成这些代码，但当变量总是跳来跳去的时候，可读性还是会受到影响，因为变量类型的名称由各种不同长度的字符组成。而且，有时候开发人员会尽力避免声明中间变量，因为太多的类型声明只会分散注意力，不会带来额外的好处。</code></pre><h2 id="不适用以下的结构中">3.4. 不适用以下的结构中</h2><ul>
 <li>情况1:没有初始化的局部变量声明</li>
 <li>情况2:方法的返回类型</li>
 <li>情况3:方法的参数类型</li>
@@ -525,8 +525,8 @@
 <li>情况5:属性</li>
 <li>情况6:catch块</li>
 </ul>
-<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a><font size="3px">工作原理</font></h2><p>在处理 var时，编译器先是查看表达式右边部分，并根据右边变量值的类型进行推断，作为左边变量的类型，然后将该类型写入字节码当中。</p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a><font size="3px">注意</font></h2><ul>
+<h2 id="工作原理">3.5. 工作原理</h2><p>在处理 var时，编译器先是查看表达式右边部分，并根据右边变量值的类型进行推断，作为左边变量的类型，然后将该类型写入字节码当中。</p>
+<h2 id="注意">3.6. 注意</h2><ul>
 <li><p>var不是一个关键字<br> 你不需要担心变量名或方法名会与 var发生冲突，因为 var实际上并不是一个关键字， 而是一个类型名，只有在编译器需要知道类型的地方才需要用到它。除此之外，它就是一个普通合法的标识符。也就是说，除了不能用它作为类名，其他的都可以，但极少人会用它作为类名。</p>
 </li>
 <li><p>这不是JavaScript 首先我要说明的是，var并不会改变Java是一门静态类型语言的事实。编译器负责推 断出类型，并把结果写入字节码文件，就好像是开发人员自己敲入类型一样。下面是使用 IntelliJ(实际上是 Fernflower的反编译器)反编译器反编译出的代码：</p>
@@ -535,7 +535,7 @@
 <p>从代码来看，就好像之前已经声明了这些类型一样。事实上，这一特性只发 生在编译阶段，与运行时无关，所以对运行时的性能不会产生任何影响。所 以请放心，这不是 JavaScript。</p>
 </li>
 </ul>
-<h1 id="集合新增创建不可变集合的方法"><a href="#集合新增创建不可变集合的方法" class="headerlink" title="集合新增创建不可变集合的方法"></a><font size="4px">集合新增创建不可变集合的方法</font></h1><p>自 Java 9 开始，Jdk 里面为集合(List / Set / Map)都添加了 of (jdk9新增)和 copyOf (jdk10新增)方法，它们两个都用来创建不可变的集合，来看下它们的 使用和区别。</p>
+<h1 id="集合新增创建不可变集合的方法">4. 集合新增创建不可变集合的方法</h1><p>自 Java 9 开始，Jdk 里面为集合(List / Set / Map)都添加了 of (jdk9新增)和 copyOf (jdk10新增)方法，它们两个都用来创建不可变的集合，来看下它们的 使用和区别。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//示例1:</span></span><br><span class="line"> <span class="keyword">var</span> list1 = List.of(<span class="string">"Java"</span>, <span class="string">"Python"</span>, <span class="string">"C"</span>); <span class="keyword">var</span> copy1 = List.copyOf(list1); System.out.println(list1 == copy1); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//示例2:</span></span><br><span class="line"> <span class="keyword">var</span> list2 = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"> <span class="keyword">var</span> copy2 = List.copyOf(list2); System.out.println(list2 == copy2); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//示例1和2代码基本一致，为什么一个为true,一个为false?</span></span><br></pre></td></tr></table></figure>
 
 <p>从源码分析，可以看出 copyOf 方法会先判断来源集合是不是 AbstractImmutableList 类型的，如果是，就直接返回，如果不是，则调用 of 创建一个新的集合。</p>
@@ -658,7 +658,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDK10的12个JEP"><span class="nav-text">JDK10的12个JEP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#局部变量类型推断"><span class="nav-text">局部变量类型推断</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#产生背景"><span class="nav-text">产生背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#好处"><span class="nav-text">好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举例"><span class="nav-text">举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不适用以下的结构中"><span class="nav-text">不适用以下的结构中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作原理"><span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合新增创建不可变集合的方法"><span class="nav-text">集合新增创建不可变集合的方法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-text">1. 背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDK10的12个JEP"><span class="nav-text">2. JDK10的12个JEP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#局部变量类型推断"><span class="nav-text">3. 局部变量类型推断</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#产生背景"><span class="nav-text">3.1. 产生背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#好处"><span class="nav-text">3.2. 好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举例"><span class="nav-text">3.3. 举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不适用以下的结构中"><span class="nav-text">3.4. 不适用以下的结构中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作原理"><span class="nav-text">3.5. 工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-text">3.6. 注意</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合新增创建不可变集合的方法"><span class="nav-text">4. 集合新增创建不可变集合的方法</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -887,13 +887,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

@@ -447,7 +447,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>956</span>
+              <span>1k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -473,20 +473,20 @@
         <blockquote class="blockquote-center">Raspberry Pi3</blockquote>
 <a id="more"></a>
 
-<h1 id="烧录系统"><a href="#烧录系统" class="headerlink" title="烧录系统"></a><font size="4px">烧录系统</font></h1><p>用SD Card Formatter进行格式化SD卡，Quick format</p>
-<h2 id="查看驱动器列表"><a href="#查看驱动器列表" class="headerlink" title="查看驱动器列表"></a><font size="3px">查看驱动器列表</font></h2><p>diskutil list</p>
+<h1 id="烧录系统">1. 烧录系统</h1><p>用SD Card Formatter进行格式化SD卡，Quick format</p>
+<h2 id="查看驱动器列表">1.1. 查看驱动器列表</h2><p>diskutil list</p>
 <p>/dev/disk2 (external, physical):</p>
 <p>   #:                       TYPE NAME                    SIZE       IDENTIFIER</p>
 <p>   0:     FDisk_partition_scheme                        *7.9 GB     disk2</p>
 <p>   1:                 DOS_FAT_32 NO NAME                 7.9 GB     disk2s1</p>
-<h2 id="取消SD卡挂载"><a href="#取消SD卡挂载" class="headerlink" title="取消SD卡挂载"></a><font size="3px">取消SD卡挂载</font></h2><p>diskutil unmountDisk /dev/disk2</p>
-<h2 id="烧录"><a href="#烧录" class="headerlink" title="烧录"></a><font size="3px">烧录</font></h2><p>sudo dd if=img文件路径 of=/dev/disk2 bs=4m;sync</p>
+<h2 id="取消SD卡挂载">1.2. 取消SD卡挂载</h2><p>diskutil unmountDisk /dev/disk2</p>
+<h2 id="烧录">1.3. 烧录</h2><p>sudo dd if=img文件路径 of=/dev/disk2 bs=4m;sync</p>
 <p>img镜像 <a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="noopener">https://www.raspberrypi.org/downloads/raspbian/</a></p>
-<h2 id="成功"><a href="#成功" class="headerlink" title="成功"></a><font size="4px">成功</font></h2><p>1261+0 records in</p>
+<h2 id="成功">1.4. 成功</h2><p>1261+0 records in</p>
 <p>1261+0 records out</p>
 <p>5289017344 bytes transferred in 725.169614 secs (7293490 bytes/sec)</p>
-<h2 id="推出设备"><a href="#推出设备" class="headerlink" title="推出设备"></a><font size="3px">推出设备</font></h2><p>diskutil eject /dev/disk2</p>
-<h1 id="树莓派上有关配置"><a href="#树莓派上有关配置" class="headerlink" title="树莓派上有关配置"></a><font size="4px">树莓派上有关配置</font></h1><h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a><font size="3px">ssh</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+<h2 id="推出设备">1.5. 推出设备</h2><p>diskutil eject /dev/disk2</p>
+<h1 id="树莓派上有关配置">2. 树莓派上有关配置</h1><h2 id="ssh">2.1. ssh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
 
 <p>重置密码</p>
 <p>桌面Preferences -&gt; Raspberry Pi Configuration -&gt; Interface -&gt; enable–ssh / vnc</p>
@@ -495,12 +495,12 @@
 
 <p>提示输入密码即为配置成功</p>
 <p>IP通过树莓派终端sudo ifconfig得到</p>
-<h2 id="树莓派使用固定IP"><a href="#树莓派使用固定IP" class="headerlink" title="树莓派使用固定IP"></a><font size="3px">树莓派使用固定IP</font></h2><p>网站 192.168.1.1 路由器中设置IP与MAC绑定</p>
-<h2 id="vnc"><a href="#vnc" class="headerlink" title="vnc"></a><font size="3px">vnc</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install tightvncserver</span><br><span class="line"></span><br><span class="line">vncserver :1 设置密码</span><br></pre></td></tr></table></figure>
+<h2 id="树莓派使用固定IP">2.2. 树莓派使用固定IP</h2><p>网站 192.168.1.1 路由器中设置IP与MAC绑定</p>
+<h2 id="vnc">2.3. vnc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install tightvncserver</span><br><span class="line"></span><br><span class="line">vncserver :1 设置密码</span><br></pre></td></tr></table></figure>
 
 <p>本机安装vnc viewer <a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener">https://www.realvnc.com/en/connect/download/viewer/</a></p>
 <p>输入ip，密码(刚设置的vnc密码)即可查看</p>
-<h2 id="共享文件"><a href="#共享文件" class="headerlink" title="共享文件"></a><font size="3px">共享文件</font></h2><p>Transmit软件 </p>
+<h2 id="共享文件">2.4. 共享文件</h2><p>Transmit软件 </p>
 <p><a href="https://pan.baidu.com/s/1KH-8RmVu8nwc9ivsxqhtXg" target="_blank" rel="noopener">https://pan.baidu.com/s/1KH-8RmVu8nwc9ivsxqhtXg</a> 密码：o101</p>
 <p>输入ip 用户名 密码即可访问</p>
 
@@ -619,7 +619,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#烧录系统"><span class="nav-text">烧录系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看驱动器列表"><span class="nav-text">查看驱动器列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消SD卡挂载"><span class="nav-text">取消SD卡挂载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#烧录"><span class="nav-text">烧录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成功"><span class="nav-text">成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推出设备"><span class="nav-text">推出设备</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树莓派上有关配置"><span class="nav-text">树莓派上有关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-text">ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树莓派使用固定IP"><span class="nav-text">树莓派使用固定IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vnc"><span class="nav-text">vnc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共享文件"><span class="nav-text">共享文件</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#烧录系统"><span class="nav-text">1. 烧录系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看驱动器列表"><span class="nav-text">1.1. 查看驱动器列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消SD卡挂载"><span class="nav-text">1.2. 取消SD卡挂载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#烧录"><span class="nav-text">1.3. 烧录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成功"><span class="nav-text">1.4. 成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推出设备"><span class="nav-text">1.5. 推出设备</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树莓派上有关配置"><span class="nav-text">2. 树莓派上有关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-text">2.1. ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树莓派使用固定IP"><span class="nav-text">2.2. 树莓派使用固定IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vnc"><span class="nav-text">2.3. vnc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共享文件"><span class="nav-text">2.4. 共享文件</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -848,13 +848,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

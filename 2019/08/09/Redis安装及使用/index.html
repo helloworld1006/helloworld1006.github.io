@@ -82,7 +82,7 @@
     */
 </script>
   <meta name="description" content="Redis安装在Mac，Linux，树莓派上并相互联通教程">
-<meta name="keywords" content="Linux,Mac,树莓派,Redis">
+<meta name="keywords" content="Linux,树莓派,Mac,Redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis安装及使用">
 <meta property="og:url" content="https://www.runaccepted.com/2019/08/09/Redis安装及使用/index.html">
@@ -449,7 +449,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>269</span>
+              <span>331</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -476,32 +476,32 @@
 
 <a id="more"></a>
 
-<h1 id="下载Redis"><a href="#下载Redis" class="headerlink" title="下载Redis"></a><font size="4px">下载Redis</font></h1><p><a href="https://redis.io/download" target="_blank" rel="noopener">https://redis.io/download</a></p>
-<h1 id="Mac上安装Redis"><a href="#Mac上安装Redis" class="headerlink" title="Mac上安装Redis"></a><font size="4px">Mac上安装Redis</font></h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install redis@5.0.5</span></span><br><span class="line"><span class="meta">#</span><span class="bash">使用配置文件启动redis-server</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> redis-server /usr/<span class="built_in">local</span>/etc/redis.conf</span></span><br><span class="line"><span class="meta">#</span><span class="bash">停止redis服务</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> redis-cli shutdown</span></span><br><span class="line"><span class="meta">#</span><span class="bash">允许远程访问</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nano /usr/<span class="built_in">local</span>/etc/redis.conf</span></span><br><span class="line"><span class="meta">#</span><span class="bash">修改配置</span></span><br><span class="line">bind 0.0.0.0</span><br><span class="line">protected-mode no</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew services start redis</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew services stop redis</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew services restart redis</span></span><br></pre></td></tr></table></figure>
+<h1 id="下载Redis">1. 下载Redis</h1><p><a href="https://redis.io/download" target="_blank" rel="noopener">https://redis.io/download</a></p>
+<h1 id="Mac上安装Redis">2. Mac上安装Redis</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install redis@5.0.5</span></span><br><span class="line"><span class="meta">#</span><span class="bash">使用配置文件启动redis-server</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> redis-server /usr/<span class="built_in">local</span>/etc/redis.conf</span></span><br><span class="line"><span class="meta">#</span><span class="bash">停止redis服务</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> redis-cli shutdown</span></span><br><span class="line"><span class="meta">#</span><span class="bash">允许远程访问</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nano /usr/<span class="built_in">local</span>/etc/redis.conf</span></span><br><span class="line"><span class="meta">#</span><span class="bash">修改配置</span></span><br><span class="line">bind 0.0.0.0</span><br><span class="line">protected-mode no</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew services start redis</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew services stop redis</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew services restart redis</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="Linux上安装Redis"><a href="#Linux上安装Redis" class="headerlink" title="Linux上安装Redis"></a><font size="4px">Linux上安装Redis</font></h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[linux@localhost ~]$ su</span><br><span class="line">[linux@localhost ~]$ cd /home/linux/Desktop</span><br><span class="line">[linux@localhost ~]$ tar zxvf redis-5.0.5.tar.gz</span><br><span class="line">[linux@localhost ~]$ cp -r redis-5.0.5 /usr/local/redis</span><br><span class="line">[linux@localhost ~]$ cd /usr/local/redis</span><br><span class="line">[linux@localhost ~]$ make</span><br><span class="line">[linux@localhost ~]$ cd src</span><br><span class="line">[linux@localhost ~]$ ./redis-server</span><br></pre></td></tr></table></figure>
+<h1 id="Linux上安装Redis">3. Linux上安装Redis</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[linux@localhost ~]$ su</span><br><span class="line">[linux@localhost ~]$ cd /home/linux/Desktop</span><br><span class="line">[linux@localhost ~]$ tar zxvf redis-5.0.5.tar.gz</span><br><span class="line">[linux@localhost ~]$ cp -r redis-5.0.5 /usr/local/redis</span><br><span class="line">[linux@localhost ~]$ cd /usr/local/redis</span><br><span class="line">[linux@localhost ~]$ make</span><br><span class="line">[linux@localhost ~]$ cd src</span><br><span class="line">[linux@localhost ~]$ ./redis-server</span><br></pre></td></tr></table></figure>
 
 <p>配置客户端</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[linux@localhost ~]$ ./redis-cli</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="简单测试"><a href="#简单测试" class="headerlink" title="简单测试"></a><font size="3px">简单测试</font></h2><p>设置 键 值  期望值 秒数</p>
+<h2 id="简单测试">3.1. 简单测试</h2><p>设置 键 值  期望值 秒数</p>
 <p>set a b EX 5</p>
 <p>get a</p>
 <p><img src="/2019/08/09/Redis安装及使用/redis.png" alt></p>
-<h1 id="树莓派上安装redis"><a href="#树莓派上安装redis" class="headerlink" title="树莓派上安装redis"></a><font size="4px">树莓派上安装redis</font></h1><p>sudo apt-get install redis-server</p>
+<h1 id="树莓派上安装redis">4. 树莓派上安装redis</h1><p>sudo apt-get install redis-server</p>
 <p>端口 6379</p>
 <p>配置文件在 /etc/redis/redis.conf</p>
-<h2 id="启用-关闭命令"><a href="#启用-关闭命令" class="headerlink" title="启用/关闭命令"></a><font size="3px">启用/关闭命令</font></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/redis-server start </span><br><span class="line">/etc/init.d/redis-server stop </span><br><span class="line">/etc/init.d/redis-server restart</span><br></pre></td></tr></table></figure>
+<h2 id="启用-关闭命令">4.1. 启用/关闭命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/redis-server start </span><br><span class="line">/etc/init.d/redis-server stop </span><br><span class="line">/etc/init.d/redis-server restart</span><br></pre></td></tr></table></figure>
 
-<h2 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a><font size="3px">开启远程连接</font></h2><h3 id="将配置文件中的-bind-改为-0-0-0-0"><a href="#将配置文件中的-bind-改为-0-0-0-0" class="headerlink" title="将配置文件中的 bind 改为 0.0.0.0"></a><font size="3px">将配置文件中的 bind 改为 0.0.0.0</font></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/# nano /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
+<h2 id="开启远程连接">4.2. 开启远程连接</h2><h3 id="将配置文件中的-bind-改为-0-0-0-0">4.2.1. 将配置文件中的 bind 改为 0.0.0.0</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/# nano /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
 
-<h3 id="开启6379端口"><a href="#开启6379端口" class="headerlink" title="开启6379端口"></a><font size="3px">开启6379端口</font></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/# iptables -I INPUT -i eth0 -p tcp --dport 6379 -j ACCEPT</span><br><span class="line">root@pi:/# iptables  -I OUTPUT -o eth0 -p tcp --sport 6379 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<h3 id="开启6379端口">4.2.2. 开启6379端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/# iptables -I INPUT -i eth0 -p tcp --dport 6379 -j ACCEPT</span><br><span class="line">root@pi:/# iptables  -I OUTPUT -o eth0 -p tcp --sport 6379 -j ACCEPT</span><br></pre></td></tr></table></figure>
 
-<h3 id="启动redis服务器"><a href="#启动redis服务器" class="headerlink" title="启动redis服务器"></a><font size="3px">启动redis服务器</font></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/# redis-server /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
+<h3 id="启动redis服务器">4.2.3. 启动redis服务器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/# redis-server /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
 
-<h3 id="本地连接"><a href="#本地连接" class="headerlink" title="本地连接"></a><font size="3px">本地连接</font></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/# redis-cli</span><br><span class="line">127.0.0.1:6379&gt; set msg hello</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="本地连接">4.2.4. 本地连接</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@pi:/# redis-cli</span><br><span class="line">127.0.0.1:6379&gt; set msg hello</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="远程连接-mac"><a href="#远程连接-mac" class="headerlink" title="远程连接-mac"></a><font size="3px">远程连接-mac</font></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> redis-cli -h 192.168.0.112 -p 6379</span></span><br><span class="line">192.168.0.112:6379&gt; keys *</span><br><span class="line">1) "msg"</span><br><span class="line">192.168.0.112:6379&gt; get msg</span><br><span class="line">"hello"</span><br><span class="line">192.168.0.112:6379&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="远程连接-mac">4.2.5. 远程连接-mac</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> redis-cli -h 192.168.0.112 -p 6379</span></span><br><span class="line">192.168.0.112:6379&gt; keys *</span><br><span class="line">1) "msg"</span><br><span class="line">192.168.0.112:6379&gt; get msg</span><br><span class="line">"hello"</span><br><span class="line">192.168.0.112:6379&gt;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -547,9 +547,9 @@
             
               <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
             
-              <a href="/tags/Mac/" rel="tag"><i class="fa fa-tag"></i> Mac</a>
-            
               <a href="/tags/树莓派/" rel="tag"><i class="fa fa-tag"></i> 树莓派</a>
+            
+              <a href="/tags/Mac/" rel="tag"><i class="fa fa-tag"></i> Mac</a>
             
               <a href="/tags/Redis/" rel="tag"><i class="fa fa-tag"></i> Redis</a>
             
@@ -625,7 +625,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下载Redis"><span class="nav-text">下载Redis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac上安装Redis"><span class="nav-text">Mac上安装Redis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux上安装Redis"><span class="nav-text">Linux上安装Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单测试"><span class="nav-text">简单测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树莓派上安装redis"><span class="nav-text">树莓派上安装redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#启用-关闭命令"><span class="nav-text">启用/关闭命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启远程连接"><span class="nav-text">开启远程连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将配置文件中的-bind-改为-0-0-0-0"><span class="nav-text">将配置文件中的 bind 改为 0.0.0.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启6379端口"><span class="nav-text">开启6379端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动redis服务器"><span class="nav-text">启动redis服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地连接"><span class="nav-text">本地连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程连接-mac"><span class="nav-text">远程连接-mac</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下载Redis"><span class="nav-text">1. 下载Redis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac上安装Redis"><span class="nav-text">2. Mac上安装Redis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux上安装Redis"><span class="nav-text">3. Linux上安装Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单测试"><span class="nav-text">3.1. 简单测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树莓派上安装redis"><span class="nav-text">4. 树莓派上安装redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#启用-关闭命令"><span class="nav-text">4.1. 启用/关闭命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启远程连接"><span class="nav-text">4.2. 开启远程连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将配置文件中的-bind-改为-0-0-0-0"><span class="nav-text">4.2.1. 将配置文件中的 bind 改为 0.0.0.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启6379端口"><span class="nav-text">4.2.2. 开启6379端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动redis服务器"><span class="nav-text">4.2.3. 启动redis服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地连接"><span class="nav-text">4.2.4. 本地连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程连接-mac"><span class="nav-text">4.2.5. 远程连接-mac</span></a></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -854,13 +854,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

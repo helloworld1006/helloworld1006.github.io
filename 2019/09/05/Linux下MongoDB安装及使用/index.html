@@ -474,9 +474,9 @@
 
 <a id="more"></a>
 
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a><font size="4px">简介</font></h1><p>mongdb一个NoSQL数据库，里面存储的是BSON（Binary Serialized Document Format，支持集群，高可用、可扩展。</p>
+<h1 id="简介">1. 简介</h1><p>mongdb一个NoSQL数据库，里面存储的是BSON（Binary Serialized Document Format，支持集群，高可用、可扩展。</p>
 <p>mongdb中的一些概念<br>  MongoDB        MySQL<br>  database       database<br>  collection     table<br>  json       二维表<br>  不支持SQL     SQL<br>  _id          主键</p>
-<h1 id="创建一个普通用户bike"><a href="#创建一个普通用户bike" class="headerlink" title="创建一个普通用户bike"></a><font size="4px">创建一个普通用户bike</font></h1><p>useradd bike</p>
+<h1 id="创建一个普通用户bike">2. 创建一个普通用户bike</h1><p>useradd bike</p>
 <p><strong>为hadoop用户添加密码</strong></p>
 <p>echo 123456 | passwd –stdin bike</p>
 <p><strong>将bigdata添加到sudoers</strong></p>
@@ -491,7 +491,7 @@
 <p>vi /etc/sysconfig/selinux<br>SELINUX=disabled</p>
 <p><strong>重新启动</strong></p>
 <p>reboot</p>
-<h1 id="mongo的安装和基本使用"><a href="#mongo的安装和基本使用" class="headerlink" title="mongo的安装和基本使用"></a><font size="4px">mongo的安装和基本使用</font></h1><hr>
+<h1 id="mongo的安装和基本使用">3. mongo的安装和基本使用</h1><hr>
 <p><strong>在机器上使用bike用户登录</strong></p>
 <p>（本地安装给你了rpm包，rpm -ivh *.rpm）</p>
 <p>sudo yum install -y mongodb-org</p>
@@ -505,7 +505,7 @@
 <p>mongo</p>
 <p>指定了ip地址</p>
 <p>mongo –host 192.168.100.101 –port 27017</p>
-<h1 id="使用mongodb"><a href="#使用mongodb" class="headerlink" title="使用mongodb"></a><font size="4px">使用mongodb</font></h1><p>use bike</p>
+<h1 id="使用mongodb">4. 使用mongodb</h1><p>use bike</p>
 <p><strong>创建集合（表）</strong></p>
 <p>db.createCollection(“bike”)</p>
 <p><strong>插入数据</strong></p>
@@ -514,15 +514,15 @@
 <p>db.bine.find()</p>
 <p><strong>退出</strong></p>
 <p>exit</p>
-<h1 id="系统配置mongodb"><a href="#系统配置mongodb" class="headerlink" title="系统配置mongodb"></a><font size="4px">系统配置mongodb</font></h1><p><strong>关闭mongo服务</strong></p>
+<h1 id="系统配置mongodb">5. 系统配置mongodb</h1><p><strong>关闭mongo服务</strong></p>
 <p>sudu service mongod stop</p>
 <p><strong>设置服务开机启动</strong></p>
 <p>sudo checkconfig mongod on</p>
 <p><strong>设置mongo服务开机不启动</strong></p>
 <p>sudo chkconfig mongod off</p>
-<h2 id="mongo安全认证配置"><a href="#mongo安全认证配置" class="headerlink" title="mongo安全认证配置"></a><font size="4px">mongo安全认证配置</font></h2><p>如果修改了mongo存储是的目录那么一定要修改该目录的所属用户和组为mongod</p>
+<h2 id="mongo安全认证配置">5.1. mongo安全认证配置</h2><p>如果修改了mongo存储是的目录那么一定要修改该目录的所属用户和组为mongod</p>
 <p>chown -R mongod:mongod  /mongo/</p>
-<h2 id="添加管理员用户"><a href="#添加管理员用户" class="headerlink" title="添加管理员用户"></a><font size="3px">添加管理员用户</font></h2><p>使用admin这个database</p>
+<h2 id="添加管理员用户">5.2. 添加管理员用户</h2><p>使用admin这个database</p>
 <p>use admin</p>
 <p>在没有开启认证的情况下，创建一个超级用户</p>
 <p>db.createUser(<br>     {<br>       user: “admin”,<br>       pwd: “admin”,<br>       roles: [ {role: “root”, db: “admin” }]<br>     }<br>)</p>
@@ -536,7 +536,7 @@
 <p>use admin</p>
 <p><strong>授权登录</strong></p>
 <p>db.auth(“admin”, “admin”)</p>
-<h2 id="创建bike数据库"><a href="#创建bike数据库" class="headerlink" title="创建bike数据库"></a><font size="3px">创建bike数据库</font></h2><p>use bike</p>
+<h2 id="创建bike数据库">5.3. 创建bike数据库</h2><p>use bike</p>
 <p><strong>添加一个普通用户，具备读写权限</strong></p>
 <p>db.createUser(<br>     {<br>       user: “bike”,<br>       pwd: “123456”,<br>       roles: [“readWrite”]<br>     }<br>)</p>
 <p>使用bike用户登录</p>
@@ -556,7 +556,7 @@
 <p>db.logs.ensureIndex({“name”:1})</p>
 <p><strong>删除索引</strong></p>
 <p>db.logs.dropIndex({“name”:1})</p>
-<h1 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a><font size="4px">开启远程连接</font></h1><p>运行用户从其他机器连接mongodb</p>
+<h1 id="开启远程连接">6. 开启远程连接</h1><p>运行用户从其他机器连接mongodb</p>
 <p>不然会报错Caused by: java.net.ConnectException: Connection refused (Connection refused)</p>
 <p>修改/etc/mongod.conf，注释掉bindIp:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> bindIp:</span></span><br></pre></td></tr></table></figure>
@@ -567,7 +567,7 @@
 <p>vi /etc/sysconfig/iptables</p>
 <p>-A INPUT -m state –state NEW -m tcp -p tcp –dport 27017 -j ACCEPT</p>
 <p>service iptables restart</p>
-<h1 id="数据库角色"><a href="#数据库角色" class="headerlink" title="数据库角色"></a><font size="4px">数据库角色</font></h1><p>数据库用户角色：read、readWrite;<br>数据库管理角色：dbAdmin、dbOwner、userAdmin；<br>集群管理角色：clusterAdmin、clusterManager、clusterMonitor、hostManager；<br>备份恢复角色：backup、restore；<br>所有数据库角色：readAnyDatabase、readWriteAnyDatabase、userAdminAnyDatabase、dbAdminAnyDatabase<br>超级用户角色：root<br>// 这里还有几个角色间接或直接提供了系统超级用户的访问（dbOwner 、userAdmin、userAdminAnyDatabase）<br>内部角色：__system</p>
+<h1 id="数据库角色">7. 数据库角色</h1><p>数据库用户角色：read、readWrite;<br>数据库管理角色：dbAdmin、dbOwner、userAdmin；<br>集群管理角色：clusterAdmin、clusterManager、clusterMonitor、hostManager；<br>备份恢复角色：backup、restore；<br>所有数据库角色：readAnyDatabase、readWriteAnyDatabase、userAdminAnyDatabase、dbAdminAnyDatabase<br>超级用户角色：root<br>// 这里还有几个角色间接或直接提供了系统超级用户的访问（dbOwner 、userAdmin、userAdminAnyDatabase）<br>内部角色：__system</p>
 
     </div>
     
@@ -686,7 +686,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建一个普通用户bike"><span class="nav-text">创建一个普通用户bike</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mongo的安装和基本使用"><span class="nav-text">mongo的安装和基本使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用mongodb"><span class="nav-text">使用mongodb</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统配置mongodb"><span class="nav-text">系统配置mongodb</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mongo安全认证配置"><span class="nav-text">mongo安全认证配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加管理员用户"><span class="nav-text">添加管理员用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建bike数据库"><span class="nav-text">创建bike数据库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启远程连接"><span class="nav-text">开启远程连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库角色"><span class="nav-text">数据库角色</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">1. 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建一个普通用户bike"><span class="nav-text">2. 创建一个普通用户bike</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mongo的安装和基本使用"><span class="nav-text">3. mongo的安装和基本使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用mongodb"><span class="nav-text">4. 使用mongodb</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统配置mongodb"><span class="nav-text">5. 系统配置mongodb</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mongo安全认证配置"><span class="nav-text">5.1. mongo安全认证配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加管理员用户"><span class="nav-text">5.2. 添加管理员用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建bike数据库"><span class="nav-text">5.3. 创建bike数据库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启远程连接"><span class="nav-text">6. 开启远程连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库角色"><span class="nav-text">7. 数据库角色</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -915,13 +915,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

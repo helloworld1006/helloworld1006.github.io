@@ -449,7 +449,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>911</span>
+              <span>934</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -476,7 +476,7 @@
 
 <a id="more"></a>
 
-<h1 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a><font size="4px">相关术语</font></h1><ul>
+<h1 id="相关术语">1. 相关术语</h1><ul>
 <li><p><strong>Advice</strong> </p>
 <p>通知 ：用于多个应用对象的行为 before，after，afterReturning，afterThrowing，around</p>
 </li>
@@ -491,7 +491,7 @@
 </li>
 </ul>
 <p><strong>spring仅支持方法级连接点</strong></p>
-<h1 id="切点表达式"><a href="#切点表达式" class="headerlink" title="切点表达式"></a><font size="4px">切点表达式</font></h1><table>
+<h1 id="切点表达式">2. 切点表达式</h1><table>
 <thead>
 <tr>
 <th>AspectJ指示器</th>
@@ -576,7 +576,7 @@
 <td>将目标方法封装起来</td>
 </tr>
 </tbody></table>
-<h1 id="创建切面-实战"><a href="#创建切面-实战" class="headerlink" title="创建切面 - 实战"></a><font size="4px">创建切面 - 实战</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Method</span> </span>&#123;	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"create....."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="创建切面-实战">3. 创建切面 - 实战</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Method</span> </span>&#123;	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"create....."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>切面使用需要导入</p>
 <p><a href="./aspectjweaver.jar">aspectjweaver.jar</a></p>
@@ -593,7 +593,7 @@
 <p>输出</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Before....</span><br><span class="line">create.....</span><br><span class="line">After....</span><br><span class="line">AfterReturning....</span><br></pre></td></tr></table></figure>
 
-<h2 id="环绕通知"><a href="#环绕通知" class="headerlink" title="环绕通知"></a><font size="3px">环绕通知</font></h2><p>包装目标方法 相当于 同时设置前置通知+后置通知</p>
+<h2 id="环绕通知">3.1. 环绕通知</h2><p>包装目标方法 相当于 同时设置前置通知+后置通知</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Around</span>(<span class="string">"performance()"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">around</span><span class="params">(ProceedingJoinPoint jp)</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"Around before...."</span>);</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		jp.proceed();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">"Around after...."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>输出</p>
@@ -602,18 +602,18 @@
 <p>create…..</p>
 <p>Around after….</p>
 </blockquote>
-<h1 id="处理参数"><a href="#处理参数" class="headerlink" title="处理参数"></a><font size="4px">处理参数</font></h1><p>目标方法</p>
+<h1 id="处理参数">4. 处理参数</h1><p>目标方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Method</span> </span>&#123;	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"create....."</span>+a);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>切面 限定参数类型及参数名</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Pointcut</span>(<span class="string">"execution(* Method.method(int)) &amp;&amp; args(a)"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performance</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Before</span>(<span class="string">"performance(a)"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Before...."</span>+a);</span><br></pre></td></tr></table></figure>
 
-<h1 id="引入新功能"><a href="#引入新功能" class="headerlink" title="引入新功能"></a><font size="4px">引入新功能</font></h1><p>@DeclareParents 将Shopping接口引入到实现People接口的bean中。</p>
+<h1 id="引入新功能">5. 引入新功能</h1><p>@DeclareParents 将Shopping接口引入到实现People接口的bean中。</p>
 <p>value 所有实现People的类</p>
 <p>defalutImpl 引入功能提供实现的类,实现了Shopping接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Aspect;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.DeclareParents;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@DeclareParents</span>(value=<span class="string">"People+"</span>,defaultImpl=children.class)</span><br><span class="line">	<span class="keyword">public</span> Shopping shopping;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="XML中声明切面"><a href="#XML中声明切面" class="headerlink" title="XML中声明切面"></a><font size="4px">XML中声明切面</font></h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 自动代理AspectJ注解通知类 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">aop:aspect</span> <span class="attr">ref</span>=<span class="string">"aopTest"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"performance"</span> <span class="attr">experssion</span>=<span class="string">"execution(* Method.method(..)"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:before</span> <span class="attr">pointcut-ref</span>=<span class="string">"performance"</span> <span class="attr">method</span>=<span class="string">"before"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:after</span> <span class="attr">pointcut-ref</span>=<span class="string">"performance"</span> <span class="attr">method</span>=<span class="string">"after"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:after-returning</span> <span class="attr">pointcut-ref</span>=<span class="string">"performance"</span> <span class="attr">method</span>=<span class="string">"afterReturning"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:after-throwing</span> <span class="attr">pointcut-ref</span>=<span class="string">"performance"</span> <span class="attr">method</span>=<span class="string">"afterThrowing"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:around</span> <span class="attr">pointcut-ref</span>=<span class="string">"performance"</span> <span class="attr">method</span>=<span class="string">"around"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">aop:aspect</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="XML中声明切面">6. XML中声明切面</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 自动代理AspectJ注解通知类 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">aop:aspect</span> <span class="attr">ref</span>=<span class="string">"aopTest"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"performance"</span> <span class="attr">experssion</span>=<span class="string">"execution(* Method.method(..)"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:before</span> <span class="attr">pointcut-ref</span>=<span class="string">"performance"</span> <span class="attr">method</span>=<span class="string">"before"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:after</span> <span class="attr">pointcut-ref</span>=<span class="string">"performance"</span> <span class="attr">method</span>=<span class="string">"after"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:after-returning</span> <span class="attr">pointcut-ref</span>=<span class="string">"performance"</span> <span class="attr">method</span>=<span class="string">"afterReturning"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:after-throwing</span> <span class="attr">pointcut-ref</span>=<span class="string">"performance"</span> <span class="attr">method</span>=<span class="string">"afterThrowing"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:around</span> <span class="attr">pointcut-ref</span>=<span class="string">"performance"</span> <span class="attr">method</span>=<span class="string">"around"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">aop:aspect</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>aop:declare-parents</p>
 <p>此声明所通知的bean要在它的对象层次结构中拥有新的父类型。</p>
@@ -736,7 +736,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关术语"><span class="nav-text">相关术语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#切点表达式"><span class="nav-text">切点表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建切面-实战"><span class="nav-text">创建切面 - 实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环绕通知"><span class="nav-text">环绕通知</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理参数"><span class="nav-text">处理参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引入新功能"><span class="nav-text">引入新功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XML中声明切面"><span class="nav-text">XML中声明切面</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关术语"><span class="nav-text">1. 相关术语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#切点表达式"><span class="nav-text">2. 切点表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建切面-实战"><span class="nav-text">3. 创建切面 - 实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环绕通知"><span class="nav-text">3.1. 环绕通知</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理参数"><span class="nav-text">4. 处理参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引入新功能"><span class="nav-text">5. 引入新功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XML中声明切面"><span class="nav-text">6. XML中声明切面</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -965,13 +965,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

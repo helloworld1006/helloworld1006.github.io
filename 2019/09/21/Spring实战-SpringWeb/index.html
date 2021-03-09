@@ -449,7 +449,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>2.1k</span>
+              <span>2.2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -476,11 +476,11 @@
 
 <a id="more"></a>
 
-<h1 id="请求过程"><a href="#请求过程" class="headerlink" title="请求过程"></a><font size="4px">请求过程</font></h1><img src="/2019/09/21/Spring实战-SpringWeb/request.jpg">
+<h1 id="请求过程">1. 请求过程</h1><img src="/2019/09/21/Spring实战-SpringWeb/request.jpg">
 
 
 
-<h1 id="搭建Spring-MVC"><a href="#搭建Spring-MVC" class="headerlink" title="搭建Spring MVC"></a><font size="4px">搭建Spring MVC</font></h1><h2 id="配置DispatcherServlet"><a href="#配置DispatcherServlet" class="headerlink" title="配置DispatcherServlet"></a><font size="3px">配置DispatcherServlet</font></h2><p><strong>AbstractAnnotationConfigDispatcherServletInitializer</strong></p>
+<h1 id="搭建Spring-MVC">2. 搭建Spring MVC</h1><h2 id="配置DispatcherServlet">2.1. 配置DispatcherServlet</h2><p><strong>AbstractAnnotationConfigDispatcherServletInitializer</strong></p>
 <p>在Servlet环境下，容器在类路径查找javax.servlet.ServletContainerInitializer接口实现类</p>
 <p>Spring中实现名为SpringServletContainerInitializer类并查找WebAplicationInitializer类</p>
 <p>AbstractAnnotationConfigDispatcherServletInitializer就是一个WebAplicationInitializer</p>
@@ -504,13 +504,13 @@
 <p>测试控制器</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.runnaccpeted.controller.HomeController;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.web.servlet.MockMvc;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.web.servlet.setup.MockMvcBuilders;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeControllerTest</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		HomeController home = <span class="keyword">new</span> HomeController();</span><br><span class="line">		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(home).build();</span><br><span class="line">    <span class="comment">// 对“/”执行GET请求  预期得到home视图</span></span><br><span class="line">		mockMvc.perform(get(<span class="string">"/"</span>)).andExpect(view().name(<span class="string">"home"</span>));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="传递模型数据"><a href="#传递模型数据" class="headerlink" title="传递模型数据"></a><font size="4px">传递模型数据</font></h1><p>model是一个map集合，可以把集合数据传递给视图</p>
+<h1 id="传递模型数据">3. 传递模型数据</h1><p>model是一个map集合，可以把集合数据传递给视图</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.ui.Model;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(method=RequestMethod.GET)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(Model model)</span></span>&#123;</span><br><span class="line">		List&lt;User&gt; list=userService.show(Long.MAX_VALUE, <span class="number">20</span>);</span><br><span class="line">		model.addAttribute(<span class="string">"list"</span>,list);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"list"</span>;	</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
 <p>访问数据</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">taglib</span> <span class="attr">uri</span>=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> <span class="attr">prefix</span>=<span class="string">"c"</span> %&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">items</span>=<span class="string">"$&#123;list&#125;"</span> <span class="attr">var</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">c:out</span> <span class="attr">value</span>=<span class="string">"$&#123;user.id&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">c:out</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">c:out</span> <span class="attr">value</span>=<span class="string">"$&#123;user.name&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">c:out</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="接受请求输入"><a href="#接受请求输入" class="headerlink" title="接受请求输入"></a><font size="4px">接受请求输入</font></h1><ul>
+<h1 id="接受请求输入">4. 接受请求输入</h1><ul>
 <li><p>查询参数 </p>
 <p> /Users?max=230&amp;count=50</p>
 <p>@RequestParam</p>
@@ -605,7 +605,7 @@
 
 </li>
 </ul>
-<h1 id="渲染Web视图"><a href="#渲染Web视图" class="headerlink" title="渲染Web视图"></a><font size="4px">渲染Web视图</font></h1><p>SpringMVC中定义了名为ViewResolver的接口,resolveViewName方法传入视图名和Locale对象</p>
+<h1 id="渲染Web视图">5. 渲染Web视图</h1><p>SpringMVC中定义了名为ViewResolver的接口,resolveViewName方法传入视图名和Locale对象</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.springframework.web.servlet;</span><br><span class="line"><span class="keyword">import</span> java.util.Locale;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">interface</span> <span class="title">ViewResolver</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> View <span class="title">resolveViewName</span><span class="params">(String paramString, Locale paramLocale)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>从中的view 接受了request，response对象，结果渲染给response</p>
@@ -670,7 +670,7 @@
 <p>xml配置</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"viewResolver"</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/views/"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Spring-的jsp标签库"><a href="#Spring-的jsp标签库" class="headerlink" title="Spring 的jsp标签库"></a><font size="3px">Spring 的jsp标签库</font></h2><p>commandName构建模型对象上下文信息 </p>
+<h2 id="Spring-的jsp标签库">5.1. Spring 的jsp标签库</h2><p>commandName构建模型对象上下文信息 </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/register"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(Model model)</span></span>&#123;</span><br><span class="line">  model.addAttribute(<span class="keyword">new</span> User());</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"form"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>input的value属性值会设置为模型对象中path属性对应的值</p>
@@ -689,12 +689,12 @@
 <p>错误设置在每个属性上</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">sf:label</span> <span class="attr">path</span>=<span class="string">"name"</span> <span class="attr">cssErrorClass</span>=<span class="string">"error"</span>&gt;</span><span class="tag">&lt;/<span class="name">sf:label</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span> <span class="attr">class</span>=<span class="string">"error"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  label.error&#123;</span><br><span class="line">    color:red;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="错误信息展示"><a href="#错误信息展示" class="headerlink" title="错误信息展示"></a><font size="3px">错误信息展示</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@NotNull</span></span><br><span class="line"><span class="meta">@Size</span>(min=<span class="number">5</span>,max=<span class="number">23</span>,message=<span class="string">"&#123;name.size&#125;"</span>)</span><br><span class="line"><span class="keyword">private</span> String name;</span><br></pre></td></tr></table></figure>
+<h2 id="错误信息展示">5.2. 错误信息展示</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@NotNull</span></span><br><span class="line"><span class="meta">@Size</span>(min=<span class="number">5</span>,max=<span class="number">23</span>,message=<span class="string">"&#123;name.size&#125;"</span>)</span><br><span class="line"><span class="keyword">private</span> String name;</span><br></pre></td></tr></table></figure>
 
 <p>在根目录下创建 ValidationMessages.properties</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name.size=Last name must be between &#123;min&#125; and &#123;max&#125; characters long.</span><br></pre></td></tr></table></figure>
 
-<h1 id="spring通用标签库"><a href="#spring通用标签库" class="headerlink" title="spring通用标签库"></a><font size="3px">spring通用标签库</font></h1><p><strong>&lt;s:message /&gt;</strong></p>
+<h1 id="spring通用标签库">6. spring通用标签库</h1><p><strong>&lt;s:message /&gt;</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">taglib</span> <span class="attr">uri</span>=<span class="string">"http://www.springframework.org/tags"</span> <span class="attr">prefix</span>=<span class="string">"s"</span>%&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">&lt;!--根据给定的编码获取信息，进行渲染行为 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">s:message</span> <span class="attr">code</span>=<span class="string">"login.welcome"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>实现MessageSource接口</p>
@@ -826,7 +826,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#请求过程"><span class="nav-text">请求过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建Spring-MVC"><span class="nav-text">搭建Spring MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置DispatcherServlet"><span class="nav-text">配置DispatcherServlet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#传递模型数据"><span class="nav-text">传递模型数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接受请求输入"><span class="nav-text">接受请求输入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#渲染Web视图"><span class="nav-text">渲染Web视图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-的jsp标签库"><span class="nav-text">Spring 的jsp标签库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误信息展示"><span class="nav-text">错误信息展示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#spring通用标签库"><span class="nav-text">spring通用标签库</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#请求过程"><span class="nav-text">1. 请求过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建Spring-MVC"><span class="nav-text">2. 搭建Spring MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置DispatcherServlet"><span class="nav-text">2.1. 配置DispatcherServlet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#传递模型数据"><span class="nav-text">3. 传递模型数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接受请求输入"><span class="nav-text">4. 接受请求输入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#渲染Web视图"><span class="nav-text">5. 渲染Web视图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-的jsp标签库"><span class="nav-text">5.1. Spring 的jsp标签库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误信息展示"><span class="nav-text">5.2. 错误信息展示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#spring通用标签库"><span class="nav-text">6. spring通用标签库</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -1055,13 +1055,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">508k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:35</span>
+    <span title="站点阅读时长">14:07</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
