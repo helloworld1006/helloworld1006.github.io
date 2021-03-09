@@ -85,20 +85,20 @@
 <meta name="keywords" content="IT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js读取本地json跨域问题">
-<meta property="og:url" content="https://www.runaccepted.com/2021/02/26/js读取本地json跨域问题/index.html">
+<meta property="og:url" content="/2021/02/26/js读取本地json跨域问题/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="jsonp解决跨域">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2021/02/26/js读取本地json跨域问题/js.png">
-<meta property="og:image" content="https://www.runaccepted.com/2021/02/26/js读取本地json跨域问题/console.png">
-<meta property="og:image" content="https://www.runaccepted.com/2021/02/26/js读取本地json跨域问题/seq.png">
+<meta property="og:image" content="/26/js读取本地json跨域问题/js.png">
+<meta property="og:image" content="/26/js读取本地json跨域问题/console.png">
+<meta property="og:image" content="/26/js读取本地json跨域问题/seq.png">
 <meta property="og:updated_time" content="2021-03-09T08:18:31.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js读取本地json跨域问题">
 <meta name="twitter:description" content="jsonp解决跨域">
-<meta name="twitter:image" content="https://www.runaccepted.com/2021/02/26/js读取本地json跨域问题/js.png">
+<meta name="twitter:image" content="/26/js读取本地json跨域问题/js.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2021/02/26/js读取本地json跨域问题/">
+  <link rel="canonical" href="/2021/02/26/js读取本地json跨域问题/">
 
 
 <script id="page-configurations">
@@ -349,7 +349,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2021/02/26/js读取本地json跨域问题/">
+    <link itemprop="mainEntityOfPage" href="/2021/02/26/js读取本地json跨域问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -493,7 +493,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>本地站点<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"getjs.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> data = getData();</span></span><br><span class="line">    alert(data);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>可以显示</p>
-<p><img src="/2021/02/26/js读取本地json跨域问题/js.png" alt></p>
+<p><img src="/26/js读取本地json跨域问题/js.png" alt></p>
 <p>如何根据需要发送请求和获取请求的结果呢？来认识一下JSONP</p>
 <h1 id="解决">2. 解决</h1><h2 id="JSONP">2.1. JSONP</h2><p>JSONP(JSON with Padding)是JSON的一种“使用模式”，可用于解决主流浏览器的跨域数据访问的问题。它允许在服务器端集成<code>&lt;script&gt;</code>返回至客户端，通过javascript callback的形式实现跨域访问</p>
 <p><code>仅适用于GET请求</code></p>
@@ -506,8 +506,8 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>本地站点<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">createTable</span>(<span class="params">data</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(data);</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--src ? 之前为文件地址，? 之后为回调函数callback名称，回调函数可以简写为cb，然后回调函数名称要与JSON文件中的名称一致 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"plan.json?cb=createTable"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>显示</p>
-<p><img src="/2021/02/26/js读取本地json跨域问题/console.png" alt></p>
-<h3 id="流程">2.1.2. 流程</h3><p><img src="/2021/02/26/js读取本地json跨域问题/seq.png" alt></p>
+<p><img src="/26/js读取本地json跨域问题/console.png" alt></p>
+<h3 id="流程">2.1.2. 流程</h3><p><img src="/26/js读取本地json跨域问题/seq.png" alt></p>
 <h3 id="注意">2.1.3. 注意</h3><ul>
 <li>一定要在json文件的外部用函数名+（）套住；</li>
 <li>js中的回调函数一定要与json中函数名相同；</li>
@@ -537,7 +537,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2021/02/26/js读取本地json跨域问题/" title="js读取本地json跨域问题">https://www.runaccepted.com/2021/02/26/js读取本地json跨域问题/</a>
+    <a href="/2021/02/26/js读取本地json跨域问题/" title="js读取本地json跨域问题">/2021/02/26/js读取本地json跨域问题/</a>
   </li>
   <li><strong>发布时间：</strong>2021年02月26日 - 14:19</li>
   <li><strong>更新时间：</strong>2021年03月09日 - 16:18</li>

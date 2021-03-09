@@ -85,19 +85,19 @@
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo网站自定义404页面">
-<meta property="og:url" content="https://www.runaccepted.com/2019/07/01/hexo网站自定义404页面/index.html">
+<meta property="og:url" content="/2019/07/01/hexo网站自定义404页面/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="404-不存在的网页路径">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/07/01/hexo网站自定义404页面/404.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/07/01/hexo网站自定义404页面/end.png">
+<meta property="og:image" content="/01/hexo网站自定义404页面/404.png">
+<meta property="og:image" content="/01/hexo网站自定义404页面/end.png">
 <meta property="og:updated_time" content="2021-03-01T19:09:05.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo网站自定义404页面">
 <meta name="twitter:description" content="404-不存在的网页路径">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/07/01/hexo网站自定义404页面/404.png">
+<meta name="twitter:image" content="/01/hexo网站自定义404页面/404.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/07/01/hexo网站自定义404页面/">
+  <link rel="canonical" href="/2019/07/01/hexo网站自定义404页面/">
 
 
 <script id="page-configurations">
@@ -348,7 +348,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/07/01/hexo网站自定义404页面/">
+    <link itemprop="mainEntityOfPage" href="/2019/07/01/hexo网站自定义404页面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -483,11 +483,11 @@
 
 <h1 id="新建404-swig">2. 新建404.swig</h1><p>在themes/next/layout/下新建404.swig</p>
 <p>下载 <a href="/404.zip">404模版</a> 将js文件放入next/source/js，新建404文件夹</p>
-<p><img src="/2019/07/01/hexo网站自定义404页面/404.png" alt></p>
+<p><img src="/01/hexo网站自定义404页面/404.png" alt></p>
 <p>404.swig对比category.swig文件，编写</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends '_layout.swig' %&#125;</span><br><span class="line">&#123;% import '_macro/post-collapse.swig' as post_template %&#125;</span><br><span class="line">&#123;% import '_macro/sidebar.swig' as sidebar_template %&#125;</span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">    h2&#123;</span><br><span class="line">        text-align: center;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-id">#svgContainer</span> &#123;</span></span><br><span class="line">      width: 75%;</span><br><span class="line">      height: 50%;</span><br><span class="line">      margin: 10% 0px 0px 15%;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/js/404/bodymovin.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/js/404/data.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>404 Not Found<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"svgContainer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> svgContainer = <span class="built_in">document</span>.getElementById(<span class="string">'svgContainer'</span>);</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> animItem = bodymovin.loadAnimation(&#123;</span></span><br><span class="line">  wrapper: svgContainer,</span><br><span class="line"><span class="javascript">  animType: <span class="string">'svg'</span>,</span></span><br><span class="line"><span class="javascript">  loop: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">  animationData: <span class="built_in">JSON</span>.parse(animationData)</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="显示">3. 显示</h1><p><img src="/2019/07/01/hexo网站自定义404页面/end.png" alt></p>
+<h1 id="显示">3. 显示</h1><p><img src="/01/hexo网站自定义404页面/end.png" alt></p>
 
     </div>
     
@@ -513,7 +513,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/07/01/hexo网站自定义404页面/" title="hexo网站自定义404页面">https://www.runaccepted.com/2019/07/01/hexo网站自定义404页面/</a>
+    <a href="/2019/07/01/hexo网站自定义404页面/" title="hexo网站自定义404页面">/2019/07/01/hexo网站自定义404页面/</a>
   </li>
   <li><strong>发布时间：</strong>2019年07月01日 - 02:57</li>
   <li><strong>更新时间：</strong>2021年03月02日 - 03:09</li>

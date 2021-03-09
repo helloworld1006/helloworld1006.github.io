@@ -85,18 +85,18 @@
 <meta name="keywords" content="MySQL,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java基础知识-数据库">
-<meta property="og:url" content="https://www.runaccepted.com/2019/09/16/java基础知识-数据库/index.html">
+<meta property="og:url" content="/2019/09/16/java基础知识-数据库/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="数据库配置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/16/java基础知识-数据库/a.png">
+<meta property="og:image" content="/16/java基础知识-数据库/a.png">
 <meta property="og:updated_time" content="2021-03-01T13:52:33.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础知识-数据库">
 <meta name="twitter:description" content="数据库配置">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/09/16/java基础知识-数据库/a.png">
+<meta name="twitter:image" content="/16/java基础知识-数据库/a.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/09/16/java基础知识-数据库/">
+  <link rel="canonical" href="/2019/09/16/java基础知识-数据库/">
 
 
 <script id="page-configurations">
@@ -347,7 +347,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/09/16/java基础知识-数据库/">
+    <link itemprop="mainEntityOfPage" href="/2019/09/16/java基础知识-数据库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -527,7 +527,7 @@
 <p><code>show master status\G;</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> use mysql;</span></span><br><span class="line">Reading table information for completion of table and column names</span><br><span class="line">You can turn off this feature to get a quicker startup with -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> create user <span class="string">'backup'</span>@<span class="string">'%'</span> identified by <span class="string">'123456'</span>;</span></span><br><span class="line">Query OK, 0 rows affected (0.06 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> flush privileges;</span></span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> grant replication slave on *.* to <span class="string">'backup'</span>@<span class="string">'%'</span>;</span></span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> select user,host,plugin from mysql.user;</span></span><br><span class="line">+------------------+-----------+-----------------------+</span><br><span class="line">| user             | host      | plugin                |</span><br><span class="line">+------------------+-----------+-----------------------+</span><br><span class="line">| backup           | %         | mysql_native_password |</span><br><span class="line">| mysql.infoschema | localhost | caching_sha2_password |</span><br><span class="line">| mysql.session    | localhost | caching_sha2_password |</span><br><span class="line">| mysql.sys        | localhost | caching_sha2_password |</span><br><span class="line">| root             | localhost | mysql_native_password |</span><br><span class="line">+------------------+-----------+-----------------------+</span><br><span class="line">5 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> show master status\G;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="连接到navicat">2.3. 连接到navicat</h2><p><img src="/2019/09/16/java基础知识-数据库/a.png" alt></p>
+<h2 id="连接到navicat">2.3. 连接到navicat</h2><p><img src="/16/java基础知识-数据库/a.png" alt></p>
 <h2 id="连接数据库">2.4. 连接数据库</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 连接<span class="built_in">local</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mysql -uroot -p</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 连接指定ip</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mysql -h(ip地址) -uroot -p(ip机密码)</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mysql --host=ip --user=root --password=密码</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="退出数据库">2.5. 退出数据库</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> <span class="built_in">exit</span></span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> quit</span></span><br></pre></td></tr></table></figure>
@@ -853,7 +853,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/09/16/java基础知识-数据库/" title="java基础知识-数据库">https://www.runaccepted.com/2019/09/16/java基础知识-数据库/</a>
+    <a href="/2019/09/16/java基础知识-数据库/" title="java基础知识-数据库">/2019/09/16/java基础知识-数据库/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月16日 - 01:15</li>
   <li><strong>更新时间：</strong>2021年03月01日 - 21:52</li>

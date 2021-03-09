@@ -85,20 +85,20 @@
 <meta name="keywords" content="SpringBoot,Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="(五)在线教育网站搭建-课程分类实现">
-<meta property="og:url" content="https://www.runaccepted.com/2019/09/25/在线教育网站搭建五课程分类实现/index.html">
+<meta property="og:url" content="/2019/09/25/在线教育网站搭建五课程分类实现/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="POI导入分类信息 - 前端操作分类">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/25/在线教育网站搭建五课程分类实现/xlsx.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/25/在线教育网站搭建五课程分类实现/excel.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/25/在线教育网站搭建五课程分类实现/sql.png">
+<meta property="og:image" content="/25/在线教育网站搭建五课程分类实现/xlsx.png">
+<meta property="og:image" content="/25/在线教育网站搭建五课程分类实现/excel.png">
+<meta property="og:image" content="/25/在线教育网站搭建五课程分类实现/sql.png">
 <meta property="og:updated_time" content="2021-03-01T13:57:04.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(五)在线教育网站搭建-课程分类实现">
 <meta name="twitter:description" content="POI导入分类信息 - 前端操作分类">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/09/25/在线教育网站搭建五课程分类实现/xlsx.png">
+<meta name="twitter:image" content="/25/在线教育网站搭建五课程分类实现/xlsx.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/09/25/在线教育网站搭建五课程分类实现/">
+  <link rel="canonical" href="/2019/09/25/在线教育网站搭建五课程分类实现/">
 
 
 <script id="page-configurations">
@@ -349,7 +349,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/09/25/在线教育网站搭建五课程分类实现/">
+    <link itemprop="mainEntityOfPage" href="/2019/09/25/在线教育网站搭建五课程分类实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -514,7 +514,7 @@
 <h2 id="自动填充时间-EduSubject">3.2. 自动填充时间-EduSubject</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModelProperty</span>(value = <span class="string">"创建时间"</span>)</span><br><span class="line"><span class="meta">@TableField</span>(fill = FieldFill.INSERT)</span><br><span class="line"><span class="keyword">private</span> Date gmtCreate;</span><br><span class="line"></span><br><span class="line"><span class="meta">@ApiModelProperty</span>(value = <span class="string">"更新时间"</span>)</span><br><span class="line"><span class="meta">@TableField</span>(fill = FieldFill.INSERT_UPDATE)</span><br><span class="line"><span class="keyword">private</span> Date gmtModified;</span><br></pre></td></tr></table></figure>
 
 <h2 id="eduSubjectServiceImpl">3.3. eduSubjectServiceImpl</h2><p>实现从xlsx中导入分级列表</p>
-<p><img src="/2019/09/25/在线教育网站搭建五课程分类实现/xlsx.png" alt></p>
+<p><img src="/25/在线教育网站搭建五课程分类实现/xlsx.png" alt></p>
 <p>代码</p>
 <p>从Excel中得到行数，循环每一行，通过行得到列数，循环每一列，即扫描每一个单元格</p>
 <p>每一个单元格都需要通过 <code>select * from edu_subject where title=? and parent_id=?</code> 判断是否存在于数据库中，没有则新增。其中需要记录parent_id，即每一级的父级，第一级为0</p>
@@ -525,8 +525,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.online.edu.eduservice.controller;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.online.edu.common.R;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.service.EduSubjectService;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.Api;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Api</span>(<span class="string">"科目分类管理"</span>)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/eduservice/edu-subject"</span>)</span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EduSubjectController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    EduSubjectService eduSubjectService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/import"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">importExcelSubject</span><span class="params">(@ApiParam(name = <span class="string">"file"</span>, value = <span class="string">"文件"</span>, required = <span class="keyword">true</span>)</span></span></span><br><span class="line"><span class="function">                                    @<span class="title">RequestParam</span><span class="params">(<span class="string">"file"</span>)</span> MultipartFile file)</span>&#123;</span><br><span class="line">        List&lt;String&gt; list=eduSubjectService.importSubject(file);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(list.size() &gt;<span class="number">0</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> R.error().data(<span class="string">"msgList"</span>,list).message(<span class="string">"部分数据导入失败"</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">else</span>&#123;</span><br><span class="line">             <span class="keyword">return</span> R.ok().message(<span class="string">"批量导入成功"</span>);</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="测试上表">3.5. 测试上表</h2><p><a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html</a></p>
-<p><img src="/2019/09/25/在线教育网站搭建五课程分类实现/excel.png" alt></p>
-<h2 id="查询数据库">3.6. 查询数据库</h2><p><img src="/2019/09/25/在线教育网站搭建五课程分类实现/sql.png" alt></p>
+<p><img src="/25/在线教育网站搭建五课程分类实现/excel.png" alt></p>
+<h2 id="查询数据库">3.6. 查询数据库</h2><p><img src="/25/在线教育网站搭建五课程分类实现/sql.png" alt></p>
 <h1 id="前端开发-vue">4. 前端开发 - vue</h1><h2 id="定义路由-router-index-js">4.1. 定义路由 - router/index.js </h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: <span class="string">'/subject'</span>,</span><br><span class="line">    component: Layout,</span><br><span class="line">    redirect: <span class="string">'/subject/list'</span>,</span><br><span class="line">    name: <span class="string">'分类管理'</span>,</span><br><span class="line">    meta: &#123; <span class="attr">title</span>: <span class="string">'分类管理'</span>, <span class="attr">icon</span>: <span class="string">'example'</span> &#125;,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        path: <span class="string">'list'</span>,</span><br><span class="line">        name: <span class="string">'分类列表'</span>,</span><br><span class="line">        component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/edu/subject/index'</span>),</span><br><span class="line">        meta: &#123; <span class="attr">title</span>: <span class="string">'分类列表'</span>, <span class="attr">icon</span>: <span class="string">'table'</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        path: <span class="string">'import'</span>,</span><br><span class="line">        name: <span class="string">'导入分类'</span>,</span><br><span class="line">        component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/edu/subject/import'</span>),</span><br><span class="line">        meta: &#123; <span class="attr">title</span>: <span class="string">'导入分类'</span>, <span class="attr">icon</span>: <span class="string">'form'</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="视图-views-edu-subject-import-vue">4.2. 视图 - views/edu/subject/import.vue</h2><p><a href="https://element.eleme.cn/#/zh-CN/component/upload" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/upload</a> 手动上传样式</p>
@@ -636,7 +636,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/09/25/在线教育网站搭建五课程分类实现/" title="(五)在线教育网站搭建-课程分类实现">https://www.runaccepted.com/2019/09/25/在线教育网站搭建五课程分类实现/</a>
+    <a href="/2019/09/25/在线教育网站搭建五课程分类实现/" title="(五)在线教育网站搭建-课程分类实现">/2019/09/25/在线教育网站搭建五课程分类实现/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月25日 - 22:59</li>
   <li><strong>更新时间：</strong>2021年03月01日 - 21:57</li>

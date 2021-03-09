@@ -85,20 +85,20 @@
 <meta name="keywords" content="SpringBoot,MyBatis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MyBatis-Plus">
-<meta property="og:url" content="https://www.runaccepted.com/2019/12/27/MyBatis-Plus/index.html">
+<meta property="og:url" content="/2019/12/27/MyBatis-Plus/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="https://mp.baomidou.com/==&amp;gt;快速开始">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/12/27/MyBatis-Plus/lombok.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/12/27/MyBatis-Plus/lombokfun.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/12/27/MyBatis-Plus/deleted.png">
+<meta property="og:image" content="/27/MyBatis-Plus/lombok.png">
+<meta property="og:image" content="/27/MyBatis-Plus/lombokfun.png">
+<meta property="og:image" content="/27/MyBatis-Plus/deleted.png">
 <meta property="og:updated_time" content="2021-03-01T13:45:01.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis-Plus">
 <meta name="twitter:description" content="https://mp.baomidou.com/==&amp;gt;快速开始">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/12/27/MyBatis-Plus/lombok.png">
+<meta name="twitter:image" content="/27/MyBatis-Plus/lombok.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/12/27/MyBatis-Plus/">
+  <link rel="canonical" href="/2019/12/27/MyBatis-Plus/">
 
 
 <script id="page-configurations">
@@ -349,7 +349,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/12/27/MyBatis-Plus/">
+    <link itemprop="mainEntityOfPage" href="/2019/12/27/MyBatis-Plus/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -485,11 +485,11 @@
 <h1 id="lombok">3. lombok</h1><h2 id="Maven依赖">3.1. Maven依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 简化实体类 get/set方法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>intelliJ IDEA设置</p>
-<p><img src="/2019/12/27/MyBatis-Plus/lombok.png" alt></p>
+<p><img src="/27/MyBatis-Plus/lombok.png" alt></p>
 <h2 id="Data">3.2. @Data</h2><p>添加在实体类上</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.runaccpeted.mybatisplus.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Date createTime;</span><br><span class="line">    <span class="keyword">private</span> Date updateTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="get-set自动生成">3.3. get/set自动生成</h2><p><img src="/2019/12/27/MyBatis-Plus/lombokfun.png" alt></p>
+<h2 id="get-set自动生成">3.3. get/set自动生成</h2><p><img src="/27/MyBatis-Plus/lombokfun.png" alt></p>
 <h1 id="application-properties">4. application.properties</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/login?useSSL=false</span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=mysql123//</span><br><span class="line"></span><br><span class="line">#驼峰命令</span><br><span class="line">#mybatis-plus.configuration.map-underscore-to-camel-case=true</span><br><span class="line">#sql语句输出到控制台</span><br><span class="line">mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl</span><br></pre></td></tr></table></figure>
 
 <h1 id="extends-BaseMapper-lt-Object-gt">5. extends BaseMapper&lt; Object&gt;</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.runaccpeted.mybatisplus.mapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.core.mapper.BaseMapper;</span><br><span class="line"><span class="keyword">import</span> com.runaccpeted.mybatisplus.entity.User;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> <span class="keyword">extends</span> <span class="title">BaseMapper</span>&lt;<span class="title">User</span>&gt; </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -597,7 +597,7 @@
 <h2 id="表中添加删除状态字段">11.1. 表中添加删除状态字段</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">user</span> <span class="keyword">add</span> <span class="keyword">column</span> deleted <span class="built_in">boolean</span> <span class="keyword">default</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 
 <p>表中没有boolean属性</p>
-<p><img src="/2019/12/27/MyBatis-Plus/deleted.png" alt></p>
+<p><img src="/27/MyBatis-Plus/deleted.png" alt></p>
 <h2 id="实体类中添加属性-TableLogic">11.2. 实体类中添加属性@TableLogic</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableLogic</span></span><br><span class="line"><span class="meta">@TableField</span>(fill = FieldFill.INSERT)</span><br><span class="line"><span class="keyword">private</span> Integer deleted;</span><br></pre></td></tr></table></figure>
 
 <h2 id="自动填充状态">11.3. 自动填充状态</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.strictInsertFill(metaObject,<span class="string">"deleted"</span>,Integer.class,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -644,7 +644,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/12/27/MyBatis-Plus/" title="MyBatis-Plus">https://www.runaccepted.com/2019/12/27/MyBatis-Plus/</a>
+    <a href="/2019/12/27/MyBatis-Plus/" title="MyBatis-Plus">/2019/12/27/MyBatis-Plus/</a>
   </li>
   <li><strong>发布时间：</strong>2019年12月27日 - 15:56</li>
   <li><strong>更新时间：</strong>2021年03月01日 - 21:45</li>

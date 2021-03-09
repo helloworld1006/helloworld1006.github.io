@@ -85,19 +85,19 @@
 <meta name="keywords" content="PAT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B1007 素数对猜想 (20分)">
-<meta property="og:url" content="https://www.runaccepted.com/2019/09/06/B1007/index.html">
+<meta property="og:url" content="/2019/09/06/B1007/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="素数判断">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/06/B1007/1.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/06/B1007/5.png">
+<meta property="og:image" content="/06/B1007/1.png">
+<meta property="og:image" content="/06/B1007/5.png">
 <meta property="og:updated_time" content="2020-01-27T16:18:20.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="B1007 素数对猜想 (20分)">
 <meta name="twitter:description" content="素数判断">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/09/06/B1007/1.png">
+<meta name="twitter:image" content="/06/B1007/1.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/09/06/B1007/">
+  <link rel="canonical" href="/2019/09/06/B1007/">
 
 
 <script id="page-configurations">
@@ -348,7 +348,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/09/06/B1007/">
+    <link itemprop="mainEntityOfPage" href="/2019/09/06/B1007/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -493,9 +493,9 @@
 <p>从3到n递增判断素数之间是否相差2</p>
 <h1 id="AC代码">3. AC代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n&lt;<span class="number">2</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> sqr=(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(<span class="number">1.0</span>*n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=sqr;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n%i==<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">int</span> p0=<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span> (isPrime(i))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (i-p0==<span class="number">2</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="comment">//printf("%d %d\n",i,p0);</span></span><br><span class="line">				cnt++;</span><br><span class="line">			&#125;</span><br><span class="line">			p0=i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, cnt);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/09/06/B1007/1.png" alt></p>
+<p><img src="/06/B1007/1.png" alt></p>
 <h1 id="方法二">4. 方法二</h1><p>测试点5的耗时更少</p>
-<p><img src="/2019/09/06/B1007/5.png" alt></p>
+<p><img src="/06/B1007/5.png" alt></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> visit[<span class="number">100010</span>]=&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">int</span> p0=<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(visit[i]==<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i-p0==<span class="number">2</span>)&#123;</span><br><span class="line">				cnt++;</span><br><span class="line">			&#125;</span><br><span class="line">			p0=i;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=i+i;j&lt;=n;j+=i)&#123;</span><br><span class="line">				visit[j]++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,cnt);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -523,7 +523,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/09/06/B1007/" title="B1007 素数对猜想 (20分)">https://www.runaccepted.com/2019/09/06/B1007/</a>
+    <a href="/2019/09/06/B1007/" title="B1007 素数对猜想 (20分)">/2019/09/06/B1007/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月06日 - 20:47</li>
   <li><strong>更新时间：</strong>2020年01月28日 - 00:18</li>

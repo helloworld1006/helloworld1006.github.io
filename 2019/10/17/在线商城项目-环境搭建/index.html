@@ -85,24 +85,24 @@
 <meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在线商城项目-环境搭建">
-<meta property="og:url" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/index.html">
+<meta property="og:url" content="/2019/10/17/在线商城项目-环境搭建/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="RPC思想 zookeeper mysql主从数据库配置 dubbo配置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/rpc.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/dubbopng.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/dubbo-admin.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/mavenzoo.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/dubbo-zook.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/vaild.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/login.png">
+<meta property="og:image" content="/17/在线商城项目-环境搭建/rpc.png">
+<meta property="og:image" content="/17/在线商城项目-环境搭建/dubbopng.png">
+<meta property="og:image" content="/17/在线商城项目-环境搭建/dubbo-admin.png">
+<meta property="og:image" content="/17/在线商城项目-环境搭建/mavenzoo.png">
+<meta property="og:image" content="/17/在线商城项目-环境搭建/dubbo-zook.png">
+<meta property="og:image" content="/17/在线商城项目-环境搭建/vaild.png">
+<meta property="og:image" content="/17/在线商城项目-环境搭建/login.png">
 <meta property="og:updated_time" content="2021-03-01T14:11:11.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在线商城项目-环境搭建">
 <meta name="twitter:description" content="RPC思想 zookeeper mysql主从数据库配置 dubbo配置">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/rpc.png">
+<meta name="twitter:image" content="/17/在线商城项目-环境搭建/rpc.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/">
+  <link rel="canonical" href="/2019/10/17/在线商城项目-环境搭建/">
 
 
 <script id="page-configurations">
@@ -353,7 +353,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/">
+    <link itemprop="mainEntityOfPage" href="/2019/10/17/在线商城项目-环境搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -496,7 +496,7 @@
 <p>分布式中的每一个节点，都可以做集群。而集群并不一定就是分布式的。</p>
 <h1 id="RPC">2. RPC</h1><p>RPC【Remote Procedure Call】是指远程过程调用，是一种<strong>进程间通信方式</strong>，他是一种技术的思想，而不是规范。它允许程序调用另一个地址空间（通常是共享网络的另一台机器上）的过程或函数，而不用程序员显式编码这个远程调用的细节。即程序员无论是调用本地的还是远程的函数，本质上编写的调用代码基本相同。</p>
 <p><strong>他来解决分布式系统的各个服务之间互相交互问题；</strong></p>
-<p><img src="/2019/10/17/在线商城项目-环境搭建/rpc.png" alt></p>
+<p><img src="/17/在线商城项目-环境搭建/rpc.png" alt></p>
 <h1 id="CAP定理">3. CAP定理</h1><p><strong>C</strong>onsistency（一致性）：</p>
 <p>在分布式系统中的所有数据备份，在同一时刻是否同样的值。（写操作之后的读操作，必须返回该值。更新操作执行成功后所有的用户都应该读到最新的值，要求所有的备份数据保持一致）</p>
 <p><strong>A</strong>vailability（可用性）：</p>
@@ -515,7 +515,7 @@
 <p>三个短语的简写，BASE是对CAP中一致性和可用性权衡的结果，其来源于对大规模互联网系统分布式实践的结论，是基于CAP定理逐步演化而来的，其核心思想是即使无法做到强一致性（Strong consistency），但每个应用都可以根据自身的业务特点，采用适当的方式来使系统达到最终一致性（Eventual consistency）。</p>
 <h1 id="Dubbo">5. Dubbo</h1><p>Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的开源Java RPC框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。</p>
 <p>官网：</p>
-<h2 id="http-dubbo-apache-org">5.1. http://dubbo.apache.org/</h2><p><img src="/2019/10/17/在线商城项目-环境搭建/dubbopng.png" alt></p>
+<h2 id="http-dubbo-apache-org">5.1. http://dubbo.apache.org/</h2><p><img src="/17/在线商城项目-环境搭建/dubbopng.png" alt></p>
 <h2 id="调用关系">5.2. 调用关系</h2><p>​    <strong>服务提供者（Provider）</strong>：暴露服务的服务提供方，服务提供者在启动时，向注册中心注册自己提供的服务。</p>
 <p>​    <strong>服务消费者（Consumer）</strong>: 调用远程服务的服务消费方，服务消费者在启动时，向注册中心订阅自己所需的服务，服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</p>
 <p>​    <strong>注册中心（Registry）</strong>：注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者</p>
@@ -538,15 +538,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-	Clone source code on develop branch git clone https://github.com/apache/incubator-dubbo-admin.git</span><br><span class="line"></span><br><span class="line">- Specify registry address in </span><br><span class="line">dubbo-admin-server/src/main/resources/application-production.properties</span><br><span class="line"></span><br><span class="line">-	Build</span><br><span class="line">mvn clean package</span><br><span class="line">-	Start</span><br><span class="line">cd dubbo-admin-distribution/target; java -jar dubbo-admin-0.1.jar</span><br><span class="line">-	Visit http://localhost:8080</span><br></pre></td></tr></table></figure>
 
 <p>页面</p>
-<p><img src="/2019/10/17/在线商城项目-环境搭建/dubbo-admin.png" alt></p>
+<p><img src="/17/在线商城项目-环境搭建/dubbo-admin.png" alt></p>
 <h2 id="配置项目">5.5. 配置项目</h2><h3 id="分包">5.5.1. 分包</h3><p><strong>建议将服务接口、服务模型、服务异常等均放在 API 包中</strong>，因为服务模型和异常也是 API 的一部分，这样做也符合分包原则：重用发布等价原则(REP)，共同重用原则(CRP)</p>
 <h3 id="Maven依赖">5.5.2. Maven依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- dubbo --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.dubbo<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>dubbo-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- zookeeper--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-framework<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- java.lang.NoClassDefFoundError: org/apache/curator/framework/recipes/cache/TreeCacheListener--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-recipes<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/10/17/在线商城项目-环境搭建/mavenzoo.png" alt></p>
+<p><img src="/17/在线商城项目-环境搭建/mavenzoo.png" alt></p>
 <p>或者直接</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Dubbo --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>dubbo-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/10/17/在线商城项目-环境搭建/dubbo-zook.png" alt></p>
+<p><img src="/17/在线商城项目-环境搭建/dubbo-zook.png" alt></p>
 <h3 id="application-properties">5.5.3. application.properties</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dubbo.application.name=gmall-pms</span><br><span class="line">dubbo.registry.address=zookeeper://192.168.0.112:2181</span><br><span class="line">dubbo.protocol.port=20880</span><br><span class="line">dubbo.protocol.name=dubbo</span><br><span class="line">#不检查环境中是否有提供者</span><br><span class="line">dubbo.consumer.check=false</span><br></pre></td></tr></table></figure>
 
 <h3 id="提供者注解-Service">5.5.4. 提供者注解@Service</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.dubbo.config.annotation.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductServiceImpl</span> <span class="keyword">extends</span> <span class="title">ServiceImpl</span>&lt;<span class="title">ProductMapper</span>, <span class="title">Product</span>&gt; <span class="keyword">implements</span> <span class="title">ProductService</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
@@ -579,7 +579,7 @@
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Admin <span class="title">register</span><span class="params">(UmsAdminParam umsAdminParam)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Admin admin = <span class="keyword">new</span> Admin();</span><br><span class="line">    BeanUtils.copyProperties(umsAdminParam,admin);</span><br><span class="line">    baseMapper.insert(admin);</span><br><span class="line">    <span class="keyword">return</span> admin;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/10/17/在线商城项目-环境搭建/vaild.png" alt></p>
+<p><img src="/17/在线商城项目-环境搭建/vaild.png" alt></p>
 <h1 id="商品数据模型">8. 商品数据模型</h1><h2 id="sku">8.1. sku</h2><p>Stock keeping unit 库存量单位 记件单位 iphoneX64G黑</p>
 <h2 id="spu">8.2. spu</h2><p>standard product unit 标准化产品单元。商品信息聚合最小单位。描述一个产品特性 iphonex</p>
 <h1 id="缓存问题">9. 缓存问题</h1><h2 id="缓存穿透">9.1. 缓存穿透</h2><p> <strong>缓存穿透</strong>是指<strong>查询一个一定不存在的数据</strong>，由于缓存是不命中，将去查询数据库，但是数据库也无此记录，并且处于容错考虑，我们没有将这次查询的null写入缓存，这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义。<strong>在流量大时</strong>，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。</p>
@@ -735,7 +735,7 @@
 <p>但是他们都重定向到了 <a href="http://xxlssoserver.com:8080/xxl-sso-server/" target="_blank" rel="noopener">http://xxlssoserver.com:8080/xxl-sso-server/</a> 统一认证中心</p>
 <p>只要有一个人登录</p>
 <h3 id="观察核心">13.1.5. 观察核心</h3><p>每一个应用下都有一个相同的cookie。单点登录的核心就是不同系统之间同步cookie即可。</p>
-<h2 id="流程图">13.2. 流程图</h2><p><img src="/2019/10/17/在线商城项目-环境搭建/login.png" alt></p>
+<h2 id="流程图">13.2. 流程图</h2><p><img src="/17/在线商城项目-环境搭建/login.png" alt></p>
 <h2 id="client">13.3. client</h2><h3 id="application-properties-1">13.3.1. application.properties</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spring.thymeleaf.prefix=classpath:/templates/</span><br><span class="line">spring.thymeleaf.suffix=.html</span><br><span class="line"></span><br><span class="line">sso.server.url=http://ssoserver.com:8082</span><br><span class="line">sso.server.loginpath=/login</span><br></pre></td></tr></table></figure>
 
 <h3 id="config">13.3.2. config</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.runaccpeted.gmall.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"sso.server"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SsoConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line">    <span class="keyword">private</span> String loginpath;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -777,7 +777,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/" title="在线商城项目-环境搭建">https://www.runaccepted.com/2019/10/17/在线商城项目-环境搭建/</a>
+    <a href="/2019/10/17/在线商城项目-环境搭建/" title="在线商城项目-环境搭建">/2019/10/17/在线商城项目-环境搭建/</a>
   </li>
   <li><strong>发布时间：</strong>2019年10月17日 - 23:44</li>
   <li><strong>更新时间：</strong>2021年03月01日 - 22:11</li>

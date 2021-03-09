@@ -85,21 +85,21 @@
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java基本功-入门&amp;语法">
-<meta property="og:url" content="https://www.runaccepted.com/2019/09/12/java语言简史/index.html">
+<meta property="og:url" content="/2019/09/12/java语言简史/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="Java语言入门">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/12/java语言简史/Java8.jpg">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/12/java语言简史/javac.jpg">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/12/java语言简史/change.jpeg">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/12/java语言简史/for.jpeg">
+<meta property="og:image" content="/12/java语言简史/Java8.jpg">
+<meta property="og:image" content="/12/java语言简史/javac.jpg">
+<meta property="og:image" content="/12/java语言简史/change.jpeg">
+<meta property="og:image" content="/12/java语言简史/for.jpeg">
 <meta property="og:updated_time" content="2021-03-01T13:50:37.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基本功-入门&amp;语法">
 <meta name="twitter:description" content="Java语言入门">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/09/12/java语言简史/Java8.jpg">
+<meta name="twitter:image" content="/12/java语言简史/Java8.jpg">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/09/12/java语言简史/">
+  <link rel="canonical" href="/2019/09/12/java语言简史/">
 
 
 <script id="page-configurations">
@@ -350,7 +350,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/09/12/java语言简史/">
+    <link itemprop="mainEntityOfPage" href="/2019/09/12/java语言简史/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -588,7 +588,7 @@
 <p>J2EE(Enterpirse Edition) - 企业应用开发相关，服务器端应用</p>
 <p>Open JDK - javaSE的免费开源实现</p>
 <h2 id="java包下载">1.5. java包下载</h2><p><a href="https://www.oracle.com/cn/java/technologies/javase-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/cn/java/technologies/javase-downloads.html</a></p>
-<p><img src="/2019/09/12/java语言简史/Java8.jpg" alt></p>
+<p><img src="/12/java语言简史/Java8.jpg" alt></p>
 <p><strong>JDK</strong> java开发工具包，包括java编译器，运行时环境，常用类库，JRE。</p>
 <p><strong>JRE</strong> java运行环境，包括JVM，类加载器，字节码校验器等</p>
 <p><strong>JVM</strong> 执行字节码的虚拟计算机，定义了指令集，寄存器集，结构栈，垃圾收集堆，内存区域。负责将java字节码解释运行，边解释边运行。<font color="#f00">不同操作系统不同虚拟机</font>，从而屏蔽了底层运行平台的差别，实现了“一次编译，随处运行”，jvm生活java实现跨平台的核心机制。</p>
@@ -636,7 +636,7 @@
 <p><code>System.out.println(&quot;Hello World&quot;);</code>表示把文本行输出到控制台上</p>
 <p>在java中，每个句子必须用分号结束</p>
 <p><code>.</code>用于调用方法，等价于函数调用</p>
-<h2 id="Java语言运行机制">1.7.  Java语言运行机制</h2><img src="/2019/09/12/java语言简史/javac.jpg" style="zoom:50%;">
+<h2 id="Java语言运行机制">1.7.  Java语言运行机制</h2><img src="/12/java语言简史/javac.jpg" style="zoom:50%;">
 
 <p>java语言先编译再解释成机器码。</p>
 <p>java源码经编译器编译成.class，生成的是与平台无关的字节码，字节码只能通过java虚拟机jvm解释成特定平台的机器码。</p>
@@ -782,7 +782,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">if</span>(flag==<span class="number">1</span>)&#123;&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="数值类型之间的转换">2.6.5. 数值类型之间的转换</h3><p>实线表示无信息丢失的转换，虚线表示有精度损失的转换</p>
-<p><img src="/2019/09/12/java语言简史/change.jpeg" alt></p>
+<p><img src="/12/java语言简史/change.jpeg" alt></p>
 <p>byte/short/char在表示范围内，javac编译时自动会隐含进行类型转换</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字面量5是一个int类型，int-&gt;byte 必须进行类型转换</span></span><br><span class="line"><span class="keyword">byte</span> b = <span class="comment">/*byte*/</span> <span class="number">5</span>;</span><br><span class="line"><span class="keyword">char</span> c = <span class="comment">/*char*/</span> <span class="number">65</span>;</span><br></pre></td></tr></table></figure>
 
@@ -976,7 +976,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">10</span>;i++)&#123;</span><br><span class="line">  System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>初始化变量i=0，再判断i值是否满足条件，条件满足情况下执行语句，即输出i值，最后将i值加1，即为2，将i值判断是否满足条件，条件满足情况下执行语句……持续到i值不满足条件后完成for循环</p>
-<img src="/2019/09/12/java语言简史/for.jpeg" style="zoom:50%;">
+<img src="/12/java语言简史/for.jpeg" style="zoom:50%;">
 
 <h3 id="中断">2.13.3. 中断</h3><p>break 退出当前循环</p>
 <p>continue 跳过本次执行</p>
@@ -1007,7 +1007,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/09/12/java语言简史/" title="java基本功-入门&语法">https://www.runaccepted.com/2019/09/12/java语言简史/</a>
+    <a href="/2019/09/12/java语言简史/" title="java基本功-入门&语法">/2019/09/12/java语言简史/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月12日 - 20:31</li>
   <li><strong>更新时间：</strong>2021年03月01日 - 21:50</li>

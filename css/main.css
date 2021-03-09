@@ -175,22 +175,88 @@ h6 {
   padding: 0;
 }
 h1 {
-  font-size: 1.75em;
-}
-h2 {
-  font-size: 1.625em;
-}
-h3 {
-  font-size: 1.5em;
-}
-h4 {
-  font-size: 1.375em;
-}
-h5 {
   font-size: 1.25em;
 }
+h2 {
+  font-size: 1.15em;
+}
+h3 {
+  font-size: 1.05em;
+}
+h4,
+h5,
 h6 {
-  font-size: 1.125em;
+  font-size: 1em;
+}
+h1 {
+  font-size: 1.25em;
+}
+h2 {
+  font-size: 1.15em;
+}
+h3 {
+  font-size: 1.05em;
+}
+h4,
+h5,
+h6 {
+  font-size: 1em;
+}
+h1 {
+  font-size: 1.25em;
+}
+h2 {
+  font-size: 1.15em;
+}
+h3 {
+  font-size: 1.05em;
+}
+h4,
+h5,
+h6 {
+  font-size: 1em;
+}
+h1 {
+  font-size: 1.25em;
+}
+h2 {
+  font-size: 1.15em;
+}
+h3 {
+  font-size: 1.05em;
+}
+h4,
+h5,
+h6 {
+  font-size: 1em;
+}
+h1 {
+  font-size: 1.25em;
+}
+h2 {
+  font-size: 1.15em;
+}
+h3 {
+  font-size: 1.05em;
+}
+h4,
+h5,
+h6 {
+  font-size: 1em;
+}
+h1 {
+  font-size: 1.25em;
+}
+h2 {
+  font-size: 1.15em;
+}
+h3 {
+  font-size: 1.05em;
+}
+h4,
+h5,
+h6 {
+  font-size: 1em;
 }
 p {
   margin: 0 0 20px 0;
@@ -1583,18 +1649,6 @@ article:last-child .post-eof {
 }
 .post-body h1 {
   border-bottom: 1px solid #eee;
-  font-size: 1.25em;
-}
-.post-body h2 {
-  font-size: 1.15em;
-}
-.post-body h3 {
-  font-size: 1.05em;
-}
-.post-body h4,
-.post-body h5,
-.post-body h6 {
-  font-size: 1em;
 }
 .post-body h2,
 .post-body h3,
@@ -1984,7 +2038,7 @@ pre {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #38ffff;
+  background: #a3ff2b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;

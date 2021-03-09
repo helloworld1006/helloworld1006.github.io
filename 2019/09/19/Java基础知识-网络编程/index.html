@@ -85,22 +85,22 @@
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础知识-网络编程">
-<meta property="og:url" content="https://www.runaccepted.com/2019/09/19/Java基础知识-网络编程/index.html">
+<meta property="og:url" content="/2019/09/19/Java基础知识-网络编程/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="计算机网络知识及网络通信实现">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/19/Java基础知识-网络编程/1_cs.jpg">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/19/Java基础知识-网络编程/2_bs.jpg">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/19/Java基础知识-网络编程/3_tcp_ip.jpg">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/19/Java基础知识-网络编程/4_tcp.jpg">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/19/Java基础知识-网络编程/UDP%E9%80%9A%E4%BF%A1%E5%9B%BE%E8%A7%A3.bmp">
+<meta property="og:image" content="/19/Java基础知识-网络编程/1_cs.jpg">
+<meta property="og:image" content="/19/Java基础知识-网络编程/2_bs.jpg">
+<meta property="og:image" content="/19/Java基础知识-网络编程/3_tcp_ip.jpg">
+<meta property="og:image" content="/19/Java基础知识-网络编程/4_tcp.jpg">
+<meta property="og:image" content="/19/Java基础知识-网络编程/UDP%E9%80%9A%E4%BF%A1%E5%9B%BE%E8%A7%A3.bmp">
 <meta property="og:updated_time" content="2021-03-01T13:52:26.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-网络编程">
 <meta name="twitter:description" content="计算机网络知识及网络通信实现">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/09/19/Java基础知识-网络编程/1_cs.jpg">
+<meta name="twitter:image" content="/19/Java基础知识-网络编程/1_cs.jpg">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/09/19/Java基础知识-网络编程/">
+  <link rel="canonical" href="/2019/09/19/Java基础知识-网络编程/">
 
 
 <script id="page-configurations">
@@ -351,7 +351,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/09/19/Java基础知识-网络编程/">
+    <link itemprop="mainEntityOfPage" href="/2019/09/19/Java基础知识-网络编程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -481,9 +481,9 @@
 <a id="more"></a>
 
 <h1 id="软件结构">1. 软件结构</h1><h2 id="C-S结构">1.1. C/S结构</h2><p>全称为Client/Server结构，是指客户端和服务器结构。常见程序有ＱＱ、迅雷等软件。</p>
-<p><img src="/2019/09/19/Java基础知识-网络编程/1_cs.jpg" alt="img"></p>
+<p><img src="/19/Java基础知识-网络编程/1_cs.jpg" alt="img"></p>
 <h2 id="B-S结构">1.2. B/S结构</h2><p>全称为Browser/Server结构，是指浏览器和服务器结构。常见浏览器有谷歌、火狐等。</p>
-<p><img src="/2019/09/19/Java基础知识-网络编程/2_bs.jpg" alt="img"></p>
+<p><img src="/19/Java基础知识-网络编程/2_bs.jpg" alt="img"></p>
 <p>两种架构各有优势，但是无论哪种架构，都离不开网络的支持。<strong>网络编程</strong>，就是在一定的协议下，实现两台计算机的通信的程序。</p>
 <h1 id="网络三要素">2. 网络三要素</h1><p>协议，IP，端口</p>
 <h2 id="网络协议-交易密码">2.1. 网络协议 - 交易密码</h2><ul>
@@ -494,7 +494,7 @@
 <ul>
 <li><p><strong>TCP/IP协议：</strong> </p>
 <p>传输控制协议/因特网互联协议( Transmission Control Protocol/Internet Protocol)，是Internet最基本、最广泛的协议。它定义了计算机如何连入因特网，以及数据如何在它们之间传输的标准。它的内部包含一系列的用于处理数据通信的协议，并采用了4层的分层模型，每一层都呼叫它的下一层所提供的协议来完成自己的需求。</p>
-<p><img src="/2019/09/19/Java基础知识-网络编程/3_tcp_ip.jpg" alt></p>
+<p><img src="/19/Java基础知识-网络编程/3_tcp_ip.jpg" alt></p>
 </li>
 </ul>
 <p>上图中，TCP/IP协议中的四层分别是应用层、传输层、网络层和链路层，每层分别负责不同的通信功能。<br>链路层：链路层是用于定义物理传输通道，通常是对某些网络连接设备的驱动协议，例如针对光纤、网线提供的驱动。<br>网络层：网络层是整个TCP/IP协议的核心，它主要用于将传输的数据进行分组，将分组数据发送到目标计算机或者网络。<br>运输层：主要使网络程序进行通信，在进行网络通信时，可以采用TCP协议，也可以采用UDP协议。<br>应用层：主要负责应用程序的协议，例如HTTP协议、FTP协议等。</p>
@@ -596,7 +596,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/2019/09/19/Java基础知识-网络编程/4_tcp.jpg" alt></p>
+<p><img src="/19/Java基础知识-网络编程/4_tcp.jpg" alt></p>
 <p>完成三次握手，连接建立后，客户端和服务器就可以开始进行数据传输了。由于这种面向连接的特性，TCP协议可以保证传输数据的安全，所以应用十分广泛，例如下载文件、浏览网页等。</p>
 <p>客户端和服务器之间的连接包含一个IO对象，它们之间的传输是字节流</p>
 <p>面向连接</p>
@@ -654,7 +654,7 @@
 <h1 id="UDP-用户数据报协议">6. UDP 用户数据报协议</h1><p>用户数据报协议(User Datagram Protocol)。UDP是无连接通信协议，即在数据传输时，数据的发送端和接收端不建立逻辑连接。简单来说，当一台计算机向另外一台计算机发送数据时，发送端不会确认接收端是否存在，就会发出数据，同样接收端在收到数据时，也不会向发送端反馈是否收到数据。</p>
 <p>由于使用UDP协议消耗资源小，通信效率高，所以通常都会用于音频、视频和普通数据的传输例如视频会议都使用UDP协议，因为这种情况即使偶尔丢失一两个数据包，也不会对接收结果产生太大影响。</p>
 <p>但是在使用UDP协议传送数据时，由于UDP的面向无连接性，不能保证数据的完整性，因此在传输重要数据时不建议使用UDP协议。UDP的交换过程如下图所示。</p>
-<p><img src="/2019/09/19/Java基础知识-网络编程/UDP%E9%80%9A%E4%BF%A1%E5%9B%BE%E8%A7%A3.bmp" alt="UDP通信图解"></p>
+<p><img src="/19/Java基础知识-网络编程/UDP%E9%80%9A%E4%BF%A1%E5%9B%BE%E8%A7%A3.bmp" alt="UDP通信图解"></p>
 <p>特点:数据被限制在64kb以内，超出这个范围就不能发送了。</p>
 <p>数据报(Datagram):网络传输的基本单位 </p>
 <p>面向非连接</p>
@@ -704,7 +704,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/09/19/Java基础知识-网络编程/" title="Java基础知识-网络编程">https://www.runaccepted.com/2019/09/19/Java基础知识-网络编程/</a>
+    <a href="/2019/09/19/Java基础知识-网络编程/" title="Java基础知识-网络编程">/2019/09/19/Java基础知识-网络编程/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月19日 - 19:17</li>
   <li><strong>更新时间：</strong>2021年03月01日 - 21:52</li>

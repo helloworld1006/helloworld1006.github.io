@@ -85,19 +85,19 @@
 <meta name="keywords" content="SpringBoot,Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="(十九)在线教育网站搭建一管理员登录实现">
-<meta property="og:url" content="https://www.runaccepted.com/2019/10/18/在线教育网站搭建十九管理员登录实现/index.html">
+<meta property="og:url" content="/2019/10/18/在线教育网站搭建十九管理员登录实现/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="jwt vue token">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/18/在线教育网站搭建十九管理员登录实现/header.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/18/在线教育网站搭建十九管理员登录实现/cookie.png">
+<meta property="og:image" content="/18/在线教育网站搭建十九管理员登录实现/header.png">
+<meta property="og:image" content="/18/在线教育网站搭建十九管理员登录实现/cookie.png">
 <meta property="og:updated_time" content="2021-03-01T14:02:07.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(十九)在线教育网站搭建一管理员登录实现">
 <meta name="twitter:description" content="jwt vue token">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/10/18/在线教育网站搭建十九管理员登录实现/header.png">
+<meta name="twitter:image" content="/18/在线教育网站搭建十九管理员登录实现/header.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/10/18/在线教育网站搭建十九管理员登录实现/">
+  <link rel="canonical" href="/2019/10/18/在线教育网站搭建十九管理员登录实现/">
 
 
 <script id="page-configurations">
@@ -348,7 +348,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/10/18/在线教育网站搭建十九管理员登录实现/">
+    <link itemprop="mainEntityOfPage" href="/2019/10/18/在线教育网站搭建十九管理员登录实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -503,8 +503,8 @@
 
 <h1 id="请求头中加入token-utils-request-js">8. 请求头中加入token - /utils/request.js</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// request interceptor</span></span><br><span class="line">service.interceptors.request.use(</span><br><span class="line">  config =&gt; &#123;</span><br><span class="line">    <span class="comment">// do something before request is sent</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (store.getters.token) &#123;</span><br><span class="line">      <span class="comment">// let each request carry token</span></span><br><span class="line">      <span class="comment">// ['X-Token'] is a custom headers key</span></span><br><span class="line">      <span class="comment">// please modify it according to the actual situation</span></span><br><span class="line">      config.headers[<span class="string">'Authorization'</span>] = getToken()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">  &#125;,</span><br><span class="line">  error =&gt; &#123;</span><br><span class="line">    <span class="comment">// do something with request error</span></span><br><span class="line">    <span class="built_in">console</span>.log(error) <span class="comment">// for debug</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<h1 id="请求头">9. 请求头</h1><p><img src="/2019/10/18/在线教育网站搭建十九管理员登录实现/header.png" alt></p>
-<h1 id="Cookie">10. Cookie</h1><p><img src="/2019/10/18/在线教育网站搭建十九管理员登录实现/cookie.png" alt></p>
+<h1 id="请求头">9. 请求头</h1><p><img src="/18/在线教育网站搭建十九管理员登录实现/header.png" alt></p>
+<h1 id="Cookie">10. Cookie</h1><p><img src="/18/在线教育网站搭建十九管理员登录实现/cookie.png" alt></p>
 
     </div>
     
@@ -530,7 +530,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/10/18/在线教育网站搭建十九管理员登录实现/" title="(十九)在线教育网站搭建一管理员登录实现">https://www.runaccepted.com/2019/10/18/在线教育网站搭建十九管理员登录实现/</a>
+    <a href="/2019/10/18/在线教育网站搭建十九管理员登录实现/" title="(十九)在线教育网站搭建一管理员登录实现">/2019/10/18/在线教育网站搭建十九管理员登录实现/</a>
   </li>
   <li><strong>发布时间：</strong>2019年10月18日 - 00:29</li>
   <li><strong>更新时间：</strong>2021年03月01日 - 22:02</li>

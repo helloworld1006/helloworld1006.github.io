@@ -85,20 +85,20 @@
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础知识-线程">
-<meta property="og:url" content="https://www.runaccepted.com/2019/09/14/Java基础知识-线程/index.html">
+<meta property="og:url" content="/2019/09/14/Java基础知识-线程/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="多线程">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/14/Java基础知识-线程/para.jpeg">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/14/Java基础知识-线程/thread.jpeg">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/14/Java基础知识-线程/a.jpeg">
+<meta property="og:image" content="/14/Java基础知识-线程/para.jpeg">
+<meta property="og:image" content="/14/Java基础知识-线程/thread.jpeg">
+<meta property="og:image" content="/14/Java基础知识-线程/a.jpeg">
 <meta property="og:updated_time" content="2021-03-07T20:28:07.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-线程">
 <meta name="twitter:description" content="多线程">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/09/14/Java基础知识-线程/para.jpeg">
+<meta name="twitter:image" content="/14/Java基础知识-线程/para.jpeg">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/09/14/Java基础知识-线程/">
+  <link rel="canonical" href="/2019/09/14/Java基础知识-线程/">
 
 
 <script id="page-configurations">
@@ -349,7 +349,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/09/14/Java基础知识-线程/">
+    <link itemprop="mainEntityOfPage" href="/2019/09/14/Java基础知识-线程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -479,7 +479,7 @@
 
 <h1 id="并发并行">1. 并发并行</h1><p>并行：两个以上事件同一时刻发生</p>
 <p>并发：两个以上事件同一时段发生</p>
-<p><img src="/2019/09/14/Java基础知识-线程/para.jpeg" alt></p>
+<p><img src="/14/Java基础知识-线程/para.jpeg" alt></p>
 <h1 id="程序">2. 程序</h1><p>为完成特定任务，用某种语言编写的一组指令的集合。指一段静态代码</p>
 <h1 id="进程（QQ-exe）">3. 进程（QQ.exe）</h1><p>处于运行过程中的运行在内存中的应用程序。占用内存，进入到内存的程序。</p>
 <p>拥有独立空间，动态性，并发性</p>
@@ -489,7 +489,7 @@
 <p>负责当前进程中程序的执行。</p>
 <p>一个进程可以有n个线程。</p>
 <p><font color="#f00">JVM执行main方法，栈开辟一条main方法通向cpu的路径，创建线程会开辟一条通向cpu的新路径，用来执行run方法。对于两条路径，cpu自行选择。抢占式调用。</font></p>
-<p><img src="/2019/09/14/Java基础知识-线程/thread.jpeg" alt></p>
+<p><img src="/14/Java基础知识-线程/thread.jpeg" alt></p>
 <h1 id="创建线程">5. 创建线程</h1><p>调用的是start方法，使其创建一个执行run方法的新线程</p>
 <h2 id="extends-Thread">5.1. extends Thread</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    test t = <span class="keyword">new</span> test;</span><br><span class="line">    t.start();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -517,7 +517,7 @@
 
 </li>
 </ul>
-<h1 id="线程状态">6. 线程状态</h1><p><img src="/2019/09/14/Java基础知识-线程/a.jpeg" alt></p>
+<h1 id="线程状态">6. 线程状态</h1><p><img src="/14/Java基础知识-线程/a.jpeg" alt></p>
 <ul>
 <li><p>New     </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Thread state for a thread which has not yet started.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">NEW,</span><br></pre></td></tr></table></figure>
@@ -709,7 +709,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/09/14/Java基础知识-线程/" title="Java基础知识-线程">https://www.runaccepted.com/2019/09/14/Java基础知识-线程/</a>
+    <a href="/2019/09/14/Java基础知识-线程/" title="Java基础知识-线程">/2019/09/14/Java基础知识-线程/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月14日 - 00:11</li>
   <li><strong>更新时间：</strong>2021年03月08日 - 04:28</li>

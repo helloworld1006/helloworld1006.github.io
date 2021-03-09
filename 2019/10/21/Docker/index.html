@@ -85,27 +85,27 @@
 <meta name="keywords" content="Docker,树莓派,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
-<meta property="og:url" content="https://www.runaccepted.com/2019/10/21/Docker/index.html">
+<meta property="og:url" content="/2019/10/21/Docker/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="Docker安装于linux和树莓派 Docker安装mysql，配置mysql主从集群">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/21/Docker/total.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/21/Docker/dockerfast.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/21/Docker/linux.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/21/Docker/docker9000.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/21/Docker/remote.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/21/Docker/home.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/21/Docker/mysql.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/21/Docker/mysql-192.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/21/Docker/pi-mysql.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/10/21/Docker/pi-docker.png">
+<meta property="og:image" content="/21/Docker/total.png">
+<meta property="og:image" content="/21/Docker/dockerfast.png">
+<meta property="og:image" content="/21/Docker/linux.png">
+<meta property="og:image" content="/21/Docker/docker9000.png">
+<meta property="og:image" content="/21/Docker/remote.png">
+<meta property="og:image" content="/21/Docker/home.png">
+<meta property="og:image" content="/21/Docker/mysql.png">
+<meta property="og:image" content="/21/Docker/mysql-192.png">
+<meta property="og:image" content="/21/Docker/pi-mysql.png">
+<meta property="og:image" content="/21/Docker/pi-docker.png">
 <meta property="og:updated_time" content="2021-03-01T13:54:51.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker">
 <meta name="twitter:description" content="Docker安装于linux和树莓派 Docker安装mysql，配置mysql主从集群">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/10/21/Docker/total.png">
+<meta name="twitter:image" content="/21/Docker/total.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/10/21/Docker/">
+  <link rel="canonical" href="/2019/10/21/Docker/">
 
 
 <script id="page-configurations">
@@ -356,7 +356,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/10/21/Docker/">
+    <link itemprop="mainEntityOfPage" href="/2019/10/21/Docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -485,7 +485,7 @@
 
 <a id="more"></a>
 
-<h1 id="Docker核心概念">1. Docker核心概念</h1><p><img src="/2019/10/21/Docker/total.png" alt></p>
+<h1 id="Docker核心概念">1. Docker核心概念</h1><p><img src="/21/Docker/total.png" alt></p>
 <p>Host主机：安装了Docker程序的机器</p>
 <p>Client客户端：连接Docker主机进行操作</p>
 <p>Registries仓库：保存各种打包好的软件镜像</p>
@@ -508,7 +508,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 卸载原有docker</span><br><span class="line">[root@192 /]# sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Install required packages 安装依赖包</span><br><span class="line">[root@192 /]# sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 添加docker源</span><br><span class="line">[root@192 /]# sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>安装</span><br><span class="line">[root@192 /]# sudo yum install docker-ce docker-ce-cli containerd.io</span><br><span class="line"></span><br><span class="line">[root@192 /]# docker -v</span><br><span class="line">Docker version 19.03.8, build afacb8b</span><br></pre></td></tr></table></figure>
 
 <h2 id="镜像加速">2.1. 镜像加速</h2><p>这里使用的是 <a href="https://cr.console.aliyun.com/#/accelerator" target="_blank" rel="noopener">阿里云提供的镜像加速</a> ，登录并且设置密码之后在左侧的 <strong>镜像加速器</strong> 可以找到专属加速器地址，复制下来。</p>
-<p><img src="/2019/10/21/Docker/dockerfast.png" alt></p>
+<p><img src="/21/Docker/dockerfast.png" alt></p>
 <h2 id="以普通用户身份运行docker">2.2. 以普通用户身份运行docker</h2><p><code>Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</code></p>
 <p>systemctl daemon-reload</p>
 <p>systemctl restart docker</p>
@@ -607,7 +607,7 @@
 <h3 id="进入docker-tomcat终端">2.5.1. 进入docker tomcat终端</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost linux]# docker exec it tomcat /bin/bash</span><br><span class="line">root@84facfefca1b:/usr/local/tomcat#</span><br><span class="line">root@84facfefca1b:/usr/local/tomcat# cd conf</span><br><span class="line">root@84facfefca1b:/usr/local/tomcat/conf# ls</span><br><span class="line">Catalina	 catalina.properties  jaspic-providers.xml  logging.properties	tomcat-users.xml  web.xml</span><br><span class="line">catalina.policy  context.xml	      jaspic-providers.xsd  server.xml		tomcat-users.xsd</span><br><span class="line">root@84facfefca1b:/usr/local/tomcat/conf# </span><br><span class="line">root@84facfefca1b:/usr/local/tomcat/conf# exit;</span><br></pre></td></tr></table></figure>
 
 <p><a href="http://192.168.0.105:8080" target="_blank" rel="noopener">http://192.168.0.105:8080</a></p>
-<p><img src="/2019/10/21/Docker/linux.png" alt></p>
+<p><img src="/21/Docker/linux.png" alt></p>
 <h1 id="树莓派安装docker">3. 树莓派安装docker</h1><p>apt-get install curl</p>
 <p>curl -sSL <a href="https://get.docker.com" target="_blank" rel="noopener">https://get.docker.com</a> | sh </p>
 <p>docker -v</p>
@@ -646,12 +646,12 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yum.repos.d]# firewall-cmd --zone=public --add-port=2375/tcp --permanent</span><br><span class="line">success</span><br><span class="line">[root@localhost yum.repos.d]# </span><br><span class="line">[root@localhost yum.repos.d]# firewall-cmd --reload</span><br><span class="line">success</span><br><span class="line">[root@localhost yum.repos.d]#</span><br></pre></td></tr></table></figure>
 
 <p>远程访问192.168.0.105:9000</p>
-<p><img src="/2019/10/21/Docker/docker9000.png" alt></p>
+<p><img src="/21/Docker/docker9000.png" alt></p>
 <p>远程连接</p>
 <p>注册在docker中的用户名以开放的2375端口</p>
-<p><img src="/2019/10/21/Docker/remote.png" alt></p>
+<p><img src="/21/Docker/remote.png" alt></p>
 <p>成功</p>
-<p><img src="/2019/10/21/Docker/home.png" alt></p>
+<p><img src="/21/Docker/home.png" alt></p>
 <h1 id="docker安装mysql-–-Linux">5. docker安装mysql – Linux</h1><h2 id="安装mysql">5.1. 安装mysql</h2><p>docker pull mysql</p>
 <h2 id="运行mysql">5.2.  运行mysql</h2><p>–name 容器名</p>
 <p>-p 端口映射</p>
@@ -679,10 +679,10 @@
 <p>退出后docker重启mysql</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost linux]# docker stop mysql</span><br><span class="line">mysql</span><br><span class="line">[root@localhost linux]#</span><br><span class="line">[root@localhost linux]# docker start mysql</span><br><span class="line">mysql</span><br><span class="line">[root@localhost linux]#</span><br></pre></td></tr></table></figure>
 
-<h2 id="测试链接">5.5.  测试链接</h2><p><img src="/2019/10/21/Docker/mysql.png" alt></p>
+<h2 id="测试链接">5.5.  测试链接</h2><p><img src="/21/Docker/mysql.png" alt></p>
 <h2 id="测试语句">5.6.  测试语句</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> springboot;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/10/21/Docker/mysql-192.png" alt></p>
+<p><img src="/21/Docker/mysql-192.png" alt></p>
 <p>linux终端</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span> show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| springboot         |</span><br><span class="line">| sys                |</span><br><span class="line">+--------------------+</span><br><span class="line">5 rows in set (0.01 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span> exit;</span><br></pre></td></tr></table></figure>
 
@@ -705,8 +705,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">pi@pi:~ $ docker pull hypriot/rpi-mysql</span><br><span class="line">Using default tag: latest</span><br><span class="line">latest: Pulling from hypriot/rpi-mysql</span><br><span class="line">docker.io/hypriot/rpi-mysql:latest</span><br><span class="line">pi@pi:~ $ </span><br><span class="line">pi@pi:~ $ </span><br><span class="line">pi@pi:~ $ docker run --name mysql -e MYSQL_ROOT_PASSWORD=123456 -d -p 3307:3306 hypriot/rpi-mysql</span><br><span class="line">c3a05071cbb680b969fa48f49b806ee30c5a40c7776796e8e75d03bee419108d</span><br><span class="line">pi@pi:~ $ </span><br><span class="line">pi@pi:~ $ docker exec -it mysql /bin/bash</span><br><span class="line">root@c3a05071cbb6:/# mysql -uroot -p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 2</span><br><span class="line">Server version: 5.5.60-0+deb7u1 (Debian)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span> </span><br><span class="line"><span class="meta">mysql&gt;</span> </span><br><span class="line"><span class="meta">mysql&gt;</span> use mysql;</span><br><span class="line">Reading table information for completion of table and column names</span><br><span class="line">You can turn off this feature to get a quicker startup with -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line"><span class="meta">mysql&gt;</span> </span><br><span class="line"><span class="meta">mysql&gt;</span> </span><br><span class="line"><span class="meta">mysql&gt;</span> select user,host,plugin from mysql.user;</span><br><span class="line">+------+------+--------+</span><br><span class="line">| user | host | plugin |</span><br><span class="line">+------+------+--------+</span><br><span class="line">| root | %    |        |</span><br><span class="line">+------+------+--------+</span><br><span class="line">1 row in set (0.01 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span> </span><br><span class="line"><span class="meta">mysql&gt;</span> grant all privileges on *.* to 'root'@'%' identified by '123456' with grant option;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span> </span><br><span class="line"><span class="meta">mysql&gt;</span> flush privileges; </span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span> </span><br><span class="line"><span class="meta">mysql&gt;</span> exit</span><br><span class="line">Bye</span><br><span class="line">root@c3a05071cbb6:/# exit</span><br><span class="line">exit</span><br><span class="line">pi@pi:~ $ su</span><br><span class="line">密码：</span><br><span class="line">root@pi:/home/pi# </span><br><span class="line">root@pi:/home/pi# iptables --version</span><br><span class="line">iptables v1.8.2 (nf_tables)</span><br><span class="line">root@pi:/home/pi# </span><br><span class="line">root@pi:/home/pi# iptables -I INPUT -i eth0 -p tcp --dport 3307 -j ACCEPT</span><br><span class="line">root@pi:/home/pi# </span><br><span class="line">root@pi:/home/pi# iptables  -I OUTPUT -o eth0 -p tcp --sport 3307 -j ACCEPT</span><br><span class="line">root@pi:/home/pi# </span><br><span class="line">root@pi:/home/pi# exit</span><br><span class="line">exit</span><br><span class="line">pi@pi:~ $</span><br></pre></td></tr></table></figure>
 
 <p>测试</p>
-<p><img src="/2019/10/21/Docker/pi-mysql.png" alt></p>
-<p><img src="/2019/10/21/Docker/pi-docker.png" alt></p>
+<p><img src="/21/Docker/pi-mysql.png" alt></p>
+<p><img src="/21/Docker/pi-docker.png" alt></p>
 <p>树莓派docker中mysql</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span> </span><br><span class="line"><span class="meta">mysql&gt;</span> show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| springboot         |</span><br><span class="line">+--------------------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span> exit;</span><br></pre></td></tr></table></figure>
 
@@ -764,7 +764,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/10/21/Docker/" title="Docker">https://www.runaccepted.com/2019/10/21/Docker/</a>
+    <a href="/2019/10/21/Docker/" title="Docker">/2019/10/21/Docker/</a>
   </li>
   <li><strong>发布时间：</strong>2019年10月21日 - 21:37</li>
   <li><strong>更新时间：</strong>2021年03月01日 - 21:54</li>

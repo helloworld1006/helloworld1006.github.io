@@ -85,19 +85,19 @@
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础知识-Java9新特性">
-<meta property="og:url" content="https://www.runaccepted.com/2019/08/21/Java基础知识-Java9新特性/index.html">
+<meta property="og:url" content="/2019/08/21/Java基础知识-Java9新特性/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="模块化系统，jShell命令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/08/21/Java基础知识-Java9新特性/jshell.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/08/21/Java基础知识-Java9新特性/js.png">
+<meta property="og:image" content="/21/Java基础知识-Java9新特性/jshell.png">
+<meta property="og:image" content="/21/Java基础知识-Java9新特性/js.png">
 <meta property="og:updated_time" content="2021-03-01T13:51:52.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-Java9新特性">
 <meta name="twitter:description" content="模块化系统，jShell命令">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/08/21/Java基础知识-Java9新特性/jshell.png">
+<meta name="twitter:image" content="/21/Java基础知识-Java9新特性/jshell.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/08/21/Java基础知识-Java9新特性/">
+  <link rel="canonical" href="/2019/08/21/Java基础知识-Java9新特性/">
 
 
 <script id="page-configurations">
@@ -348,7 +348,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/08/21/Java基础知识-Java9新特性/">
+    <link itemprop="mainEntityOfPage" href="/2019/08/21/Java基础知识-Java9新特性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -556,9 +556,9 @@
 </li>
 </ul>
 <h2 id="操作">4.1. 操作</h2><p>访问：/Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home/bin/</p>
-<p><img src="/2019/08/21/Java基础知识-Java9新特性/jshell.png" alt></p>
+<p><img src="/21/Java基础知识-Java9新特性/jshell.png" alt></p>
 <p>基本操作</p>
-<p><img src="/2019/08/21/Java基础知识-Java9新特性/js.png" alt></p>
+<p><img src="/21/Java基础知识-Java9新特性/js.png" alt></p>
 <h1 id="语法改进">5. 语法改进</h1><h2 id="接口的私有方法">5.1. 接口的私有方法</h2><p>Java 8中规定接口中的方法除了抽象方法之外，还可以定义静态方法和默认的方法。一定程度上，扩展了接口的功能，此时的接口更像是 一个抽象类。</p>
 <p>在Java 9中，接口更加的灵活和强大，连方法的访问权限修饰符都可以声明为private的了，此时方法将不会成为你对外暴露的API的一部分。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">normalInterfaceMethod</span><span class="params">()</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">methodDefault1</span><span class="params">()</span></span>&#123; </span><br><span class="line">      init();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">default</span> <span class="keyword">void</span> <span class="title">methodDefault2</span><span class="params">()</span></span>&#123; </span><br><span class="line">      init();</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">		<span class="comment">// This method is not part of the public API exposed by MyInterface</span></span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123; </span><br><span class="line">      System.out.println(<span class="string">"默认方法中的通用操作"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInterfaceImpl</span> <span class="keyword">implements</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">normalInterfaceMethod</span><span class="params">()</span></span>&#123; </span><br><span class="line">      System.out.println(<span class="string">"实现接口的方法"</span>);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterfaceTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      MyInterfaceImpl impl = <span class="keyword">new</span> MyInterfaceImpl(); </span><br><span class="line">      impl.methodDefault1();</span><br><span class="line">      <span class="comment">// impl.init();//不能调用</span></span><br><span class="line">	  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -647,7 +647,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/08/21/Java基础知识-Java9新特性/" title="Java基础知识-Java9新特性">https://www.runaccepted.com/2019/08/21/Java基础知识-Java9新特性/</a>
+    <a href="/2019/08/21/Java基础知识-Java9新特性/" title="Java基础知识-Java9新特性">/2019/08/21/Java基础知识-Java9新特性/</a>
   </li>
   <li><strong>发布时间：</strong>2019年08月21日 - 09:10</li>
   <li><strong>更新时间：</strong>2021年03月01日 - 21:51</li>

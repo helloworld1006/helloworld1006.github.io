@@ -85,19 +85,19 @@
 <meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开通阿里云OSS">
-<meta property="og:url" content="https://www.runaccepted.com/2019/09/24/开通阿里云OSS/index.html">
+<meta property="og:url" content="/2019/09/24/开通阿里云OSS/index.html">
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="https://www.aliyun.com/product/oss/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/24/开通阿里云OSS/bucket.png">
-<meta property="og:image" content="https://www.runaccepted.com/2019/09/24/开通阿里云OSS/newbucket.png">
+<meta property="og:image" content="/24/开通阿里云OSS/bucket.png">
+<meta property="og:image" content="/24/开通阿里云OSS/newbucket.png">
 <meta property="og:updated_time" content="2021-03-01T13:59:11.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开通阿里云OSS">
 <meta name="twitter:description" content="https://www.aliyun.com/product/oss/">
-<meta name="twitter:image" content="https://www.runaccepted.com/2019/09/24/开通阿里云OSS/bucket.png">
+<meta name="twitter:image" content="/24/开通阿里云OSS/bucket.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://www.runaccepted.com/2019/09/24/开通阿里云OSS/">
+  <link rel="canonical" href="/2019/09/24/开通阿里云OSS/">
 
 
 <script id="page-configurations">
@@ -348,7 +348,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://www.runaccepted.com/2019/09/24/开通阿里云OSS/">
+    <link itemprop="mainEntityOfPage" href="/2019/09/24/开通阿里云OSS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Ting">
@@ -487,7 +487,7 @@
 <h1 id="免费开通OSS">1. 免费开通OSS</h1><p>海量、安全和高可靠的云存储服务</p>
 <p><a href="https://www.aliyun.com/product/oss/" target="_blank" rel="noopener">https://www.aliyun.com/product/oss/</a></p>
 <p>点击立即开通，注册账号，实名认证后，开通“对象存储oss”服务</p>
-<h1 id="创建Bucket">2. 创建Bucket</h1><p><img src="/2019/09/24/开通阿里云OSS/bucket.png" alt></p>
+<h1 id="创建Bucket">2. 创建Bucket</h1><p><img src="/24/开通阿里云OSS/bucket.png" alt></p>
 <h1 id="上传文件">3. 上传文件</h1><p>打开文件管理，上传图片，得到图片路径</p>
 <p><a href="https://edus-online.oss-cn-hangzhou.aliyuncs.com/avator/b.jpeg" target="_blank" rel="noopener">https://edus-online.oss-cn-hangzhou.aliyuncs.com/avator/b.jpeg</a></p>
 <p>路径由bucket+地域节点/文件夹名/图片名组成</p>
@@ -496,7 +496,7 @@
 
 <h2 id="创建存储空间">5.2. 创建存储空间</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.aliyun.oss.OSS;</span><br><span class="line"><span class="keyword">import</span> com.aliyun.oss.OSSClientBuilder;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="comment">// Endpoint以杭州为例，其它Region请按实际情况填写。</span></span><br><span class="line">	String endpoint = <span class="string">"http://oss-cn-hangzhou.aliyuncs.com"</span>;</span><br><span class="line">	<span class="comment">// 阿里云主账号AccessKey拥有所有API的访问权限，风险很高.</span></span><br><span class="line">  <span class="comment">//强烈建议您创建并使用RAM账号进行API访问或日常运维</span></span><br><span class="line">  <span class="comment">//请登录 https://ram.console.aliyun.com 创建RAM账号。</span></span><br><span class="line">	String accessKeyId = <span class="string">"&lt;yourAccessKeyId&gt;"</span>;</span><br><span class="line">	String accessKeySecret = <span class="string">"&lt;yourAccessKeySecret&gt;"</span>;</span><br><span class="line">	String bucketName = <span class="string">"&lt;yourBucketName&gt;"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 创建OSSClient实例。</span></span><br><span class="line">	OSS ossClient = <span class="keyword">new</span> OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 创建存储空间。</span></span><br><span class="line">	ossClient.createBucket(bucketName);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 关闭OSSClient。</span></span><br><span class="line">	ossClient.shutdown();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/09/24/开通阿里云OSS/newbucket.png" alt></p>
+<p><img src="/24/开通阿里云OSS/newbucket.png" alt></p>
 <p>默认读写权限为私有</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//权限 --公共读PublicRead 私有Private 公共读写PublicReadWrite</span></span><br><span class="line">ossClient.setBucketAcl(bucketName,CannedAccessControlList.PublicRead);</span><br></pre></td></tr></table></figure>
 
@@ -526,7 +526,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.runaccepted.com/2019/09/24/开通阿里云OSS/" title="开通阿里云OSS">https://www.runaccepted.com/2019/09/24/开通阿里云OSS/</a>
+    <a href="/2019/09/24/开通阿里云OSS/" title="开通阿里云OSS">/2019/09/24/开通阿里云OSS/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月24日 - 20:26</li>
   <li><strong>更新时间：</strong>2021年03月01日 - 21:59</li>
