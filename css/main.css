@@ -1648,7 +1648,19 @@ article:last-child .post-eof {
   }
 }
 .post-body h1 {
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
+  font-size: 1.25em;
+}
+.post-body h2 {
+  font-size: 1.15em;
+}
+.post-body h3 {
+  font-size: 1.05em;
+}
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  font-size: 1em;
 }
 .post-body h2,
 .post-body h3,
@@ -1656,7 +1668,7 @@ article:last-child .post-eof {
 .post-body h5,
 .post-body h6 {
   padding-top: 10px;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 .post-body h2 .header-anchor,
 .post-body h3 .header-anchor,
@@ -2038,7 +2050,7 @@ pre {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a3ff2b;
+  background: #73df78;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
