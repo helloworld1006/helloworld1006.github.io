@@ -89,15 +89,15 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="来自Java核心部分的10个最棘手的Java面试问题列表">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="/15/挑战10道超难Java面试题/string.png">
-<meta property="og:image" content="/15/挑战10道超难Java面试题/thread.png">
-<meta property="og:image" content="/15/挑战10道超难Java面试题/serialization.png">
-<meta property="og:image" content="/15/挑战10道超难Java面试题/wait:noftify.png">
+<meta property="og:image" content="/2019/09/15/挑战10道超难Java面试题/string.png">
+<meta property="og:image" content="/2019/09/15/挑战10道超难Java面试题/thread.png">
+<meta property="og:image" content="/2019/09/15/挑战10道超难Java面试题/serialization.png">
+<meta property="og:image" content="/2019/09/15/挑战10道超难Java面试题/wait:noftify.png">
 <meta property="og:updated_time" content="2021-03-01T14:00:03.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="挑战10道超难Java面试题">
 <meta name="twitter:description" content="来自Java核心部分的10个最棘手的Java面试问题列表">
-<meta name="twitter:image" content="/15/挑战10道超难Java面试题/string.png">
+<meta name="twitter:image" content="/2019/09/15/挑战10道超难Java面试题/string.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="/2019/09/15/挑战10道超难Java面试题/">
 
@@ -452,7 +452,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>16k</span>
+              <span>15k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -462,7 +462,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>27 分钟</span>
+              <span>25 分钟</span>
             </span>
           
 
@@ -509,7 +509,7 @@
 
 <p>现在字符串 B 调用 “Test”.toUpperCase(), 将同一个对象改为“TEST”，所以 A 也是 “TEST”，这不是期望的结果。</p>
 <p>下图显示了如何在堆内存和字符串池中创建字符串。</p>
-<p><img src="/15/挑战10道超难Java面试题/string.png" alt="img"></p>
+<p><img src="/2019/09/15/挑战10道超难Java面试题/string.png" alt="img"></p>
 <p><strong>2)字符串已被广泛用作许多 Java 类的参数</strong>，例如，为了打开网络连接，你可以将主机名和端口号作为字符串传递，你可以将数据库 URL 作为字符串传递, 以打开数据库连接，你可以通过将文件名作为参数传递给 File I/O 类来打开 Java 中的任何文件。如果 String 不是不可变的，这将导致严重的安全威胁，我的意思是有人可以访问他有权授权的任何文件，然后可以故意或意外地更改文件名并获得对该文件的访问权限。由于不变性，你无需担心这种威胁。这个原因也说明了，为什么 String 在 Java 中是最终的，通过使 java.lang.String final，Java设计者确保没有人覆盖 String 类的任何行为。</p>
 <p><strong>3)由于 String 是不可变的，它可以安全地共享许多线程，这对于多线程编程非常重要. 并且避免了 Java 中的同步问题，不变性也使得String 实例在 Java 中是线程安全的，这意味着你不需要从外部同步 String 操作。</strong>关于 String 的另一个要点是由截取字符串 SubString 引起的内存泄漏，这不是与线程相关的问题，但也是需要注意的。</p>
 <p><strong>4)为什么 String 在 Java 中是不可变的另一个原因是允许 String 缓存其哈希码，Java 中的不可变 String 缓存其哈希码，并且不会在每次调用 String 的 hashcode 方法时重新计算，这使得它在 Java 中的 HashMap 中使用的 HashMap 键非常快。</strong>简而言之，因为 String 是不可变的，所以没有人可以在创建后更改其内容，这保证了 String 的 hashCode 在多次调用时是相同的。</p>
@@ -573,7 +573,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java 程序通过强制循环等待来创建死锁。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeadLockDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 此方法请求两个锁,第一个字符串,然后整数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (String.class) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Aquired lock on String.class object"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">synchronized</span> (Integer.class) &#123;</span><br><span class="line">                System.out.println(<span class="string">"Aquired lock on Integer.class object"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 此方法也请求相同的两个锁,但完全</span></span><br><span class="line"><span class="comment">     * 相反的顺序,即首先整数,然后字符串。</span></span><br><span class="line"><span class="comment">     * 如果一个线程持有字符串锁,则这会产生潜在的死锁</span></span><br><span class="line"><span class="comment">     * 和其他持有整数锁,他们等待对方,永远。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (Integer.class) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Aquired lock on Integer.class object"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">synchronized</span> (String.class) &#123;</span><br><span class="line">                System.out.println(<span class="string">"Aquired lock on String.class object"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果 method1() 和 method2() 都由两个或多个线程调用,则存在死锁的可能性, 因为如果线程 1 在执行 method1() 时在 Sting 对象上获取锁, 线程 2 在执行 method2() 时在 Integer 对象上获取锁, 等待彼此释放 Integer 和 String 上的锁以继续进行一步, 但这永远不会发生。</p>
-<p><img src="/15/挑战10道超难Java面试题/thread.png" alt></p>
+<p><img src="/2019/09/15/挑战10道超难Java面试题/thread.png" alt></p>
 <p>此图精确演示了我们的程序, 其中一个线程在一个对象上持有锁, 并等待其他线程持有的其他对象锁。</p>
 <p>你可以看到, Thread1 需要 Thread2 持有的 Object2 上的锁,而 Thread2 希望获得 Thread1 持有的 Object1 上的锁。由于没有线程愿意放弃, 因此存在死锁, Java 程序被卡住。</p>
 <p>其理念是, 你应该知道使用常见并发模式的正确方法, 如果你不熟悉这些模式,那么 Jose Paumard 《应用于并发和多线程的常见 Java 模式》是学习的好起点。</p>
@@ -588,7 +588,7 @@
 <p><strong>Java 序列化相关的常见问题</strong></p>
 <p>Java 序列化是一个重要概念, 但它很少用作持久性解决方案, 开发人员大多忽略了 Java 序列化 API。根据我的经验, Java 序列化在任何 Java核心内容面试中都是一个相当重要的话题, 在几乎所有的网面试中, 我都遇到过一两个 Java 序列化问题, 我看过一次面试, 在问几个关于序列化的问题之后候选人开始感到不自在, 因为缺乏这方面的经验。</p>
 <p>他们不知道如何在 Java 中序列化对象, 或者他们不熟悉任何 Java 示例来解释序列化, 忘记了诸如序列化在 Java 中如何工作, 什么是标记接口, 标记接口的目的是什么, 瞬态变量和可变变量之间的差异, 可序列化接口具有多少种方法, 在 Java 中,Serializable 和 Externalizable 有什么区别, 或者在引入注解之后, 为什么不用 @Serializable 注解或替换 Serializalbe 接口。</p>
-<p><img src="/15/挑战10道超难Java面试题/serialization.png" alt></p>
+<p><img src="/2019/09/15/挑战10道超难Java面试题/serialization.png" alt></p>
 <p> <strong>关于Java序列化的10个面试问题</strong></p>
 <p>大多数商业项目使用数据库或内存映射文件或只是普通文件, 来满足持久性要求, 只有很少的项目依赖于 Java 中的序列化过程。无论如何,这篇文章不是 Java 序列化教程或如何序列化在 Java 的对象, 但有关序列化机制和序列化 API 的面试问题, 这是值得去任何 Java 面试前先看看以免让一些未知的内容惊到自己。</p>
 <p>对于那些不熟悉 Java 序列化的人, Java 序列化是用来通过将对象的状态存储到带有.ser扩展名的文件来序列化 Java 中的对象的过程, 并且可以通过这个文件恢复重建 Java对象状态, 这个逆过程称为 deserialization。</p>
@@ -629,7 +629,7 @@
 <p>最近这个问题在Java面试中被问到我的一位朋友，他思索了一下，并回答说: 如果我们不从同步上下文中调用 wait() 或 notify() 方法，我们将在 Java 中收到 IllegalMonitorStateException。</p>
 <p>他的回答从实际效果上年是正确的，但面试官对这样的答案不会完全满意，并希望向他解释这个问题。面试结束后 他和我讨论了同样的问题，我认为他应该告诉面试官关于 Java 中 wait()和 notify()之间的竞态条件，如果我们不在同步方法或块中调用它们就可能存在。</p>
 <p>让我们看看竞态条件如何在Java程序中发生。它也是流行的线程面试问题之一，并经常在电话和面对面的Java开发人员面试中出现。因此，如果你正在准备Java面试，那么你应该准备这样的问题，并且可以真正帮助你的一本书是《Java程序员面试公式书》的。这是一本罕见的书，涵盖了Java访谈的几乎所有重要主题，例如核心Java，多线程，IO 和 NIO 以及 Spring 和 Hibernate 等框架。你可以在这里查看。</p>
-<p><img src="/15/挑战10道超难Java面试题/wait:noftify.png" alt="wait:noftify"></p>
+<p><img src="/2019/09/15/挑战10道超难Java面试题/wait:noftify.png" alt="wait:noftify"></p>
 <p>为什么要等待来自 Java中的 synchronized 方法的 wait方法为什么必须从 Java 中的 synchronized 块或方法调用 ？我们主要使用 wait()，notify() 或 notifyAll() 方法用于 Java 中的线程间通信。一个线程在检查条件后正在等待，例如，在经典的生产者 - 消费者问题中，如果缓冲区已满，则生产者线程等待，并且消费者线程通过使用元素在缓冲区中创建空间后通知生产者线程。调用notify()或notifyAll()方法向单个或多个线程发出一个条件已更改的通知，并且一旦通知线程离开 synchronized 块，正在等待的所有线程开始获取正在等待的对象锁定，幸运的线程在重新获取锁之后从 wait() 方法返回并继续进行。</p>
 <p>让我们将整个操作分成几步，以查看Java中wait()和notify()方法之间的竞争条件的可能性，我们将使用Produce Consumer 线程示例更好地理解方案：</p>
 <ul>
@@ -998,13 +998,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">486k</span>
+    <span title="站点总字数">454k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">12:37</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

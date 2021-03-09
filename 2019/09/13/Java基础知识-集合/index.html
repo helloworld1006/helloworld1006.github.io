@@ -89,13 +89,13 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="Collection List Set Map">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="/13/Java基础知识-集合/interface.jpeg">
-<meta property="og:image" content="/13/Java基础知识-集合/class.jpeg">
+<meta property="og:image" content="/2019/09/13/Java基础知识-集合/interface.jpeg">
+<meta property="og:image" content="/2019/09/13/Java基础知识-集合/class.jpeg">
 <meta property="og:updated_time" content="2021-03-06T19:22:21.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-集合">
 <meta name="twitter:description" content="Collection List Set Map">
-<meta name="twitter:image" content="/13/Java基础知识-集合/interface.jpeg">
+<meta name="twitter:image" content="/2019/09/13/Java基础知识-集合/interface.jpeg">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="/2019/09/13/Java基础知识-集合/">
 
@@ -450,7 +450,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>4.2k</span>
+              <span>4.1k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -481,7 +481,7 @@
 <p>常用方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"></span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="comment">//转换为数组</span></span><br><span class="line">Object[] toArray();</span><br><span class="line"><span class="comment">//添加元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//删除单个元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//并 other元素添加到集合中</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;E&gt; other)</span></span>;</span><br><span class="line"><span class="comment">//交 删除与other中匹配的所有元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection other)</span></span>;</span><br><span class="line"><span class="comment">//差 删除与other不同的元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection other)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//批量删除符合filter条件的所有元素 Predicate对象</span></span><br><span class="line"><span class="function"><span class="keyword">default</span> <span class="keyword">boolean</span> <span class="title">removeIf</span><span class="params">(Predicate&lt;? <span class="keyword">super</span> E&gt; filter)</span></span>;</span><br><span class="line">Collection.removeIf(ele-&gt;(String)ele.length()&lt;<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/13/Java基础知识-集合/interface.jpeg" alt> <img src="/13/Java基础知识-集合/class.jpeg" alt> </p>
+<p><img src="/2019/09/13/Java基础知识-集合/interface.jpeg" alt> <img src="/2019/09/13/Java基础知识-集合/class.jpeg" alt> </p>
 <h1 id="迭代器-ArrayList">2. 迭代器-ArrayList</h1><p>删除第一个元素：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; c = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">c.add(<span class="string">"a"</span>);</span><br><span class="line">c.add(<span class="string">"b"</span>);</span><br><span class="line"><span class="comment">//调用remove之前必须调用next</span></span><br><span class="line">Iterator&lt; String&gt; it = c.iterator();</span><br><span class="line">it.next();</span><br><span class="line">it.remove();</span><br></pre></td></tr></table></figure>
 
@@ -1124,13 +1124,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">486k</span>
+    <span title="站点总字数">454k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">12:37</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

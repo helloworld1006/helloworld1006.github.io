@@ -89,12 +89,12 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="MyBatis框架学习">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="/05/MyBatis学习/result.png">
+<meta property="og:image" content="/2019/09/05/MyBatis学习/result.png">
 <meta property="og:updated_time" content="2021-03-01T13:44:49.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis学习">
 <meta name="twitter:description" content="MyBatis框架学习">
-<meta name="twitter:image" content="/05/MyBatis学习/result.png">
+<meta name="twitter:image" content="/2019/09/05/MyBatis学习/result.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="/2019/09/05/MyBatis学习/">
 
@@ -449,7 +449,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>3.7k</span>
+              <span>3.8k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -528,7 +528,7 @@
 
 <h2 id="log4j-properties">3.2. log4j.properties</h2><p>文件位于src下</p>
 <p>log4j.logger.com.runaccpeted.mapper 对应于UserMapper.xml中mappers的namespace 类全路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">log4j.rootCategory=ERROR, CONSOLE,LOGFILE</span><br><span class="line">log4j.logger.com.runaccpeted.mapper=DEBUG</span><br><span class="line"></span><br><span class="line">log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender</span><br><span class="line">log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.CONSOLE.layout.ConversionPattern=-%p-%d&#123;yyyy/MM/dd HH:mm:ss,SSS&#125;-%l-%L-%m%n</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">log4j.appender.LOGFILE=org.apache.log4j.FileAppender</span><br><span class="line">log4j.appender.LOGFILE.File=src/axis.log</span><br><span class="line">log4j.appender.LOGFILE.Append=true</span><br><span class="line">log4j.appender.LOGFILE.layout=org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.LOGFILE.layout.ConversionPattern=-%p-%d&#123;yyyy/MM/dd HH:mm:ss,SSS&#125;-%l-%L-%m%n</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">log4j.rootCategory</span>=<span class="string">ERROR, CONSOLE,LOGFILE</span></span><br><span class="line"><span class="meta">log4j.logger.com.runaccpeted.mapper</span>=<span class="string">DEBUG</span></span><br><span class="line"></span><br><span class="line"><span class="meta">log4j.appender.CONSOLE</span>=<span class="string">org.apache.log4j.ConsoleAppender</span></span><br><span class="line"><span class="meta">log4j.appender.CONSOLE.layout</span>=<span class="string">org.apache.log4j.PatternLayout</span></span><br><span class="line"><span class="meta">log4j.appender.CONSOLE.layout.ConversionPattern</span>=<span class="string">-%p-%d&#123;yyyy/MM/dd HH:mm:ss,SSS&#125;-%l-%L-%m%n</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">log4j.appender.LOGFILE</span>=<span class="string">org.apache.log4j.FileAppender</span></span><br><span class="line"><span class="meta">log4j.appender.LOGFILE.File</span>=<span class="string">src/axis.log</span></span><br><span class="line"><span class="meta">log4j.appender.LOGFILE.Append</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">log4j.appender.LOGFILE.layout</span>=<span class="string">org.apache.log4j.PatternLayout</span></span><br><span class="line"><span class="meta">log4j.appender.LOGFILE.layout.ConversionPattern</span>=<span class="string">-%p-%d&#123;yyyy/MM/dd HH:mm:ss,SSS&#125;-%l-%L-%m%n</span></span><br></pre></td></tr></table></figure>
 
 <p>UserMapper.xml</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.runaccpeted.mapper"</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -578,19 +578,19 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    User us = <span class="keyword">new</span> User();</span><br><span class="line">    us.setUsername(<span class="string">"abc"</span>);</span><br><span class="line">    us.setPassword(<span class="string">"1234"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> count =session.insert(<span class="string">"ins"</span>, us);</span><br><span class="line">    session.commit();</span><br><span class="line">    System.out.println(count);</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">  <span class="comment">//实现事务回滚</span></span><br><span class="line">  session.rollback();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>log4j:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Preparing: insert into user values(default,?,?) </span><br><span class="line">Parameters: abc(String), 1234(String)</span><br><span class="line">Updates: 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Preparing</span>: <span class="string">insert into user values(default,?,?) </span></span><br><span class="line"><span class="attr">Parameters</span>: <span class="string">abc(String), 1234(String)</span></span><br><span class="line"><span class="attr">Updates</span>: <span class="string">1</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="修改">8. 修改</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"update"</span> <span class="attr">parameterType</span>=<span class="string">"User"</span>&gt;</span></span><br><span class="line">		update user set username=#&#123;username&#125; where id=#&#123;id&#125;	</span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">User user = <span class="keyword">new</span> User();</span><br><span class="line">user.setUsername(<span class="string">"abc"</span>);</span><br><span class="line">user.setId(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">session.update(<span class="string">"update"</span>, user);</span><br><span class="line">session.commit();</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Preparing: update user set username=? where id=? </span><br><span class="line">Parameters: abc(String), 1(Integer)</span><br><span class="line">Updates: 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Preparing</span>: <span class="string">update user set username=? where id=? </span></span><br><span class="line"><span class="attr">Parameters</span>: <span class="string">abc(String), 1(Integer)</span></span><br><span class="line"><span class="attr">Updates</span>: <span class="string">1</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="删除">9. 删除</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"delete"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span>&gt;</span></span><br><span class="line">		delete from user where id=#&#123;0&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session.delete(<span class="string">"delete"</span>,<span class="number">6</span>);</span><br><span class="line">session.commit();</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Preparing: delete from user where id=? </span><br><span class="line">Parameters: 6(Integer)</span><br><span class="line">Updates: 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Preparing</span>: <span class="string">delete from user where id=? </span></span><br><span class="line"><span class="attr">Parameters</span>: <span class="string">6(Integer)</span></span><br><span class="line"><span class="attr">Updates</span>: <span class="string">1</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="getMapper-class">10. getMapper(class)</h1><p>代理模式  mybatis.xml 下添加package属性</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"com.runaccpeted.mapper"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -724,7 +724,7 @@
 
 <h3 id="结果">13.2.3. 结果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;User&gt; users=mapper.selWithT();</span><br><span class="line"><span class="keyword">for</span> (User user : users) &#123;</span><br><span class="line">  System.out.println(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/05/MyBatis学习/result.png" alt></p>
+<p><img src="/2019/09/05/MyBatis学习/result.png" alt></p>
 <h3 id="左外连接">13.2.4. 左外连接</h3><p>结果一致</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selT"</span> <span class="attr">resultType</span>=<span class="string">"User"</span>&gt;</span></span><br><span class="line">		select t.id `teacher.id`,t.tname `teacher.tname`,u.id id,username,password,tId </span><br><span class="line">		from user u left join teacher t on u.tId=t.id;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -1134,13 +1134,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">486k</span>
+    <span title="站点总字数">454k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">12:37</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

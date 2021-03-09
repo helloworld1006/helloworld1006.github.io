@@ -89,12 +89,12 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="PAT 线上测试赛真题（2020-05-01）史上首场 PAT 线上比赛，17分钟出现第一个满分！你能比他快吗？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="/02/PAT线上测试赛真题/0503.jpg">
+<meta property="og:image" content="/2020/05/02/PAT线上测试赛真题/0503.jpg">
 <meta property="og:updated_time" content="2021-03-01T13:43:18.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PAT线上测试赛真题">
 <meta name="twitter:description" content="PAT 线上测试赛真题（2020-05-01）史上首场 PAT 线上比赛，17分钟出现第一个满分！你能比他快吗？">
-<meta name="twitter:image" content="/02/PAT线上测试赛真题/0503.jpg">
+<meta name="twitter:image" content="/2020/05/02/PAT线上测试赛真题/0503.jpg">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="/2020/05/02/PAT线上测试赛真题/">
 
@@ -449,7 +449,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.7k</span>
+              <span>1.5k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -512,7 +512,7 @@
 
 <h2 id="代码-1">2.1. 代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; exist;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> a;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">		exist[a]++;</span><br><span class="line">		<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span> (a == <span class="number">1</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			cnt++;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">do</span>&#123;</span><br><span class="line">				ans+=<span class="built_in">pow</span>((a%<span class="number">10</span>),<span class="number">3</span>);</span><br><span class="line">				a/=<span class="number">10</span>;</span><br><span class="line">			&#125;<span class="keyword">while</span>(a!=<span class="number">0</span>);</span><br><span class="line">			a = ans;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (exist[ans]&gt;<span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				flag = ans;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			exist[ans]++;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">		<span class="keyword">if</span> (flag &gt;<span class="number">0</span> )</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, flag);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,cnt);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="垃圾分类-20分">3. 垃圾分类 (20分)</h1><p>[<img src="/02/PAT线上测试赛真题/0503.jpg" alt="ljfl.jpg"></p>
+<h1 id="垃圾分类-20分">3. 垃圾分类 (20分)</h1><p>[<img src="/2020/05/02/PAT线上测试赛真题/0503.jpg" alt="ljfl.jpg"></p>
 <p>据香港《南华早报》2019年7月15日文章，上海严格的垃圾分类新规令不少居民抓狂。这催生出大量帮助找出正确分类答案的App和小程序。目前仅微信上就至少有280种与垃圾处理有关的App，在苹果应用商店也达130种。支付宝表示，已有60多家独立App开发商申请为该平台提供类似服务。</p>
 <p>本题就请你现场实现一个简单的垃圾分类小助手。</p>
 <p><strong>输入格式：</strong></p>
@@ -873,13 +873,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">486k</span>
+    <span title="站点总字数">454k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">12:37</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

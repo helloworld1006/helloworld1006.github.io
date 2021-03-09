@@ -89,12 +89,12 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="阿里云oss vue">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="/25/在线教育网站搭建四讲师头像上传实现/response.png">
+<meta property="og:image" content="/2019/09/25/在线教育网站搭建四讲师头像上传实现/response.png">
 <meta property="og:updated_time" content="2021-03-01T13:57:12.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(四)在线教育网站搭建-讲师头像上传实现">
 <meta name="twitter:description" content="阿里云oss vue">
-<meta name="twitter:image" content="/25/在线教育网站搭建四讲师头像上传实现/response.png">
+<meta name="twitter:image" content="/2019/09/25/在线教育网站搭建四讲师头像上传实现/response.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="/2019/09/25/在线教育网站搭建四讲师头像上传实现/">
 
@@ -456,7 +456,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>637</span>
+              <span>647</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -485,7 +485,7 @@
 
 <h1 id="Maven依赖-oss">1. Maven依赖-oss</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.aliyun.oss<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aliyun-sdk-oss<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="将AccessKey写于application-properties">2. 将AccessKey写于application.properties</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#阿里云oss</span><br><span class="line">aliyun.oss.file.endpoint =</span><br><span class="line">aliyun.oss.file.accessKeyId = </span><br><span class="line">aliyun.oss.file.accessKeySecret = </span><br><span class="line">aliyun.oss.file.bucketName = </span><br><span class="line">aliyun.oss.file.filehost=</span><br></pre></td></tr></table></figure>
+<h1 id="将AccessKey写于application-properties">2. 将AccessKey写于application.properties</h1><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#阿里云oss</span></span><br><span class="line"><span class="meta">aliyun.oss.file.endpoint</span> =<span class="string"></span></span><br><span class="line"><span class="meta">aliyun.oss.file.accessKeyId</span> = <span class="string"></span></span><br><span class="line"><span class="meta">aliyun.oss.file.accessKeySecret</span> = <span class="string"></span></span><br><span class="line"><span class="meta">aliyun.oss.file.bucketName</span> = <span class="string"></span></span><br><span class="line"><span class="meta">aliyun.oss.file.filehost</span>=<span class="string"></span></span><br></pre></td></tr></table></figure>
 
 <h1 id="ConfigurationProperties配置">3. @ConfigurationProperties配置</h1><h2 id="Maven依赖">3.1. Maven依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -502,7 +502,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">package</span> com.online.edu.eduservice.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.online.edu.common.R;</span><br><span class="line"><span class="keyword">import</span> com.online.edu.eduservice.service.EduTeacherService;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.Api;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiOperation;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Api</span>(<span class="string">"阿里云文件管理"</span>)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/eduservice/edu-teacher"</span>)</span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UploadController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    EduTeacherService eduTeacherService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value = <span class="string">"文件上传"</span>)</span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/upload"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">upload</span><span class="params">(@ApiParam(name = <span class="string">"file"</span>, value = <span class="string">"文件"</span>, required = <span class="keyword">true</span>)</span></span></span><br><span class="line"><span class="function">                        @<span class="title">RequestParam</span><span class="params">(<span class="string">"file"</span>)</span> MultipartFile file) </span>&#123;</span><br><span class="line">        String path =eduTeacherService.fileUpload(file);</span><br><span class="line">        <span class="keyword">if</span>(path!= <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> R.ok().data(<span class="string">"path"</span>, path);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> R.error().message(<span class="string">"文件上传失败"</span>).code(<span class="number">21004</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="测试上传文件">4.4. 测试上传文件</h2><p><a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html</a></p>
-<p><img src="/25/在线教育网站搭建四讲师头像上传实现/response.png" alt></p>
+<p><img src="/2019/09/25/在线教育网站搭建四讲师头像上传实现/response.png" alt></p>
 <h1 id="头像上传-前端">5. 头像上传-前端</h1><h2 id="html部分">5.1. html部分</h2><p><a href="https://www.easyicon.net/iconsearch/默认用户头像/1/?m=yes&f=_all&s=addtime_DESC" target="_blank" rel="noopener">图标下载</a></p>
 <p>选取默认头像图标，就放在view/edu/teacher/文件夹下</p>
 <p>​    <code>&lt;img src=&quot;./back.png&quot;&gt;</code> 显示默认图片</p>
@@ -866,13 +866,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">486k</span>
+    <span title="站点总字数">454k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">12:37</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

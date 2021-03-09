@@ -89,12 +89,12 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="Apache POI是Apache提供的开放源码函式库，提供API给java对Microsoft Office格式文档读写">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="/25/POI读写Excel实现/poi.png">
+<meta property="og:image" content="/2019/09/25/POI读写Excel实现/poi.png">
 <meta property="og:updated_time" content="2021-03-01T13:02:16.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="POI读写Excel实现">
 <meta name="twitter:description" content="Apache POI是Apache提供的开放源码函式库，提供API给java对Microsoft Office格式文档读写">
-<meta name="twitter:image" content="/25/POI读写Excel实现/poi.png">
+<meta name="twitter:image" content="/2019/09/25/POI读写Excel实现/poi.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="/2019/09/25/POI读写Excel实现/">
 
@@ -456,7 +456,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>883</span>
+              <span>878</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -496,7 +496,7 @@
 <h1 id="测试-写操作">3. 测试-写操作</h1><p>workbook - sheet - row - cell</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.poi.hssf.usermodel.HSSFWorkbook;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.ss.usermodel.Cell;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.ss.usermodel.Row;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.ss.usermodel.Sheet;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.ss.usermodel.Workbook;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//创建workbook -xls</span></span><br><span class="line">  Workbook workbook = <span class="keyword">new</span> HSSFWorkbook();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//根据workbook创建sheet</span></span><br><span class="line">  Sheet sheet = workbook.createSheet(<span class="string">"会员列表"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//根据sheet创建row - 第0行</span></span><br><span class="line">  Row row = sheet.createRow(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//根据row创建cell - 第0列</span></span><br><span class="line">  row.createCell(<span class="number">0</span>).setCellValue(<span class="string">"test1"</span>);</span><br><span class="line">  <span class="comment">//根据row创建cell - 第1列</span></span><br><span class="line">  row.createCell(<span class="number">1</span>).setCellValue(<span class="string">"test2"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//项目根路径</span></span><br><span class="line">  String path = System.getProperty(<span class="string">"user.dir"</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">      OutputStream outputStream = <span class="keyword">new</span> FileOutputStream(path+<span class="string">"/src/main/resources/test.xls"</span>);</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//输出</span></span><br><span class="line">      workbook.write(outputStream);</span><br><span class="line"></span><br><span class="line">      outputStream.close();</span><br><span class="line">      System.out.println(<span class="string">"文件生成成功"</span>);</span><br><span class="line">    </span><br><span class="line">  &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">  &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/25/POI读写Excel实现/poi.png" alt></p>
+<p><img src="/2019/09/25/POI读写Excel实现/poi.png" alt></p>
 <h1 id="测试-读操作">4. 测试-读操作</h1><p>workbook - sheet - row - cell</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取文件输入流</span></span><br><span class="line">    String path = System.getProperty(<span class="string">"user.dir"</span>);</span><br><span class="line">    InputStream inputStream = <span class="keyword">new</span> FileInputStream(path+<span class="string">"/src/main/resources/test.xls"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//传递输入流</span></span><br><span class="line">    Workbook workbook = <span class="keyword">new</span> HSSFWorkbook(inputStream);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//根据workboot获取sheet</span></span><br><span class="line">   Sheet sheet = workbook.getSheetAt(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">   <span class="comment">//根据sheet获取cell - 第0行</span></span><br><span class="line">    Row row = sheet.getRow(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//第0列</span></span><br><span class="line">    Cell cell = row.getCell(<span class="number">0</span>);</span><br><span class="line">    String value = cell.getStringCellValue();</span><br><span class="line"></span><br><span class="line">    System.out.println(value);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -862,13 +862,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">486k</span>
+    <span title="站点总字数">454k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">12:37</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

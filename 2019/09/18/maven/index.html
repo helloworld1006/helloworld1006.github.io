@@ -89,24 +89,24 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="Maven学习">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="/18/maven/internet.png">
-<meta property="og:image" content="/18/maven/1.png">
-<meta property="og:image" content="/18/maven/2.png">
-<meta property="og:image" content="/18/maven/newmaven.png">
-<meta property="og:image" content="/18/maven/mavenproject.png">
-<meta property="og:image" content="/18/maven/project.png">
-<meta property="og:image" content="/18/maven/guan.png">
-<meta property="og:image" content="/18/maven/p-c.png">
-<meta property="og:image" content="/18/maven/war.png">
-<meta property="og:image" content="/18/maven/build.png">
-<meta property="og:image" content="/18/maven/deploy.png">
-<meta property="og:image" content="/18/maven/webwar.png">
-<meta property="og:image" content="/18/maven/result.png">
+<meta property="og:image" content="/2019/09/18/maven/internet.png">
+<meta property="og:image" content="/2019/09/18/maven/1.png">
+<meta property="og:image" content="/2019/09/18/maven/2.png">
+<meta property="og:image" content="/2019/09/18/maven/newmaven.png">
+<meta property="og:image" content="/2019/09/18/maven/mavenproject.png">
+<meta property="og:image" content="/2019/09/18/maven/project.png">
+<meta property="og:image" content="/2019/09/18/maven/guan.png">
+<meta property="og:image" content="/2019/09/18/maven/p-c.png">
+<meta property="og:image" content="/2019/09/18/maven/war.png">
+<meta property="og:image" content="/2019/09/18/maven/build.png">
+<meta property="og:image" content="/2019/09/18/maven/deploy.png">
+<meta property="og:image" content="/2019/09/18/maven/webwar.png">
+<meta property="og:image" content="/2019/09/18/maven/result.png">
 <meta property="og:updated_time" content="2021-03-01T13:46:29.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven">
 <meta name="twitter:description" content="Maven学习">
-<meta name="twitter:image" content="/18/maven/internet.png">
+<meta name="twitter:image" content="/2019/09/18/maven/internet.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="/2019/09/18/maven/">
 
@@ -525,23 +525,23 @@
 </li>
 </ul>
 <h2 id="配置Maven">3.2. 配置Maven</h2><p><a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></p>
-<p><img src="/18/maven/internet.png" alt></p>
+<p><img src="/2019/09/18/maven/internet.png" alt></p>
 <p>解压文件</p>
 <p>eclipse中装配maven</p>
 <p>打开偏好设置，添加下载的maven 点击Apply</p>
-<p><img src="/18/maven/1.png" alt></p>
+<p><img src="/2019/09/18/maven/1.png" alt></p>
 <p>配置settings.xml</p>
 <p>在解压的maven文件夹下新建repository文件夹，用于承接中央仓库中下载的内容</p>
-<p><img src="/18/maven/2.png" alt></p>
+<p><img src="/2019/09/18/maven/2.png" alt></p>
 <p>点击open File</p>
 <p>配置settings.xml</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 本地仓库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>/Users/Learning/Resource/workspace/myEclipse/apache-maven-3.6.2/repository<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 镜像 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- jdk --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>jdk-1.8<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">jdk</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.compilerVersion</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.compilerVersion</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="新建Maven项目">3.3. 新建Maven项目</h2><p><img src="/18/maven/newmaven.png" alt></p>
+<h2 id="新建Maven项目">3.3. 新建Maven项目</h2><p><img src="/2019/09/18/maven/newmaven.png" alt></p>
 <p>创造一个简单的maven项目</p>
-<p><img src="/18/maven/mavenproject.png" alt></p>
+<p><img src="/2019/09/18/maven/mavenproject.png" alt></p>
 <p>最终项目列表</p>
-<p><img src="/18/maven/project.png" alt></p>
+<p><img src="/2019/09/18/maven/project.png" alt></p>
 <p>src/main/java 真实目录的快捷目录，java代码</p>
 <p>src/main/resources 快捷目录 存放配置文件，最终编译后放到classes文件夹中</p>
 <p>src/test/java 测试java代码</p>
@@ -554,7 +554,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.runaccpeted<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>Test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>在Test2项目下自动关联Test</p>
-<p><img src="/18/maven/guan.png" alt></p>
+<p><img src="/2019/09/18/maven/guan.png" alt></p>
 <p>调用, 还可以查看源码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;		</span><br><span class="line">	 test t = <span class="keyword">new</span> test();</span><br><span class="line">	 t.out();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -563,7 +563,7 @@
 <p>子项目为jar或war ，子项目中多了parent标签，出现警告子项目的groupId和version可以和父项目相同</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.runaccpeted<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>Parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="聚合">3.4.3. 聚合</h3><p><img src="/18/maven/p-c.png" alt></p>
+<h3 id="聚合">3.4.3. 聚合</h3><p><img src="/2019/09/18/maven/p-c.png" alt></p>
 <p>前提是继承关系，父项目包含子项目</p>
 <p>子项目类型必须是Maven Module，但仍然是一个独立的项目</p>
 <p>父项目中多了modules标签</p>
@@ -580,7 +580,7 @@
 
 <h1 id="创建war项目">4. 创建war项目</h1><p>maven项目类型为war</p>
 <p>在main/webapp 下新建META-INF和WEB-INF,web.xml,index.jsp</p>
-<p><img src="/18/maven/war.png" alt></p>
+<p><img src="/2019/09/18/maven/war.png" alt></p>
 <p>在pom.xml中添加三个jar</p>
 <p>&lt; scope&gt;provided&lt;/ scope&gt; 有效范围 provided表示编译期生效，不会打包发布到tomcat</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet.jsp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jsp-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -591,7 +591,7 @@
 <p>启动项目</p>
 <p>Run As –&gt; Maven build</p>
 <p>Goals处填写 clean tomcat7:run</p>
-<p><img src="/18/maven/build.png" alt></p>
+<p><img src="/2019/09/18/maven/build.png" alt></p>
 <p>tomcat部署位置</p>
 <p>Web/src/main/webapp/</p>
 <h1 id="编译java文件夹的xml文件">5. 编译java文件夹的xml文件</h1><p>maven默认只把src/main/resources里面的非java文件进行编译到classes中</p>
@@ -607,11 +607,11 @@
 <p>部署</p>
 <p>首次：tomcat7:deploy</p>
 <p>以后：tomcat7:redeploy</p>
-<p><img src="/18/maven/deploy.png" alt></p>
+<p><img src="/2019/09/18/maven/deploy.png" alt></p>
 <p>查看部署</p>
-<p><img src="/18/maven/webwar.png" alt></p>
+<p><img src="/2019/09/18/maven/webwar.png" alt></p>
 <p>访问网址<a href="http://192.168.0.103:8080/web/demo" target="_blank" rel="noopener">http://192.168.0.103:8080/web/demo</a></p>
-<p><img src="/18/maven/result.png" alt></p>
+<p><img src="/2019/09/18/maven/result.png" alt></p>
 
     </div>
     
@@ -957,13 +957,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">486k</span>
+    <span title="站点总字数">454k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">12:37</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

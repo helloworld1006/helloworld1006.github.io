@@ -89,12 +89,12 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="构建Spring Web整个过程的解析">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="/21/Spring实战-SpringWeb/request.jpg">
+<meta property="og:image" content="/2019/09/21/Spring实战-SpringWeb/request.jpg">
 <meta property="og:updated_time" content="2021-03-01T13:40:58.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring实战-SpringWeb">
 <meta name="twitter:description" content="构建Spring Web整个过程的解析">
-<meta name="twitter:image" content="/21/Spring实战-SpringWeb/request.jpg">
+<meta name="twitter:image" content="/2019/09/21/Spring实战-SpringWeb/request.jpg">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="/2019/09/21/Spring实战-SpringWeb/">
 
@@ -476,7 +476,7 @@
 
 <a id="more"></a>
 
-<h1 id="请求过程">1. 请求过程</h1><img src="/21/Spring实战-SpringWeb/request.jpg">
+<h1 id="请求过程">1. 请求过程</h1><img src="/2019/09/21/Spring实战-SpringWeb/request.jpg">
 
 
 
@@ -684,15 +684,15 @@
 <p>添加样式</p>
 <p>*表示所有属性 </p>
 <p>element 表示错误渲染在div上</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">sf:errors</span> <span class="attr">path</span>=<span class="string">"*"</span> <span class="attr">element</span>=<span class="string">"div"</span> <span class="attr">cssClass</span>=<span class="string">"errors"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  div.errors&#123;</span><br><span class="line">    font-color:#f00;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">sf:errors</span> <span class="attr">path</span>=<span class="string">"*"</span> <span class="attr">element</span>=<span class="string">"div"</span> <span class="attr">cssClass</span>=<span class="string">"errors"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span><span class="selector-class">.errors</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">font-color</span>:<span class="selector-id">#f00</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>错误设置在每个属性上</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">sf:label</span> <span class="attr">path</span>=<span class="string">"name"</span> <span class="attr">cssErrorClass</span>=<span class="string">"error"</span>&gt;</span><span class="tag">&lt;/<span class="name">sf:label</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span> <span class="attr">class</span>=<span class="string">"error"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  label.error&#123;</span><br><span class="line">    color:red;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">sf:label</span> <span class="attr">path</span>=<span class="string">"name"</span> <span class="attr">cssErrorClass</span>=<span class="string">"error"</span>&gt;</span><span class="tag">&lt;/<span class="name">sf:label</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span> <span class="attr">class</span>=<span class="string">"error"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">label</span><span class="selector-class">.error</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">color</span><span class="selector-pseudo">:red</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="错误信息展示">5.2. 错误信息展示</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@NotNull</span></span><br><span class="line"><span class="meta">@Size</span>(min=<span class="number">5</span>,max=<span class="number">23</span>,message=<span class="string">"&#123;name.size&#125;"</span>)</span><br><span class="line"><span class="keyword">private</span> String name;</span><br></pre></td></tr></table></figure>
 
 <p>在根目录下创建 ValidationMessages.properties</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name.size=Last name must be between &#123;min&#125; and &#123;max&#125; characters long.</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">name.size</span>=<span class="string">Last name must be between &#123;min&#125; and &#123;max&#125; characters long.</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="spring通用标签库">6. spring通用标签库</h1><p><strong>&lt;s:message /&gt;</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">taglib</span> <span class="attr">uri</span>=<span class="string">"http://www.springframework.org/tags"</span> <span class="attr">prefix</span>=<span class="string">"s"</span>%&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">&lt;!--根据给定的编码获取信息，进行渲染行为 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">s:message</span> <span class="attr">code</span>=<span class="string">"login.welcome"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
@@ -701,7 +701,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.context.MessageSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ReloadableResourceBundleMessageSource;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> MessageSource <span class="title">messageSource</span><span class="params">()</span></span>&#123;</span><br><span class="line">		ReloadableResourceBundleMessageSource messageSource = <span class="keyword">new</span> ReloadableResourceBundleMessageSource();</span><br><span class="line">    <span class="comment">//服务器文件系统目录下查找信息基于“messages”的文件名 messagesXXX.properties</span></span><br><span class="line">		messageSource.setBasename(<span class="string">"file:///etc/messages"</span>); </span><br><span class="line">    messageSource.setCacheSeconds(<span class="number">10</span>);</span><br><span class="line">		<span class="keyword">return</span> messageSource;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
 <p>messages.properites</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">login.welcome=Welcome!</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">login.welcome</span>=<span class="string">Welcome!</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>&lt;s:url /&gt;</strong></p>
 <p>htmlEscape=”true” 展现 url内容到web页面上</p>
@@ -1055,13 +1055,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">486k</span>
+    <span title="站点总字数">454k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">12:37</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
