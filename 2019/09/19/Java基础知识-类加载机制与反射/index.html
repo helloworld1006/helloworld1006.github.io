@@ -81,18 +81,22 @@
     })();
     */
 </script>
-  <meta name="description" content="实现自定义类加载器，动态创建java对象，反射">
+  <meta name="description" content="类加载器分类，动态创建java对象，jvm结构，垃圾回收机制，优化">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基本功-类加载机制与内存分析">
 <meta property="og:url" content="/2019/09/19/Java基础知识-类加载机制与反射/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="实现自定义类加载器，动态创建java对象，反射">
+<meta property="og:description" content="类加载器分类，动态创建java对象，jvm结构，垃圾回收机制，优化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-01T13:52:43.787Z">
+<meta property="og:image" content="/2019/09/19/Java基础知识-类加载机制与反射/jvm.jpeg">
+<meta property="og:image" content="/2019/09/19/Java基础知识-类加载机制与反射/shoujiqi.jpeg">
+<meta property="og:image" content="/2019/09/19/Java基础知识-类加载机制与反射/jvisualvm.png">
+<meta property="og:updated_time" content="2021-03-27T06:50:53.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基本功-类加载机制与内存分析">
-<meta name="twitter:description" content="实现自定义类加载器，动态创建java对象，反射">
+<meta name="twitter:description" content="类加载器分类，动态创建java对象，jvm结构，垃圾回收机制，优化">
+<meta name="twitter:image" content="/2019/09/19/Java基础知识-类加载机制与反射/jvm.jpeg">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="/2019/09/19/Java基础知识-类加载机制与反射/">
 
@@ -386,7 +390,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-01 21:52:43" itemprop="dateModified" datetime="2021-03-01T21:52:43+08:00">2021-03-01</time>
+                <time title="修改时间：2021-03-27 14:50:53" itemprop="dateModified" datetime="2021-03-27T14:50:53+08:00">2021-03-27</time>
               </span>
             
           
@@ -447,7 +451,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.4k</span>
+              <span>4.8k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -457,7 +461,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>2 分钟</span>
+              <span>8 分钟</span>
             </span>
           
 
@@ -470,7 +474,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote class="blockquote-center">实现自定义类加载器，动态创建java对象，反射</blockquote>
+        <blockquote class="blockquote-center">类加载器分类，动态创建java对象，jvm结构，垃圾回收机制，优化</blockquote>
 
 <a id="more"></a>
 
@@ -505,7 +509,8 @@
 <p>虚拟机启动，java Hello，一定会初始化Hello类，启动main方法所在的类</p>
 <p>初始化类先初始化父类</p>
 </blockquote>
-<h3 id="类被动引用-不会发生类初始化">2.3.2. 类被动引用-不会发生类初始化</h3><blockquote>
+<p>###类被动引用-不会发生类初始化</p>
+<blockquote>
 <p>访问静态域时，只有真正声明这个域的类才会被初始化</p>
 <p>子类引用父类的静态变量，不会导致子类的初始化</p>
 <p>通过数组定义类引用，不会触发类的初始化</p>
@@ -524,7 +529,7 @@
 <li>子类构造函数</li>
 </ol>
 <h1 id="类加载器">4. 类加载器</h1><p>类用 【包名+类名+类加载器】 作为唯一标识</p>
-<h2 id="Bootstrap-ClassLoader-根类加载器">4.1.  Bootstrap ClassLoader 根类加载器</h2><blockquote>
+<h2 id="Bootstrap-ClassLoader-根类加载器">4.1. Bootstrap ClassLoader 根类加载器</h2><blockquote>
 <p>加载java核心类。由jvm自身实现。String ，System这些核心类库在/jre/lib/rt.jar中</p>
 <p>并不继承java.lang.ClassLoader</p>
 <p>用原生代码C++实现</p>
@@ -553,26 +558,77 @@
 <p>缓存机制</p>
 </blockquote>
 <p>保证所有加载过的class都被缓存，当缓存区中不存在class对象时，系统才读取class二进制文件，转换成class对象，存入缓存区。</p>
-<h2 id="自定义类加载">4.6. 自定义类加载</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">extends ClassLoader&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException&#123;</span><br><span class="line">  &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="自定义类加载">4.6. 自定义类加载</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">extends ClassLoader&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<p>修改当前线程的类加载器</p>
+<p><code>Thread.currentThread().setContextClassLoader(myclass);</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSystem</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    String path = System.getProperty(<span class="string">"user.dir"</span>)+<span class="string">"/src/test/java/"</span>;</span><br><span class="line">    MyClass myclass = <span class="keyword">new</span> MyClass(path);</span><br><span class="line">    Class&lt;?&gt; c = myclass.loadClass(<span class="string">"com.runaccepted.online.admin.SimpleTests"</span>);</span><br><span class="line">    <span class="comment">//sun.misc.Launcher$AppClassLoader@18b4aac2</span></span><br><span class="line">    System.out.println(c.getClassLoader());</span><br><span class="line">  </span><br><span class="line">  	Thread.currentThread().setContextClassLoader(myclass);</span><br><span class="line">    <span class="comment">//com.runaccepted.online.admin.MyClass@49e202ad</span></span><br><span class="line">    System.out.println(Thread.currentThread().getContextClassLoader());</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> <span class="keyword">extends</span> <span class="title">ClassLoader</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">    String rootDir;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyClass</span><span class="params">(String rootDir)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.rootDir = rootDir;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        Class&lt;?&gt; c = findLoadedClass(name);</span><br><span class="line">        <span class="keyword">if</span> (c!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> c;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//双亲委派机制</span></span><br><span class="line">            ClassLoader parent = <span class="keyword">this</span>.getParent();</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                c = parent.loadClass(name);</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (c!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> c;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">byte</span>[] data = getData(name);</span><br><span class="line">                <span class="keyword">if</span>(data==<span class="keyword">null</span>)&#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    c = defineClass(name,data,<span class="number">0</span>,data.length);</span><br><span class="line">                    <span class="keyword">return</span> c;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] getData(String name)&#123;</span><br><span class="line">        <span class="comment">//com.runaccepted.online.User -&gt; com/runaccepted/online/User.class</span></span><br><span class="line">        String path = rootDir + <span class="string">"/"</span>+ name.replace(<span class="string">"."</span>,<span class="string">"/"</span>)+<span class="string">".class"</span>;</span><br><span class="line">        ByteArrayOutputStream out = <span class="keyword">null</span>;</span><br><span class="line">        InputStream in = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            in = <span class="keyword">new</span> FileInputStream(path);</span><br><span class="line">            out = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">            <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>((len=in.read(buffer))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                out.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> out.toByteArray();</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(out!=<span class="keyword">null</span>) &#123;</span><br><span class="line">                    out.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(in!=<span class="keyword">null</span>) &#123;</span><br><span class="line">                    in.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>编译java文件方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">compile</span><span class="params">(String javaFile)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">  Process p = Runtime.getRuntime().exec(<span class="string">"javac "</span>+javaFile);</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    p.waitFor();</span><br><span class="line">  &#125;<span class="keyword">catch</span>(InterruptedException e)&#123;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> ret = p.exitValue();</span><br><span class="line">  <span class="keyword">return</span> ret==<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="程序执行内存分析">5. 程序执行内存分析</h1><p>main是程序执行的入口</p>
-<h2 id="栈">5.1. 栈</h2><p>方法执行的内存模型，方法被调用时会为方法开辟栈帧</p>
-<p>存放局部变量</p>
-<p>由系统自动分配，拥有连续的内存空间</p>
-<h2 id="堆">5.2. 堆</h2><p>存储对象</p>
-<p>被所有线程共享</p>
-<p>拥有不连续的空间，分配灵活</p>
-<h2 id="方法区">5.3. 方法区</h2><p>从属于堆</p>
-<p>存放类相关信息：</p>
+<h1 id="JVM结构">5. JVM结构</h1><img src="/2019/09/19/Java基础知识-类加载机制与反射/jvm.jpeg" style="zoom:50%;">
+
+<h2 id="类加载子系统">5.1. 类加载子系统</h2><p>负责从文件系统或者网络中加载class信息，加载的类信息存放于一块称为方法区的内存空间中。</p>
+<h2 id="方法区">5.2. 方法区</h2><p>从属于堆</p>
+<p>存放类相关信息和运行时常量池信息：</p>
 <ol>
 <li>代码</li>
 <li>静态变量</li>
 <li>静态方法</li>
 <li>字符串常量</li>
 </ol>
+<h2 id="堆">5.3. 堆</h2><p>java堆在虚拟机启动时建立，它是java程序最主要的内存工作区域。几乎所有的java对象实例都存放在java堆中。堆空间是所有线程共享的，这是一块与java应用密切相关的内存空间。</p>
+<p>拥有不连续的空间，分配灵活</p>
+<h3 id="堆内存为什么分代？">5.3.1. 堆内存为什么分代？</h3><p>程序所有对象实例都存放在堆中，堆作为垃圾回收最频繁的一块区域，给堆分代是为了提高对象内存分配和垃圾回收的效率。避免了所有新创建的对象和生命周期很长的对象在每次回收扫描中都必须被一同遍历，浪费时间。新创建的对象分配在新生代，经过多次回收算法扫描后依旧存活的存入老年代，静态属性，类信息等存放在永久代中，新生代存活时间短，会被频繁gc垃圾回收，老年代则频率相对较低，永久代一般就不进行垃圾回收。</p>
+<h3 id="内存分代划分">5.3.2. 内存分代划分</h3><p>新生代，老年代，永久代。永久代是HotSpot虚拟机特有的概念，采用永久代的方法实现方法区。在jdk1.7中HotSpot已经开始去永久代，把字符串常量池移出。永久代中存放常量，类信息，静态变量等数据。新生代和老年代是垃圾回收的主要区域。</p>
+<h3 id="新生代">5.3.3. 新生代</h3><p>新生成的对象优先存放在新生代中，新生代对象存活率很低，进行一次垃圾收集会回收70%–95%的空间。</p>
+<p>HotSpot将新生代划分为三块，一块为较大的Eden空间和两块较小的Survivor空间from和to，比例为8:1:1.划分的目的为HotSpot采用复制算法来回收新生代，设置这个比例是为了充分利用内存空间，减少浪费。新生代的对象在Eden区分配(大对象直接进入老年代)，当Eden区没有足够的空间进行分配时，虚拟机将发起一次MInor GC。GC开始时，对象只存于Eden和From Survivor区，To Survivor区是空的。GC进行时，Eden区中所有存活的对象都会被复制到To Survivor区，在From Survivor区中，仍然存活的对象每熬过一轮回收年龄+1(对象年龄存储在header中)，最后会根据它们的年龄值决定去向，年龄值达到一定的阀值会被移入老年代，没有达到阀值的被复制到To Survivor区中。接着清空Eden区和From Survivor区，新生代中存活的对象都在To Survivor区中。接着，From和To区互换角色，即To Survivor区在一轮GC后是空的。GC时当To Survivor区没有足够空间存放上一次新生代收集下来的存活对象时，需要依赖老年代进行分配担保，将这些对象存放在老年代中。</p>
+<h3 id="老年代">5.3.4. 老年代</h3><p>在新生代中经历多次GC后仍然存活的对象进入老年代。老年代的生命周期较长，存活率较高，回收速度较慢。</p>
+<h3 id="永久代">5.3.5. 永久代</h3><p>永久代存储类信息，常量，静态变量，即时编译器编译后的代码等数据，对该区域，java虚拟机规范指出可以不进行垃圾收集，一般不就不进行垃圾回收。</p>
+<h2 id="直接内存">5.4. 直接内存</h2><p>java的NIO库允许java程序使用直接内存。直接内存是在java堆外的。直接向系统申请内存空间。通常访问直接内存的速度优于堆。读写频繁的场合可能会考虑使用直接内存。直接内存位于堆外，故它的大小不受Xmx指定，但系统内存有限，堆和直接内存的总和依然受限于操作系统能给的最大内存。</p>
+<h2 id="垃圾回收机制">5.5. 垃圾回收机制</h2><p>垃圾回收机制可对方法区，堆和直接内存进行回收。其中，主要是java堆。和c/c++不同，java中所有的对象空间释放都是隐式的，java中没有所谓的free()/delete()来指定释放内存区域。垃圾回收机制在后台默默工作，标识并释放垃圾对象，完成包括java堆，方法区，直接内存的全自动管理。</p>
+<h2 id="Java栈">5.6. Java栈</h2><p>方法执行的内存模型，方法被调用时会为方法开辟栈帧</p>
+<p>存放局部变量，方法参数</p>
+<p>由系统自动分配，拥有连续的内存空间</p>
+<h2 id="本地方法栈">5.7. 本地方法栈</h2><p>和java栈类似，java栈用于方法的调用，本地方法栈用于本地方法的调用，本地方法一般用C语言编写</p>
+<h2 id="PC">5.8. PC</h2><p>Program Counter </p>
+<p>pc寄存器是每个线程私有的空间，java虚拟机会为每一个java线程创建pc寄存器。在任意时刻，一个java线程总是在执行一个方法，这个正在被执行的方法称为当前方法。pc寄存器会指向当前方法中正在执行的指令。如果方法为本地方法，则pc=undefined。</p>
+<h2 id="执行引擎">5.9. 执行引擎</h2><p>负责执行虚拟机的字节码</p>
+<p>为了提高虚拟机执行效率，会使用即时编译技术(just in time)将方法编译成功后机器码后再执行</p>
+<h1 id="垃圾回收算法">6. 垃圾回收算法</h1><h2 id="引用计数">6.1. 引用计数</h2><p>对象有一个引用，计数+1，删除一个引用，计数-1，垃圾收集计数为0的对象。</p>
+<p>无法处理循环引用</p>
+<h2 id="复制copying">6.2. 复制copying</h2><p>把内存空间划分为两个相等的区域，每次使用一个区域，垃圾回收时，遍历当时使用的区域，把对象复制到另一个区域中。算法成本小，复制过去的对象不会有内存碎片问题，但需要两倍内存空间。</p>
+<h2 id="标记-清除mark-sweep">6.3. 标记-清除mark-sweep</h2><p>此算法执行分为两阶段。第一个阶段从引用根节点开始标记所有被引用的对象，第二阶段遍历整个堆，把未标记的对象清除。算法执行时需要暂停整个应用，同时产生内存碎片。</p>
+<h1 id="垃圾收集器">7. 垃圾收集器</h1><h2 id="Scavenge-GC">7.1. Scavenge GC</h2><p>新生代GC指发生在新生代的GC，新生代对象朝生夕死，所以Scavenge GC非常频繁，回收速度比较快。Eden空间不足以为对象分配内存时，会触发Scavenge  GC。</p>
+<h2 id="Full-GC">7.2. Full GC</h2><p>老年代GC指发生在老年代的GC，出现了Full GC一般会伴随至少一次的Minor GC(从新生代进入老年代)，比如：分配担保失败。Full GC的速度一般会比Minor GC慢10倍以上。当老年代内存不足或者显式调用System.gc()方法时，会触发Full GC。</p>
+<h1 id="分代垃圾回收器">8. 分代垃圾回收器</h1><p><img src="/2019/09/19/Java基础知识-类加载机制与反射/shoujiqi.jpeg" alt></p>
+<h2 id="Serial串行收集器">8.1. Serial串行收集器</h2><p>HotSpot运行在Client模式下的默认新生代收集器，串行收集器的特点是只用一个CPU/一条收集线程去完成GC工作，且在进行垃圾收集时必须暂停其他所有的工作线程(Stop The Word)，可以使用<code>-XX:+UseSerialGC</code>打开</p>
+<h2 id="ParNew并行收集器">8.2. ParNew并行收集器</h2><p>Serial的多线程版本，除使用多条线程进行GC外，包括Serial可用的所有控制参数，收集算法，STW，对象分配规划，回收策略等都与Serial完全一样(也是vm启用CMS收集器``-XX:+UserConcMarkSweepGC<code>的默认新生代收集器)。可用</code>-XX:parallelGCThreads=<n>`参数控制GC线程数。</n></p>
+<h2 id="Parallel-Scavenge收集器">8.3. Parallel Scavenge收集器</h2><p>与ParNew收集器类似，Parallel Scavenge也是使用复制算法，也是并行多线程收集器。但Parallel Scavenge更关注系统吞吐量。</p>
+<p>系统吞吐量=运行用户代码时间(运行用户代码时间+垃圾收集时间)</p>
+<p>停顿时间越短越适用于用户交互的程序，高吞吐量适用于后台运算而不需要太多交互的任务。</p>
+<h2 id="Serial-Old收集器">8.4. Serial Old收集器</h2><p>Serial收集器的老年代版本，单线程收集器，使用<code>标记-清理</code>算法</p>
+<h2 id="Parallel-Old收集器">8.5. Parallel Old收集器</h2><p>Parallel Old是Parallel Scavenge的老年代版本。使用多线程和“标记-整理”算法，吞吐量优先，主要与Parallel Scavenge配合在注重吞吐量及CPU资源敏感系统内使用</p>
+<h2 id="CMS收集器">8.6. CMS收集器</h2><p>Concurrent Mark Sweep收集器是一款真正意义上的并发收集器，虽然有了理论意义上表现更好的G1收集器。</p>
+<p>CMS收集器是一种获取最短回收停顿时间为目标的收集器，基于“标记-清除”算法实现，整个GC过程分为4个步骤：</p>
+<ol>
+<li><strong>初始标记</strong> CMS inital Mark 需STW</li>
+<li>并发标记 CMS concurrent mark</li>
+<li>*<em>重新标记 *</em>CMS remark 需STW</li>
+<li>并发清除 CMS concurrent sweep</li>
+</ol>
+<h2 id="java-lang-management">8.7. java.lang.management</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.management.GarbageCollectorMXBean;</span><br><span class="line"><span class="keyword">import</span> java.lang.management.ManagementFactory;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSystem</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    List&lt;GarbageCollectorMXBean&gt; list = ManagementFactory.getGarbageCollectorMXBeans();</span><br><span class="line">    <span class="keyword">for</span> (GarbageCollectorMXBean gm:list) &#123;</span><br><span class="line">        System.out.println(gm.getName());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="JVM优化">9. JVM优化</h1><h2 id="jvisualvm运行监控">9.1. jvisualvm运行监控</h2><p>/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/bin/jvisualvm</p>
+<p><img src="/2019/09/19/Java基础知识-类加载机制与反射/jvisualvm.png" alt></p>
+<h2 id="JVM参数">9.2. JVM参数</h2><p>-Xms 初始堆大小</p>
+<p>-XMx 最大堆大小</p>
+<p>-XX:NewSize=n设置年轻代大小</p>
+<p>-XX:NewRatio=n 设置年轻代和年老代的比值。如=3，表示年轻代：老年代=1:3</p>
+<p>-XX:+UseSerialGC 设置串行收集器</p>
+<p>-XX:+UseParallelGC 设置并行收集器</p>
 
     </div>
     
@@ -601,7 +657,7 @@
     <a href="/2019/09/19/Java基础知识-类加载机制与反射/" title="Java基本功-类加载机制与内存分析">/2019/09/19/Java基础知识-类加载机制与反射/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月19日 - 22:38</li>
-  <li><strong>更新时间：</strong>2021年03月01日 - 21:52</li>
+  <li><strong>更新时间：</strong>2021年03月27日 - 14:50</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -689,7 +745,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动态编译"><span class="nav-text">1. 动态编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类加载过程"><span class="nav-text">2. 类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载"><span class="nav-text">2.1. 类加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-text">2.2. 连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-text">2.3. 初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类主动引用-一定发生类初始化"><span class="nav-text">2.3.1. 类主动引用-一定发生类初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类被动引用-不会发生类初始化"><span class="nav-text">2.3.2. 类被动引用-不会发生类初始化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java初始化顺序"><span class="nav-text">3. Java初始化顺序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类加载器"><span class="nav-text">4. 类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bootstrap-ClassLoader-根类加载器"><span class="nav-text">4.1.  Bootstrap ClassLoader 根类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extension-ClassLoader-扩展类加载器"><span class="nav-text">4.2. Extension ClassLoader 扩展类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-ClassLoader-系统类加载器"><span class="nav-text">4.3. System ClassLoader 系统类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URLClassLoader类"><span class="nav-text">4.4. URLClassLoader类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载机制"><span class="nav-text">4.5. 类加载机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义类加载"><span class="nav-text">4.6. 自定义类加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序执行内存分析"><span class="nav-text">5. 程序执行内存分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#栈"><span class="nav-text">5.1. 栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-text">5.2. 堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法区"><span class="nav-text">5.3. 方法区</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动态编译"><span class="nav-text">1. 动态编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类加载过程"><span class="nav-text">2. 类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载"><span class="nav-text">2.1. 类加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-text">2.2. 连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-text">2.3. 初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类主动引用-一定发生类初始化"><span class="nav-text">2.3.1. 类主动引用-一定发生类初始化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java初始化顺序"><span class="nav-text">3. Java初始化顺序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类加载器"><span class="nav-text">4. 类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bootstrap-ClassLoader-根类加载器"><span class="nav-text">4.1. Bootstrap ClassLoader 根类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extension-ClassLoader-扩展类加载器"><span class="nav-text">4.2. Extension ClassLoader 扩展类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-ClassLoader-系统类加载器"><span class="nav-text">4.3. System ClassLoader 系统类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URLClassLoader类"><span class="nav-text">4.4. URLClassLoader类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载机制"><span class="nav-text">4.5. 类加载机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义类加载"><span class="nav-text">4.6. 自定义类加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM结构"><span class="nav-text">5. JVM结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载子系统"><span class="nav-text">5.1. 类加载子系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法区"><span class="nav-text">5.2. 方法区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-text">5.3. 堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆内存为什么分代？"><span class="nav-text">5.3.1. 堆内存为什么分代？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存分代划分"><span class="nav-text">5.3.2. 内存分代划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新生代"><span class="nav-text">5.3.3. 新生代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#老年代"><span class="nav-text">5.3.4. 老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#永久代"><span class="nav-text">5.3.5. 永久代</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接内存"><span class="nav-text">5.4. 直接内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收机制"><span class="nav-text">5.5. 垃圾回收机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java栈"><span class="nav-text">5.6. Java栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地方法栈"><span class="nav-text">5.7. 本地方法栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PC"><span class="nav-text">5.8. PC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行引擎"><span class="nav-text">5.9. 执行引擎</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾回收算法"><span class="nav-text">6. 垃圾回收算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引用计数"><span class="nav-text">6.1. 引用计数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制copying"><span class="nav-text">6.2. 复制copying</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标记-清除mark-sweep"><span class="nav-text">6.3. 标记-清除mark-sweep</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾收集器"><span class="nav-text">7. 垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scavenge-GC"><span class="nav-text">7.1. Scavenge GC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Full-GC"><span class="nav-text">7.2. Full GC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分代垃圾回收器"><span class="nav-text">8. 分代垃圾回收器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Serial串行收集器"><span class="nav-text">8.1. Serial串行收集器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ParNew并行收集器"><span class="nav-text">8.2. ParNew并行收集器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parallel-Scavenge收集器"><span class="nav-text">8.3. Parallel Scavenge收集器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Serial-Old收集器"><span class="nav-text">8.4. Serial Old收集器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parallel-Old收集器"><span class="nav-text">8.5. Parallel Old收集器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMS收集器"><span class="nav-text">8.6. CMS收集器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-lang-management"><span class="nav-text">8.7. java.lang.management</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM优化"><span class="nav-text">9. JVM优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jvisualvm运行监控"><span class="nav-text">9.1. jvisualvm运行监控</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM参数"><span class="nav-text">9.2. JVM参数</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -918,13 +974,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">455k</span>
+    <span title="站点总字数">462k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">12:38</span>
+    <span title="站点阅读时长">12:50</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

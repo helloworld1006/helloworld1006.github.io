@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="/2019/09/13/Java基础知识/a.jpg">
 <meta property="og:image" content="/2019/09/13/Java基础知识/throw.jpeg">
-<meta property="og:updated_time" content="2021-03-05T14:34:48.739Z">
+<meta property="og:updated_time" content="2021-03-15T13:48:49.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基本功-面向对象">
 <meta name="twitter:description" content="知识点：类与对象，作用域，构造函数，继承，接口，泛型，反射，日志">
@@ -389,7 +389,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-05 22:34:48" itemprop="dateModified" datetime="2021-03-05T22:34:48+08:00">2021-03-05</time>
+                <time title="修改时间：2021-03-15 21:48:49" itemprop="dateModified" datetime="2021-03-15T21:48:49+08:00">2021-03-15</time>
               </span>
             
           
@@ -606,6 +606,11 @@
 <td align="center"></td>
 </tr>
 </tbody></table>
+<p>关于protected的两个细节：</p>
+<ol>
+<li>若父类和子类在同一个包中，子类可访问父类的protected，也可以访问父类对象的protected成员</li>
+<li>若子类和父类不在同一个包中，子类可以访问父类的protected成员，不能访问父类对象的protected成员</li>
+</ol>
 <h1 id="值传递">3. 值传递</h1><p>java传参数分为基本数据类型传递，引用类型传递。都是以值传递的，传递的是值的副本。对象传递的值是指向的地址值</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">  a=<span class="number">2</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x=<span class="number">1</span>;</span><br><span class="line">  System.out.println(x); <span class="comment">//1</span></span><br><span class="line">  change(x);</span><br><span class="line">  System.out.println(x); <span class="comment">//1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -709,7 +714,7 @@
 <p>子类的构造方法中，有默认的super()，需要访问父类的构造方法</p>
 </blockquote>
 <h1 id="接口-需求描述">7. 接口 - 需求描述</h1><p>implement关键字</p>
-<p>接口可以被实现implements，一个类可以实现多个接口，接口可以多继承以实现类多继承的功能，接口只能继承接口，不能继承类，接口强调is-a关系</p>
+<p>接口可以被实现implements，一个类可以实现多个接口，接口可以<font color="#f00">多继承接口</font>以实现类多继承的功能，接口只能继承接口，不能继承类，接口强调is-a关系</p>
 <p>当多个接口中拥有相同的默认方法时，实现类必须进行方法重写</p>
 <p>当实现类拥有接口和父类的相同方法时，优先选择父类的方法</p>
 <p>多个父接口当中的默认方法重复，子接口必须进行重写，并且带有default关键字</p>
@@ -728,7 +733,7 @@
 <h2 id="jdk8新增默认方法">7.2. jdk8新增默认方法</h2><p>Jdk1.8+，可有默认方法，解决接口出现新方法定义，影响其所有实现类；</p>
 <p>可以被实现类直接调用实现，也可以被实现类重写</p>
 <p>方法用default修饰</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CompareA</span></span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">default</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">  System.out.println(str);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">//调用接口中的默认方法</span></span><br><span class="line">CompareA.<span class="keyword">super</span>.method(<span class="string">""</span>);</span><br></pre></td></tr></table></figure>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CompareA</span></span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">default</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">  System.out.println(str);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用接口中的默认方法</span></span><br><span class="line">CompareA.<span class="keyword">super</span>.method(<span class="string">""</span>);</span><br></pre></td></tr></table></figure>
 
 <p>当接口存在继承关系时，若子接口有多个父接口，父接口中拥有同一个默认方法时，需要子接口必须覆盖这个默认方法</p>
 <h2 id="jdk9新增私有方法">7.3. jdk9新增私有方法</h2> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> 返回值 方法名(参数)&#123; 方法体 &#125;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> 返回值 方法名(参数)&#123; 方法体 &#125;</span><br></pre></td></tr></table></figure>
@@ -1123,7 +1128,7 @@
     <a href="/2019/09/13/Java基础知识/" title="Java基本功-面向对象">/2019/09/13/Java基础知识/</a>
   </li>
   <li><strong>发布时间：</strong>2019年09月13日 - 21:03</li>
-  <li><strong>更新时间：</strong>2021年03月05日 - 22:34</li>
+  <li><strong>更新时间：</strong>2021年03月15日 - 21:48</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -1440,13 +1445,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">455k</span>
+    <span title="站点总字数">462k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">12:38</span>
+    <span title="站点阅读时长">12:50</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

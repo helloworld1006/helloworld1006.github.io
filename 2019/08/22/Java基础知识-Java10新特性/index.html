@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="W.T.的博客">
 <meta property="og:description" content="局部变量类型推断">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-01T13:51:48.288Z">
+<meta property="og:updated_time" content="2021-03-24T10:47:11.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础知识-Java10新特性">
 <meta name="twitter:description" content="局部变量类型推断">
@@ -386,7 +386,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-01 21:51:48" itemprop="dateModified" datetime="2021-03-01T21:51:48+08:00">2021-03-01</time>
+                <time title="修改时间：2021-03-24 18:47:11" itemprop="dateModified" datetime="2021-03-24T18:47:11+08:00">2021-03-24</time>
               </span>
             
           
@@ -502,7 +502,7 @@
 
 <ul>
 <li><p>场景一:类实例化时</p>
-<p>作为 Java开发者，在声明一个变量时，我们总是习惯了敲打两次变量类型，第 一次用于声明变量类型，第二次用于构造器。</p>
+<p>作为 Java开发者，在声明一个变量时，我们总是习惯了敲打两次变量类型，第一次用于声明变量类型，第二次用于构造器。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LinkedHashSet&lt;Integer&gt; set = <span class="keyword">new</span> LinkedHashSet&lt;&gt;();</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>场景二:</p>
@@ -535,12 +535,18 @@
 <p>从代码来看，就好像之前已经声明了这些类型一样。事实上，这一特性只发 生在编译阶段，与运行时无关，所以对运行时的性能不会产生任何影响。所 以请放心，这不是 JavaScript。</p>
 </li>
 </ul>
-<h1 id="集合新增创建不可变集合的方法">4. 集合新增创建不可变集合的方法</h1><p>自 Java 9 开始，Jdk 里面为集合(List / Set / Map)都添加了 of (jdk9新增)和 copyOf (jdk10新增)方法，它们两个都用来创建不可变的集合，来看下它们的 使用和区别。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//示例1:</span></span><br><span class="line"> <span class="keyword">var</span> list1 = List.of(<span class="string">"Java"</span>, <span class="string">"Python"</span>, <span class="string">"C"</span>); <span class="keyword">var</span> copy1 = List.copyOf(list1); System.out.println(list1 == copy1); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//示例2:</span></span><br><span class="line"> <span class="keyword">var</span> list2 = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"> <span class="keyword">var</span> copy2 = List.copyOf(list2); System.out.println(list2 == copy2); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//示例1和2代码基本一致，为什么一个为true,一个为false?</span></span><br></pre></td></tr></table></figure>
+<h1 id="集合新增创建不可变集合的方法">4. 集合新增创建不可变集合的方法</h1><p>自 Java 9 开始，Jdk 里面为集合(List / Set / Map)都添加了of (jdk9新增)和 copyOf (jdk10新增)方法，它们两个都用来创建不可变的集合，来看下它们的使用和区别。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//示例1:</span></span><br><span class="line"><span class="keyword">var</span> list1 = List.of(<span class="string">"Java"</span>, <span class="string">"Python"</span>, <span class="string">"C"</span>); </span><br><span class="line"><span class="keyword">var</span> copy1 = List.copyOf(list1); </span><br><span class="line">System.out.println(list1 == copy1); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//示例2:</span></span><br><span class="line"><span class="keyword">var</span> list2 = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"><span class="keyword">var</span> copy2 = List.copyOf(list2); </span><br><span class="line">System.out.println(list2 == copy2); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//示例1和2代码基本一致，为什么一个为true,一个为false?</span></span><br></pre></td></tr></table></figure>
+
+<p>List.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">  <span class="meta">@SafeVarargs</span></span><br><span class="line">  <span class="meta">@SuppressWarnings</span>(<span class="string">"varargs"</span>)</span><br><span class="line">  <span class="keyword">static</span> &lt;E&gt; <span class="function">List&lt;E&gt; <span class="title">of</span><span class="params">(E... elements)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">switch</span> (elements.length) &#123; <span class="comment">// implicit null check of elements</span></span><br><span class="line">          <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">              <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">              <span class="keyword">var</span> list = (List&lt;E&gt;) ImmutableCollections.ListN.EMPTY_LIST;</span><br><span class="line">              <span class="keyword">return</span> list;</span><br><span class="line">          <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">              <span class="keyword">return</span> <span class="keyword">new</span> ImmutableCollections.List12&lt;&gt;(elements[<span class="number">0</span>]);</span><br><span class="line">          <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">              <span class="keyword">return</span> <span class="keyword">new</span> ImmutableCollections.List12&lt;&gt;(elements[<span class="number">0</span>], elements[<span class="number">1</span>]);</span><br><span class="line">          <span class="keyword">default</span>:</span><br><span class="line">              <span class="keyword">return</span> <span class="keyword">new</span> ImmutableCollections.ListN&lt;&gt;(elements);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> &lt;E&gt; <span class="function">List&lt;E&gt; <span class="title">copyOf</span><span class="params">(Collection&lt;? extends E&gt; coll)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> ImmutableCollections.listCopy(coll);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ImmutableCollections.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"serial"</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ImmutableCollections</span> </span>&#123;</span><br><span class="line">		<span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">    <span class="keyword">static</span> &lt;E&gt; <span class="function">List&lt;E&gt; <span class="title">listCopy</span><span class="params">(Collection&lt;? extends E&gt; coll)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (coll <span class="keyword">instanceof</span> AbstractImmutableList </span><br><span class="line">            &amp;&amp; coll.getClass() != SubList.class) &#123;</span><br><span class="line">            <span class="keyword">return</span> (List&lt;E&gt;)coll;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (List&lt;E&gt;)List.of(coll.toArray());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>从源码分析，可以看出 copyOf 方法会先判断来源集合是不是 AbstractImmutableList 类型的，如果是，就直接返回，如果不是，则调用 of 创建一个新的集合。</p>
 <p>示例2因为用的 new 创建的集合，不属于不可变 AbstractImmutableList 类的子类， 所以 copyOf 方法又创建了一个新的实例，所以为false。</p>
-<p>注意:使用of和copyOf创建的集合为不可变集合，不能进行添加、删除、替换、 排序等操作，不然会报 java.lang.UnsupportedOperationException 异常。</p>
+<p>注意：使用of和copyOf创建的集合为不可变集合，不能进行添加、删除、替换、 排序等操作，不然会报 java.lang.UnsupportedOperationException 异常。</p>
 <p>上面演示了 List 的 of 和 copyOf 方法，Set 和 Map 接口都有。</p>
 
     </div>
@@ -570,7 +576,7 @@
     <a href="/2019/08/22/Java基础知识-Java10新特性/" title="Java基础知识-Java10新特性">/2019/08/22/Java基础知识-Java10新特性/</a>
   </li>
   <li><strong>发布时间：</strong>2019年08月22日 - 05:18</li>
-  <li><strong>更新时间：</strong>2021年03月01日 - 21:51</li>
+  <li><strong>更新时间：</strong>2021年03月24日 - 18:47</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -887,13 +893,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">455k</span>
+    <span title="站点总字数">462k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">12:38</span>
+    <span title="站点阅读时长">12:50</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
