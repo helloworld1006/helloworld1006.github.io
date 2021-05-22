@@ -1660,7 +1660,7 @@ article:last-child .post-eof {
   }
 }
 .post-body h1 {
-/*border-bottom: 1px solid #eee;*/
+  border-bottom: 1px solid #eee;
   font-size: 1.25em;
 }
 .post-body h2 {
@@ -2062,7 +2062,7 @@ pre {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #16bf30;
+  background: #372012;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
