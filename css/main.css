@@ -176,9 +176,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
+  border-bottom: 1px solid #eee;
 }
 h2 {
   font-size: 1.15em;
+  border-bottom: 1px solid #eee;
 }
 h3 {
   font-size: 1.05em;
@@ -190,9 +192,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
+  border-bottom: 1px solid #eee;
 }
 h2 {
   font-size: 1.15em;
+  border-bottom: 1px solid #eee;
 }
 h3 {
   font-size: 1.05em;
@@ -204,9 +208,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
+  border-bottom: 1px solid #eee;
 }
 h2 {
   font-size: 1.15em;
+  border-bottom: 1px solid #eee;
 }
 h3 {
   font-size: 1.05em;
@@ -218,9 +224,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
+  border-bottom: 1px solid #eee;
 }
 h2 {
   font-size: 1.15em;
+  border-bottom: 1px solid #eee;
 }
 h3 {
   font-size: 1.05em;
@@ -232,9 +240,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
+  border-bottom: 1px solid #eee;
 }
 h2 {
   font-size: 1.15em;
+  border-bottom: 1px solid #eee;
 }
 h3 {
   font-size: 1.05em;
@@ -246,9 +256,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
+  border-bottom: 1px solid #eee;
 }
 h2 {
   font-size: 1.15em;
+  border-bottom: 1px solid #eee;
 }
 h3 {
   font-size: 1.05em;
@@ -2050,7 +2062,7 @@ pre {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #6cc877;
+  background: #16bf30;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
