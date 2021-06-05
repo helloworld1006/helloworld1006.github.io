@@ -176,11 +176,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h2 {
   font-size: 1.15em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h3 {
   font-size: 1.05em;
@@ -192,11 +192,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h2 {
   font-size: 1.15em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h3 {
   font-size: 1.05em;
@@ -208,11 +208,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h2 {
   font-size: 1.15em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h3 {
   font-size: 1.05em;
@@ -224,11 +224,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h2 {
   font-size: 1.15em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h3 {
   font-size: 1.05em;
@@ -240,11 +240,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h2 {
   font-size: 1.15em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h3 {
   font-size: 1.05em;
@@ -256,11 +256,11 @@ h6 {
 }
 h1 {
   font-size: 1.25em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h2 {
   font-size: 1.15em;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 h3 {
   font-size: 1.05em;
@@ -1660,7 +1660,7 @@ article:last-child .post-eof {
   }
 }
 .post-body h1 {
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
   font-size: 1.25em;
 }
 .post-body h2 {
@@ -2062,7 +2062,7 @@ pre {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #372012;
+  background: #ffff75;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
