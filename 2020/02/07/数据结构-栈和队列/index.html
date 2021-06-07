@@ -116,7 +116,7 @@
 <meta property="og:image" content="/2020/02/07/数据结构-栈和队列/xishi1.png">
 <meta property="og:image" content="/2020/02/07/数据结构-栈和队列/xishi2.png">
 <meta property="og:image" content="/2020/02/07/数据结构-栈和队列/xishi3.png">
-<meta property="og:updated_time" content="2021-05-28T17:19:56.813Z">
+<meta property="og:updated_time" content="2021-06-06T21:13:48.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构03-栈和队列">
 <meta name="twitter:description" content="栈[顺序栈，链栈]，队列[循环队列，链式队列]">
@@ -414,7 +414,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-29 01:19:56" itemprop="dateModified" datetime="2021-05-29T01:19:56+08:00">2021-05-29</time>
+                <time title="修改时间：2021-06-07 05:13:48" itemprop="dateModified" datetime="2021-06-07T05:13:48+08:00">2021-06-07</time>
               </span>
             
           
@@ -475,7 +475,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>7.8k</span>
+              <span>7.2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -485,7 +485,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>13 分钟</span>
+              <span>12 分钟</span>
             </span>
           
 
@@ -919,7 +919,7 @@
 </thead>
 </table>
 <p>各数组元素大小相同，且物理上连续存放。</p>
-<p>数组元素a[i] 的存放地址 = LOC + i * sizeof(ElemType) (0≤i&lt;10)</p>
+<p>数组元素a[i] 的存放地址 = LOC + ixsizeof(ElemType) (0≤i&lt;10)</p>
 <h3 id="二维数组">3.1.2. 二维数组</h3><p><code>ElemType b[2][4];</code> 2行4列的二维数组</p>
 <p>逻辑视角</p>
 <table>
@@ -955,7 +955,8 @@
 </tr>
 </thead>
 </table>
-<p>M行N列的二维数组b[M] [N]中，若按行优先存储，则b[i] [j]的存储地址=LOC+(i*N+j) *sizeof(ElemType)</p>
+<p>M行N列的二维数组b[M] [N]中，若按行优先存储，则</p>
+<p>b[i] [j]的存储地址=LOC+(ixN+j)xsizeof(ElemType)</p>
 <p><code>列优先存储</code></p>
 <table>
 <thead>
@@ -973,7 +974,8 @@
 </tr>
 </thead>
 </table>
-<p>M行N列的二维数组b[M] [N]中，若按列优先存储，则b[i] [j]的存储地址=LOC+(j*M+i ) *sizeof(ElemType)</p>
+<p>M行N列的二维数组b[M] [N]中，若按列优先存储，则</p>
+<p>b[i] [j]的存储地址=LOC+(jxM+i )xsizeof(ElemType)</p>
 <h2 id="特殊矩阵">3.2. 特殊矩阵</h2><p>压缩存储：为多个值相同的元素只分配一个存储空间，对零元素不分配存储空间。其目的是节省存储空间。</p>
 <p>特殊矩阵：指具有许多相同矩阵元素或零元素，并且这些相同矩阵元素或零元素的分布有一定规律性的矩阵。常见的特殊矩阵有对称矩阵，上(下)三角矩阵，对角矩阵等。</p>
 <h3 id="对称矩阵">3.2.1. 对称矩阵</h3><p><img src="/2020/02/07/数据结构-栈和队列/aij.png" alt></p>
@@ -990,7 +992,7 @@
 <th>B[3]</th>
 <th>…</th>
 <th></th>
-<th>B[$\frac{(1+n)*n}{2}$-1]</th>
+<th>B[$\frac{(1+n)n}{2}$-1]</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -1020,7 +1022,8 @@
 <p>k= $\frac{j(j-1)}{2}$ + 𝑖 − 1</p>
 </li>
 </ol>
-<p>故压缩到一维数组时k=$\left{\begin{matrix}<br>\frac{i(i-1)}{2}+j-1, i\geq j (下三角区和主对角线元素)  &amp; \<br>  \frac{j(j-1)}{2}+i-1, i&lt;j (上三角区元素a_{i,j} =a_{j,i})&amp;<br>\end{matrix}\right.$</p>
+<p>故压缩到一维数组时，</p>
+<p>下三角区和主对角线元素 k=$\frac{i(i-1)}{2}+j-1, i\geq j$，上三角区元素a$<em>{i,j}$ =a$</em>{j,i}$，k=$\frac{j(j-1)}{2}+i-1, i&lt;j$</p>
 <h3 id="三角矩阵">3.2.2. 三角矩阵</h3><h4 id="下三角矩阵">3.2.2.1. 下三角矩阵</h4><p><img src="/2020/02/07/数据结构-栈和队列/xiasanjiao.png" alt></p>
 <p>压缩存储策略：按行优先原则将橙色区元素存入一维数组中。并在最后一个位置存储常量c</p>
 <table>
@@ -1032,8 +1035,8 @@
 <th>B[3]</th>
 <th>…</th>
 <th></th>
-<th>B[$\frac{(1+n)*n}{2}$-1]</th>
-<th>B[$\frac{(1+n)*n}{2}$]</th>
+<th>B[$\frac{(1+n)n}{2}$-1]</th>
+<th>B[$\frac{(1+n)n}{2}$]</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -1048,7 +1051,8 @@
 </tr>
 </tbody></table>
 <p>按行优先的原则，a<sub>i,j</sub> 是第几个元素?</p>
-<p>k=$\left{\begin{matrix}<br>\frac{i(i-1)}{2}+j-1, i\geq j (下三角区和主对角线元素)  &amp; \<br>  \frac{n(n+1)}{2}, i&lt;j (上三角区元素)&amp;<br>\end{matrix}\right.$</p>
+<p>下三角区和主对角线元素时，k=$\frac{i(i-1)}{2}+j-1, i\geq j$</p>
+<p>上三角区元素时，k=$\frac{n(n+1)}{2}, i&lt;j$</p>
 <h4 id="上三角矩阵">3.2.2.2. 上三角矩阵</h4><p><img src="/2020/02/07/数据结构-栈和队列/shangsanjiao.png" alt></p>
 <p>压缩存储策略：按行优先原则将绿色区元素存入一维数组中。并在最后一个位置存储常量c</p>
 <table>
@@ -1060,8 +1064,8 @@
 <th>B[3]</th>
 <th>…</th>
 <th></th>
-<th>B[$\frac{(1+n)*n}{2}$-1]</th>
-<th>B[$\frac{(1+n)*n}{2}$]</th>
+<th>B[$\frac{(1+n)n}{2}$-1]</th>
+<th>B[$\frac{(1+n)n}{2}$]</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -1076,7 +1080,8 @@
 </tr>
 </tbody></table>
 <p>按行优先的原则，ai,j 是第几个元素?</p>
-<p>k=$\left{\begin{matrix}<br>\frac{(i-1)(2n-i+2)}{2}+(j-i), i\leq j (上三角区和主对角线元素)  &amp; \<br>  \frac{n(n+1)}{2}, i&gt;j (下三角区元素)&amp;<br>\end{matrix}\right.$</p>
+<p>上三角区和主对角线元素，k= $\frac{(i-1)(2n-i+2)}{2}+(j-i), i\leq j$</p>
+<p>下三角区元素，k=$\frac{n(n+1)}{2}, i&gt;j$</p>
 <h3 id="三对角矩阵">3.2.3. 三对角矩阵</h3><p><img src="/2020/02/07/数据结构-栈和队列/sanduijiao.png" alt></p>
 <p>三对角矩阵，又称带状矩阵：当|i - j|&gt;1时，有a$_{i,j}$ = 0 (1≤ i, j ≤n)</p>
 <p>压缩存储策略：按行优先(或列优先)原则，只存储带状部分</p>
@@ -1153,7 +1158,7 @@
     <a href="/2020/02/07/数据结构-栈和队列/" title="数据结构03-栈和队列">/2020/02/07/数据结构-栈和队列/</a>
   </li>
   <li><strong>发布时间：</strong>2020年02月07日 - 14:57</li>
-  <li><strong>更新时间：</strong>2021年05月29日 - 01:19</li>
+  <li><strong>更新时间：</strong>2021年06月07日 - 05:13</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -1470,13 +1475,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">498k</span>
+    <span title="站点总字数">486k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:50</span>
+    <span title="站点阅读时长">13:30</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>

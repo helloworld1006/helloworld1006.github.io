@@ -81,18 +81,43 @@
     })();
     */
 </script>
-  <meta name="description" content="b">
+  <meta name="description" content="图的概念，图的存储【邻接矩阵，邻接表】，图的基本操作，图的遍历【DFS，BFS】，最小生成树【Prim，Kruskal】，最短路径【Dijkstra，Floyd】，拓扑排序，关键路径">
 <meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构07-查找">
 <meta property="og:url" content="/2021/02/08/数据结构-查找/index.html">
 <meta property="og:site_name" content="W.T.的博客">
-<meta property="og:description" content="b">
+<meta property="og:description" content="图的概念，图的存储【邻接矩阵，邻接表】，图的基本操作，图的遍历【DFS，BFS】，最小生成树【Prim，Kruskal】，最短路径【Dijkstra，Floyd】，拓扑排序，关键路径">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-05-22T05:08:46.244Z">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/asl.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/youxu.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/panding.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/kuai.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/kuai1.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/kuai2.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/kuai3.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/dong.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/btree.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/B.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/Bru.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/Bru1.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/Bru3.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/Bru2.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/bshan.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/bshan.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/bshanjie.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/bshanjie2.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/bshanbu.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/bshanbu2.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/Bjia.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/lie.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/lie2.png">
+<meta property="og:image" content="/2021/02/08/数据结构-查找/di.png">
+<meta property="og:updated_time" content="2021-06-07T12:40:12.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构07-查找">
-<meta name="twitter:description" content="b">
+<meta name="twitter:description" content="图的概念，图的存储【邻接矩阵，邻接表】，图的基本操作，图的遍历【DFS，BFS】，最小生成树【Prim，Kruskal】，最短路径【Dijkstra，Floyd】，拓扑排序，关键路径">
+<meta name="twitter:image" content="/2021/02/08/数据结构-查找/asl.png">
   <link rel="alternate" href="/atom.xml" title="W.T.的博客" type="application/atom+xml">
   <link rel="canonical" href="/2021/02/08/数据结构-查找/">
 
@@ -386,7 +411,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-22 13:08:46" itemprop="dateModified" datetime="2021-05-22T13:08:46+08:00">2021-05-22</time>
+                <time title="修改时间：2021-06-07 20:40:12" itemprop="dateModified" datetime="2021-06-07T20:40:12+08:00">2021-06-07</time>
               </span>
             
           
@@ -447,7 +472,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>21</span>
+              <span>9.6k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -457,7 +482,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>16 分钟</span>
             </span>
           
 
@@ -470,10 +495,507 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote class="blockquote-center">b</blockquote>
+        <blockquote class="blockquote-center">图的概念，图的存储【邻接矩阵，邻接表】，图的基本操作，图的遍历【DFS，BFS】，最小生成树【Prim，Kruskal】，最短路径【Dijkstra，Floyd】，拓扑排序，关键路径</blockquote>
+
 <a id="more"></a>
 
 <p>视频讲解，习题讲解，思维导图，PPT资源</p>
+<h1 id="查找的基本概念">1. 查找的基本概念</h1><h2 id="基本概念">1.1. 基本概念</h2><p><code>查找</code> —— 在数据集合中寻找满足某种条件的数据元素的过程称为查找</p>
+<p><code>查找表(查找结构)</code>—— 用于查找的数据集合称为查找表，它由同一类型的数据元素(或记录)组成 </p>
+<p><code>关键字</code> —— 数据元素中唯一标识该元素的某个数据项的值，使用基于关键字的查找，查找结果应该是 唯一的</p>
+<p>eg:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>举例1</th>
+<th>举例2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查找表</td>
+<td>学生成绩信息(线性结构、可顺序可链式存储)</td>
+<td>微信用户数据集(图结构)</td>
+</tr>
+<tr>
+<td>数据元素(记录)</td>
+<td>每个学生的信息</td>
+<td>每个用户用户的信息</td>
+</tr>
+<tr>
+<td>关键字</td>
+<td>学号</td>
+<td>微信号</td>
+</tr>
+</tbody></table>
+<h2 id="对查找表的常⻅操作">1.2. 对查找表的常⻅操作</h2><ol>
+<li><code>静态查找表</code>——查找符合条件的数据元素，仅关注查找速度即可</li>
+<li><code>动态查找表</code>——插入/删除某个数据元素，除了查找速度，也要关注插/删操作是否方便实现</li>
+</ol>
+<h2 id="查找算法的评价指标">1.3. 查找算法的评价指标</h2><p><code>查找⻓度</code>——在查找运算中，需要对比关键字的次数称为查找⻓度</p>
+<p><code>平均查找⻓度</code>(ASL, Average Search Length)—— 所有查找过程中进行关键字的比较次数的平均值</p>
+<p>ASL=$\sum_{i=1}^{n}$ P$<em>{i}$C$</em>{i}$</p>
+<p>P$_{i}$ —查找第 i 个元素的概率</p>
+<p>C$_{i}$ —查找第 i 个元素的查找⻓度</p>
+<p><code>评价一个查找算法的效率时，通常考虑查找成功。查找失败两种情况的ASL</code></p>
+<p>Eg:</p>
+<p><img src="/2021/02/08/数据结构-查找/asl.png" alt></p>
+<p>􏰀􏰁􏰂􏰃􏰄􏰅􏰆􏰀􏰁􏰇􏰈查找成功的平均查找长度：ASL=(1x1+2x2+3x4+4x1)/8=2.625</p>
+<p>查找失败的平均查找长度：ASL=(3x7+4x2)/9=3.22</p>
+<h1 id="顺序查找">2. 顺序查找</h1><p>顺序查找，又叫“线性查找”，通常用于线性表。</p>
+<h2 id="算法思想">2.1. 算法思想</h2><p>从头到脚挨个找(或者反过来也OK)</p>
+<h2 id="算法实现">2.2. 算法实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">  <span class="comment">//动态数组基址</span></span><br><span class="line">  ElemType *elem;</span><br><span class="line">  <span class="keyword">int</span> TableLen;<span class="comment">//表长</span></span><br><span class="line">&#125;SSTable;<span class="comment">//顺序表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Search_Seq</span><span class="params">(SSTable ST,ElemType key)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;ST.TableLen;&amp;&amp;ST.elem[i]!=key;++i);</span><br><span class="line">  <span class="keyword">return</span> i==ST.TableLen?<span class="number">-1</span>:i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//利用elem[0]当作哨兵-无需判断是否越界，效率更高</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Search_Seq</span><span class="params">(SSTable ST,ElemType key)</span></span>&#123;</span><br><span class="line">  ST.elem[<span class="number">0</span>]=key;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">for</span>(i=ST.TableLen;&amp;&amp;ST.elem[i]!=key;--i);</span><br><span class="line">  <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ASL<sub>成功</sub>=(1+2+3+…+n)/n = (n+1)/2</p>
+<p>ASL<sub>失败</sub>= n+1</p>
+<h2 id="顺序查找的优化-对有序表">2.3. 顺序查找的优化(对有序表)</h2><p>查找表中元素有序存放(递增/递减)</p>
+<p>一个成功结点的查找⻓度 = 自身所在层数 </p>
+<p>一个失败结点的查找⻓度 = 其父节点所在层数 </p>
+<p>默认情况下，各种失败情况或成功情况都等概率发生</p>
+<p><img src="/2021/02/08/数据结构-查找/youxu.png" alt></p>
+<h2 id="顺序查找的优化-被查概率不相等">2.4. 顺序查找的优化(被查概率不相等)</h2><p>被查概率：7: 15%，13: 5%，19: 10%，29: 40%，37: 28%，43: 2%</p>
+<p>对于 7，13，19，29，37，43</p>
+<p>ASL<sub>成功</sub> = 1x0.15 + 2x0.05 + 3x0.1 + 4x0.4 + 5x0.28 + 6x0.02 = 3.67</p>
+<p>对于 29，37，7，19，13，43</p>
+<p>ASL<sub>成功</sub> = 1x0.4 + 2x0.28 + 3x0.15 + 4x0.1 + 5x0.05 + 6x0.02 = 2.18</p>
+<h1 id="折半查找">3. 折半查找</h1><h2 id="算法思想-1">3.1. 算法思想</h2><p>折半查找，又称“二分查找”，仅适用于<code>有序</code>的<code>顺序表</code></p>
+<ul>
+<li><p>初始：low=0；high=TableLen-1；mid =(low+high)/2</p>
+</li>
+<li><p>若查找目标值 = elem[mid] ，则查找成功</p>
+</li>
+<li><p>若查找目标值 &lt; elem[mid] ，则将left=mid+1</p>
+</li>
+<li><p>若查找目标值 &gt; elem[mid] ，则将high=mid-1</p>
+</li>
+<li><p>反复mid =(low+high)/2，继续查找，直到查找成功或low&gt;=high查找失败</p>
+</li>
+</ul>
+<h2 id="算法实现-1">3.2. 算法实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">  <span class="comment">//动态数组基址</span></span><br><span class="line">  ElemType *elem;</span><br><span class="line">  <span class="keyword">int</span> TableLen;<span class="comment">//表长</span></span><br><span class="line">&#125;SSTable;<span class="comment">//顺序表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Binary_Search</span><span class="params">(SSTable L,ElemType key)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> high = L.TableLen<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">while</span>(low&lt;high)&#123;</span><br><span class="line">    <span class="keyword">int</span> mid = (low+high)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(L.elem[mid]==key)&#123;</span><br><span class="line">      <span class="keyword">return</span> mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(L.elem[mid]&lt;key)&#123;</span><br><span class="line">      left = mid+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">      high = mid<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找效率分析">3.3. 查找效率分析</h2><h3 id="折半查找判定树构造">3.3.1. 折半查找判定树构造</h3><p>7，10，13，16，19，29，32，33，37，41，43</p>
+<p><img src="/2021/02/08/数据结构-查找/panding.png" alt></p>
+<p>判定树结点关键字：左<strong>&lt;</strong>中<strong>&lt;</strong>右，满足二叉排序树的定义 </p>
+<p>失败结点：<code>n+1</code>个(等于成功结点的空链域数量)</p>
+<h3 id="折半查找的查找效率">3.3.2. 折半查找的查找效率</h3><ul>
+<li><p>mid = $\left \lfloor (low+high)/2 \right \rfloor$</p>
+<p>如果当前<strong>low</strong>和<strong>high</strong>之间有奇数个元素，则 <strong>mid</strong> 分隔后，左右两部分元素个数相等</p>
+<p>如果当前<strong>low</strong>和<strong>high</strong>之间有偶数个元素，则 <strong>mid</strong> 分隔后，左半部分比右半部分<code>少</code>一个元素</p>
+<p>则对于任何一个结点，必有: <code>右子树结点数-左子树结点数=0或1</code></p>
+</li>
+<li><p>mid = $\left \lceil (low+high)/2 \right \rceil$</p>
+<p>如果当前<strong>low</strong>和<strong>high</strong>之间有奇数个元素，则 <strong>mid</strong> 分隔后，左右两部分元素个数相等</p>
+<p>如果当前<strong>low</strong>和<strong>high</strong>之间有偶数个元素，则 <strong>mid</strong> 分隔后，左半部分比右半部分<code>多</code>一个元素</p>
+<p>则对于任何一个结点，必有: <code>左子树结点数-右子树结点数=0或1</code></p>
+</li>
+</ul>
+<hr>
+
+<p>折半查找的判定树一定是平衡二叉树 — 完全二叉树</p>
+<p>折半查找的判定树中，只有最下面一层是不满的 </p>
+<p>因此，元素个数为<strong>n</strong>时树高 h= $\left \lceil log_{2}(n+1) \right \rceil$ </p>
+<p>查找成功的<strong>ASL</strong> <strong>≤</strong> <strong>h</strong> </p>
+<p>查找失败的<strong>ASL</strong> <strong>≤</strong> <strong>h</strong></p>
+<p>折半查找的时间复杂度 <strong>=</strong> <em>O</em>(log<sub>2</sub>n) </p>
+<h2 id="折半查找的速度一定比顺序查找更快">3.4. 折半查找的速度一定比顺序查找更快?</h2><p>7，10，13，16，19，29，32，33，37，41，43</p>
+<p>查找7时，顺序查找O(1)，折半查找 O(log<sub>2</sub>n)</p>
+<h1 id="分块查找—索引顺序查找">4. 分块查找—索引顺序查找</h1><h2 id="算法思想-2">4.1. 算法思想</h2><p>块内无序、块间有序</p>
+<p><img src="/2021/02/08/数据结构-查找/kuai.png" alt></p>
+<p>查找过程：</p>
+<ol>
+<li>在索引表中确定待查记录所属的分块(可顺序、可折半) </li>
+<li>在块内顺序查找</li>
+</ol>
+<p><img src="/2021/02/08/数据结构-查找/kuai1.png" alt></p>
+<p><img src="/2021/02/08/数据结构-查找/kuai2.png" alt></p>
+<p><img src="/2021/02/08/数据结构-查找/kuai3.png" alt></p>
+<p>若索引表中不包含目标关键字，则折半查找索引表最终停在 low&gt;high，要<code>在low所指分块中查找</code></p>
+<p>因前一步为low=high=mid，</p>
+<p>若mid所指位置元素&lt;key, 则low+1，low所指位置元素&gt;mid所指位置元素</p>
+<p>若mid所指位置元素&gt;key, 则high-1，low所指位置元素&gt;key</p>
+<p>最终low左边一定小于目标关键字，high右边一定大于目标关键字。而分块存储的索引表中保存的是各个分块的最大关键字</p>
+<h2 id="查找效率分析-ASL">4.2. 查找效率分析(ASL)</h2><p>假设，⻓度为n的查找表被均匀地分为b块，每块s个元素</p>
+<p>设索引查找和块内查找的平均查找⻓度分别为L<sub>I</sub>、L<sub>S</sub>，则分块查找的平均查找⻓度为 ASL=L<sub>I</sub> + L<sub>S</sub></p>
+<p>用顺序查找查索引表：</p>
+<p>则 L<sub>I</sub>= $\frac{(1+2+…+b)}{b}$ = $\frac{(b+1)}{2}$，L<sub>S</sub>=  $\frac{(1+2+…+s)}{s}$=$\frac{(s+1)}{2}$</p>
+<p>ASL = $\frac{(b+1)}{2}$+ $\frac{(s+1)}{2} $= $\frac{s^{2}+2s+n}{2s}$ ，当 s= $\sqrt{n}$ 时，ASL<sub>最小</sub>= $\sqrt{n}$ + 1</p>
+<p>用折半查找查索引表：</p>
+<p>则 L<sub>I</sub>= $$\left \lceil log_{2}(b+1) \right \rceil$$，L<sub>S</sub>=  $\frac{(1+2+…+s)}{s}$=$\frac{(s+1)}{2}$</p>
+<p>则ASL=$\left \lceil log_{2}(b+1) \right \rceil$$+$$\frac{(s+1)}{2}$</p>
+<h2 id="动态查找表-链式存储">4.3. 动态查找表-链式存储</h2><p>原有的块内元素不易于插入/删除新元素</p>
+<p>将索引表和块表用动态数组表示，块内可动态添加/删除元素</p>
+<p><img src="/2021/02/08/数据结构-查找/dong.png" alt></p>
+<h1 id="B树">5. B树</h1><h2 id="5叉查找树">5.1. 5叉查找树</h2><p><img src="/2021/02/08/数据结构-查找/btree.png" alt></p>
+<h2 id="概念">5.2. 概念</h2><p>B树，又称<code>多路平衡查找树</code>，B树中所有结点的孩子个数的最大值称为B树的阶，通常用m表示。一棵m阶B树 或为空树，或为满足如下特性的m叉树：</p>
+<ol>
+<li><p>树中每个结点至多有m棵子树，即至多含有m-1个关键字</p>
+</li>
+<li><p>若根结点不是终端结点，则至少有两棵子树</p>
+</li>
+<li><p>除根结点外的所有非叶结点至少有 $\left \lceil m/2 \right \rceil$棵子树，即至少含有 $\left \lceil m/2 \right \rceil$-1 个关键字</p>
+</li>
+<li><p>所有非叶结点的结构如下:</p>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>P<sub>0</sub></th>
+<th>K<sub>1</sub></th>
+<th>P<sub>1</sub></th>
+<th>K<sub>2</sub></th>
+<th>P<sub>2</sub></th>
+<th>…</th>
+<th>K<sub>n</sub></th>
+<th>P<sub>n</sub></th>
+</tr>
+</thead>
+</table>
+<p>其中，K<sub>i</sub> (i = 1, 2,…, n)为结点的关键字，且满足K<sub>1</sub> &lt; K<sub>2</sub> &lt;…&lt; K<sub>n</sub>；</p>
+<p>P<sub>i</sub> (i = 0, 1,…, n)为指向子树根结点的指针，且指针P<sub>i-1</sub>所指子树中所有结点的关键字均小于K<sub>i</sub>，P<sub>i</sub>所指子树中所有结点的关键字均大于K<sub>i</sub></p>
+<p>n ( $\left \lceil m/2 \right \rceil$ - 1 $\leq $ n $\leq $ m - 1)为结点中关键字的个数</p>
+</li>
+<li><p>所有的<code>叶结点</code>都出现在同一层次上，并且不带信息(可以视为外部结点或类似于折半查找判定树的查找失 败结点，实际上这些结点不存在，指向这些结点的指针为空)</p>
+</li>
+</ol>
+<h2 id="特性">5.3. 特性</h2><ol>
+<li><p>根节点的子树数 $\epsilon $ [2, m]，关键字数 $\epsilon $ [1, m-1]</p>
+<p>其他结点的子树数 $\epsilon $ [ $\left \lceil m/2 \right \rceil$ , m]；关键字数 $\epsilon $ [ $\left \lceil m/2 \right \rceil$ -1, m-1] </p>
+</li>
+<li><p>对任一结点，其所有子树高度都相同 </p>
+</li>
+<li><p>关键字的值：子树0&lt;关键字1&lt;子树1&lt;关键字2&lt;子树2&lt;…. (类比二叉查找树 左&lt;中&lt;右)</p>
+</li>
+</ol>
+<h2 id="B树的高度">5.4. B树的高度</h2><p>注：大部分学校算B树的高度不包括叶子结点(失败结点) </p>
+<p>问题：含n个关键字的m阶B树，最小高度、最大高度是多少?</p>
+<p>log<sub>m</sub>(n+1) $\leq$ h $\leq$  log$_{\left \lceil m/2 \right \rceil}$ $\frac{n+1}{2}$ + 1</p>
+<h3 id="最小高度">5.4.1. 最小高度</h3><p>让每个结点尽可能的满，有m-1个关键字，m个分叉，则有 </p>
+<p>n $\leq$ (m−1)(1+m+m<sup>2</sup>+m<sup>3</sup>+…+m<sup>h−1</sup>)=m<sup>h</sup>−1， 因此 h $\geq$ log<sub>m</sub>(n+1)</p>
+<h3 id="最大高度">5.4.2. 最大高度</h3><p>让每个结点包含的关键字、分叉尽可能的少，即根节点只有2个分叉，其他结点只有 $\left \lceil m/2 \right \rceil$ 个分叉</p>
+<p>记 k = $\left \lceil m/2 \right \rceil$ </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>最少结点数</th>
+<th>最少关键字数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一层</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>第二层</td>
+<td>2</td>
+<td>2(k-1)</td>
+</tr>
+<tr>
+<td>第三层</td>
+<td>2k</td>
+<td>2k(k-1)</td>
+</tr>
+<tr>
+<td>第四层</td>
+<td>2k<sup>2</sup></td>
+<td>2k<sup>2</sup>(k-1)</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>第h层</td>
+<td>2k<sup>h-2</sup></td>
+<td>2k<sup>h-2</sup>(k-1)</td>
+</tr>
+</tbody></table>
+<p>h层的m阶B树至少包含关键字总数 1+2(k-1)(k<sup>0</sup>+k<sup>1</sup>+k<sup>2</sup>+…+k<sup>h-2</sup>) = 1+2(k<sup>h-1</sup>-1)</p>
+<p>若关键字总数少于这个值，则高度一定小于h，因此 n $\geq$ 1+2(k<sup>h−1</sup>-1)，即 h $\leq$  log$_{\left \lceil m/2 \right \rceil}$ $\frac{n+1}{2}$ + 1</p>
+<p>第h+1层共有叶子结点(失败结点) 2($\left \lceil m/2 \right \rceil$)<sup>h−1</sup> 个</p>
+<p>n个关键字的B树必有n+1个叶子结点，则 <em>n</em> + 1 $\geq$ 2($\left \lceil m/2 \right \rceil$)<sup>h−1</sup>，即 h $\leq$ log$_{\left \lceil m/2 \right \rceil}$$\frac{n+1}{2}$ + 1</p>
+<h2 id="B树的插入">5.5. B树的插入</h2><ol>
+<li><p>关键字数 $\epsilon $ [ $\left \lceil m/2 \right \rceil$ -1, m-1] </p>
+</li>
+<li><p>关键字的值：子树0&lt;关键字1&lt;子树1&lt;关键字2&lt;子树2&lt;…. (类比二叉查找树 左&lt;中&lt;右)</p>
+</li>
+<li><p>在插入key后，若导致原结点关键字数超过上限，则从中间位置($\left \lceil m/2 \right \rceil$)将其中的关键字分为两部分，左部分包 含的关键字放在原结点中，右部分包含的关键字放到新结点中，中间位置($\left \lceil m/2 \right \rceil$)的结点插入原结点的父结点</p>
+</li>
+<li><p>新元素一定是插入到<code>最底层</code>“终端节点”，用“查找”来确定插入位置</p>
+</li>
+<li><p>若此时导致其父结点的关键字个数也超过了<code>上限</code>，则继续进行这种<code>分裂</code>操作，直至这个过程传到根结点为止，进而导致<code>B树高度增1</code></p>
+</li>
+</ol>
+<p>5阶B树——结点关键字个数 2 $\leq$ n $\leq$ 4</p>
+<p><img src="/2021/02/08/数据结构-查找/B.png" alt></p>
+<p>从中间位置($\left \lceil m/2 \right \rceil$)将其中的关键字分为两部分</p>
+<p><img src="/2021/02/08/数据结构-查找/Bru.png" alt></p>
+<p>新元素一定是插入到最底层“终端节点”</p>
+<p><img src="/2021/02/08/数据结构-查找/Bru1.png" alt></p>
+<p><img src="/2021/02/08/数据结构-查找/Bru3.png" alt></p>
+<p>从中间位置($\left \lceil m/2 \right \rceil$)将其中的关键字分为两部分</p>
+<p><img src="/2021/02/08/数据结构-查找/Bru2.png" alt></p>
+<h2 id="B树的删除">5.6. B树的删除</h2><p><img src="/2021/02/08/数据结构-查找/bshan.png" alt></p>
+<ol>
+<li><p>若被删除关键字在终端节点，则直接删除该关键字(要注意节点关键字个数是否低于下限 $\left \lceil m/2 \right \rceil$ − 1)</p>
+<p>删除关键字72，所在结点关键字数2=$\left \lceil m/2 \right \rceil$ − 1，直接删除关键字</p>
+</li>
+<li><p>若被删除关键字在非终端节点，则用直接前驱或直接后继来替代被删除的关键字，从而转化为对终端结点的删除操作</p>
+<p><code>直接前驱</code>：当前关键字<code>左侧指针所指子树中“最右下”的元素</code></p>
+<p><code>直接后继</code>：当前关键字<code>右侧指针所指子树中“最左下”的元素</code></p>
+<p>删除80，替换为77或82</p>
+</li>
+</ol>
+<p><code>判断终端节点在删除关键字后关键字数&lt;下限情况</code></p>
+<ul>
+<li><p><code>兄弟够借</code>。若被删除关键字所在结点删除前的关键字个数低于下限，且与此结点右(或左)兄弟结点的关键字个数还很宽裕，则需要调整该结点、右(或左)兄弟结点及其双亲结点(父子换位法)</p>
+<p><img src="/2021/02/08/数据结构-查找/bshan.png" alt></p>
+<p>删除38。当右兄弟很宽裕时，取当前结点的<code>后继</code>49、<code>后继的后继</code>70来填补空缺</p>
+<p><img src="/2021/02/08/数据结构-查找/bshanjie.png" alt></p>
+<p>删除90。当左兄弟很宽裕时，用当前结点的前驱88、前驱的前驱87来填补空缺</p>
+<p><img src="/2021/02/08/数据结构-查找/bshanjie2.png" alt></p>
+</li>
+<li><p><code>兄弟不够借</code>。若被删除关键字所在结点删除前的关键字个数低于下限，且此时与该结点相邻的左、右兄弟结点的关键字个数均=$\left \lceil m/2 \right \rceil$ − 1，则将关键字删除后与左(或右)兄弟结点及双亲结点中的关键字进行合并</p>
+<p>在合并过程中，双亲结点中的关键字个数会减1。若其双亲结点是根结点且关键字个数减少至0(根结点关键字个数为1时，有2棵子树)，则直接将根结点删除，合并后的新结点成为根；若双亲结点不是根结点，且关 键字个数减少到 $\left \lceil m/2 \right \rceil$ − 2，则又要与它自己的兄弟结点进行调整或合并操作，并重复上述步骤，直至符合B树的要求为止。</p>
+<p>删除49。右兄弟关键字数=2，借不了了，需要将结点与右兄弟结点及双亲结点合并</p>
+<p><img src="/2021/02/08/数据结构-查找/bshanbu.png" alt></p>
+<p>此时73所在结点关键字数也小于下限，需要进行合并</p>
+<p><img src="/2021/02/08/数据结构-查找/bshanbu2.png" alt></p>
+</li>
+</ul>
+<h1 id="B-树">6. B+树</h1><p><img src="/2021/02/08/数据结构-查找/Bjia.png" alt></p>
+<p>类似于分块查找</p>
+<p>一棵m阶的B+树需满足下列条件:</p>
+<ol>
+<li><p>每个分支结点最多有m棵子树(孩子结点)</p>
+</li>
+<li><p><code>根结点至少有两棵子树</code>，其他每个分支结点至少有 $\left \lceil m/2 \right \rceil$ 棵子树</p>
+</li>
+<li><p><code>结点的子树个数与关键字个数相等</code></p>
+</li>
+<li><p>所有<code>叶结点包含全部关键字</code>及指向相应记录的指针，叶结点中将关键字按大小顺序排列，并且相邻叶结点按<code>大小顺序</code>相互链接起来</p>
+</li>
+<li><p>所有<code>分支结点</code>中仅包含它的各个子结点中<code>关键字的最大值</code>及指向其子结点的指针</p>
+</li>
+<li><p>B+树中，无论查找成功与否，最终一定都要走到最下面一层结点</p>
+<p>B树的查找，查找成功，可能停在任何一层</p>
+</li>
+</ol>
+<p>典型应用：关系型数据库的<strong>“</strong>索引<strong>”</strong>(如 MySQL)</p>
+<p>在B+树中，非叶结点不含有该关键字对应记录的存储地址。 </p>
+<p>可以使一个磁盘块可以包含<code>更多个关键字</code>，使得B+树的<code>阶更大</code>，树高<code>更矮</code>，读磁盘次数更少，查找更快</p>
+<h1 id="B树-vs-B-树">7. B树 vs B+树</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>m阶B树</th>
+<th>m阶B+树</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类比</td>
+<td>二叉查找树的进化 ——m叉查找树</td>
+<td>分块查找的进化——多级分块查找</td>
+</tr>
+<tr>
+<td>关键字与分叉</td>
+<td>n个关键字对应n+1个分叉(子树)</td>
+<td>n个关键字对应n个分叉(子树)</td>
+</tr>
+<tr>
+<td>结点关键字数范围</td>
+<td>根节点 [1,m-1]<br>其他结点 [ $\left \lceil m/2 \right \rceil$-1,m-1]</td>
+<td>根节点 [2,m]<br>其他结点 [ $\left \lceil m/2 \right \rceil$ ,m]</td>
+</tr>
+<tr>
+<td>结点存储地址?</td>
+<td>结点中包含了关键字对应的记录的存储地址<br>但叶结点中不包含任何信息</td>
+<td>叶结点包含信息，所有非叶结点仅起索引作用，<br>非叶结点中的每个索引项只含有对应子树的最大关键字和指向该子树的指针，<br>不含有该关键字对应记录的存储地址</td>
+</tr>
+<tr>
+<td>关键字重复?</td>
+<td>各结点中包含的关键字是不重复的</td>
+<td>叶结点包含全部关键字，<br>非叶结点中出现过的关键字也会出现在叶结点中</td>
+</tr>
+<tr>
+<td>查找方式</td>
+<td>不支持顺序查找。<br>查找成功时，可能停在任何一层结点，查找速度“不稳定”</td>
+<td>支持顺序查找。<br>查找成功或失败都会到达最下一层结点，查找速度“稳定”</td>
+</tr>
+<tr>
+<td>相同点</td>
+<td>除根节点外，最少 $\left \lceil m/2 \right \rceil$ 个分叉(确保结点不要太“空”) 任何一个结点的子树都要一样高(确保“绝对平衡”)</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="散列查找">8. 散列查找</h1><h2 id="概念-1">8.1. 概念</h2><p>散列表(Hash Table)，又称哈希表。是一种数据结构，特点是：数据元素的关键字与其存储地址直接相关</p>
+<p>如何建立“关键字”与“存储地址” 的联系? —— 通过“散列函数(哈希函数)”：Addr=H(key)</p>
+<p>eg：有一堆数据元素，关键字分别为 {19, 14, 23, 1, 68, 20, 84, 27, 55, 11, 10, 79}，散列函数 H(key)=key%13</p>
+<p>19%13=6，14%13=1，23%13=10，1%13=1，68%13=3，20%13=7，84%13=6，27%13=1，55%13=3，11%13=11，10%13=10，79%13=1</p>
+<p>若不同的关键字通过散列函数映射到同一个值，则称它们为<strong>“</strong><code>同义词</code>” </p>
+<p>通过散列函数确定的位置已经存放了其他元素，则称这种情况为 “<code>冲突</code>”</p>
+<p>用拉链法(又称链接法、链地址法)处理“冲突”：把所有“同义词”存储在一个链表中</p>
+<table>
+<thead>
+<tr>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">8</th>
+<th align="center">9</th>
+<th align="center">10</th>
+<th align="center">11</th>
+<th align="center">12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center">14</td>
+<td align="center"></td>
+<td align="center">68</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">19</td>
+<td align="center">20</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">23</td>
+<td align="center">11</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center">55</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">84</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">10</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">27</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">79</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>通过散列函数计算目标元素存储地址：Addr=H(Key)</p>
+<p>27%13=1，27的查找⻓度=3</p>
+<p>20%13=7，20的查找⻓度=1</p>
+<p>21%13=8，21的查找⻓度=0(大多数学校的计算方法)，21的查找⻓度=1(有的教材也会把“空指针” 的判定算作一次比较)</p>
+<p>66%13=1，66的查找⻓度=4</p>
+<p>查找⻓度——在查找运算中，需要对比关键字的次数称为查找⻓度</p>
+<p>ASL<sub>成功</sub>= $\frac{(1<em>6+2</em>4+3+4)}{12}$ = 1.75</p>
+<p>ASL<sub>成功</sub>=$\frac{1+2+3+4+1+2+1+2+1+1+2+1}{12}$ =1.75，“冲突”越多，查找效率越低</p>
+<p>ASL<sub>失败</sub>=$\frac{0+4+0+2+0+0+2+1+0+0+2+1+0}{13}$ =0.92 </p>
+<p>装填因子$\alpha$=表中记录数/散列表⻓度 </p>
+<p>装填因子会直接影响散列表的查找效率</p>
+<h2 id="常⻅的散列函数">8.2. 常⻅的散列函数</h2><p>设计目标——让不同关键 字的冲突尽可能地少</p>
+<h3 id="除留余数法">8.2.1. 除留余数法</h3><p>H(key) = key % p</p>
+<p>散列表表⻓为m，取一个不大于m但最接近或等于m的质数p</p>
+<p>质数又称素数。指除了1和此整数自身外,不能被其他自然数整除的数</p>
+<p><strong>Why</strong>?<strong>——</strong>用质数取模，分布更均匀，冲突更少。参⻅《数论》 </p>
+<p><strong>Tips</strong>：散列函数的设计要结合实际的关键字分布特点来考虑，不要教条化</p>
+<h3 id="直接定址法">8.2.2. 直接定址法</h3><p>H(key) = key 或 H(key) = a*key + b</p>
+<p>其中，a和b是常数。这种方法计算最简单，且不会产生冲突。它适合关键字的分布<code>基本连续</code>的情况，若关键字分布不连续，空位较多，则会造成存储空间的浪费。</p>
+<p>eg：存储同一个班级的学生信息，班内学生学号为(1120112176~1120112205) H(key) = key - 1120112176</p>
+<h3 id="数字分析法">8.2.3. 数字分析法</h3><p>选取数码分布较为均匀的若干位作为散列地址</p>
+<p>设关键字是r进制数(如十进制数)，而<code>r个数码在各位上出现的频率不一定相同，可能在某些位上分布均匀一些</code>，每种数码出现的机会均等；而在某些位上分布不均匀，只有某几种数码经常出现，此时可选取数码分布较为均匀的若干位作为散列地址。这种方法适合于已知的关键字集合， 若更换了关键字，则需要重新构造新的散列函数</p>
+<p>eg：以“手机号码”作为关键字设计散列函数</p>
+<p>138XXXX2875，138XXXX1682，138XXXX9125， ….. ，199XXXX1684，199XXXX1236</p>
+<p>设计⻓度为10000的散列表，以 手机号后四位作为散列地址</p>
+<h3 id="平方取中法">8.2.4. 平方取中法</h3><p>取关键字的平方值的中间几位作为散列地址</p>
+<p>具体取多少位要视实际情况而定。<code>这种方法得到的散列地址与关键字的每位都有关系</code>，因此使得</p>
+<p>散列地址分布比较均匀，适用于关键字的每位取值都不够均匀或均小于散列地址所需的位数</p>
+<p>eg：要存储整个学校的学生信息，以“身份证号”作为关键字设计散列函数</p>
+<p>身份证号码规则: </p>
+<p>前<strong>1</strong>、<strong>2</strong>位数字表示：所在省份的代码; </p>
+<p>第<strong>3</strong>、<strong>4</strong>位数字表示：所在城市的代码; </p>
+<p>第<strong>5</strong>、<strong>6</strong>位数字表示：所在区县的代码; </p>
+<p>第<strong>7-14</strong>位数字表示：出生年、月、日; </p>
+<p>第<strong>15</strong>、<strong>16</strong>位数字表示：所在地的派出所的代码; </p>
+<p>第<strong>17</strong>位数字表示性别：奇数表示男性，偶数表示女性; </p>
+<p>第<strong>18</strong>位数字是校检码。</p>
+<p>假设学生不超过十万人，身份证号平方取中间5位</p>
+<p>若散列表的⻓度为1000000000000000000(别数了，有18个0) 则可以直接用身份证号作为散列地址，且不可能有冲突，查找时间复杂度为O(1)</p>
+<p>散列查找是典型的“用空间换时间”的算法，只要散列函数设计的合理，则散列表越⻓，冲突的概率越低。</p>
+<h2 id="处理冲突的方法">8.3. 处理冲突的方法</h2><h3 id="拉链法">8.3.1. 拉链法</h3><p>用拉链法(又称链接法、链地址法)处理“冲突”：把所有“同义词”存储在一个链表中</p>
+<p>关键字分别为 {19, 14, 23, 1, 68, 20, 84, 27, 55, 11, 10, 79}，散列函数 H(key)=key%13</p>
+<p><img src="/2021/02/08/数据结构-查找/lie.png" alt></p>
+<p>优化：在插入新元素时，保持 关键字有序，可微微提高查找效率</p>
+<p><img src="/2021/02/08/数据结构-查找/lie2.png" alt></p>
+<h3 id="开放定址法">8.3.2. 开放定址法</h3><p>所谓开放定址法，是指可存放新表项的空闲地址既向它的同义词表项开放，又向它的非同义词表项开放。其数学递推公式为:</p>
+<p>H<sub>i</sub> = (H(key) + d<sub>i</sub>) % m，i = 0, 1, 2,…, k(k $\leq$ m - 1)；m表示散列表表⻓；d<sub>i</sub>为增量序列；i可理解为“第i次发生冲突”</p>
+<h4 id="线性探测法">8.3.2.1. 线性探测法</h4><p>d<sub>i</sub>= 0, 1, 2, 3, …, m-1；即发生冲突时，每次往后探测相邻的下一个单元是否为空</p>
+<p>线性探测法很容易造成同义词、非同义词的<strong>“</strong>聚集(堆积)<strong>”</strong>现象，严重影响查找效率 </p>
+<p>产生原因——冲突后再探测一定是放在某个连续的位置</p>
+<p>关键字分别为 {19, 14, 23, 1, 68, 20, 84, 27, 55, 11, 10, 79}，散列函数 H(key)=key%13</p>
+<p><img src="/2021/02/08/数据结构-查找/di.png" alt></p>
+<p><code>插入</code>1：</p>
+<p>H(key)=1%13=1 </p>
+<p>发生第1次冲突后重新计算得到的哈希地址：H<sub>0</sub>=(1+d<sub>0</sub>)%16=1 —&gt;  H<sub>1</sub>=(1+d<sub>1</sub>)%16=2 </p>
+<p><code>查找</code>27：</p>
+<p>H(key)=27%13=1 —&gt; H<sub>1</sub>=2 —&gt; H<sub>2</sub>=3 —&gt; H<sub>3</sub>=4，则27的查找⻓度=4</p>
+<p>同义词、非同义词都需要被检查</p>
+<p>查找11:</p>
+<p>H(key)=11%13=11， 则11的查找⻓度=1</p>
+<p>查找21:</p>
+<p>H(key)=21%13=8 —&gt; H<sub>1</sub>=9 —&gt; H<sub>2</sub>=10 —&gt; H<sub>3</sub>=11 —&gt; H<sub>4</sub>=12 —&gt; H<sub>5</sub>=13，则21的查找⻓度=6</p>
+<p>空位置的判断也要算作一次比较</p>
+<p>越早遇到空位置，就可以越早确定查找失败</p>
+<p><code>删除</code>结点不能简单地将被删结点的空间置为空，否则将截断在它之后填入散列表的同义词结点的查找路径，可以做一个<strong>“</strong>删除标记<strong>”</strong>，进行逻辑删除</p>
+<p><code>查找效率分析(ASL)</code></p>
+<p>19%13=6——1次     27%13=1——4次     55%13=3——3次</p>
+<p>14%13=1——1次     68%13=3——1次     11%13=11——1次 </p>
+<p>23%13=10——1次   20%13=7——1次     10%13=10——3次 12</p>
+<p>1%13=1——2次        84%13=6——3次     79%13=1——9次</p>
+<p>ASL<sub>成功</sub>=$\frac{1+1+1+2+4+1+1+3+3+1+3+9}{12}$ =2.5</p>
+<p>ASL<sub>失败</sub>=$\frac{1+13+12+11+10+9+8+7+6+5+4+3+2}{13}$ =7</p>
+<h4 id="平方探测法">8.3.2.2. 平方探测法</h4><p>平方探测法。当 d<sub>i</sub> = 0<sup>2</sup>, 1<sup>2</sup>, -1<sup>2</sup>, 2<sup>2</sup>, -2<sup>2</sup>, …, k<sup>2</sup>, -k<sup>2</sup>时，称为平方探测法，又称二次探测法其中 k$\leq$m/2</p>
+<p>散列表⻓度m必须是一个可以表示成4j + 3的素数，才能探测到所有位置</p>
+<p>平方探测法：比起线性探测法更不易产生“聚集(堆积)”问题</p>
+<p>注意负数的模运算，(-3)%27 = 24，而不是3 </p>
+<p>《数论》中模运算的规则：a MOD m == (a+km) MOD m  其中，k为任意整数</p>
+<h4 id="伪随机序列法">8.3.2.3. 伪随机序列法</h4><p>伪随机序列法。d<sub>i</sub>是一个伪随机序列，如 d<sub>i</sub>= 0, 5, 24, 11, …</p>
+<h3 id="再散列法">8.3.3. 再散列法</h3><p>严蔚敏《数据结构》—— 再散列法(再哈希法)：除了原始的散列函数 H(key) 之外，多准备几个散列函数， 当散列函数冲突时，用下一个散列函数计算一个新地址，直到不冲突为止：H<sub>i</sub> = RH<sub>i</sub>(Key) i=1,2,3….,k</p>
+<p>王道《数据结构》—— 再散列法。当d<sub>i</sub>=Hash<sub>2</sub>(key)时，称为再散列法，又称双散列法。需要适用两个散列函数，当通过第一个散列函数H(key)得到的地址发生冲突时，则利用第二个散列函数Hash<sub>2</sub>(key)计算该关键字的地址增量。它的具体散列函数形式如下：H<sub>i</sub>=(H(key)+i*Hash<sub>2</sub>(key))%m。初始探测位置H<sub>0</sub> = H(key)%m。i是冲突的次数，初始为0。在散列法中，最多经过m-1次探测就会遍历表中所有位置，回到H<sub>0</sub>位置。</p>
 
     </div>
     
@@ -502,7 +1024,7 @@
     <a href="/2021/02/08/数据结构-查找/" title="数据结构07-查找">/2021/02/08/数据结构-查找/</a>
   </li>
   <li><strong>发布时间：</strong>2021年02月08日 - 22:54</li>
-  <li><strong>更新时间：</strong>2021年05月22日 - 13:08</li>
+  <li><strong>更新时间：</strong>2021年06月07日 - 20:40</li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
@@ -590,6 +1112,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查找的基本概念"><span class="nav-text">1. 查找的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-text">1.1. 基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对查找表的常⻅操作"><span class="nav-text">1.2. 对查找表的常⻅操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找算法的评价指标"><span class="nav-text">1.3. 查找算法的评价指标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#顺序查找"><span class="nav-text">2. 顺序查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思想"><span class="nav-text">2.1. 算法思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法实现"><span class="nav-text">2.2. 算法实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序查找的优化-对有序表"><span class="nav-text">2.3. 顺序查找的优化(对有序表)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序查找的优化-被查概率不相等"><span class="nav-text">2.4. 顺序查找的优化(被查概率不相等)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#折半查找"><span class="nav-text">3. 折半查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思想-1"><span class="nav-text">3.1. 算法思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法实现-1"><span class="nav-text">3.2. 算法实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找效率分析"><span class="nav-text">3.3. 查找效率分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#折半查找判定树构造"><span class="nav-text">3.3.1. 折半查找判定树构造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#折半查找的查找效率"><span class="nav-text">3.3.2. 折半查找的查找效率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#折半查找的速度一定比顺序查找更快"><span class="nav-text">3.4. 折半查找的速度一定比顺序查找更快?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分块查找—索引顺序查找"><span class="nav-text">4. 分块查找—索引顺序查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思想-2"><span class="nav-text">4.1. 算法思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找效率分析-ASL"><span class="nav-text">4.2. 查找效率分析(ASL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态查找表-链式存储"><span class="nav-text">4.3. 动态查找表-链式存储</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B树"><span class="nav-text">5. B树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5叉查找树"><span class="nav-text">5.1. 5叉查找树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-text">5.2. 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-text">5.3. 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B树的高度"><span class="nav-text">5.4. B树的高度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最小高度"><span class="nav-text">5.4.1. 最小高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大高度"><span class="nav-text">5.4.2. 最大高度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B树的插入"><span class="nav-text">5.5. B树的插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B树的删除"><span class="nav-text">5.6. B树的删除</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-树"><span class="nav-text">6. B+树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B树-vs-B-树"><span class="nav-text">7. B树 vs B+树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#散列查找"><span class="nav-text">8. 散列查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念-1"><span class="nav-text">8.1. 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常⻅的散列函数"><span class="nav-text">8.2. 常⻅的散列函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#除留余数法"><span class="nav-text">8.2.1. 除留余数法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接定址法"><span class="nav-text">8.2.2. 直接定址法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字分析法"><span class="nav-text">8.2.3. 数字分析法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平方取中法"><span class="nav-text">8.2.4. 平方取中法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理冲突的方法"><span class="nav-text">8.3. 处理冲突的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#拉链法"><span class="nav-text">8.3.1. 拉链法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开放定址法"><span class="nav-text">8.3.2. 开放定址法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性探测法"><span class="nav-text">8.3.2.1. 线性探测法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#平方探测法"><span class="nav-text">8.3.2.2. 平方探测法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪随机序列法"><span class="nav-text">8.3.2.3. 伪随机序列法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再散列法"><span class="nav-text">8.3.3. 再散列法</span></a></li></ol></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -817,13 +1341,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
     <span>网站总字数&nbsp;<span>
-    <span title="站点总字数">498k</span>
+    <span title="站点总字数">486k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
     <span>阅读总时长&nbsp;<span>
-    <span title="站点阅读时长">13:50</span>
+    <span title="站点阅读时长">13:30</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
